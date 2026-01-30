@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haripriya Sahoo | Portfolio</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="https://pyscript.net/releases/2023.05.1/pyscript.css" />
+    <script defer src="https://pyscript.net/releases/2023.05.1/pyscript.js"></script>
+
+    <style>
+        /* --- 1. "HOM SWEET HOM" INSPIRED PALETTE --- */
+        :root {
+            /* Background: Soft Mint/Cyan */
+            --primary-bg: #E0F7FA;   
+            
+            /* Cards: Pure White */
+            --secondary-bg: #ffffff; 
+            
+            /* Header/Nav: Deep Teal */
+            --nav-bg: #00695C;       
+            --nav-text: #ffffff;
+
+            /* Accent Text: Teal */
+            --accent: #00796B;       
+            
+            /* Buttons: Coral/Salmon */
+            --btn-bg: #FF7043;       
+            --btn-text: #ffffff;
+
+            --text-main: #333333;
+            --text-muted: #555555;
+            
+            --nav-height: 70px;
+            --clock-size: 150px;
+            --border-color: #B2DFDB;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; text-decoration: none; list-style: none; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-top: var(--nav-height);
+        }
+
+        /* --- NAVIGATION --- */
+        .navbar {
+            width: 100%; height: var(--nav-height); 
+            background: var(--nav-bg); 
+            position: fixed; top: 0; left: 0; z-index: 1000;
+            display: flex; align-items: center; justify-content: space-between; padding: 0 5%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+        }
+        .logo { color: white; font-size: 1.5rem; font-weight: bold; letter-spacing: 1px; font-family: 'Courier New', monospace; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { color: rgba(255,255,255,0.85); font-size: 0.95rem; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; font-weight: 500; }
+        .nav-links a:hover, .nav-links a.active { color: white; font-weight: bold; }
+
+        /* --- MAIN CONTENT --- */
+        .main-content { padding: 3rem 5% 5rem 5%; min-height: 100vh; max-width: 1200px; margin: 0 auto; }
+        .page-section { display: none; animation: fadeIn 0.5s ease-in-out; }
+        #home-page { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- HERO SECTION --- */
+        .hero-section { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            gap: 60px; 
+            margin-bottom: 80px; 
+            margin-top: 20px;
+        }
+
+        .hero-image-wrapper {
+            flex: 1; 
+            position: relative;
+        }
+
+        .hero-img-new { 
+            width: 100%; 
+            height: auto; 
+            object-fit: cover; 
+            border-radius: 20px; 
+            border: 5px solid white;
+            box-shadow: 20px 20px 0px rgba(0, 105, 92, 0.15); 
+        }
+
+        .hero-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem; 
+            line-height: 1.1; 
+            color: var(--accent); 
+            margin-bottom: 10px;
+        }
+
+        .hero-content h2 {
+            font-size: 1.5rem; 
+            color: var(--text-muted); 
+            margin-bottom: 20px; 
+            font-weight: 400;
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 30px;
+            max-width: 100%;
+        }
+
+        /* --- NEW ABOUT PAGE STYLES (LONG CARDS) --- */
+        .long-card {
+            display: flex;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            min-height: 300px;
+            border: 1px solid white;
+            transition: transform 0.3s;
+        }
+        .long-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        
+        /* Left "Figure" Section */
+        .long-card-figure {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centered content vertically */
+            align-items: center; /* Centered content horizontally */
+            color: white;
+            position: relative;
+            min-width: 250px;
+        }
+        .figure-edu { background: linear-gradient(135deg, #81D4FA, #29B6F6); }
+        .figure-work { background: linear-gradient(135deg, #FFE0B2, #FFCC80); color: #5D4037; }
+        .figure-tech { background: linear-gradient(135deg, #1A237E, #3949AB); }
+        .figure-personal { background: linear-gradient(135deg, #A5D6A7, #66BB6A); }
+
+        .figure-label {
+            font-weight: bold;
+            font-size: 1.1rem;
+            background: rgba(255,255,255,0.95);
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-top: 15px;
+        }
+
+        /* Right "Details" Section */
+        .long-card-details {
+            flex: 2;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .long-card-title {
+            font-size: 1.5rem;
+            color: var(--nav-bg);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .long-card-title i { color: var(--btn-bg); }
+
+        /* Timeline Items */
+        .timeline-item {
+            border-left: 3px solid var(--border-color);
+            padding-left: 20px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px; top: 0;
+            width: 13px; height: 13px;
+            background: var(--btn-bg);
+            border-radius: 50%;
+        }
+        .timeline-degree { font-weight: bold; font-size: 1.1rem; color: #333; }
+        .timeline-meta { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* Skill Chips */
+        .skill-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+        .skill-chip {
+            padding: 8px 16px;
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--nav-bg);
+        }
+        .skill-category { font-weight: bold; margin-bottom: 12px; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- SKILL BAR STYLES --- */
+        .skill-list-container { width: 100%; margin-bottom: 25px; }
+        .skill-row { display: flex; align-items: center; margin-bottom: 12px; }
+        .skill-name { width: 100px; font-weight: 700; color: var(--nav-bg); font-size: 0.9rem; flex-shrink: 0; }
+        .skill-bar-track { flex: 1; height: 12px; background-color: #f0f0f0; border-radius: 10px; overflow: hidden; border: 1px solid #ddd; position: relative; }
+        .skill-bar-fill { height: 100%; background-color: #ff0000; border-radius: 10px; width: 0; animation: loadBar 1.5s forwards ease-out; }
+        @keyframes loadBar { from { width: 0; } to { width: var(--w); } }
+
+        /* --- CAROUSEL STYLES (MINI) --- */
+        .mini-carousel {
+            width: 100%; max-width: 300px; height: 200px; position: relative;
+            overflow: hidden; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            background-color: white; border: 2px solid white;
+        }
+        .carousel-img {
+            width: 100%; height: 100%; object-fit: cover; position: absolute;
+            top: 0; left: 0; opacity: 0; transition: opacity 1s ease-in-out;
+        }
+        .carousel-img.active { opacity: 1; }
+
+        /* --- WORK CAROUSEL STYLES (LARGE) --- */
+        .work-carousel-container {
+            width: 100%; height: 400px; position: relative; overflow: hidden;
+            border-radius: 20px; margin-bottom: 50px; box-shadow: 0 15px 40px rgba(0, 105, 92, 0.15);
+            border: 5px solid white;
+        }
+        .work-slide {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0; transition: opacity 0.8s ease-in-out; display: flex; align-items: flex-end;
+        }
+        .work-slide.active { opacity: 1; }
+        .work-slide img { width: 100%; height: 100%; object-fit: cover; position: absolute; z-index: 1; }
+        .work-caption {
+            position: relative; z-index: 2; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white; width: 100%; padding: 40px 30px 20px 30px;
+        }
+        .work-caption h3 { font-size: 1.8rem; margin-bottom: 5px; color: #fff; }
+        .work-caption p { font-size: 1rem; color: #ddd; }
+        .carousel-nav {
+            position: absolute; top: 50%; width: 100%; display: flex;
+            justify-content: space-between; padding: 0 20px; z-index: 10; transform: translateY(-50%);
+        }
+        .carousel-btn {
+            background: rgba(255,255,255,0.8); border: none; width: 40px; height: 40px;
+            border-radius: 50%; cursor: pointer; color: var(--nav-bg); font-size: 1.2rem; transition: 0.3s;
+        }
+        .carousel-btn:hover { background: white; transform: scale(1.1); }
+
+        /* --- SOCIAL MEDIA LINKS --- */
+        .social-grid { display: flex; justify-content: center; gap: 20px; margin-bottom: 40px; flex-wrap: wrap; }
+        .social-item { display: flex; flex-direction: column; align-items: center; text-decoration: none; width: 80px; }
+        .social-icon {
+            width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;
+            font-size: 30px; border-radius: 50%; transition: transform 0.3s; background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .social-item:hover .social-icon { transform: translateY(-5px); }
+        .mail-icon { color: #EA4335; } 
+        .rg-icon { font-family: 'Times New Roman', serif; font-weight: bold; color: black; font-size: 32px; line-height: 1; }
+        .linkedin-icon { background: black; color: white; }
+        .fb-icon { background: #1877F2; color: white; }
+        .social-text { margin-top: 8px; color: #0000EE; text-decoration: underline; font-weight: bold; font-size: 1rem; }
+        
+        /* --- WEATHER BOXES --- */
+        .weather-outer-box {
+            background: white; border: 2px solid var(--accent); border-radius: 20px;
+            padding: 20px; margin-bottom: 40px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        .weather-heading {
+            text-align: center; margin-bottom: 15px; color: var(--nav-bg);
+            font-weight: bold; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .weather-container { display: flex; gap: 15px; }
+        .weather-card {
+            flex: 1; background: #FFF9C4; border: 2px solid #FBC02D; border-radius: 15px;
+            padding: 15px; text-align: center; color: #333; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+        }
+        .weather-card.danger {
+            background: #FFEBEE; border-color: #D32F2F; color: #C62828; animation: pulse-danger 2s infinite;
+        }
+        @keyframes pulse-danger { 0% { opacity: 1; } 50% { opacity: 0.8; } 100% { opacity: 1; } }
+        .weather-icon-lg { font-size: 2.5rem; margin-bottom: 10px; }
+        .weather-label { font-size: 0.9rem; color: #555; font-weight: bold; text-transform: uppercase; margin-bottom: 5px;}
+        .weather-value { font-size: 1.1rem; font-weight: bold; }
+        @media (max-width: 600px) { .weather-container { flex-direction: column; } }
+
+        /* --- COMPONENTS --- */
+        h3.section-title { font-size: 1.8rem; border-bottom: 3px solid var(--btn-bg); padding-bottom: 10px; margin-bottom: 30px; display: inline-block; color: var(--accent);}
+        
+        .card { 
+            background: var(--secondary-bg); padding: 25px; border-radius: 15px; 
+            transition: 0.3s; height: 100%; border: 1px solid white; 
+            box-shadow: 0 10px 25px rgba(0, 105, 92, 0.05); 
+        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 105, 92, 0.15); border-color: var(--accent); }
+        .card-header { display: flex; justify-content: space-between; font-size: 1.5rem; color: var(--accent); margin-bottom: 1rem; }
+        
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 40px; }
+        .tech-stack { margin-top: 15px; display: flex; gap: 10px; font-size: 0.8rem; color: var(--text-muted); font-family: monospace; }
+        
+        /* --- BUTTONS --- */
+        .btn { 
+            padding: 14px 32px; background: var(--btn-bg); color: white; border: none;
+            border-radius: 50px; cursor: pointer; font-weight: bold; transition: 0.3s; display: inline-block; 
+            box-shadow: 0 4px 6px rgba(255, 112, 67, 0.3); font-size: 1rem;
+        }
+        .btn:hover { background: #E64A19; transform: translateY(-2px); box-shadow: 0 6px 12px rgba(255, 112, 67, 0.4); }
+        .btn.active-tab { background: var(--accent); }
+        .btn-small { padding: 8px 20px; font-size: 0.9rem; margin-top: 15px; background: white; color: var(--btn-bg); border: 2px solid var(--btn-bg); }
+        .btn-small:hover { background: var(--btn-bg); color: white; }
+
+        /* --- DETAIL PAGE STYLES --- */
+        .detail-view { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 40px; }
+        .detail-gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
+        .detail-img { width: 100%; border-radius: 10px; height: 150px; object-fit: cover; border: 1px solid #eee; }
+        
+        /* --- LINKS --- */
+        .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .link-card { background: var(--secondary-bg); padding: 20px; border-radius: 12px; display: flex; align-items: center; gap: 15px; cursor: pointer; transition: 0.3s; border: 1px solid var(--border-color); }
+        .link-card:hover { border-color: var(--btn-bg); transform: translateY(-5px); }
+        .link-card i { font-size: 1.5rem; color: var(--btn-bg); }
+        .link-card h4 { color: var(--text-main); margin: 0; font-weight: 600; }
+
+        /* --- ML LINK --- */
+        .ml-link-container {
+            text-align: center; margin-bottom: 60px; padding: 20px;
+            background: white; border-radius: 50px; display: block;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 2px solid var(--accent);
+            width: 100%; max-width: 600px; margin-left: auto; margin-right: auto;
+        }
+        .ml-link-container a { color: var(--accent); font-weight: bold; font-size: 1.1rem; text-decoration: none; cursor: pointer; }
+        .ml-link-container a:hover { color: var(--btn-bg); text-decoration: underline; }
+
+        /* --- PANELS --- */
+        .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 50px; }
+        .research-panel { background: var(--secondary-bg); padding: 30px; border-radius: 15px; transition: 0.3s; height: 100%; border: 1px solid var(--border-color); display: flex; flex-direction: column; justify-content: space-between; }
+        .research-panel:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0, 105, 92, 0.1); border-top: 5px solid var(--btn-bg); }
+        .research-icon { font-size: 2rem; color: var(--accent); margin-bottom: 20px; }
+
+        /* --- PLOTTER & LESSON --- */
+        .lesson-card { background: var(--secondary-bg); border-radius: 15px; overflow: hidden; margin-bottom: 40px; border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .lesson-img { width: 100%; height: 300px; object-fit: cover; background: #E0F2F1; }
+        .lesson-content { padding: 40px; }
+        .lesson-title { color: var(--accent); font-size: 2rem; margin-bottom: 20px; }
+        
+        .plotter-ui { background: var(--secondary-bg); padding: 30px; border-radius: 15px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .plot-input-group { display: flex; gap: 10px; margin-bottom: 20px; }
+        #plot-output { background: white; min-height: 400px; border-radius: 10px; padding: 10px; display: flex; justify-content: center; align-items: center; color: black; border: 2px solid #eee; }
+
+        /* --- CLOCKS --- */
+        .clock-wrapper { display: flex; justify-content: center; align-items: center; gap: 50px; margin-bottom: 40px; flex-wrap: wrap; }
+        .clock-container { 
+            position: relative; height: var(--clock-size); width: var(--clock-size); 
+            background: url('clock.png') no-repeat center center;
+            background-size: cover;
+            border-radius: 50%; box-shadow: 0 10px 20px rgba(0, 105, 92, 0.15); 
+            border: 4px solid var(--accent); 
+        }
+        .clock-hand { position: absolute; background: #333; border-radius: 10px; transform-origin: bottom; z-index: 10; }
+        .hour-hand { width: 2.5%; height: 25%; top: 25%; left: 48.85%; opacity: 0.8; }
+        .minute-hand { width: 2%; height: 30%; top: 20%; left: 49%; opacity: 0.8; }
+        .second-hand { width: 1.5%; height: 38%; top: 12%; left: 49.25%; opacity: 0.8; background: var(--btn-bg); }
+        .clock-label { text-align: center; color: var(--accent); margin-top: 15px; font-weight: bold; }
+        .ampm-display { position: absolute; top: 65%; left: 50%; transform: translateX(-50%); font-size: 1rem; font-weight: bold; color: #333; font-family: 'Courier New', monospace; }
+
+        /* --- NEW TIME DIFF BOX --- */
+        .time-diff-box {
+            background: #4DD0E1; color: white; padding: 30px; border-radius: 15px;
+            text-align: center; font-size: 1.3rem; font-weight: bold; flex: 1;
+            min-height: 150px; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 2px solid white;
+        }
+
+        /* --- CONTACT --- */
+        .contact-highlight {
+            text-align: center; margin-bottom: 10px; padding: 15px;
+            background: #FFCCBC; border-radius: 5px; 
+            color: #D84315; font-weight: bold;
+            animation: pulse 2s infinite;
+        }
+        .time-note {
+            text-align: center; color: var(--accent); margin-bottom: 30px;
+            font-size: 0.95rem; font-style: italic;
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .time-note i { color: var(--btn-bg); font-size: 1.2rem; } 
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.7; } 100% { opacity: 1; } }
+
+        /* --- RESPONSIVE --- */
+        .hamburger { display: none; color: white; font-size: 1.8rem; cursor: pointer; }
+        @media (max-width: 900px) {
+            .hero-section { flex-direction: column; text-align: center; gap: 30px;}
+            .hero-content { text-align: center; }
+            .hero-img-new { max-width: 400px; }
+            .long-card { flex-direction: column; }
+            .long-card-figure { min-height: 150px; padding: 20px; }
+            .nav-links { position: fixed; top: var(--nav-height); right: -100%; width: 70%; height: 100vh; background: var(--nav-bg); flex-direction: column; padding: 50px; transition: 0.3s; box-shadow: -5px 0 15px rgba(0,0,0,0.1); }
+            .nav-links.active { right: 0; }
+            .hamburger { display: block; }
+            .lesson-img { height: 200px; }
+            .clock-wrapper { flex-direction: column; }
+        }
+        input, textarea { width: 100%; padding: 12px; background: white; border: 1px solid #ccc; color: #333; border-radius: 4px; margin-bottom: 1rem; }
+        input:focus, textarea:focus { border-color: var(--accent); outline: none; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Haripriya.</div>
+        <div class="nav-links" id="navLinks">
+            <a onclick="showPage('home-page')" id="nav-home" class="active"><i class="fas fa-home"></i> Home</a>
+            <a onclick="showPage('about-page')" id="nav-about"><i class="fas fa-user"></i> About</a>
+            <a onclick="showPage('research-page')" id="nav-research"><i class="fas fa-flask"></i> Research</a>
+            <a onclick="showPage('portfolio-page')" id="nav-portfolio"><i class="fas fa-code"></i> Portfolio</a>
+            <a onclick="showPage('blog-page')" id="nav-blog"><i class="fas fa-pen-nib"></i> Blog</a>
+            <a onclick="showPage('contact-page')" id="nav-contact"><i class="fas fa-envelope"></i> Contact</a>
+            <a onclick="showPage('signin-page')" id="nav-signin"><i class="fas fa-lock"></i> Sign In</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <main class="main-content">
+
+        <div id="home-page" class="page-section">
+            <div class="hero-section">
+                <div class="hero-image-wrapper">
+                    <img src="Hp.png" alt="Haripriya Sahoo" class="hero-img-new">
+                </div>
+                <div class="hero-content">
+                    <h1>Haripriya Sahoo (Beta)</h1>
+                    <h2>Thalassophile & Researcher</h2>
+                    <p class="hero-desc">
+                        Welcome to my webpage. I am Haripriya Sahoo (Beta) from India. I am a passionate 'Thalassophile' whose love for the ocean has shaped my career in ocean engineering research. Currently, I'm pursuing a PhD in the Department of Marine Environment and Engineering at National Sun Yat-sen University. My research delves into the fascinating realms of numerical ocean modeling, fluid dynamics, and image processing.
+                    </p>
+                    <a href="C.V.pdf" class="btn" download>Download CV</a>
+                </div>
+            </div>
+
+            <h3 class="section-title"><i class="fas fa-star"></i> Research Interests</h3>
+            <div class="link-grid">
+                <div class="link-card" onclick="showPage('research-page')"><i class="fas fa-water"></i><h4>Ocean Modeling</h4></div>
+                <div class="link-card" onclick="showPage('research-page')"><i class="fas fa-wind"></i><h4>Fluid Dynamics</h4></div>
+                <div class="link-card" onclick="showPage('research-page')"><i class="fas fa-brain"></i><h4>Deep Learning</h4></div>
+            </div>
+
+            <div class="ml-link-container">
+                <p style="color: var(--text-muted); margin-bottom: 5px;">Interested in AI concepts?</p>
+                <a onclick="showPage('teaching-page')">For machine learning basic please click here <i class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <h3 class="section-title"><i class="fas fa-chess-knight"></i> Recent Chess Game</h3>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; border: 4px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 15px; overflow: hidden;">
+                    <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=Placeholder" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <p style="margin-top: 10px; color: var(--text-muted);">Check out my latest strategic moves!</p>
+            </div>
+        </div>
+
+        <div id="about-page" class="page-section">
+            <h3 class="section-title">About Me</h3>
+            <p style="margin-bottom: 40px; color: var(--text-main);">
+                I am a researcher specializing in Mathematics, Computation, and Oceanography. Below is my journey and expertise.
+            </p>
+
+            <div class="long-card">
+                <div class="long-card-figure figure-edu">
+                    <div class="mini-carousel">
+                        <img src="nsysu.jpg" class="carousel-img active" alt="NSYSU">
+                        <img src="nit.jpg" class="carousel-img" alt="NIT Rourkela">
+                        <img src="ouat.jpg" class="carousel-img" alt="OUAT">
+                        <img src="Rama Devi Women's University.jpg" class="carousel-img" alt="RD">
+                    </div>
+                    <div class="figure-label">Academic Journey</div>
+                </div>
+                <div class="long-card-details">
+                    <div class="long-card-title"><i class="fas fa-graduation-cap"></i> Education</div>
+                    <div class="timeline-item">
+                        <div class="timeline-degree">PhD Candidate</div>
+                        <div class="timeline-meta">National Sun Yat-sen University, Taiwan (Current)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-degree">M.Sc. Mathematics</div>
+                        <div class="timeline-meta">NIT Rourkela, India (2018)</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-degree">B.Sc. Mathematics Honors</div>
+                        <div class="timeline-meta">Utkal University / OUAT, India (2016)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="long-card">
+                <div class="long-card-figure figure-work">
+                    <div style="font-size: 4rem; opacity: 0.5; position: absolute; top: 20px; left: 20px;"><i class="fas fa-water"></i></div>
+                    <div class="figure-label">Field Ops & Projects</div>
+                </div>
+                <div class="long-card-details">
+                    <div class="long-card-title"><i class="fas fa-project-diagram"></i> Research Experience</div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom:10px; color: #333;">Master's Project</h4>
+                        <p style="color: var(--text-muted);">Reliability Measures based on Residual Life Time.</p>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom:10px; color: #333;">Internship</h4>
+                        <p style="color: var(--text-muted);">Reduced gravity model research.</p>
+                    </div>
+
+                    <div style="display: flex; gap: 15px; margin-top: 10px;">
+                        <span class="skill-chip" style="background:#FFF3E0; color:#E65100;"><i class="fas fa-award"></i> Qualified JAM</span>
+                        <span class="skill-chip" style="background:#FFF3E0; color:#E65100;"><i class="fas fa-award"></i> Qualified NET/GATE</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="long-card">
+                <div class="long-card-figure figure-tech">
+                    <div style="font-size: 4rem; opacity: 0.5; position: absolute; top: 20px; left: 20px;"><i class="fas fa-laptop-code"></i></div>
+                    <div class="figure-label">Tech Stack</div>
+                </div>
+                <div class="long-card-details">
+                    <div class="long-card-title"><i class="fas fa-tools"></i> Technical Skills</div>
+                    
+                    <div class="skill-category">Programming Proficiency</div>
+                    
+                    <div class="skill-list-container">
+                        <div class="skill-row">
+                            <div class="skill-name">MATLAB</div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" style="width: 95%; --w:95%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-name">HTML</div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" style="width: 85%; --w:85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-name">CSS</div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" style="width: 75%; --w:75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-name">PYTHON</div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" style="width: 90%; --w:90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-name">C</div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" style="width: 80%; --w:80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-name">JAVA</div>
+                            <div class="skill-bar-track">
+                                <div class="skill-bar-fill" style="width: 70%; --w:70%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-category">Geospatial & Tools</div>
+                    <div class="skill-container">
+                        <span class="skill-chip">OpenFOAM</span>
+                        <span class="skill-chip">LaTeX</span>
+                        <span class="skill-chip">Git</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="long-card">
+                <div class="long-card-figure figure-personal">
+                    <div style="font-size: 4rem; opacity: 0.5; position: absolute; top: 20px; left: 20px;"><i class="fas fa-user-astronaut"></i></div>
+                    <div class="figure-label">Personal</div>
+                </div>
+                <div class="long-card-details">
+                    <div class="long-card-title"><i class="fas fa-globe"></i> Languages & Interests</div>
+                    
+                    <div class="skill-category">Languages</div>
+                    <div class="skill-container">
+                        <span class="skill-chip">Odia (Native)</span>
+                        <span class="skill-chip">Bengali</span>
+                        <span class="skill-chip">English</span>
+                        <span class="skill-chip">Hindi</span>
+                        <span class="skill-chip">Mandarin (Basic)</span>
+                    </div>
+
+                    <div class="skill-category" style="margin-top: 15px;">Hobbies</div>
+                    <div class="skill-container">
+                        <span class="skill-chip"><i class="fas fa-chess-knight"></i> Chess (Rating: 1240)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="research-page" class="page-section">
+            
+            <div class="work-carousel-container">
+                <div class="work-slide active">
+                    <img src="ml-image.jpg" alt="ML Research">
+                    <div class="work-caption">
+                        <h3>Deep Learning Models</h3>
+                        <p>Improving ocean prediction accuracy using hybrid neural networks.</p>
+                    </div>
+                </div>
+                <div class="work-slide">
+                    <img src="Gamma.png" alt="Simulation Result">
+                    <div class="work-caption">
+                        <h3>Simulation Analysis</h3>
+                        <p>Visualizing fluid dynamics using numerical methods.</p>
+                    </div>
+                </div>
+                <div class="work-slide">
+                    <img src="Debika.png" alt="Field Work">
+                    <div class="work-caption">
+                        <h3>Data Visualization</h3>
+                        <p>Processing satellite imagery for environmental monitoring.</p>
+                    </div>
+                </div>
+                
+                <div class="carousel-nav">
+                    <button class="carousel-btn" onclick="moveWorkSlide(-1)">&#10094;</button>
+                    <button class="carousel-btn" onclick="moveWorkSlide(1)">&#10095;</button>
+                </div>
+            </div>
+            
+            <h3 class="section-title">Research Areas</h3>
+            <div class="research-grid">
+                <div class="research-panel">
+                    <div>
+                        <div class="research-icon"><i class="fas fa-water"></i></div>
+                        <h3>Numerical Ocean Modeling</h3>
+                        <p>Simulating complex ocean currents and wave interactions.</p>
+                    </div>
+                    <button class="btn btn-small" onclick="showPage('detail-ocean')">View Details</button>
+                </div>
+                <div class="research-panel">
+                    <div>
+                        <div class="research-icon"><i class="fas fa-wind"></i></div>
+                        <h3>Fluid Dynamics</h3>
+                        <p>Investigating non-linear thin-film equations and turbulence.</p>
+                    </div>
+                    <button class="btn btn-small" onclick="showPage('detail-fluid')">View Details</button>
+                </div>
+                <div class="research-panel">
+                    <div>
+                        <div class="research-icon"><i class="fas fa-brain"></i></div>
+                        <h3>Deep Learning</h3>
+                        <p>SVD-MLP & Residual U-Net for super-resolution.</p>
+                    </div>
+                    <button class="btn btn-small" onclick="showPage('detail-dl')">View Details</button>
+                </div>
+                <div class="research-panel">
+                    <div>
+                        <div class="research-icon"><i class="fas fa-camera"></i></div>
+                        <h3>Image Processing</h3>
+                        <p>Satellite imagery analysis and feature extraction.</p>
+                    </div>
+                    <button class="btn btn-small" onclick="showPage('detail-img')">View Details</button>
+                </div>
+            </div>
+            
+            <h3 class="section-title">Publications</h3>
+            <div class="card" style="margin-bottom: 20px;">
+                <h4>Hybrid boundary element and eigenfunction expansion method</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Published in Journal of Ocean Engineering</p>
+                <a href="https://www.tandfonline.com/doi/abs/10.1080/17445302.2022.2108227" style="color: var(--btn-bg); font-size: 0.9rem; display: inline-block; margin-top: 10px;">Read Paper <i class="fas fa-external-link-alt"></i></a>
+            </div>
+            <div class="card">
+                <h4>A Study on some Reliability Measures based on Residual Life Time</h4>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">Master's Thesis Project, NIT Rourkela</p>
+            </div>
+        </div>
+
+        <div id="detail-ocean" class="page-section">
+            <button onclick="showPage('research-page')" class="btn" style="margin-bottom: 20px;"><i class="fas fa-arrow-left"></i> Back to Research</button>
+            <div class="detail-view">
+                <h2 style="color: var(--nav-bg); margin-bottom: 15px;">High-Resolution Ocean Modeling</h2>
+                <div class="detail-gallery">
+                    <img src="Gamma.png" class="detail-img" alt="Model Output">
+                    <img src="Debika.png" class="detail-img" alt="Wave Simulation">
+                </div>
+                <p>
+                    Focusing on the Taiwan region, I utilize numerical methods to simulate complex ocean currents and wave interactions. 
+                    My work involves processing large datasets from CMEMS and CWB to understand regional hydrodynamics. 
+                    The goal is to map coarse global data to high-resolution local models for better predictability. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim architecto, officia tempora provident, dolorem placeat consequatur amet commodi culpa possimus eveniet expedita eius veritatis nostrum odit velit, asperiores unde magni soluta maxime blanditiis rerum libero numquam ad. Temporibus, sunt quasi. Saepe sunt natus mollitia vitae, ut, magnam molestiae accusantium aliquam doloribus eaque quis labore voluptas eius asperiores culpa deserunt! Impedit quos iure minima! Exercitationem optio repellendus ut dolor, doloribus illum ipsum placeat, explicabo laborum ab consectetur. Quia reiciendis ullam temporibus sint quibusdam? Ad illo repellendus harum. Commodi vel eum dolores ab! Beatae ducimus ullam ipsam error repudiandae? Voluptatibus, voluptas tenetur. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum nisi accusantium dolores soluta ad natus necessitatibus a molestiae. Minima dicta repudiandae inventore alias culpa ab perspiciatis consectetur quas doloremque in, porro maiores voluptas adipisci exercitationem sapiente debitis nulla cumque blanditiis natus, ipsa accusantium perferendis minus sint! Sit earum deserunt eius praesentium, obcaecati nam? Expedita modi quisquam placeat odio molestiae. Asperiores esse magni fugiat id nulla saepe nam minus, numquam et similique doloribus adipisci vel. Commodi illum voluptatum magnam placeat, eveniet voluptatem saepe, ipsam debitis, praesentium similique earum veniam in deserunt. Ut enim sapiente eveniet, similique, vero fugiat perferendis voluptates qui odit, officiis perspiciatis. Illum fuga magnam id provident! Quo porro reiciendis molestias autem, dolore sed sunt culpa a perspiciatis sequi iure incidunt consequatur labore laudantium, delectus tempore debitis eum temporibus quos eveniet esse pariatur! Nam eos cupiditate molestias pariatur eius quos? Eveniet, impedit praesentium, necessitatibus adipisci vitae ab blanditiis ipsum dolorum eligendi, aperiam eos quam temporibus explicabo? Quisquam labore tenetur aut eligendi? Ratione ipsa illo obcaecati placeat quis quod saepe sunt, quaerat quasi rerum quisquam voluptate et voluptatum, aspernatur ducimus totam unde? Eveniet commodi delectus et quisquam corrupti ipsam nesciunt dolor esse tenetur blanditiis facere, odio reiciendis voluptatum animi sit, libero hic molestias. Possimus nemo odit rem error rerum enim optio quibusdam, hic deserunt mollitia! Ea, illum numquam voluptates iure, aliquid voluptatem ullam libero eius voluptate tempora aut iusto cupiditate beatae eum, corrupti quos omnis perferendis a enim! Excepturi tenetur accusamus, dolore at blanditiis, praesentium repellendus soluta nostrum deserunt corporis culpa doloribus iste dolorem! Et culpa provident amet alias nihil sequi quibusdam temporibus deserunt, ipsam iste quo ab sunt omnis ipsa tempora ea ratione, eligendi iure cumque! Sint blanditiis, fuga vitae iure distinctio nostrum aliquam necessitatibus, adipisci modi quis saepe? Consequuntur neque quae odit recusandae perspiciatis, laborum est vel minima libero molestias reprehenderit fugiat incidunt esse perferendis quod nemo commodi? Repellat molestiae quae cumque maxime natus laudantium corrupti, odit suscipit esse architecto ex ullam modi facilis doloribus dignissimos doloremque necessitatibus! Vitae, veniam saepe aut animi cum fugit accusamus similique assumenda, velit quidem dolores quia. Eum dolorem sed eius architecto maiores facilis sit consectetur natus quae laudantium hic illum ipsa unde, accusantium minus voluptatem error incidunt fugit nisi aliquam dolore, maxime aliquid? Delectus excepturi, ipsam ipsum cupiditate earum porro sequi quis laborum provident unde minima soluta omnis illo autem, tenetur laudantium optio expedita consequuntur obcaecati molestiae placeat tempora numquam ea. Aliquid?
+                </p>
+            </div>
+        </div>
+
+        <div id="detail-fluid" class="page-section">
+            <button onclick="showPage('research-page')" class="btn" style="margin-bottom: 20px;"><i class="fas fa-arrow-left"></i> Back to Research</button>
+            <div class="detail-view">
+                <h2 style="color: var(--nav-bg); margin-bottom: 15px;">Computational Fluid Dynamics (CFD)</h2>
+                <div class="detail-gallery">
+                    <img src="ml-image.jpg" class="detail-img" alt="CFD Simulation">
+                    <img src="Gamma.png" class="detail-img" alt="Thin Film Equation">
+                </div>
+                <p>
+                    My expertise includes working with OpenFOAM and the Volume of Fluid (VOF) method to estimate curvature and track interfaces. 
+                    I actively investigate non-linear thin-film equations and turbulence stability, writing custom solvers in Python and MATLAB to troubleshoot numerical schemes and CFL conditions.
+                </p>
+            </div>
+        </div>
+
+        <div id="detail-dl" class="page-section">
+            <button onclick="showPage('research-page')" class="btn" style="margin-bottom: 20px;"><i class="fas fa-arrow-left"></i> Back to Research</button>
+            <div class="detail-view">
+                <h2 style="color: var(--nav-bg); margin-bottom: 15px;">Hybrid Deep Learning Frameworks</h2>
+                <div class="detail-gallery">
+                    <img src="ml-image.jpg" class="detail-img" alt="Neural Network">
+                    <img src="Debika.png" class="detail-img" alt="Training Data">
+                </div>
+                <p>
+                    I am developing a hybrid framework integrating Singular Value Decomposition (SVD) with Multi-Layer Perceptrons (MLP) and Residual U-Net correction. 
+                    This novel approach targets oceanographic data super-resolution, significantly enhancing the accuracy of ocean variable predictions compared to traditional interpolation methods.
+                </p>
+            </div>
+        </div>
+
+        <div id="detail-img" class="page-section">
+            <button onclick="showPage('research-page')" class="btn" style="margin-bottom: 20px;"><i class="fas fa-arrow-left"></i> Back to Research</button>
+            <div class="detail-view">
+                <h2 style="color: var(--nav-bg); margin-bottom: 15px;">Geospatial Image Analysis</h2>
+                <div class="detail-gallery">
+                    <img src="Gamma.png" class="detail-img" alt="Satellite Map">
+                    <img src="ml-image.jpg" class="detail-img" alt="LiDAR Scan">
+                </div>
+                <p>
+                    Using techniques like LiDAR point cloud processing and drone orthophotos, I create accurate ground elevation maps for environmental monitoring. 
+                    Recently, I have also begun exploring the application of neural networks to biological data for pattern detection and cancer research analysis.
+                </p>
+            </div>
+        </div>
+
+        <div id="portfolio-page" class="page-section">
+            <h3 class="section-title">My Portfolio</h3>
+            <div class="grid-container">
+                <div class="card">
+                    <div class="card-header"><i class="fas fa-flask"></i></div>
+                    <h3>Research Work</h3>
+                    <p style="color: var(--text-muted);">Numerical models and deep learning implementations.</p>
+                    <div class="tech-stack">Python, MATLAB, OpenFOAM</div>
+                    <a onclick="showPage('research-page')" style="color: var(--btn-bg); font-size: 0.9rem; cursor: pointer; display: block; margin-top: 10px;">View Research <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card">
+                    <div class="card-header"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Educational</h3>
+                    <p style="color: var(--text-muted);">Detailed explanations of Machine Learning concepts.</p>
+                    <div class="tech-stack">Machine Learning, Tutorials</div>
+                    <a onclick="showPage('teaching-page')" style="color: var(--btn-bg); font-size: 0.9rem; cursor: pointer; display: block; margin-top: 10px;">View Lessons <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card">
+                    <div class="card-header"><i class="fas fa-calculator"></i></div>
+                    <h3>Live Python Plotter</h3>
+                    <p style="color: var(--text-muted);">Type math equations and plot them instantly using Python.</p>
+                    <div class="tech-stack">PyScript, Matplotlib</div>
+                    <a onclick="showPage('plotter-page')" style="color: var(--btn-bg); font-size: 0.9rem; cursor: pointer; display: block; margin-top: 10px;">Try Plotter <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="card">
+                    <div class="card-header"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Webpages</h3>
+                    <p style="color: var(--text-muted);">Custom websites designed for clients.</p>
+                    <div class="tech-stack">HTML, CSS, JS</div>
+                    <a onclick="showPage('webdesign-page')" style="color: var(--btn-bg); font-size: 0.9rem; cursor: pointer; display: block; margin-top: 10px;">View Designs <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="webdesign-page" class="page-section">
+            <button onclick="showPage('portfolio-page')" class="btn" style="margin-bottom: 20px;"><i class="fas fa-arrow-left"></i> Back to Portfolio</button>
+            <h3 class="section-title">Web Design Projects</h3>
+            <div class="grid-container">
+                <div class="card">
+                    <img src="Gamma.png" alt="Gamma" style="width:100%; border-radius:10px; height:150px; object-fit:cover;">
+                    <h3 style="margin-top:15px;">Gamma Portfolio</h3>
+                    <a href="https://bijaylaxmisahoo.github.io/Gamma/" target="_blank" class="btn" style="width:100%; margin-top:10px; text-align:center;">Visit Website</a>
+                </div>
+                <div class="card">
+                    <img src="Mona.png" alt="Mona" style="width:100%; border-radius:10px; height:150px; object-fit:cover;">
+                    <h3 style="margin-top:15px;">Mona Sahoo</h3>
+                    <a href="https://mona-sahoo.github.io/portfolio/" target="_blank" class="btn" style="width:100%; margin-top:10px; text-align:center;">Visit Website</a>
+                </div>
+                <div class="card">
+                    <img src="Debika.png" alt="Debika" style="width:100%; border-radius:10px; height:150px; object-fit:cover;">
+                    <h3 style="margin-top:15px;">Debika Thongam</h3>
+                    <a href="https://debikathongam.github.io/portfolio/" target="_blank" class="btn" style="width:100%; margin-top:10px; text-align:center;">Visit Website</a>
+                </div>
+                <div class="card">
+                    <img src="zakkir.png" alt="Zakkir" style="width:100%; border-radius:10px; height:150px; object-fit:cover;">
+                    <h3 style="margin-top:15px;">Mouzakkir Home</h3>
+                    <a href="https://mouzakkir123.github.io/home/" target="_blank" class="btn" style="width:100%; margin-top:10px; text-align:center;">Visit Website</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="teaching-page" class="page-section">
+            <button onclick="showPage('portfolio-page')" class="btn" style="margin-bottom: 20px;"><i class="fas fa-arrow-left"></i> Back to Portfolio</button>
+            <h3 class="section-title">The Knowledge Hub: Machine Learning</h3>
+            <div class="lesson-card">
+                <img src="ml-image.jpg" alt="Machine Learning Diagram" class="lesson-img">
+                <div class="lesson-content">
+                    <h2 class="lesson-title">Introduction to Machine Learning</h2>
+                    <p class="lesson-text">Machine learning (ML) is a field devoted to understanding and building methods that 'learn'.</p>
+                    <h4 style="color: black; margin-top: 20px; font-size: 1.2rem;">Key Types of Learning:</h4>
+                    <ul style="margin-top: 10px; margin-left: 20px; list-style: disc; color: var(--text-muted);">
+                        <li><strong>Supervised Learning:</strong> The algorithm learns on a labeled dataset.</li>
+                        <li><strong>Unsupervised Learning:</strong> Extracting features from unlabeled data.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="plotter-page" class="page-section">
+            <button onclick="showPage('portfolio-page')" class="btn" style="margin-bottom: 20px;"><i class="fas fa-arrow-left"></i> Back to Portfolio</button>
+            <h3 class="section-title">Live Python Plotter</h3>
+            
+            <div class="plotter-ui">
+                <p style="color: var(--text-muted); margin-bottom: 15px;">Enter a math function (e.g., <code>sin(x)</code>, <code>x**2</code>, <code>cos(x)*x</code>) and click Plot. Please wait 5s for Python to load.</p>
+                <div class="plot-input-group">
+                    <input type="text" id="math-input" placeholder="Enter equation (e.g. sin(x))" value="sin(x)">
+                    <button id="plot-btn" class="btn">Plot Graph</button>
+                </div>
+                <div id="plot-output"></div>
+            </div>
+        </div>
+
+        <div id="blog-page" class="page-section">
+            <h3 class="section-title">Writing & Videos</h3>
+            <div style="margin-bottom: 20px;">
+                <button class="btn active-tab tab-btn" onclick="openInternalTab('Writing', this)">Blogs</button>
+                <button class="btn tab-btn" onclick="openInternalTab('Videos', this)" style="margin-left: 10px;">Videos</button>
+            </div>
+            <div id="Writing" class="internal-tab-content">
+                <div class="card" style="margin-bottom: 20px;">
+                    <h3>Not easy to approach</h3>
+                    <p style="color: var(--text-muted);">Reflections on academic life.</p>
+                </div>
+                <div class="card">
+                    <h3>1st Day in Taiwan</h3>
+                    <p style="color: var(--text-muted);">Moving abroad for PhD studies.</p>
+                </div>
+            </div>
+            <div id="Videos" class="internal-tab-content" style="display:none;">
+                <div class="grid-container">
+                    <div class="card">
+                        <div class="card-header"><i class="fab fa-youtube"></i></div>
+                        <h3>Project Demo</h3>
+                        <p style="color: var(--text-muted);">Walkthrough of my latest code.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact-page" class="page-section">
+            <h3 class="section-title">Get In Touch</h3>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="contact-highlight">
+                    <i class="fas fa-magic"></i> Want a personal webpage like this? Contact me below!
+                </div>
+                
+                <div class="time-note">
+                    <i class="fas fa-moon"></i> 
+                    <span>Please take a look at my time before fixing a meeting or contacting me.</span>
+                </div>
+
+                <div class="clock-wrapper">
+                    <div style="display:flex; flex-direction:column; align-items:center;">
+                        <div class="clock-container">
+                            <div class="clock-hand hour-hand" id="hour-taiwan"></div>
+                            <div class="clock-hand minute-hand" id="minute-taiwan"></div>
+                            <div class="clock-hand second-hand" id="second-taiwan"></div>
+                            <div class="ampm-display" id="ampm-taiwan">--</div>
+                        </div>
+                        <div class="clock-label">My Time (Taiwan)</div>
+                    </div>
+                    
+                    <div id="time-calculation-box" class="time-diff-box">
+                        Calculating time difference...
+                    </div>
+                </div>
+
+                <div class="weather-outer-box">
+                    <div class="weather-heading">
+                        <i class="fas fa-cloud-sun"></i> Live Kaohsiung Weather Status
+                    </div>
+                    <div class="weather-container">
+                        <div class="weather-card" id="weather-box-main">
+                            <div class="weather-label">Conditions</div>
+                            <div class="weather-icon-lg" id="weather-icon-main"><i class="fas fa-spinner fa-spin"></i></div>
+                            <div class="weather-value" id="weather-text-main">Loading...</div>
+                        </div>
+
+                        <div class="weather-card" id="wind-box">
+                            <div class="weather-label">Wind Status</div>
+                            <div class="weather-icon-lg" id="wind-icon"><i class="fas fa-wind"></i></div>
+                            <div class="weather-value" id="wind-text">Checking...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-grid">
+                    <a href="mailto:haripriya.beta@gmail.com" class="social-item">
+                        <div class="social-icon mail-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="social-text">Mail</div>
+                    </a>
+                    
+                    <a href="https://www.researchgate.net/profile/Haripriya-Sahoo-2" class="social-item" target="_blank">
+                        <div class="social-icon rg-icon">
+                            R<sup style="font-size: 0.6em; top: -0.2em;">G</sup>
+                        </div>
+                        <div class="social-text">RG</div>
+                    </a>
+                    
+                    <a href="https://www.linkedin.com/in/haripriya-sahoo-81b273197/" class="social-item" target="_blank">
+                        <div class="social-icon linkedin-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <div class="social-text">Linkedin</div>
+                    </a>
+                    
+                    <a href="https://www.facebook.com/haripriya.sahoo.5" class="social-item" target="_blank">
+                        <div class="social-icon fb-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="social-text">Facebook</div>
+                    </a>
+                </div>
+
+                <form action="https://formsubmit.co/haripriya.beta@gmail.com" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                </form>
+                
+                <div style="text-align: center; margin-top: 30px; color: var(--text-muted);">
+                    <p><i class="fas fa-map-marker-alt"></i> 70 Lienhai Rd., Kaohsiung 80424, Taiwan</p>
+                    <p><i class="fas fa-envelope"></i> haripriya.beta@gmail.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="signin-page" class="page-section" style="display: none; height: 60vh; align-items: center; justify-content: center;">
+            <div class="card" style="width: 100%; max-width: 400px; text-align: center;">
+                <h2 style="border: none;">Client Access</h2>
+                <input type="text" id="username" placeholder="Username">
+                <input type="password" id="password" placeholder="Password">
+                <button class="btn" onclick="login()" style="width: 100%;">Log In</button>
+            </div>
+        </div>
+
+    </main>
+
+    <py-config>
+        packages = ["matplotlib", "numpy"]
+    </py-config>
+
+    <py-script>
+import matplotlib.pyplot as plt
+import numpy as np
+from js import document 
+from pyscript import Element
+
+def plot_graph(*args):
+    # 1. Clear output
+    Element("plot-output").element.innerHTML = ""
+
+    # 2. Input
+    expression = Element("math-input").element.value
+    
+    # 3. Clean
+    if "=" in expression:
+        expression = expression.split("=")[1]
+    
+    # 4. Parse
+    expression = expression.replace("sin", "np.sin")
+    expression = expression.replace("cos", "np.cos")
+    expression = expression.replace("tan", "np.tan")
+    expression = expression.replace("exp", "np.exp")
+    expression = expression.replace("log", "np.log")
+    expression = expression.replace("sqrt", "np.sqrt")
+    expression = expression.replace("^", "**")
+    expression = expression.replace("pi", "np.pi")
+
+    # 5. Generate
+    try:
+        x = np.linspace(-10, 10, 1000)
+        y = eval(expression) 
+
+        # LIGHT THEME PLOT
+        fig, ax = plt.subplots()
+        ax.plot(x, y, color='#0056b3', linewidth=2) # Blue line
+        ax.grid(True, color='#cccccc') # Light gray grid
+        ax.set_facecolor('white') 
+        fig.patch.set_facecolor('white') 
+        
+        # Black axes text
+        ax.tick_params(colors='black')
+        for spine in ax.spines.values():
+            spine.set_color('black')
+        
+        ax.set_title(f"y = {Element('math-input').element.value}", color='black')
+
+        # 6. Display
+        display(fig, target="plot-output", append=False)
+        
+    except Exception as e:
+        Element("plot-output").element.innerHTML = f"<p style='color:red'>Error: {e}</p>"
+
+# Bind Button
+Element("plot-btn").element.onclick = plot_graph
+</py-script>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(p => p.style.display = 'none');
+            const pg = document.getElementById(pageId);
+            
+            // Adjust display mode
+            if (pageId === 'signin-page') {
+                pg.style.display = 'flex';
+            } else {
+                pg.style.display = 'block';
+            }
+
+            // Highlighting Nav Links
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+            
+            // Ensure sub-pages (like webdesign) still keep the Portfolio tab highlighted
+            let navTargetId = pageId;
+            if (pageId === 'webdesign-page' || pageId === 'plotter-page' || pageId === 'teaching-page' || pageId.startsWith('detail-')) {
+                // If it is a detail page, highlight Research tab
+                if (pageId.startsWith('detail-')) navTargetId = 'research-page';
+                else navTargetId = 'portfolio-page';
+            }
+            
+            const activeLink = document.querySelector(`a[onclick="showPage('${navTargetId}')"]`);
+            if(activeLink) activeLink.classList.add('active');
+            
+            document.getElementById('navLinks').classList.remove('active');
+        }
+        
+        function toggleMenu() { document.getElementById('navLinks').classList.toggle('active'); }
+        
+        function openInternalTab(tabName, btn) {
+            const contents = document.getElementsByClassName("internal-tab-content");
+            for(let c of contents) c.style.display = 'none';
+            document.getElementById(tabName).style.display = 'block';
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active-tab'));
+            btn.classList.add('active-tab');
+        }
+        
+        function login() {
+            if(document.getElementById('username').value === 'beta' && document.getElementById('password').value === '123456') {
+                alert("Login Successful!"); showPage('home-page');
+            } else alert("Invalid Credentials");
+        }
+        
+        function updateClock(d, hId, mId, sId, amId) {
+            const h = d.getHours(), m = d.getMinutes(), s = d.getSeconds();
+            document.getElementById(hId).style.transform = `rotate(${30*h + m/2}deg)`;
+            document.getElementById(mId).style.transform = `rotate(${6*m}deg)`;
+            document.getElementById(sId).style.transform = `rotate(${6*s}deg)`;
+            document.getElementById(amId).innerText = h >= 12 ? 'PM' : 'AM';
+        }
+
+        function calculateTimeDifference() {
+            const now = new Date();
+            
+            // Taiwan is UTC+8 (480 minutes)
+            const targetOffset = 480; 
+            
+            // getTimezoneOffset returns the difference in minutes between UTC and local time.
+            const userOffset = -now.getTimezoneOffset();
+            
+            const diffMinutesTotal = userOffset - targetOffset;
+            const absDiff = Math.abs(diffMinutesTotal);
+            const diffHours = Math.floor(absDiff / 60);
+            const diffMinutesRemainder = absDiff % 60;
+            
+            let message = "";
+            let timeString = "";
+
+            if (diffHours > 0) {
+                timeString += `${diffHours} hour${diffHours !== 1 ? 's' : ''}`;
+            }
+            if (diffMinutesRemainder > 0) {
+                if (timeString !== "") timeString += " and ";
+                timeString += `${diffMinutesRemainder} minute${diffMinutesRemainder !== 1 ? 's' : ''}`;
+            }
+
+            if (diffMinutesTotal > 0) {
+                message = `You are ${timeString} ahead of Haripriya’s Time zone`;
+            } else if (diffMinutesTotal < 0) {
+                message = `You are ${timeString} behind Haripriya’s Time zone`;
+            } else {
+                message = `You are in the same time zone with Haripriya`;
+            }
+
+            document.getElementById('time-calculation-box').innerText = message;
+        }
+        
+        // --- WEATHER LOGIC ---
+        async function fetchWeather() {
+            try {
+                // Kaohsiung Coordinates: 22.6273° N, 120.3014° E
+                const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=22.6273&longitude=120.3014&current_weather=true');
+                const data = await response.json();
+                
+                const temp = data.current_weather.temperature;
+                const code = data.current_weather.weathercode;
+                const wind = data.current_weather.windspeed;
+                
+                // Elements for Box 1 (Weather)
+                const weatherIcon = document.getElementById('weather-icon-main');
+                const weatherText = document.getElementById('weather-text-main');
+
+                // Elements for Box 2 (Wind)
+                const windBox = document.getElementById('wind-box');
+                const windIcon = document.getElementById('wind-icon');
+                const windText = document.getElementById('wind-text');
+                
+                // --- LOGIC FOR BOX 1 (Condition) ---
+                let iconClass = 'fa-cloud';
+                let color = '#333';
+                let conditionStr = '';
+
+                if ([51, 53, 55, 61, 63, 65, 80, 81, 82, 95, 96, 99].includes(code)) {
+                    iconClass = 'fa-cloud-rain'; color = '#4682B4'; conditionStr = 'Rainy';
+                } else if (temp > 30) {
+                    iconClass = 'fa-sun'; color = '#FF8C00'; conditionStr = 'Sunny & Hot';
+                } else if (temp < 20) {
+                    iconClass = 'fa-snowflake'; color = '#00BFFF'; conditionStr = 'Cold';
+                } else {
+                    iconClass = 'fa-cloud-sun'; color = '#FFD700'; conditionStr = 'Pleasant';
+                }
+                
+                weatherIcon.innerHTML = `<i class="fas ${iconClass}" style="color: ${color};"></i>`;
+                weatherText.innerText = `${conditionStr}, ${temp}°C`;
+
+                // --- LOGIC FOR BOX 2 (Wind / Typhoon) ---
+                if (wind > 60) {
+                    // DANGER
+                    windBox.classList.add('danger');
+                    windIcon.innerHTML = `<i class="fas fa-triangle-exclamation"></i>`;
+                    windText.innerText = `Typhoon Warning (${wind} km/h)`;
+                } else {
+                    // SAFE
+                    windBox.classList.remove('danger');
+                    windIcon.innerHTML = `<i class="fas fa-wind" style="color: #009688;"></i>`;
+                    windText.innerText = `Safe time (${wind} km/h)`;
+                }
+
+            } catch (error) {
+                console.error("Weather fetch failed:", error);
+            }
+        }
+
+        // --- CAROUSEL LOGIC ---
+        function startCarousel() {
+            // 1. Mini Carousel (About Page)
+            const miniSlides = document.querySelectorAll('.mini-carousel .carousel-img');
+            if (miniSlides.length > 0) {
+                let index = 0;
+                setInterval(() => {
+                    miniSlides[index].classList.remove('active');
+                    index = (index + 1) % miniSlides.length;
+                    miniSlides[index].classList.add('active');
+                }, 3000); 
+            }
+        }
+
+        // 2. Large Carousel Logic (Research Page)
+        let workIndex = 0;
+        function moveWorkSlide(n) {
+            const slides = document.querySelectorAll('.work-slide');
+            if(slides.length === 0) return;
+            
+            slides[workIndex].classList.remove('active');
+            workIndex = (workIndex + n + slides.length) % slides.length;
+            slides[workIndex].classList.add('active');
+        }
+
+        // Auto-play for Large Carousel
+        setInterval(() => {
+            moveWorkSlide(1);
+        }, 5000); // 5 seconds
+
+        setInterval(() => {
+            const now = new Date();
+            // Local User Time (for calculation logic)
+            // Taiwan Time (Asia/Taipei)
+            const tw = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Taipei"}));
+            updateClock(tw, 'hour-taiwan', 'minute-taiwan', 'second-taiwan', 'ampm-taiwan');
+            calculateTimeDifference();
+        }, 1000);
+
+        // Start carousel & Fetch Weather when page loads
+        window.onload = function() {
+            startCarousel();
+            fetchWeather();
+        };
+    </script>
+</body>
+</html>
