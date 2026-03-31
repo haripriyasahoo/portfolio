@@ -20,14 +20,14 @@
             --secondary-bg: #ffffff; 
             
             /* Header/Nav: Deep Teal */
-            --nav-bg: #00695C;       
+            --nav-bg: #00695C;        
             --nav-text: #ffffff;
 
             /* Accent Text: Teal */
-            --accent: #00796B;       
+            --accent: #00796B;        
             
             /* Buttons: Coral/Salmon */
-            --btn-bg: #FF7043;       
+            --btn-bg: #FF7043;        
             --btn-text: #ffffff;
 
             --text-main: #333333;
@@ -236,13 +236,23 @@
             width: 100%; height: 400px; position: relative; overflow: hidden;
             border-radius: 20px; margin-bottom: 50px; box-shadow: 0 15px 40px rgba(0, 105, 92, 0.15);
             border: 5px solid white;
+            /* REVERTED: Removed black background to allow size reduction fix */
         }
         .work-slide {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             opacity: 0; transition: opacity 0.8s ease-in-out; display: flex; align-items: flex-end;
+            justify-content: center;
         }
         .work-slide.active { opacity: 1; }
-        .work-slide img { width: 100%; height: 100%; object-fit: cover; position: absolute; z-index: 1; }
+        
+        /* REVERTED: Changed back to cover for full size */
+        .work-slide img, 
+        .work-slide video { 
+            width: 100%; height: 100%; 
+            object-fit: cover; /* This makes images/videos fill the container */
+            position: absolute; z-index: 1; 
+        }
+        
         .work-caption {
             position: relative; z-index: 2; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
             color: white; width: 100%; padding: 40px 30px 20px 30px;
@@ -500,11 +510,11 @@
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-degree">B.Sc. Mathematics Honors</div>
-                        <div class="timeline-meta">College of Basic Science & Humanities / OUAT, India (2015)</div>
+                        <div class="timeline-meta">Utkal University / OUAT, India (2015)</div>
                     </div>
                     <div class="timeline-item">
                         <div class="timeline-degree">11th+12th</div>
-                        <div class="timeline-meta">Ramadevi Women's Junior College, India (2012)</div>
+                        <div class="timeline-meta">Ramadevi Junior College / OUAT, India (2012)</div>
                     </div>
                 </div>
             </div>
@@ -619,11 +629,14 @@
         <div id="research-page" class="page-section">
             
             <div class="work-carousel-container">
-                <div class="work-slide active">
-                    <img src="ml-image.jpg" alt="ML Research">
+                <div class="work-slide">
+                    <video autoplay muted loop playsinline>
+                        <source src="ML_taiwan.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                     <div class="work-caption">
-                        <h3>Deep Learning Models</h3>
-                        <p>Improving ocean prediction accuracy using hybrid neural networks.</p>
+                        <h3>Field Recordings</h3>
+                        <p>Capturing live ocean data and wave movement.</p>
                     </div>
                 </div>
                 <div class="work-slide">
@@ -634,13 +647,22 @@
                     </div>
                 </div>
                 <div class="work-slide">
-                    <img src="Debika.png" alt="Field Work">
+                    <img src="gradient_descent.gif" alt="Field Work">
                     <div class="work-caption">
                         <h3>Data Visualization</h3>
                         <p>Processing satellite imagery for environmental monitoring.</p>
                     </div>
                 </div>
-                
+                <div class="work-slide">
+                    <video autoplay muted loop playsinline>
+                        <source src="Wave_Trapping_Animation_Generated.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="work-caption">
+                        <h3>Field Recordings</h3>
+                        <p>Capturing live ocean data and wave movement.</p>
+                    </div>
+                </div>
                 <div class="carousel-nav">
                     <button class="carousel-btn" onclick="moveWorkSlide(-1)">&#10094;</button>
                     <button class="carousel-btn" onclick="moveWorkSlide(1)">&#10095;</button>
@@ -651,33 +673,33 @@
             <div class="research-grid">
                 <div class="research-panel">
                     <div>
-                        <div class="research-icon"><i class="fas fa-water"></i></div>
-                        <h3>Numerical Ocean Modeling</h3>
-                        <p>Simulating complex ocean currents and wave interactions.</p>
+                        <div class="research-icon"><i class="fas fa-wind"></i></div>
+                        <h3>Fluid Dynamics</h3>
+                        <p>SVD-MLP & Residual U-Net for super-resolution.</p>
                     </div>
-                    <button class="btn btn-small" onclick="showPage('detail-ocean')">View Details</button>
+                    <button class="btn btn-small">View Details</button>
                 </div>
                 <div class="research-panel">
                     <div>
-                        <div class="research-icon"><i class="fas fa-wind"></i></div>
-                        <h3>Fluid Dynamics</h3>
-                        <p>Investigating non-linear thin-film equations and turbulence.</p>
+                        <div class="research-icon"><i class="fas fa-water"></i></div>
+                        <h3>Stability analysis</h3>
+                        <p>Stability analysis for viscous fluid</p>
                     </div>
-                    <button class="btn btn-small" onclick="showPage('detail-fluid')">View Details</button>
+                    <button class="btn btn-small">View Details</button>
                 </div>
                 <div class="research-panel">
                     <div>
                         <div class="research-icon"><i class="fas fa-brain"></i></div>
-                        <h3>Deep Learning</h3>
-                        <p>SVD-MLP & Residual U-Net for super-resolution.</p>
+                        <h3>Deep Learning for curvature estimation</h3>
+                        <p>MLP and vof method for curvature estimation</p>
                     </div>
-                    <button class="btn btn-small" onclick="showPage('detail-dl')">View Details</button>
+                    <button class="btn btn-small">View Details</button>
                 </div>
                 <div class="research-panel">
                     <div>
                         <div class="research-icon"><i class="fas fa-camera"></i></div>
-                        <h3>Image Processing</h3>
-                        <p>Satellite imagery analysis and feature extraction.</p>
+                        <h3>Analytical wave traping </h3>
+                        <p>Wave Trapping....</p>
                     </div>
                     <button class="btn btn-small" onclick="showPage('detail-img')">View Details</button>
                 </div>
@@ -744,14 +766,19 @@
         <div id="detail-img" class="page-section">
             <button onclick="showPage('research-page')" class="btn" style="margin-bottom: 20px;"><i class="fas fa-arrow-left"></i> Back to Research</button>
             <div class="detail-view">
-                <h2 style="color: var(--nav-bg); margin-bottom: 15px;">Geospatial Image Analysis</h2>
+                <h2 style="color: var(--nav-bg); margin-bottom: 15px;">Hybrid method</h2>
                 <div class="detail-gallery">
-                    <img src="Gamma.png" class="detail-img" alt="Satellite Map">
-                    <img src="ml-image.jpg" class="detail-img" alt="LiDAR Scan">
+                    <img src="Fig1a.jpg" class="detail-img" alt="Satellite Map">
+                    <img src="FSE_a.png" class="detail-img" alt="Satellite Map">
+                    <img src="Fwall_t_G.png" class="detail-img" alt="LiDAR Scan">
+                    <img src="Fig16a.png" class="detail-img" alt="LiDAR Scan">
+                    <img src="Fig18b.png" class="detail-img" alt="Satellite Map">
                 </div>
                 <p>
-                    Using techniques like LiDAR point cloud processing and drone orthophotos, I create accurate ground elevation maps for environmental monitoring. 
-                    Recently, I have also begun exploring the application of neural networks to biological data for pattern detection and cancer research analysis.
+                    Creating Serene Seas: Wave Trapping with Floating Porous BoxesOverview
+                        As coastal infrastructure expands to include marinas, aquaculture facilities, and offshore platforms, the need for effective wave protection has never been greater. A recent study published in Ships and Offshore Structures (2022) proposes an innovative solution: a surface-piercing floating porous box placed near an impermeable sea wall.This research explores how such a structure can act as an effective breakwater, trapping waves and significantly reducing the hydrodynamic load on rigid sea walls.The Engineering Challenge
+                        Traditional rigid breakwaters can suffer from high wave reflection and erosion. Porous structures offer a distinct advantage: they dissipate wave energy rather than just blocking it. The authors of this study modeled a floating box comprising three rectangular porous plates (two vertical, one horizontal) located at a finite distance from a rigid wall.MethodologyTo analyze the interaction between oblique waves and the floating box, the researchers employed a hybrid mathematical approach:Eigenfunction Expansion Method: Used for the outer semi-infinite fluid region to handle the far-field wave behavior.Multi-Domain Boundary Element Method (BEM): Applied to the inner fluid region to precisely calculate the complex interactions around the box and wall.This hybrid model allowed for computationally efficient solutions while accounting for complex variables like porosity, wave angle, and structural dimensions.Key Insights & TakeawaysThe study highlights several critical factors that influence wave attenuation:The Power of Porosity: Increasing the porosity of the floating box leads to a decrease in wave reflection. The porous plates effectively dissipate wave energy, creating a "serene environment" or tranquil zone on the inshore side.Optimal Spacing is Key: The distance between the floating box and the sea wall ($L$) plays a major role. The study found that wave reflection and the load on the wall follow a periodic, oscillatory trend as this spacing increases.Structural Geometry: Increasing the height and width of the box generally reduces the wave force exerted on the sea wall. A larger submerged area allows for greater energy dissipation.Incident Angle: The angle at which waves hit the structure ($\theta$) significantly affects performance. For example, wave forces on the porous box generally decrease at higher angles of incidence compared to rigid boxes.Conclusion
+                        This research confirms that a floating permeable box can serve as a highly effective breakwater system. By carefully selecting the porosity and optimizing the distance from the shore, engineers can significantly mitigate wave loads on coastal structures. The result is a calmer water surface behind the barrier, offering protection for maritime activities and infrastructure.
                 </p>
             </div>
         </div>
@@ -771,9 +798,11 @@
                     <h3>Educational</h3>
                     <p style="color: var(--text-muted);">Detailed explanations of Machine Learning concepts.</p>
                     <div class="tech-stack">Machine Learning, Tutorials</div>
-                    <a onclick="showPage('teaching-page')" style="color: var(--btn-bg); font-size: 0.9rem; cursor: pointer; display: block; margin-top: 10px;">View Lessons <i class="fas fa-arrow-right"></i></a>
+                    <!-- <a onclick="showPage('teaching-page')" style="color: var(--btn-bg); font-size: 0.9rem; cursor: pointer; display: block; margin-top: 10px;">View Lessons <i class="fas fa-arrow-right"></i></a> -->
+                    <a href="machine-learning.html" style="color: var(--btn-bg); font-size: 0.9rem; cursor: pointer; display: block; margin-top: 10px;">
+                        View Lessons <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="card">
+                <div class="card">a
                     <div class="card-header"><i class="fas fa-calculator"></i></div>
                     <h3>Live Python Plotter</h3>
                     <p style="color: var(--text-muted);">Type math equations and plot them instantly using Python.</p>
@@ -1038,6 +1067,9 @@ Element("plot-btn").element.onclick = plot_graph
 </py-script>
 
     <script>
+        // --- GLOBAL CAROUSEL TIMER VARIABLE ---
+        let carouselTimer;
+
         function showPage(pageId) {
             document.querySelectorAll('.page-section').forEach(p => p.style.display = 'none');
             const pg = document.getElementById(pageId);
@@ -1196,21 +1228,52 @@ Element("plot-btn").element.onclick = plot_graph
             }
         }
 
-        // 2. Large Carousel Logic (Research Page)
+        // 2. Large Carousel Logic (Research Page) - SMART TIMER
         let workIndex = 0;
+
+        // Function to reset the standard 5-second timer
+        function resetCarouselTimer() {
+            clearInterval(carouselTimer);
+            carouselTimer = setInterval(() => {
+                moveWorkSlide(1);
+            }, 10000); // 10 seconds default for images (UPDATED)
+        }
+
         function moveWorkSlide(n) {
             const slides = document.querySelectorAll('.work-slide');
             if(slides.length === 0) return;
             
-            slides[workIndex].classList.remove('active');
-            workIndex = (workIndex + n + slides.length) % slides.length;
-            slides[workIndex].classList.add('active');
-        }
+            // 1. Handle current slide (pause video if it exists)
+            const currentSlide = slides[workIndex];
+            const currentVideo = currentSlide.querySelector('video');
+            if (currentVideo) {
+                currentVideo.pause();
+                currentVideo.currentTime = 0; // Optional: Reset video
+            }
+            currentSlide.classList.remove('active');
 
-        // Auto-play for Large Carousel
-        setInterval(() => {
-            moveWorkSlide(1);
-        }, 5000); // 5 seconds
+            // 2. Update Index
+            workIndex = (workIndex + n + slides.length) % slides.length;
+            const nextSlide = slides[workIndex];
+            nextSlide.classList.add('active');
+
+            // 3. Handle next slide (check for video)
+            const nextVideo = nextSlide.querySelector('video');
+
+            if (nextVideo) {
+                // If it's a video: STOP the timer, PLAY video, WAIT for end
+                clearInterval(carouselTimer);
+                nextVideo.play();
+                
+                // When video ends, move to next slide automatically
+                nextVideo.onended = () => {
+                    moveWorkSlide(1);
+                };
+            } else {
+                // If it's an image: Use the standard 10-second timer
+                resetCarouselTimer();
+            }
+        }
 
         setInterval(() => {
             const now = new Date();
@@ -1225,6 +1288,21 @@ Element("plot-btn").element.onclick = plot_graph
         window.onload = function() {
             startCarousel();
             fetchWeather();
+            
+            // Initialize the main carousel (it will check the first slide)
+            // If the first slide is an image, it starts the timer. 
+            // If it's a video, it plays it.
+            const slides = document.querySelectorAll('.work-slide');
+            if(slides.length > 0) {
+                // Determine if first slide is video or image
+                const firstVideo = slides[0].querySelector('video');
+                if (firstVideo) {
+                    firstVideo.play();
+                    firstVideo.onended = () => moveWorkSlide(1);
+                } else {
+                    resetCarouselTimer();
+                }
+            }
         };
     </script>
 </body>
