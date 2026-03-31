@@ -249,6 +249,7 @@
     <nav class="sidebar">
         <h4>Tutorial Index</h4>
         <ul id="tutorial-nav">
+            <li><a onclick="showContent('sec_prologue')">Prologue: Before We Dive In</a></li>
             <li><a onclick="showContent('sec1')" class="active">1. Introduction</a></li>
             <li><a onclick="showContent('sec2')">2. Why Machine Learning</a></li>
             <li><a onclick="showContent('sec3')">3. Types of ML</a></li>
@@ -280,10 +281,67 @@
             <h3>Repeated indices… repeated doubts.</h3>
             <h3>Orthogonal concepts… completely unrelated to my understanding.</h3>
             <h3>Rank deficient… just like my understanding.</h3>-->
+            <li><a onclick="showContent('sec_epilogue')">* Epilogue</a></li> 
         </ul>
     </nav>
 
     <main class="content">
+
+        <section id="sec_prologue" class="tutorial-card" style="text-align: justify;">
+            <h2>Prologue: Before We Dive In</h2>
+            
+            <p>
+                Welcome! If you are reading this, you probably want to understand what Machine Learning <em>actually</em> is, without drowning in a sea of terrifying Greek letters and dense academic jargon. 
+            </p>
+            <p>
+                This tutorial is designed to be different. It is built on the belief that the core concepts of AI are deeply intuitive. Before we start writing code or crunching numbers, we need to understand the <em>philosophy</em> of how a machine learns. This guide is meant to build your intuition from the ground up.
+            </p>
+
+            <h3 style="color: #2c5282; margin-top: 30px;">Did an AI Write This?</h3>
+            <p>
+                In the spirit of absolute transparency: <strong>Yes and No.</strong> 
+            </p>
+            <p>
+                The concepts, the structure, the analogies (like the blindfolded hiker on the error mountain), and the core understanding are entirely mine. However, I used Generative AI as an "advanced typewriter" to help me format the HTML, polish the grammar, and generate the clean Python code snippets for the visualizations. It is a human-architected, AI-assisted project—exactly how modern coding is done!
+            </p>
+
+            <h3 style="color: #2c5282; margin-top: 30px;">How to Read This Guide</h3>
+            <p>
+                As you scroll through, you will notice a few unique elements. Here is how to use them:
+            </p>
+            
+            <ul style="padding-left: 20px; line-height: 1.6;">
+                <li style="margin-bottom: 15px;">
+                    <strong>The Visuals (They aren't just for show):</strong> You will see plenty of figures, plots, and even some slightly funny or quirky diagrams. Please don't just skim past them! They are specifically designed to make abstract mathematical concepts (like loss functions and optimizers) visual and "sticky" in your brain. 
+                </li>
+                <li style="margin-bottom: 15px;">
+                    <strong>The Q&A Boxes:</strong> Scattered throughout the tutorial, you will find interactive dropdown boxes with titles like <em>"Questions your brain just overfitted to..."</em> or <em>"Questions that may come to your mind..."</em> Don't let the changing titles confuse you! These are simply pit-stops where I address the most common points of confusion and misconceptions that students face.
+                </li>
+            </ul>
+
+            <hr style="border: 0; border-top: 2px solid #e2e8f0; margin: 40px 0;">
+
+            <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 25px; margin-top: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                <h3 style="color: #1a365d; margin-top: 0; display: flex; align-items: center;">
+                    <span style="font-size: 1.5em; margin-right: 10px;">👋</span> About the Author
+                </h3>
+                <p>
+                    You might be wondering who is guiding you on this journey. My name is <strong>Haripriya Sahoo</strong>, and I am a PhD student at <strong>National Sun Yat-sen University</strong>. 
+                </p>
+                <p>
+                    With years of hands-on experience in the field of Machine Learning, my academic research focuses on the intersection of AI and complex physical systems—specifically, using advanced machine learning techniques (like neural networks and super-resolution) to model and understand chaotic ocean dynamics. 
+                </p>
+                <p style="margin-bottom: 0;">
+                    I have spent years wrestling with these algorithms so that you don't have to. My goal is to take the complex math I use in my research every day and translate it into plain, intuitive English for you. Let's get started!
+                </p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 35px;">
+                <a onclick="showContent('sec1');" style="background-color: #2b6cb0; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: background-color 0.3s; cursor: pointer; font-size: 1.1em;">
+                    Begin Section 1: The AI Umbrella &rarr;
+                </a>
+            </div>
+        </section>
         
         <section id="sec1" class="tutorial-card" style="display: block; text-align: justify;">
             <h2>1. Introduction to Machine Learning</h2>
@@ -3189,6 +3247,46 @@ print(f"Output shape: {output.shape}") <span style="color: #a0aec0;"># Output wi
                 Summary: True expertise in Machine Learning involves knowing when NOT to use it. Always start with the simplest mathematical model; only move to Machine Learning if the problem is too non-linear or high-dimensional for classical methods to handle.
             </p>
         </section> -->
+        <section id="sec_epilogue" class="tutorial-card" style="display: none; text-align: justify;">
+            <h2>Epilogue: The Beginning of Your Journey</h2>
+
+            <p>
+                If you have made it this far, congratulations! You have journeyed from the absolute basics of traditional programming all the way to the bleeding edge of deep learning optimization. You have learned how machines see the world through <strong>Features and Labels</strong>, how they grade themselves using <strong>Loss Functions</strong>, and how they navigate chaotic, multi-dimensional mountains using algorithms like <strong>Gradient Descent and Adam</strong>.
+            </p>
+
+            <h3 style="color: #2c5282; margin-top: 30px;">It is Not Magic, It is Math (And Data!)</h3>
+            <p>
+                When you read the news, Artificial Intelligence is often portrayed as some mystical, conscious entity. But now you know the truth. Underneath the hood, it is just linear algebra, calculus, and massive amounts of data. It is a blindfolded hiker feeling the slope of the ground, taking step after step to find the lowest valley. 
+            </p>
+            <p>
+                However, the fact that it is "just math" does not make it any less beautiful. By combining these simple mathematical rules, we can create systems that translate languages, spot microscopic diseases, and predict the chaotic behavior of our planet.
+            </p>
+
+            <div style="background-color: #ebf8fa; border-left: 4px solid #00838f; padding: 15px; margin: 25px 0; border-radius: 0 8px 8px 0;">
+                <p style="margin: 0; font-style: italic; color: #006064; line-height: 1.6;">
+                    <strong>Bringing it Full Circle:</strong> At the beginning of this tutorial, I mentioned that science is as vast as the ocean. In my own research mapping complex ocean currents, I rely on these exact neural network architectures to make sense of the deep sea. The ocean is chaotic and incredibly difficult to model using traditional physics alone. Machine Learning gives us the tools to navigate that chaos. Whether you are studying fluid dynamics, the stock market, or human biology, these tools are now yours to wield.
+                </p>
+            </div>
+
+            <h3 style="color: #2c5282; margin-top: 30px;">The Human Element</h3>
+
+            <p>
+                Never forget that a Machine Learning model is only as good as the human who builds it. The algorithm might do the heavy lifting computation, but <em>you</em> are the one who must define the problem, curate clean and unbiased data, choose the right loss function, and diagnose when the model is merely memorizing the answers instead of learning physics (Overfitting). 
+            </p>
+            <p style="font-weight: bold; color: #2b6cb0; text-align: center; font-size: 1.1em; margin: 25px 0;">
+                The machine learns the patterns, but the human provides the purpose.
+            </p>
+
+            <div style="text-align: center; margin-top: 40px; padding-top: 25px; border-top: 2px solid #e2e8f0;">
+                <h3 style="color: #1a365d; margin-top: 0;">What is Next?</h3>
+                <p style="color: #4a5568; max-width: 80%; margin: 0 auto 20px auto; line-height: 1.6;">
+                    Stop reading and start building! Grab a dataset, write some Python, train a model, and watch it fail. Tweak the learning rate, change the architecture, and watch it succeed. The landscape of AI is moving incredibly fast, and the absolute best way to keep up is to keep hiking.
+                </p>
+                <p style="font-size: 1.4rem; font-weight: bold; color: #2c5282; margin-top: 20px; letter-spacing: 1px;">
+                    Happy Coding!
+                </p>
+            </div>
+        </section>
         
     </main>
 </div>
