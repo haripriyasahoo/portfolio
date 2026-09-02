@@ -1,0 +1,3012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stock Market Tutorial | Haripriya Sahoo</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+:root{--primary-bg:#eef7f1;--secondary-bg:#fff;--nav-bg:#12372a;--accent:#1f7a4d;--btn-bg:#f59e0b;--text-main:#26332d;--text-muted:#52625a;--border-color:#cfe3d6;--blue:#285c86}
+*{margin:0;padding:0;box-sizing:border-box;text-decoration:none;list-style:none}
+body{font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:var(--primary-bg);color:var(--text-main);line-height:1.7}
+header{background:var(--nav-bg);color:white;padding:1.3rem 5%;position:sticky;top:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.back-btn,.menu-toggle{color:white;font-weight:bold;cursor:pointer}.menu-toggle{display:none;font-size:1.5rem}
+.tutorial-container{display:flex;max-width:1350px;margin:2rem auto;gap:30px;padding:0 4%}
+.sidebar{flex:1;background:white;padding:20px;border-radius:20px;position:sticky;top:95px;max-height:calc(100vh - 125px);overflow-y:auto;box-shadow:0 10px 30px rgba(0,0,0,.06);border:1px solid var(--border-color)}
+.sidebar h4{color:var(--nav-bg);margin-bottom:1.2rem;border-bottom:2px solid var(--btn-bg);padding-bottom:10px}
+.sidebar li{margin-bottom:3px}.sidebar a{color:var(--text-main);font-size:.91rem;display:block;padding:7px 10px;border-radius:8px;cursor:pointer}
+.sidebar a:hover,.sidebar a.active{background:var(--primary-bg);color:var(--nav-bg);font-weight:bold}
+.content{flex:3}.tutorial-card{background:white;padding:40px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.05);border:1px solid white;display:none;animation:fadeIn .35s ease;text-align:justify}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+h2{color:var(--nav-bg);margin-bottom:1.5rem;font-size:2rem;border-left:6px solid var(--btn-bg);padding-left:15px}
+h3{color:var(--accent);margin-top:25px;margin-bottom:10px}p{margin-bottom:1rem;color:var(--text-muted);font-size:1.04rem}
+.hero{background:linear-gradient(135deg,#12372a,#1f7a4d);color:white;padding:28px;border-radius:16px;margin-bottom:25px}.hero p{color:#edf8f1}.hero h3{color:white;margin-top:0}
+.analogy{background:#f7fbf8;border-left:4px solid var(--accent);padding:18px;border-radius:0 10px 10px 0;margin:20px 0}
+.warning{background:#fff8e6;border-left:4px solid var(--btn-bg);padding:18px;border-radius:0 10px 10px 0;margin:20px 0;color:#6b5314}
+.formula-box{background:#edf5ff;border:1px solid #cbdff3;padding:18px;border-radius:10px;text-align:center;font-weight:700;color:#285c86;margin:18px 0}
+.qa-box{background:#f0f7ff;border:1px solid #d1e3f8;border-radius:10px;padding:20px;margin-top:2rem}.qa-box h3{color:#2c5282;margin-top:0;border-bottom:2px solid #cbdbee;padding-bottom:10px}
+.qa-item{margin-bottom:12px;background:white;border-radius:7px;border:1px solid #e2e8f0}.qa-item summary{padding:12px;cursor:pointer;font-weight:bold}.qa-answer{padding:12px;border-top:1px solid #edf2f7;color:#4a5568}
+.lesson-nav{display:flex;justify-content:space-between;gap:12px;margin-top:28px}.lesson-nav button{background:var(--nav-bg);color:white;border:0;padding:11px 17px;border-radius:8px;cursor:pointer;font-weight:700}.lesson-nav button:hover{opacity:.88}
+footer{background:var(--nav-bg);color:white;text-align:center;padding:2rem 5%;margin-top:4rem}
+.sidebar-overlay{display:none}
+@media(max-width:900px){.tutorial-container{flex-direction:column}.menu-toggle{display:block}.nav-text{display:none}.sidebar{position:fixed;top:0;left:-100%;width:290px;height:100vh;z-index:2000;border-radius:0;padding-top:60px;transition:.3s}.sidebar.active{left:0}.sidebar-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1999}.sidebar-overlay.active{display:block}.tutorial-card{padding:25px}}
+</style>
+</head>
+<body>
+<header>
+<div class="back-btn" onclick="window.history.back()"><i class="fas fa-arrow-left"></i> <span class="nav-text">Back</span></div>
+<div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+<div style="font-family:'Courier New',monospace;font-weight:bold;font-size:1.15rem">Stock.Market_Education_Hub</div>
+</header>
+<div class="tutorial-container">
+<nav class="sidebar"><h4>Tutorial Index</h4><ul id="tutorial-nav"><li><a onclick="showContent('prologue')">Prologue: Before You Risk Money</a></li><li><a onclick="showContent('sec1')">1. Introduction: What Is the Stock Market?</a></li><li><a onclick="showContent('sec2')">2. Why Do Companies Issue Shares?</a></li><li><a onclick="showContent('sec3')">3. How Investors Make — and Lose — Money</a></li><li><a onclick="showContent('sec4')">4. Exchange, Broker and Trading Account</a></li><li><a onclick="showContent('sec5')">5. Ticker Symbols and Stock Quotes</a></li><li><a onclick="showContent('sec6')">6. Bid, Ask and the Order Book</a></li><li><a onclick="showContent('sec7')">7. Market Orders and Limit Orders</a></li><li><a onclick="showContent('sec8')">8. Trading Sessions, Lots and Settlement</a></li><li><a onclick="showContent('sec9')">9. Your First Stock Chart</a></li><li><a onclick="showContent('sec10')">10. Candlesticks: Open, High, Low, Close</a></li><li><a onclick="showContent('sec11')">11. Volume: How Much Trading Is Happening?</a></li><li><a onclick="showContent('sec12')">12. Uptrend, Downtrend and Sideways Market</a></li><li><a onclick="showContent('sec13')">13. Support: Where Buyers Previously Appeared</a></li><li><a onclick="showContent('sec14')">14. Resistance: Where Sellers Previously Appeared</a></li><li><a onclick="showContent('sec15')">15. Breakouts and False Breakouts</a></li><li><a onclick="showContent('sec16')">16. Moving Averages: Smoothing the Noise</a></li><li><a onclick="showContent('sec17')">17. SMA vs EMA</a></li><li><a onclick="showContent('sec18')">18. RSI: Understanding Momentum</a></li><li><a onclick="showContent('sec19')">19. MACD: Trend and Momentum Together</a></li><li><a onclick="showContent('sec20')">20. Fundamental Analysis: Study the Business</a></li><li><a onclick="showContent('sec21')">21. Revenue, Profit and EPS</a></li><li><a onclick="showContent('sec22')">22. P/E Ratio and Valuation</a></li><li><a onclick="showContent('sec23')">23. ETFs and Diversification</a></li><li><a onclick="showContent('sec24')">24. Risk Management: The Survival Skill</a></li><li><a onclick="showContent('sec25')">25. Stop Loss and Trade Invalidation</a></li><li><a onclick="showContent('sec26')">26. Position Sizing</a></li><li><a onclick="showContent('sec27')">27. Risk–Reward and Expectancy</a></li><li><a onclick="showContent('sec28')">28. Trading Psychology: FOMO, Fear and Greed</a></li><li><a onclick="showContent('sec29')">29. Build a Rule-Based Trading Strategy</a></li><li><a onclick="showContent('sec30')">30. Paper Trading, Backtesting and Your Next Step</a></li><li><a onclick="showContent('epilogue')">Epilogue: Your Beginner Checklist</a></li></ul></nav>
+<main class="content">
+<section id="prologue" class="tutorial-card">
+<h2>Prologue: Before You Risk Money</h2>
+<div class="hero"><h3>Welcome to Stock.Market_Education_Hub</h3><p>This course is written for someone starting from absolute zero. The goal is not to turn you into a gambler with more indicators. It is to help you understand what you own, how markets work, how to read information, and how to control risk.</p></div>
+<h3>How to use this guide</h3>
+<p>Go in order. For every chapter, first understand the idea, then work through the example, then answer the “check your understanding” question without searching for the answer.</p>
+<div class="warning"><strong>Important:</strong> This is educational material, not personalized financial advice. Markets involve loss of capital. Learn, paper trade, backtest, and understand local rules before using real money.</div>
+<h3>The rule for this course</h3>
+<p><strong>Learn first → observe second → paper trade third → risk real money last.</strong> We will not judge progress by how much money you make in one week. We will judge it by whether you can explain why a trade exists, what would prove it wrong, and how much you could lose.</p>
+<div class="lesson-nav"><span></span><button onclick="showContent('sec1')">Begin Chapter 1 →</button></div>
+</section>
+
+<!-- =========================================================
+     CHAPTER 1: INTRODUCTION TO THE STOCK MARKET
+========================================================= -->
+
+<section id="sec1" class="tutorial-card" style="display: block; text-align: justify;">
+
+    <h2 style="border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">
+        1. Introduction to the Stock Market: What Are You Actually Buying?
+    </h2>
+
+    <p>
+        We live in a world where almost everyone has heard sentences such as:
+        <strong>"The stock market crashed today,"</strong>
+        <strong>"This stock went up 10%,"</strong> or
+        <strong>"My friend doubled his money in stocks."</strong>
+        Then one day you open a stock-market app, see a screen full of red and green
+        numbers, strange graphs, abbreviations, flashing prices, and percentages...
+        and quietly close the app again. &#128517;
+    </p>
+
+    <p>
+        If that sounds familiar, don't worry. The stock market looks complicated mainly
+        because beginners are often introduced to the <strong>numbers before they are
+        introduced to the idea</strong>.
+    </p>
+
+    <p>
+        So, before learning about candlesticks, RSI, MACD, moving averages, P/E ratios,
+        support, resistance, stop losses, or anything that sounds remotely terrifying,
+        we need to answer one very simple question:
+    </p>
+
+    <p style="
+        font-size: 1.15em;
+        text-align: center;
+        padding: 18px;
+        background-color: #ebf4ff;
+        border-radius: 8px;
+        font-weight: bold;
+        color: #2b6cb0;">
+        What exactly is a stock?
+    </p>
+
+
+    <!-- =====================================================
+         SECTION: COMPANY DIVIDED INTO SHARES
+    ====================================================== -->
+
+    <h3>The Basic Idea: A Company Can Be Divided Into Pieces</h3>
+
+    <p>
+        Imagine that you start a small bubble-tea company called
+        <strong>Happy Bubble Tea Ltd. &#129483;</strong>
+    </p>
+    <p style="font-size: 1.1rem; font-weight: bold; color: var(--nav-bg);">Your first shop becomes extremely popular. To scale up, you plan to:</p>
+
+<!-- Two-Column Icon List -->
+<div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 20px 0;">
+    <div style="flex: 1; min-width: 200px; background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent); box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+        <ul style="margin: 0; padding: 0; list-style: none; color: var(--text-main);">
+            <li style="margin-bottom: 12px;"><i class="fas fa-store" style="color: var(--btn-bg); margin-right: 10px; width: 20px;"></i> Open more branches</li>
+            <li style="margin-bottom: 12px;"><i class="fas fa-cogs" style="color: var(--btn-bg); margin-right: 10px; width: 20px;"></i> Buy better machines</li>
+            <li><i class="fas fa-users" style="color: var(--btn-bg); margin-right: 10px; width: 20px;"></i> Hire more employees</li>
+        </ul>
+    </div>
+    <div style="flex: 1; min-width: 200px; background: #f8fafc; padding: 20px; border-radius: 8px; border-left: 4px solid var(--accent); box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+        <ul style="margin: 0; padding: 0; list-style: none; color: var(--text-main);">
+            <li style="margin-bottom: 12px;"><i class="fas fa-bullhorn" style="color: var(--btn-bg); margin-right: 10px; width: 20px;"></i> Advertise your brand</li>
+            <li style="margin-bottom: 12px;"><i class="fas fa-box-open" style="color: var(--btn-bg); margin-right: 10px; width: 20px;"></i> Develop new products</li>
+            <li><i class="fas fa-globe" style="color: var(--btn-bg); margin-right: 10px; width: 20px;"></i> Expand internationally</li>
+        </ul>
+    </div>
+</div>
+
+<!-- The Problem Highlight -->
+<div style="text-align: center; padding: 25px; background-color: #fff5f5; border: 2px dashed #fc8181; border-radius: 12px; margin: 30px 0;">
+    <p style="margin: 0; font-size: 1.25rem; color: #c53030; font-weight: bold;">
+        Your business has incredible potential, but there is one tiny problem: <br>
+        <span style="display: inline-block; margin-top: 10px; font-size: 1.4rem;">You need money. A lot of money. 💰</span>
+    </p>
+</div>
+
+<!-- The Solution Definition -->
+<div style="background-color: var(--primary-bg); border-left: 5px solid var(--nav-bg); padding: 25px; border-radius: 0 12px 12px 0; margin-top: 20px;">
+    <p style="margin: 0; font-size: 1.15rem; color: var(--text-main);">
+        Suppose you divide the ownership of your entire company into <strong>1,000,000 equal units</strong>.
+    </p>
+    <p style="margin: 15px 0 0 0; font-size: 1.3rem; font-weight: bold; color: var(--nav-bg);">
+        Each of these ownership units is called a <span style="background-color: white; color: var(--btn-bg); padding: 4px 12px; border-radius: 6px; border: 1px solid var(--border-color); box-shadow: 0 2px 4px rgba(0,0,0,0.05);">Share</span>.
+    </p>
+</div>
+    
+    <p>
+        If somebody owns one of these shares, that person owns a very small
+        ownership interest in the company.
+    </p>
+
+    <p>
+        Suppose an investor owns <strong>10,000 shares</strong>.
+        In our simplified example, their ownership percentage is:
+    </p>
+
+    <div style="
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    margin: 20px 0;">
+
+    $$\text{Ownership Percentage} = \frac{\text{Shares You Own}}{\text{Total Shares}} \times 100= \frac{10,000}{1,000,000} \times 100 = 1\%$$
+
+</div>
+    
+
+    <p>
+        So, in this simplified example, that investor owns approximately
+        <strong>1% of the company's shares</strong>.
+    </p>
+
+    <p style="
+        font-size: 1.15em;
+        text-align: center;
+        padding: 15px;
+        background-color: #e6fffa;
+        border-left: 5px solid #319795;
+        border-radius: 8px;
+        font-weight: bold;
+        color: #285e61;">
+
+        A share represents an ownership interest in a company.
+
+    </p>
+
+    <p>
+        This is the first idea you should permanently keep in your mind.
+        A stock is not simply a green or red number moving on your phone.
+        Behind that number is a real business.
+    </p>
+
+
+    <!-- FIGURE 1.1 -->
+
+    <figure style="text-align: center; margin-top: 1.5rem; margin-bottom: 2rem;">
+
+        <img src="SM_figures/cb60e11b-89f8-42e3-90aa-47a912b7e97a.jpeg"
+             alt="Illustration showing a company divided into many shares, with a portion highlighted as the investor's ownership"
+             style="
+                max-width: 75%;
+                height: auto;
+                border: 2px solid var(--accent);
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+
+        <figcaption style="
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+            font-style: italic;">
+
+            <strong>Figure 1.1:</strong>
+            A simplified representation of a company divided into shares.
+            Buying shares gives an investor a small ownership interest in the company.
+
+        </figcaption>
+
+    </figure>
+
+
+    <!-- =====================================================
+         STOCK VS SHARE
+    ====================================================== -->
+
+    <h3>Stock vs Share: Are They the Same Thing?</h3>
+
+    <p>
+        You will hear the words <strong>stock</strong> and <strong>share</strong>
+        constantly throughout this course.
+    </p>
+
+    <p>
+        In everyday conversation, people often use them interchangeably,
+        but there is a small difference.
+    </p>
+
+    <div style="
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 25px 0;">
+
+        <div style="
+            flex: 1;
+            min-width: 250px;
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #4299e1;">
+
+            <h4 style="color: #2b6cb0; margin-top: 0;">Stock</h4>
+
+            <p>
+                Usually refers more generally to ownership in a company.
+            </p>
+
+            <p style="margin-bottom: 0;">
+                Example:
+                <strong>"I own TSMC stock."</strong>
+            </p>
+
+        </div>
+
+        <div style="
+            flex: 1;
+            min-width: 250px;
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #38a169;">
+
+            <h4 style="color: #2f855a; margin-top: 0;">Share</h4>
+
+            <p>
+                Refers to an individual unit of ownership.
+            </p>
+
+            <p style="margin-bottom: 0;">
+                Example:
+                <strong>"I own 100 shares."</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+    <p>
+        You do not need to obsess over this distinction.
+        Even experienced investors casually use the terms interchangeably.
+    </p>
+
+    <p style="text-align: center; font-weight: bold;">
+        Shares = Small units of company ownership
+    </p>
+
+
+    <!-- =====================================================
+         WHAT IS STOCK MARKET
+    ====================================================== -->
+
+    <h3>Then What Is the "Stock Market"?</h3>
+
+    <p>
+        Now imagine there are thousands of companies.
+        Some investors want to <strong>buy</strong> their shares.
+        Other investors already own shares and want to <strong>sell</strong> them.
+        We therefore need an organized system where buyers and sellers can meet.
+        That organized system is what we broadly call the
+        <strong>stock market</strong>.
+    </p>
+
+    <div style="
+        background-color: #fffaf0;
+        border-left: 5px solid #dd6b20;
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 0 10px 10px 0;">
+
+        <h4 style="color: #c05621; margin-top: 0;">
+            &#129388; Think About a Vegetable Market
+        </h4>
+
+        <p>
+            One person wants to sell tomatoes. Another person wants to buy tomatoes. They meet in a marketplace where buyers and sellers interact
+            and agree on prices. The stock market follows the same fundamental idea,
+            except instead of tomatoes, potatoes, or fish, people are exchanging <strong>ownership interests in companies</strong>.
+        </p>
+    </div>
+
+    <p>
+        Modern financial markets are obviously much more sophisticated.
+        Most transactions occur electronically, and buyers and sellers
+        usually never meet each other physically.
+    </p>
+
+    <p>
+        But underneath all the computers, algorithms, financial terminology,
+        and flashing numbers, the fundamental mechanism remains surprisingly simple:
+    </p>
+
+    <p style="
+        text-align: center;
+        font-weight: bold;
+        background-color: #edf2f7;
+        padding: 15px;
+        border-radius: 8px;">
+
+        Somebody wants to buy. Somebody wants to sell.
+        The market tries to match them.
+
+    </p>
+
+
+    <!-- =====================================================
+         ONLINE SHOPPING ANALOGY
+    ====================================================== -->
+    <!-- =====================================================
+     BID AND ASK EXAMPLE
+====================================================== -->
+
+<h3>The "Online Marketplace" Analogy: Understanding Bid and Ask 🛒</h3>
+
+<p>
+    Before learning how stock prices move, we need to understand two
+    extremely important words:
+    <strong>Bid</strong> and <strong>Ask</strong>.
+</p>
+
+<p>
+    These two prices represent what buyers and sellers are currently
+    willing to do in the market.
+</p>
+
+
+<!-- BID / ASK DEFINITIONS -->
+
+<div style="
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 25px 0;
+">
+
+    <!-- BID -->
+
+    <div style="
+        flex: 1;
+        min-width: 260px;
+        background-color: #f0fff4;
+        border: 1px solid #c6f6d5;
+        border-top: 5px solid #38a169;
+        padding: 22px;
+        border-radius: 10px;
+    ">
+
+        <h4 style="
+            color: #276749;
+            margin-top: 0;
+            font-size: 1.2em;
+        ">
+            BID — What the Buyer Offers
+        </h4>
+
+        <p>
+            The <strong>bid price</strong> is the highest price
+            a buyer is currently willing to pay.
+        </p>
+
+        <p style="
+            text-align: center;
+            font-size: 1.15em;
+            font-weight: bold;
+            color: #276749;
+            margin-bottom: 0;
+        ">
+            "I am willing to BUY at NT$28,000."
+        </p>
+
+    </div>
+
+
+    <!-- ASK -->
+
+    <div style="
+        flex: 1;
+        min-width: 260px;
+        background-color: #fff5f5;
+        border: 1px solid #fed7d7;
+        border-top: 5px solid #e53e3e;
+        padding: 22px;
+        border-radius: 10px;
+    ">
+
+        <h4 style="
+            color: #c53030;
+            margin-top: 0;
+            font-size: 1.2em;
+        ">
+            ASK — What the Seller Wants
+        </h4>
+
+        <p>
+            The <strong>ask price</strong> is the lowest price
+            a seller is currently willing to accept.
+        </p>
+
+        <p style="
+            text-align: center;
+            font-size: 1.15em;
+            font-weight: bold;
+            color: #c53030;
+            margin-bottom: 0;
+        ">
+            "I am willing to SELL at NT$30,000."
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- LAPTOP EXAMPLE -->
+
+<h3 style="color: #2c5282; margin-top: 35px;">
+    Example: You Want to Buy a Laptop 💻
+</h3>
+
+<p>
+    Imagine that someone is selling a laptop in an online marketplace.
+</p>
+
+<p>
+    The seller says:
+</p>
+
+<div style="
+    background-color: #fff5f5;
+    border-left: 5px solid #e53e3e;
+    padding: 18px;
+    margin: 18px 0;
+    border-radius: 0 8px 8px 0;
+">
+
+    <strong style="color: #c53030;">
+        Seller:
+    </strong>
+
+    <span style="color: #4a5568;">
+        "I will sell my laptop for <strong>NT$30,000</strong>."
+    </span>
+
+</div>
+
+<p>
+    In stock-market language, <strong>NT$30,000 is the Ask</strong>.
+</p>
+
+
+<p>
+    But you do not want to pay that much.
+    You respond:
+</p>
+
+<div style="
+    background-color: #f0fff4;
+    border-left: 5px solid #38a169;
+    padding: 18px;
+    margin: 18px 0;
+    border-radius: 0 8px 8px 0;
+">
+
+    <strong style="color: #276749;">
+        Buyer:
+    </strong>
+
+    <span style="color: #4a5568;">
+        "I am willing to pay <strong>NT$28,000</strong>."
+    </span>
+
+</div>
+
+<p>
+    In stock-market language, <strong>NT$28,000 is the Bid</strong>.
+</p>
+
+
+<!-- NO TRADE YET -->
+
+<div style="
+    background-color: #fffaf0;
+    border: 1px solid #fbd38d;
+    padding: 22px;
+    margin: 25px 0;
+    border-radius: 10px;
+">
+
+    <h4 style="
+        color: #c05621;
+        margin-top: 0;
+    ">
+        No Trade Yet
+    </h4>
+
+    <p style="margin-bottom: 5px;">
+        Buyer is willing to pay:
+        <strong style="color: #276749;">NT$28,000</strong>
+    </p>
+
+    <p style="margin-bottom: 5px;">
+        Seller wants:
+        <strong style="color: #c53030;">NT$30,000</strong>
+    </p>
+
+    <p style="margin-bottom: 0;">
+        Because the two sides do not agree on price,
+        <strong>no transaction occurs yet</strong>.
+    </p>
+
+</div>
+
+
+<!-- SPREAD -->
+
+<h3>The Difference Between Bid and Ask: The Spread</h3>
+
+<p>
+    The difference between the best available Ask and the best available Bid
+    is called the <strong>Bid–Ask Spread</strong>.
+</p>
+
+<div style="
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 22px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 25px 0;
+">
+
+    <div style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        font-size: 1.1em;
+    ">
+
+        <div>
+            <span style="color: #276749; font-weight: bold;">
+                BID
+            </span><br>
+            NT$28,000
+        </div>
+
+        <div style="
+            font-size: 1.5em;
+            color: #718096;
+        ">
+            ↔
+        </div>
+
+        <div>
+            <span style="color: #c53030; font-weight: bold;">
+                ASK
+            </span><br>
+            NT$30,000
+        </div>
+
+    </div>
+
+    <p style="
+        margin-top: 20px;
+        margin-bottom: 0;
+        font-weight: bold;
+        color: #2c5282;
+    ">
+        Spread = NT$30,000 − NT$28,000 = NT$2,000
+    </p>
+
+</div>
+
+<p>
+    In real stock markets, the spread is usually much smaller than this
+    laptop example. We are using a large difference only to make the idea
+    easy to see.
+</p>
+
+
+<!-- HOW TRADE HAPPENS -->
+
+<h3>So When Does the Trade Actually Happen?</h3>
+
+<p>
+    A transaction occurs when a buyer and seller become willing
+    to trade at compatible prices.
+</p>
+
+<p>
+    Suppose the seller lowers the asking price:
+</p>
+
+<div style="
+    text-align: center;
+    padding: 18px;
+    background-color: #edf2f7;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-size: 1.05em;
+    line-height: 2;
+">
+
+    Seller initially asks:
+    <strong style="color: #c53030;">
+        NT$30,000
+    </strong>
+
+    <br>
+
+    ↓
+
+    <br>
+
+    Seller lowers Ask to:
+    <strong style="color: #c53030;">
+        NT$29,000
+    </strong>
+
+</div>
+
+<p>
+    At the same time, suppose you increase your offer:
+</p>
+
+<div style="
+    text-align: center;
+    padding: 18px;
+    background-color: #edf2f7;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-size: 1.05em;
+    line-height: 2;
+">
+
+    Buyer initially bids:
+    <strong style="color: #276749;">
+        NT$28,000
+    </strong>
+
+    <br>
+
+    ↓
+
+    <br>
+
+    Buyer increases Bid to:
+    <strong style="color: #276749;">
+        NT$29,000
+    </strong>
+
+</div>
+
+<p>
+    Now both sides agree on:
+</p>
+
+<p style="
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #2b6cb0;
+">
+    NT$29,000
+</p>
+
+<p>
+    The transaction can now occur.
+</p>
+
+<p>
+    After the transaction is completed,
+    <strong>NT$29,000 becomes the most recent traded price</strong>
+    in our simplified example.
+</p>
+
+
+<!-- STOCK MARKET VERSION -->
+
+<h3>Now Apply the Same Idea to a Stock 📈</h3>
+
+<p>
+    Suppose a stock currently has the following best prices:
+</p>
+
+<div style="
+    max-width: 520px;
+    margin: 25px auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+">
+
+    <div style="
+        background-color: #edf2f7;
+        padding: 12px;
+        text-align: center;
+        font-weight: bold;
+        color: #2d3748;
+    ">
+        Simplified Stock Quote
+    </div>
+
+    <div style="
+        display: flex;
+        text-align: center;
+    ">
+
+        <div style="
+            flex: 1;
+            padding: 22px;
+            background-color: #f0fff4;
+            border-right: 1px solid #e2e8f0;
+        ">
+
+            <div style="
+                color: #276749;
+                font-weight: bold;
+            ">
+                Best Bid
+            </div>
+
+            <div style="
+                font-size: 1.35em;
+                font-weight: bold;
+                margin-top: 5px;
+            ">
+                NT$99
+            </div>
+
+            <div style="
+                color: #718096;
+                font-size: 0.9em;
+                margin-top: 5px;
+            ">
+                Highest current buyer
+            </div>
+
+        </div>
+
+
+        <div style="
+            flex: 1;
+            padding: 22px;
+            background-color: #fff5f5;
+        ">
+
+            <div style="
+                color: #c53030;
+                font-weight: bold;
+            ">
+                Best Ask
+            </div>
+
+            <div style="
+                font-size: 1.35em;
+                font-weight: bold;
+                margin-top: 5px;
+            ">
+                NT$100
+            </div>
+
+            <div style="
+                color: #718096;
+                font-size: 0.9em;
+                margin-top: 5px;
+            ">
+                Lowest current seller
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<p>
+    This means:
+</p>
+
+<ul style="
+    padding-left: 30px;
+    list-style-type: disc;
+    line-height: 1.8;
+">
+
+    <li>
+        The most aggressive buyer is currently willing to pay
+        <strong>NT$99</strong>.
+    </li>
+
+    <li>
+        The most aggressive seller is currently willing to sell at
+        <strong>NT$100</strong>.
+    </li>
+
+    <li>
+        The Bid–Ask Spread is therefore
+        <strong>NT$1</strong>.
+    </li>
+
+</ul>
+
+
+<!-- IMPORTANT MARKET ORDER EXPLANATION -->
+
+<h3>What If You Want to Buy Immediately?</h3>
+
+<p>
+    Suppose the best Bid is NT$99 and the best Ask is NT$100,
+    but you do not want to wait.
+</p>
+
+<p>
+    You want the stock <strong>right now</strong>.
+</p>
+
+<p>
+    If you submit an appropriate marketable buy order,
+    you are effectively accepting the available seller's price.
+</p>
+
+<div style="
+    background-color: #ebf8ff;
+    border-left: 5px solid #4299e1;
+    padding: 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 25px 0;
+">
+
+    <strong style="color: #2b6cb0;">
+        Buyer wants immediate execution:
+    </strong>
+
+    <br><br>
+
+    Best Ask = <strong>NT$100</strong>
+
+    <br><br>
+
+    Therefore, if sufficient shares are available at that price,
+    the buyer may purchase at <strong>NT$100</strong>.
+
+</div>
+
+<p>
+    Similarly, if you already own the stock and want to sell immediately,
+    you may have to accept the current best Bid.
+</p>
+
+
+<!-- IMPORTANT DISTINCTION -->
+
+<h3>Bid, Ask, and Last Price Are Not the Same Thing</h3>
+
+<p>
+    This is a very important beginner distinction.
+</p>
+
+<div style="
+    overflow-x: auto;
+    margin: 25px 0;
+">
+
+<table style="
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+">
+
+    <thead>
+
+        <tr style="background-color: #edf2f7;">
+
+            <th style="
+                padding: 14px;
+                border: 1px solid #e2e8f0;
+            ">
+                Term
+            </th>
+
+            <th style="
+                padding: 14px;
+                border: 1px solid #e2e8f0;
+            ">
+                Meaning
+            </th>
+
+            <th style="
+                padding: 14px;
+                border: 1px solid #e2e8f0;
+            ">
+                Example
+            </th>
+
+        </tr>
+
+    </thead>
+
+
+    <tbody>
+
+        <tr>
+
+            <td style="
+                padding: 14px;
+                border: 1px solid #e2e8f0;
+                color: #276749;
+                font-weight: bold;
+            ">
+                Bid
+            </td>
+
+            <td style="
+                padding: 14px;
+                border: 1px solid #e2e8f0;
+            ">
+                Highest current price a buyer is willing to pay
+            </td>
+
+            <td style="
+                padding: 14px;
+                border: 1px solid #e2e8f0;
+            ">
+                NT$99
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td style="
+                padding: 14px;
+                border: 1px solid #e2e8f0;
+                color: #c53030;
+                font-weight: bold;
+            ">
+                Ask
+            </td>
+
+            <td style="
+                padding: 14px;
+                border: 1px solid #e2e8f0;
+            ">
+                Lowest current price a seller is willing to accept
+            </td>
+
+            <td style="
+                padding: 14px;
+                border: 1px solid #e2e8f0;
+            ">
+                NT$100
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td style="
+                padding: 14px;
+                border: 1px solid #e2e8f0;
+                color: #2b6cb0;
+                font-weight: bold;
+            ">
+                Last Price
+            </td>
+
+            <td style="
+                padding: 14px;
+                border: 1px solid #e2e8f0;
+            ">
+                Price of the most recently completed transaction
+            </td>
+
+            <td style="
+                padding: 14px;
+                border: 1px solid #e2e8f0;
+            ">
+                e.g. NT$99.50
+            </td>
+
+        </tr>
+
+    </tbody>
+
+</table>
+
+</div>
+
+
+<!-- FINAL KEY IDEA -->
+
+<div style="
+    background-color: #e6fffa;
+    border-left: 5px solid #319795;
+    padding: 20px;
+    margin: 30px 0;
+    border-radius: 0 10px 10px 0;
+">
+
+    <h4 style="
+        color: #285e61;
+        margin-top: 0;
+    ">
+        Key Idea to Remember
+    </h4>
+
+    <p style="margin-bottom: 8px;">
+        <strong>Bid:</strong>
+        "What buyers are currently willing to pay."
+    </p>
+
+    <p style="margin-bottom: 8px;">
+        <strong>Ask:</strong>
+        "What sellers are currently willing to accept."
+    </p>
+
+    <p style="margin-bottom: 8px;">
+        <strong>Spread:</strong>
+        "The difference between the best Ask and best Bid."
+    </p>
+
+    <p style="margin-bottom: 0;">
+        <strong>Last Price:</strong>
+        "The price at which the most recent trade actually occurred."
+    </p>
+
+</div>
+    
+
+
+    <!-- =====================================================
+         WHAT DO YOU OWN
+    ====================================================== -->
+
+    <h3>What Do You Actually Own After Buying a Share?</h3>
+
+    <p>
+        This deserves special attention because it is often misunderstood.
+    </p>
+
+    <p>
+        Suppose you buy shares of a giant semiconductor company.
+    </p>
+
+    <p>
+        You cannot walk into one of its factories and say:
+    </p>
+
+    <p style="
+        text-align: center;
+        font-style: italic;
+        font-size: 1.1em;
+        background: #f7fafc;
+        padding: 15px;
+        border-radius: 8px;">
+
+        "Excuse me, I own shares. That machine in the corner is now mine."
+        &#128526;
+
+    </p>
+
+    <p>
+        Security will probably have a slightly different interpretation
+        of your ownership.
+    </p>
+
+    <p>
+        Owning shares means you have an
+        <strong>equity interest in the corporation</strong>.
+    </p>
+
+    <p>
+        Depending on the type and class of shares, shareholders may have
+        economic and governance rights such as:
+    </p>
+
+    <ul style="padding-left: 30px; list-style-type: disc;">
+
+        <li>participating in changes in the company's value,</li>
+
+        <li>
+            receiving dividends when the company declares and distributes them,
+        </li>
+
+        <li>
+            voting on certain corporate matters when voting rights apply.
+        </li>
+
+    </ul>
+
+    <p>
+        However, you do <strong>not</strong> personally own a particular desk,
+        factory machine, laptop, building, or coffee machine belonging to the company.
+    </p>
+
+    <p>
+        The corporation owns those assets.
+    </p>
+
+    <p>
+        <strong>You own shares in the corporation.</strong>
+    </p>
+
+
+    <!-- =====================================================
+         HOW DO YOU MAKE MONEY
+    ====================================================== -->
+
+    <h3>Why Would Anyone Want to Own a Stock?</h3>
+
+    <p>
+        Suppose Happy Bubble Tea becomes enormously successful.
+    </p>
+
+    <p>
+        It starts with 5 stores.
+    </p>
+
+    <p>
+        A few years later, it has 500.
+    </p>
+
+    <p>
+        Revenue increases.
+        Profits increase.
+        Customers love the brand.
+    </p>
+
+    <p>
+        Investors may now believe the business is worth considerably more
+        than it was previously.
+    </p>
+
+    <p>
+        Imagine you purchased shares when the market price was:
+    </p>
+
+    <p style="text-align: center; font-size: 1.2em;">
+        <strong>NT$20 per share</strong>
+    </p>
+
+    <p>
+        You purchased:
+    </p>
+
+    <p style="text-align: center;">
+        <strong>100 shares</strong>
+    </p>
+
+    <p>
+        Your initial investment was therefore:
+    </p>
+
+    <div style="
+        text-align: center;
+        background-color: #f8fafc;
+        padding: 18px;
+        border-radius: 8px;
+        margin: 15px 0;">
+
+        \[
+        100 \times NT\$20 = NT\$2,000
+        \]
+
+    </div>
+
+    <p>
+        Later, suppose the market price rises to:
+    </p>
+
+    <p style="text-align: center;">
+        <strong>NT$30 per share</strong>
+    </p>
+
+    <p>
+        Your 100 shares are now worth:
+    </p>
+
+    <div style="
+        text-align: center;
+        background-color: #f0fff4;
+        padding: 18px;
+        border-radius: 8px;
+        margin: 15px 0;">
+
+        \[
+        100 \times NT\$30 = NT\$3,000
+        \]
+
+    </div>
+
+    <p>
+        The increase in value is:
+    </p>
+
+    <div style="
+        text-align: center;
+        background-color: #f0fff4;
+        padding: 18px;
+        border-radius: 8px;
+        margin: 15px 0;">
+
+        \[
+        NT\$3,000 - NT\$2,000 = NT\$1,000
+        \]
+
+        \[
+        \text{Percentage Increase}
+        =
+        \frac{1,000}{2,000}
+        \times100
+        =
+        50\%
+        \]
+
+    </div>
+
+    <p>
+        Nice.
+    </p>
+
+    <p style="text-align: center; font-size: 1.1em;">
+        You may now be thinking:
+        <strong>"Okay... where has this stock market been all my life?" &#128514;</strong>
+    </p>
+
+    <p>
+        But don't celebrate yet.
+    </p>
+
+    <p>
+        The exact opposite can happen.
+    </p>
+
+
+    <!-- =====================================================
+         LOSING MONEY
+    ====================================================== -->
+
+    <h3>Stocks Can Also Lose Value</h3>
+
+    <p>
+        Suppose Happy Bubble Tea starts having problems.
+    </p>
+
+    <ul style="padding-left: 30px; list-style-type: disc;">
+
+        <li>Customers stop visiting.</li>
+        <li>A competitor becomes more popular.</li>
+        <li>Costs increase.</li>
+        <li>Management makes poor decisions.</li>
+        <li>Profit falls.</li>
+
+    </ul>
+
+    <p>
+        Investors may become pessimistic about the company's future.
+    </p>
+
+    <p>
+        The share price may fall from:
+    </p>
+
+    <p style="
+        text-align: center;
+        font-size: 1.3em;
+        color: #c53030;
+        font-weight: bold;">
+
+        NT$20 &rarr; NT$15
+
+    </p>
+
+    <p>
+        Your 100 shares would now be worth:
+    </p>
+
+    <div style="
+        text-align: center;
+        background-color: #fff5f5;
+        padding: 18px;
+        border-radius: 8px;">
+
+        \[
+        100 \times NT\$15 = NT\$1,500
+        \]
+
+    </div>
+
+    <p>
+        Compared with your original NT$2,000 investment,
+        the position has fallen by:
+    </p>
+
+    <div style="
+        text-align: center;
+        background-color: #fff5f5;
+        padding: 18px;
+        border-radius: 8px;">
+
+        \[
+        NT\$2,000 - NT\$1,500 = NT\$500
+        \]
+
+    </div>
+
+    <p style="
+        font-size: 1.1em;
+        text-align: center;
+        background-color: #fff5f5;
+        border-left: 5px solid #e53e3e;
+        padding: 15px;
+        border-radius: 8px;
+        font-weight: bold;
+        color: #9b2c2c;">
+
+        A stock can rise, fall, or remain almost unchanged.
+        Profit is never guaranteed.
+
+    </p>
+
+    <p>
+        If somebody tells you:
+    </p>
+
+    <p style="text-align: center;">
+        <strong>"This stock will definitely go up."</strong>
+    </p>
+
+    <p>
+        your beginner brain should already activate its first financial-defense mechanism:
+    </p>
+
+    <p style="
+        text-align: center;
+        font-size: 1.3em;
+        font-weight: bold;">
+
+        "How do you know?" &#129300;
+
+    </p>
+
+
+    <!-- =====================================================
+         WHY PRICE MOVES
+    ====================================================== -->
+
+    <h3>But Why Does the Stock Price Move?</h3>
+
+    <p>
+        Excellent question.
+    </p>
+
+    <p>
+        We will study price movement properly in later chapters,
+        but let us introduce the idea now.
+    </p>
+
+    <p>
+        Suppose Happy Bubble Tea announces:
+    </p>
+
+    <div style="
+        background-color: #f0fff4;
+        border-left: 5px solid #38a169;
+        padding: 20px;
+        margin: 20px 0;">
+
+        <strong>
+            "Our profit increased by 80% this year,
+            and we are opening 100 new stores!"
+        </strong>
+
+    </div>
+
+    <p>
+        Many investors may become optimistic.
+    </p>
+
+    <p>
+        Suddenly, more people want to buy the shares.
+    </p>
+
+    <p>
+        Imagine the conversation:
+    </p>
+
+    <div style="
+        background-color: #edf2f7;
+        padding: 20px;
+        border-radius: 10px;
+        line-height: 2;">
+
+        <strong>Buyer A:</strong> "I'll pay NT$20."<br>
+
+        <strong>Buyer B:</strong> "I'll pay NT$20.50."<br>
+
+        <strong>Buyer C:</strong> "Give it to me at NT$21!"<br>
+
+        <strong>Buyer D:</strong> "NT$22!"
+
+    </div>
+
+    <p style="margin-top: 20px;">
+        As buyers compete for available shares, the transaction price can move upward.
+    </p>
+
+    <p>
+        Now imagine the opposite announcement:
+    </p>
+
+    <div style="
+        background-color: #fff5f5;
+        border-left: 5px solid #e53e3e;
+        padding: 20px;
+        margin: 20px 0;">
+
+        <strong>
+            "Profit dropped 70%, the company has serious debt problems,
+            and 50 stores will close."
+        </strong>
+
+    </div>
+
+    <p>
+        Investors may become worried.
+        Many people may try to sell.
+    </p>
+
+    <p>
+        If sellers greatly outnumber interested buyers,
+        sellers may need to accept progressively lower prices.
+    </p>
+
+    <p>
+        The stock price can therefore fall.
+    </p>
+
+    <div style="
+        font-size: 1.1em;
+        text-align: center;
+        background-color: #ebf4ff;
+        padding: 20px;
+        margin: 25px 0;
+        border-radius: 8px;
+        color: #2b6cb0;
+        font-weight: bold;">
+
+        Company Information
+        &rarr;
+        Investor Expectations
+        &rarr;
+        Buy/Sell Decisions
+        &rarr;
+        Price Movement
+
+    </div>
+
+    <p>
+        Real financial markets are considerably more complicated than this.
+    </p>
+
+    <p>
+        Prices can also be influenced by:
+    </p>
+
+    <ul style="padding-left: 30px; list-style-type: disc;">
+
+        <li>interest rates,</li>
+        <li>inflation,</li>
+        <li>economic growth,</li>
+        <li>industry conditions,</li>
+        <li>government policies,</li>
+        <li>global events,</li>
+        <li>institutional investors,</li>
+        <li>algorithmic trading,</li>
+        <li>fear and greed,</li>
+        <li>and expectations about the future.</li>
+
+    </ul>
+
+    <p>
+        But this simplified model is where your intuition should begin.
+    </p>
+
+
+    <!-- FIGURE 1.2 -->
+
+    <figure style="text-align: center; margin-top: 1.5rem; margin-bottom: 2rem;">
+
+        <img src="stock_image_1.2.png"
+             alt="Illustration showing buyers and sellers competing and influencing the stock price"
+             style="
+                max-width: 80%;
+                height: auto;
+                border: 2px solid var(--accent);
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+
+        <figcaption style="
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+            font-style: italic;">
+
+            <strong>Figure 1.2:</strong>
+            A simplified view of price discovery.
+            Stock prices emerge from continuous interaction between buyers and sellers.
+
+        </figcaption>
+
+    </figure>
+
+
+    <!-- =====================================================
+         COMPANY VS STOCK PRICE
+    ====================================================== -->
+
+    <h3>Company &ne; Stock Price</h3>
+
+    <p>
+        This is another concept that will become extremely important later.
+    </p>
+
+    <p>
+        The <strong>company</strong> and its <strong>stock price</strong>
+        are related, but they are not identical things.
+    </p>
+
+    <div style="
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 25px 0;">
+
+        <div style="
+            flex: 1;
+            min-width: 270px;
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;">
+
+            <h4 style="color: #2c5282;">
+                The Company &#127970;
+            </h4>
+
+            <ul style="padding-left: 20px; list-style-type: disc;">
+
+                <li>employees</li>
+                <li>factories</li>
+                <li>products</li>
+                <li>technology</li>
+                <li>customers</li>
+                <li>revenue</li>
+                <li>expenses</li>
+                <li>debt</li>
+                <li>cash</li>
+                <li>profits</li>
+
+            </ul>
+
+        </div>
+
+        <div style="
+            flex: 1;
+            min-width: 270px;
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 10px;">
+
+            <h4 style="color: #2c5282;">
+                The Stock Price &#128200;
+            </h4>
+
+            <p>
+                The market price represents what market participants
+                are currently willing to pay and accept for ownership
+                in the company.
+            </p>
+
+        </div>
+
+    </div>
+
+    <p>
+        Sometimes investors become extremely optimistic.
+        The stock price may rise much faster than the underlying business improves.
+    </p>
+
+    <p>
+        Sometimes investors become frightened.
+        The stock price may fall even though the company remains profitable.
+    </p>
+
+    <p>
+        Therefore, we should never automatically think:
+    </p>
+
+    <p style="text-align: center;">
+        <strong>"Price went up = company is definitely good."</strong>
+    </p>
+
+    <p style="text-align: center;">
+        or
+    </p>
+
+    <p style="text-align: center;">
+        <strong>"Price went down = company is definitely bad."</strong>
+    </p>
+
+    <p>
+        Later, we will learn how investors study the
+        <strong>business</strong> through fundamental analysis
+        and how traders study <strong>price behavior</strong>
+        through technical analysis.
+    </p>
+
+
+    <!-- =====================================================
+         INVESTOR VS TRADER
+    ====================================================== -->
+
+    <h3>Investor vs Trader: Are They the Same?</h3>
+
+    <p>
+        You will encounter these two words repeatedly.
+    </p>
+
+    <div style="
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 25px 0;">
+
+        <div style="
+            flex: 1;
+            min-width: 280px;
+            background-color: #f0fff4;
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 5px solid #38a169;">
+
+            <h4 style="color: #2f855a;">
+                &#128200; Investor
+            </h4>
+
+            <p>
+                An investor generally focuses more on the business
+                and often holds assets for a longer period.
+            </p>
+
+            <p><strong>Typical questions:</strong></p>
+
+            <ul style="padding-left: 20px; list-style-type: disc;">
+
+                <li>Is the company profitable?</li>
+                <li>Is revenue growing?</li>
+                <li>Does it have too much debt?</li>
+                <li>Does it have a competitive advantage?</li>
+                <li>Is its current valuation reasonable?</li>
+                <li>Where could the company be in five or ten years?</li>
+
+            </ul>
+
+        </div>
+
+        <div style="
+            flex: 1;
+            min-width: 280px;
+            background-color: #ebf8ff;
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 5px solid #4299e1;">
+
+            <h4 style="color: #2b6cb0;">
+                &#128202; Trader
+            </h4>
+
+            <p>
+                A trader generally focuses more on price movement,
+                market structure, timing, and risk.
+            </p>
+
+            <p><strong>Typical questions:</strong></p>
+
+            <ul style="padding-left: 20px; list-style-type: disc;">
+
+                <li>Is the price trending upward?</li>
+                <li>Where is support?</li>
+                <li>Where is resistance?</li>
+                <li>Is volume increasing?</li>
+                <li>Where should I enter?</li>
+                <li>Where should I exit?</li>
+                <li>How much should I risk?</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <p>
+        The distinction is not absolute.
+        Some people invest and trade at the same time,
+        and some strategies fall somewhere between the two.
+    </p>
+
+    <p>
+        This tutorial will introduce you to
+        <strong>both ways of thinking</strong>.
+    </p>
+
+
+    <!-- =====================================================
+         BROKER
+    ====================================================== -->
+
+    <h3>Where Does the Broker Fit In?</h3>
+
+    <p>
+        You normally cannot simply walk into a stock exchange holding NT$10,000 and announce:
+    </p>
+
+    <p style="
+        text-align: center;
+        font-size: 1.1em;
+        font-style: italic;">
+
+        "Hello, one stock please." &#128518;
+
+    </p>
+
+    <p>
+        Individual investors generally access the market through
+        a <strong>brokerage company</strong>.
+    </p>
+
+    <div style="
+        text-align: center;
+        background-color: #edf2f7;
+        padding: 25px;
+        border-radius: 10px;
+        margin: 25px 0;
+        font-size: 1.1em;
+        font-weight: bold;">
+
+        You &#128105;&#8205;&#128187;
+        &nbsp; &rarr; &nbsp;
+        Broker &#128241;
+        &nbsp; &rarr; &nbsp;
+        Stock Exchange &#127963;&#65039;
+        &nbsp; &rarr; &nbsp;
+        Market
+
+    </div>
+
+    <p>
+        You open an account with a broker.
+    </p>
+
+    <p>
+        You submit an order.
+    </p>
+
+    <p>
+        The broker routes the order into the relevant market infrastructure.
+    </p>
+
+    <p>
+        Compatible buying and selling orders may then be matched.
+    </p>
+
+    <p style="
+        text-align: center;
+        background-color: #e6fffa;
+        padding: 15px;
+        border-radius: 8px;
+        font-weight: bold;
+        color: #285e61;">
+
+        The exchange is the marketplace;
+        the broker is your gateway to it.
+
+    </p>
+
+
+    <!-- FIGURE 1.3 -->
+
+    <figure style="text-align: center; margin-top: 1.5rem; margin-bottom: 2rem;">
+
+        <img src="stock_image_1.3.png"
+             alt="Flow chart showing investor, broker, stock exchange, buyers and sellers"
+             style="
+                max-width: 80%;
+                height: auto;
+                border: 2px solid var(--accent);
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+
+        <figcaption style="
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-top: 12px;
+            font-style: italic;">
+
+            <strong>Figure 1.3:</strong>
+            A simplified trading pathway.
+            Investors generally access the stock exchange through a brokerage platform.
+
+        </figcaption>
+
+    </figure>
+
+
+    <!-- =====================================================
+         COMPLETE EXAMPLE
+    ====================================================== -->
+
+    <h3>Your First Complete Stock-Market Example</h3>
+
+    <div style="
+        background-color: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 25px;
+        margin: 20px 0;">
+
+        <p>
+            <strong>Company:</strong>
+            Happy Bubble Tea Ltd. &#129483;
+        </p>
+
+        <p>
+            <strong>Total shares:</strong>
+            1,000,000
+        </p>
+
+        <p>
+            <strong>You buy:</strong>
+            10,000 shares
+        </p>
+
+        <p>
+            Your simplified ownership percentage is:
+        </p>
+
+        \[
+        \frac{10,000}{1,000,000}
+        \times100
+        =
+        1\%
+        \]
+
+        <p>
+            Suppose the share price is:
+            <strong>NT$20</strong>.
+        </p>
+
+        <p>
+            Amount invested:
+        </p>
+
+        \[
+        10,000 \times NT\$20
+        =
+        NT\$200,000
+        \]
+
+        <p>
+            Later, the market price becomes:
+            <strong>NT$25</strong>.
+        </p>
+
+        <p>
+            Your shares are now worth:
+        </p>
+
+        \[
+        10,000 \times NT\$25
+        =
+        NT\$250,000
+        \]
+
+        <p>
+            The increase in value is:
+        </p>
+
+        \[
+        NT\$250,000-NT\$200,000
+        =
+        NT\$50,000
+        \]
+
+        <p>
+            Percentage increase:
+        </p>
+
+        \[
+        \frac{50,000}{200,000}
+        \times100
+        =
+        25\%
+        \]
+
+    </div>
+
+    <p>
+        But remember: you have not discovered a money-printing machine.
+    </p>
+
+    <p>
+        If the stock price had instead fallen to NT$15,
+        your position would have decreased in value by NT$50,000
+        relative to the purchase price.
+    </p>
+
+    <p style="
+        text-align: center;
+        font-size: 1.15em;
+        font-weight: bold;
+        padding: 15px;
+        background-color: #fffaf0;
+        color: #975a16;
+        border-radius: 8px;">
+
+        Return and risk always travel together.
+
+    </p>
+
+
+    <!-- =====================================================
+         BEGINNER MINDSET
+    ====================================================== -->
+
+    <h3>A Very Important Beginner Mindset</h3>
+
+    <p>
+        At this stage, your goal should <strong>not</strong> be:
+    </p>
+
+    <p style="
+        text-align: center;
+        font-size: 1.15em;
+        color: #c53030;
+        font-weight: bold;">
+
+        "Which stock should I buy tomorrow?"
+
+    </p>
+
+    <p>
+        That question comes too early.
+    </p>
+
+    <p>
+        Your first questions should be:
+    </p>
+
+    <div style="
+        background-color: #edf2f7;
+        padding: 20px;
+        border-radius: 10px;
+        line-height: 2;">
+
+        <strong>1.</strong> What am I buying?<br>
+
+        <strong>2.</strong> Why does it have value?<br>
+
+        <strong>3.</strong> Why would somebody want to buy it from me?<br>
+
+        <strong>4.</strong> Why might its price increase or decrease?<br>
+
+        <strong>5.</strong> How much could I lose if my assumption is wrong?
+
+    </div>
+
+    <p style="margin-top: 20px;">
+        People often enter the stock market obsessed with predicting
+        what will go up.
+    </p>
+
+    <p>
+        Risk-aware thinking starts from another question:
+    </p>
+
+    <p style="
+        text-align: center;
+        font-size: 1.3em;
+        font-weight: bold;
+        color: #2b6cb0;">
+
+        "What happens if I am wrong?"
+
+    </p>
+
+    <p>
+        We will return to this question throughout the course.
+    </p>
+
+
+    <!-- =====================================================
+         QUICK SUMMARY
+    ====================================================== -->
+
+    <h3>Quick Summary</h3>
+
+    <ul style="padding-left: 30px; list-style-type: disc; line-height: 1.8;">
+
+        <li>
+            A <strong>company</strong> can divide its ownership into shares.
+        </li>
+
+        <li>
+            A <strong>share</strong> represents an ownership interest
+            in a corporation.
+        </li>
+
+        <li>
+            The <strong>stock market</strong> provides an organized system
+            where securities can be bought and sold.
+        </li>
+
+        <li>
+            A <strong>broker</strong> provides investors with access
+            to the market.
+        </li>
+
+        <li>
+            Stock prices change because buyers and sellers continuously
+            reassess what they are willing to pay or accept.
+        </li>
+
+        <li>
+            A rising stock can create gains,
+            while a falling stock can create losses.
+        </li>
+
+        <li>
+            The <strong>business itself</strong> and its
+            <strong>stock price</strong> are related,
+            but they are not the same thing.
+        </li>
+
+        <li>
+            Investors and traders may focus on different time horizons
+            and different information.
+        </li>
+
+        <li>
+            No stock is guaranteed to rise.
+        </li>
+
+        <li>
+            Learning to control losses is eventually just as important
+            as learning to identify opportunities.
+        </li>
+
+    </ul>
+
+
+    <!-- =====================================================
+         Q&A SECTION
+    ====================================================== -->
+
+    <div class="qa-box">
+
+        <h3>
+            Questions that may come to your mind...
+            five minutes after saying "Okay, I understand stocks." &#128517;
+        </h3>
+
+
+        <!-- QUESTION 1 -->
+
+        <details class="qa-item">
+
+            <summary>
+                Q1: If I buy one share, am I really an owner of the company?
+            </summary>
+
+            <div class="qa-answer">
+
+                <p>
+                    Yes. A share represents an equity interest in the corporation,
+                    although your ownership may be extremely small.
+                </p>
+
+                <p>
+                    Your exact rights depend on the type and class of shares
+                    and the applicable corporate rules.
+                </p>
+
+                <p style="margin-bottom: 0;">
+                    However, owning one share does not mean you personally own
+                    a particular factory, machine, desk, or office chair
+                    belonging to the company.
+                </p>
+
+            </div>
+
+        </details>
+
+
+        <!-- QUESTION 2 -->
+
+        <details class="qa-item">
+
+            <summary>
+                Q2: If I own 1% of a company, can I take 1% of its yearly profit?
+            </summary>
+
+            <div class="qa-answer">
+
+                <p>
+                    Not directly.
+                </p>
+
+                <p>
+                    The company's profits belong to the corporation.
+                    Management and the board may decide how earnings are used.
+                </p>
+
+                <p>
+                    For example, the company may:
+                </p>
+
+                <ul style="padding-left: 20px; list-style-type: disc;">
+
+                    <li>reinvest in the business,</li>
+                    <li>build new factories,</li>
+                    <li>reduce debt,</li>
+                    <li>hold additional cash,</li>
+                    <li>or distribute part of the earnings as dividends.</li>
+
+                </ul>
+
+                <p style="margin-bottom: 0;">
+                    Owning shares does not mean you can walk into the accounting
+                    department and request your personal 1% envelope. &#128518;
+                </p>
+
+            </div>
+
+        </details>
+
+
+        <!-- QUESTION 3 -->
+
+        <details class="qa-item">
+
+            <summary>
+                Q3: If a company is making a lot of profit,
+                will its stock definitely rise?
+            </summary>
+
+            <div class="qa-answer">
+
+                <p>
+                    No.
+                </p>
+
+                <p>
+                    Financial markets care not only about current results,
+                    but also about <strong>expectations</strong>.
+                </p>
+
+                <p>
+                    Imagine investors expected the company's profit
+                    to increase by 100%, but the company reports
+                    an increase of only 30%.
+                </p>
+
+                <p>
+                    A 30% increase may sound excellent.
+                    However, the stock could still fall because
+                    the result disappointed market expectations.
+                </p>
+
+                <p style="
+                    background-color: #edf2f7;
+                    padding: 12px;
+                    border-radius: 8px;
+                    font-weight: bold;
+                    margin-bottom: 0;">
+
+                    Markets often react to the difference between
+                    reality and expectation, not simply to whether
+                    the news sounds good or bad.
+
+                </p>
+
+            </div>
+
+        </details>
+
+
+        <!-- QUESTION 4 -->
+
+        <details class="qa-item">
+
+            <summary>
+                Q4: If my stock price falls, have I immediately lost the money?
+            </summary>
+
+            <div class="qa-answer">
+
+                <p>
+                    The market value of your position has decreased.
+                </p>
+
+                <p>
+                    If you have not sold the shares,
+                    this decrease is commonly described as an
+                    <strong>unrealized loss</strong>.
+                </p>
+
+                <p>
+                    If you sell below your purchase price,
+                    the loss becomes <strong>realized</strong>.
+                </p>
+
+                <p style="margin-bottom: 0;">
+                    However, beginners should be careful with the sentence
+                    <em>"I haven't sold, so I haven't lost anything."</em>
+                    The investment has still decreased in current market value
+                    and should be evaluated rationally.
+                </p>
+
+            </div>
+
+        </details>
+
+
+        <!-- QUESTION 5 -->
+
+        <details class="qa-item">
+
+            <summary>
+                Q5: Is the stock market basically gambling?
+            </summary>
+
+            <div class="qa-answer">
+
+                <p>
+                    It can certainly be used like gambling.
+                </p>
+
+                <p>
+                    Buying random stocks because someone on social media
+                    writes:
+                </p>
+
+                <p style="text-align: center;">
+                    <strong>
+                        "BUY NOW!!! &#128640;&#128640;&#128640; TO THE MOON!"
+                    </strong>
+                </p>
+
+                <p>
+                    without understanding the company, valuation,
+                    strategy, or risk can resemble gambling very closely.
+                </p>
+
+                <p>
+                    A disciplined investor or trader instead uses:
+                </p>
+
+                <ul style="padding-left: 20px; list-style-type: disc;">
+
+                    <li>research,</li>
+                    <li>predefined rules,</li>
+                    <li>risk management,</li>
+                    <li>position sizing,</li>
+                    <li>diversification where appropriate,</li>
+                    <li>and a repeatable decision process.</li>
+
+                </ul>
+
+                <p style="margin-bottom: 0;">
+                    Uncertainty exists in both cases.
+                    The difference lies largely in
+                    <strong>how that uncertainty is managed</strong>.
+                </p>
+
+            </div>
+
+        </details>
+
+
+        <!-- QUESTION 6 -->
+
+        <details class="qa-item">
+
+            <summary>
+                Q6: Can I become rich quickly through stocks?
+            </summary>
+
+            <div class="qa-answer">
+
+                <p>
+                    Someone can make a very large return over a short period,
+                    but achieving unusually large returns usually involves
+                    taking unusually large risks.
+                </p>
+
+                <p>
+                    Therefore, this course is not built around the question:
+                </p>
+
+                <p style="text-align: center;">
+                    <strong>
+                        "How do I turn NT$10,000 into NT$1,000,000 next month?"
+                    </strong>
+                </p>
+
+                <p>
+                    Instead, it is built around:
+                </p>
+
+                <p style="
+                    text-align: center;
+                    background-color: #f0fff4;
+                    padding: 12px;
+                    border-radius: 8px;
+                    color: #276749;
+                    font-weight: bold;
+                    margin-bottom: 0;">
+
+                    "How do financial markets work,
+                    how do I make rational decisions,
+                    and how do I protect my capital while learning?"
+
+                </p>
+
+            </div>
+
+        </details>
+
+    </div>
+
+
+    <!-- =====================================================
+         END OF CHAPTER QUIZ
+    ====================================================== -->
+
+    <div style="
+        margin-top: 35px;
+        background-color: #fffaf0;
+        border: 1px solid #f6ad55;
+        padding: 25px;
+        border-radius: 12px;">
+
+        <h3 style="
+            color: #c05621;
+            margin-top: 0;
+            border-bottom: 2px solid #fbd38d;
+            padding-bottom: 10px;">
+
+            &#129504; Before Moving to Chapter 2
+
+        </h3>
+
+        <p>
+            Try answering these questions
+            <strong>without looking back at the chapter</strong>.
+        </p>
+
+        <ol style="
+            padding-left: 30px;
+            color: #4a5568;
+            line-height: 2;">
+
+            <li>
+                What is a share?
+            </li>
+
+            <li>
+                What is the difference between a company
+                and its stock price?
+            </li>
+
+            <li>
+                A company has 500,000 shares and you own 5,000.
+                Approximately what percentage of the shares do you own?
+            </li>
+
+            <li>
+                You buy 100 shares at NT$40.
+                The price rises to NT$46.
+                Ignoring fees and taxes,
+                how much has your position increased in value?
+            </li>
+
+            <li>
+                Why can positive company news sometimes
+                still cause a stock price to fall?
+            </li>
+
+            <li>
+                What is the difference between a stock exchange
+                and a broker?
+            </li>
+
+        </ol>
+
+        <p style="
+            margin-top: 20px;
+            margin-bottom: 0;
+            font-weight: bold;
+            color: #975a16;">
+
+            If you can explain all six answers in your own words,
+            you are ready for Chapter 2.
+
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         NEXT CHAPTER BUTTON
+    ====================================================== -->
+
+    <div style="text-align: center; margin-top: 35px;">
+
+        <a onclick="showContent('sec2');"
+           style="
+                background-color: #2b6cb0;
+                color: white;
+                padding: 12px 24px;
+                text-decoration: none;
+                border-radius: 5px;
+                font-weight: bold;
+                display: inline-block;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                cursor: pointer;
+                font-size: 1.1em;">
+
+            Continue to Chapter 2:
+            Why Do Companies Issue Shares? &rarr;
+
+        </a>
+
+    </div>
+
+</section>
+
+<section id="sec2" class="tutorial-card">
+<h2>2. Why Do Companies Issue Shares?</h2>
+<p>Companies need capital to grow. They may use money to build factories, hire employees, develop products, acquire businesses or strengthen their finances. One way to raise capital is by selling ownership to investors.
+
+Investors participate because they hope the business will become more valuable, distribute dividends, or both. That expectation is not guaranteed, which is why investing always involves risk.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec1')">← Previous</button><button onclick="showContent('sec3')">Next →</button></div>
+</section>
+
+<section id="sec3" class="tutorial-card">
+<h2>3. How Investors Make — and Lose — Money</h2>
+<p>The simplest source of return is a change in price. If you buy at NT$100 and later sell at NT$120, the gross price gain is NT$20 per share. If the price falls to NT$80, the position has lost NT$20 per share before fees and taxes.
+
+Some companies also distribute <strong>dividends</strong>. Total return therefore can include both price change and cash distributions.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Buy 100 shares at NT$50: cost NT$5,000. If price becomes NT$60, the position value is NT$6,000 before costs.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec2')">← Previous</button><button onclick="showContent('sec4')">Next →</button></div>
+</section>
+
+<section id="sec4" class="tutorial-card">
+<h2>4. Exchange, Broker and Trading Account</h2>
+<p>The exchange organizes the market; the broker connects your account to it. You normally place an order through a brokerage app or platform, and the broker routes the order according to market rules.
+
+Think of the exchange as a giant organized marketplace and the broker as your authorized doorway into that marketplace.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec3')">← Previous</button><button onclick="showContent('sec5')">Next →</button></div>
+</section>
+
+<section id="sec5" class="tutorial-card">
+<h2>5. Ticker Symbols and Stock Quotes</h2>
+<p>Listed securities have identifiers or ticker symbols. A quote commonly displays the latest price, previous close, daily high and low, volume, bid and ask information.
+
+Do not treat the latest price as a complete description of a company. It is simply the most recent price at which the market transacted.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec4')">← Previous</button><button onclick="showContent('sec6')">Next →</button></div>
+</section>
+
+<section id="sec6" class="tutorial-card">
+<h2>6. Bid, Ask and the Order Book</h2>
+<p>The <strong>bid</strong> is a price buyers are offering. The <strong>ask</strong> is a price sellers are requesting. The difference between them is the bid–ask spread.
+
+An order book is like two queues facing each other: buyers line up with prices they will pay, while sellers line up with prices they will accept. Trades occur when compatible orders meet.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>If buyers offer 99 and sellers ask 100, what do the two prices represent?</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec5')">← Previous</button><button onclick="showContent('sec7')">Next →</button></div>
+</section>
+
+<section id="sec7" class="tutorial-card">
+<h2>7. Market Orders and Limit Orders</h2>
+<p>A market order prioritizes execution, while a limit order gives you control over the maximum buying price or minimum selling price. In fast markets, execution price can differ from the price you saw moments earlier.
+
+A beginner should understand the order before pressing Buy or Sell. Never assume every order behaves the same way.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec6')">← Previous</button><button onclick="showContent('sec8')">Next →</button></div>
+</section>
+
+<section id="sec8" class="tutorial-card">
+<h2>8. Trading Sessions, Lots and Settlement</h2>
+<p>Every exchange has rules governing trading hours, order sizes, price increments and settlement. These details can change and differ between markets.
+
+For Taiwan trading, we will keep a dedicated “local rules” checklist in this course and verify current rules from official sources before using real money.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec7')">← Previous</button><button onclick="showContent('sec9')">Next →</button></div>
+</section>
+
+<section id="sec9" class="tutorial-card">
+<h2>9. Your First Stock Chart</h2>
+<p>A chart places <strong>time</strong> on the horizontal axis and <strong>price</strong> on the vertical axis. A line chart is useful for a quick overview, while candlestick charts reveal more information about each period.
+
+The timeframe changes the story. A five-minute chart can look chaotic while the same stock may have a clear trend on a weekly chart.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec8')">← Previous</button><button onclick="showContent('sec10')">Next →</button></div>
+</section>
+
+<section id="sec10" class="tutorial-card">
+<h2>10. Candlesticks: Open, High, Low, Close</h2>
+<p>Each candle summarizes four values: <strong>Open, High, Low and Close (OHLC)</strong>. The body shows the relationship between open and close; the wicks show the extremes reached during the period.
+
+Candlesticks are a compact language for price action, but one candle should never be treated as a magical prediction.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Open 100, High 108, Low 97, Close 106. The candle closed above its open, while the wick tells you price also visited 97 and 108.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec9')">← Previous</button><button onclick="showContent('sec11')">Next →</button></div>
+</section>
+
+<section id="sec11" class="tutorial-card">
+<h2>11. Volume: How Much Trading Is Happening?</h2>
+<p>Volume measures trading activity. A price move accompanied by unusually strong volume may indicate broader participation than the same move on very low volume.
+
+Volume is context, not a guarantee. Ask: “Did many market participants participate in this move?”</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec10')">← Previous</button><button onclick="showContent('sec12')">Next →</button></div>
+</section>
+
+<section id="sec12" class="tutorial-card">
+<h2>12. Uptrend, Downtrend and Sideways Market</h2>
+<p>An uptrend often shows higher highs and higher lows. A downtrend often shows lower highs and lower lows. A sideways market moves within a range without a clear directional structure.
+
+Learning to identify the market environment comes before choosing an indicator.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>What price structure would make you call a market an uptrend?</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec11')">← Previous</button><button onclick="showContent('sec13')">Next →</button></div>
+</section>
+
+<section id="sec13" class="tutorial-card">
+<h2>13. Support: Where Buyers Previously Appeared</h2>
+<p>Support is an area where buying pressure previously became strong enough to slow or reverse a decline. Treat support as a <strong>zone</strong>, not an exact magical number.
+
+A support level can fail. When it does, disciplined traders reassess rather than insisting that the market must bounce.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec12')">← Previous</button><button onclick="showContent('sec14')">Next →</button></div>
+</section>
+
+<section id="sec14" class="tutorial-card">
+<h2>14. Resistance: Where Sellers Previously Appeared</h2>
+<p>Resistance is an area where selling pressure previously limited a rise. Like support, it is better viewed as a region rather than a perfect line.
+
+Repeated tests can weaken a level, strengthen its psychological importance, or produce a breakout. Context matters.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec13')">← Previous</button><button onclick="showContent('sec15')">Next →</button></div>
+</section>
+
+<section id="sec15" class="tutorial-card">
+<h2>15. Breakouts and False Breakouts</h2>
+<p>A breakout occurs when price moves beyond an important range or level. But markets frequently move beyond a level and then quickly return — a <strong>false breakout</strong>.
+
+Confirmation may include the closing price, volume, broader trend and follow-through. No single confirmation removes risk.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec14')">← Previous</button><button onclick="showContent('sec16')">Next →</button></div>
+</section>
+
+<section id="sec16" class="tutorial-card">
+<h2>16. Moving Averages: Smoothing the Noise</h2>
+<p>A moving average summarizes recent prices to make trend structure easier to see. A short moving average reacts faster; a long moving average changes more slowly.
+
+Moving averages are <strong>lagging</strong> tools: they summarize what price has already done rather than seeing the future.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec15')">← Previous</button><button onclick="showContent('sec17')">Next →</button></div>
+</section>
+
+<section id="sec17" class="tutorial-card">
+<h2>17. SMA vs EMA</h2>
+<p>A Simple Moving Average (SMA) weights observations equally. An Exponential Moving Average (EMA) gives more weight to recent observations and therefore reacts faster to new prices.
+
+Neither is universally better. Their usefulness depends on the strategy and timeframe.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec16')">← Previous</button><button onclick="showContent('sec18')">Next →</button></div>
+</section>
+
+<section id="sec18" class="tutorial-card">
+<h2>18. RSI: Understanding Momentum</h2>
+<p>The Relative Strength Index (RSI) is a momentum oscillator usually displayed from 0 to 100. Beginners often hear that high RSI means “sell” and low RSI means “buy.” That interpretation is too simplistic.
+
+Strong trends can remain at extreme RSI readings for surprisingly long periods. Use RSI as context, not an automatic command.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec17')">← Previous</button><button onclick="showContent('sec19')">Next →</button></div>
+</section>
+
+<section id="sec19" class="tutorial-card">
+<h2>19. MACD: Trend and Momentum Together</h2>
+<p>MACD is built from exponential moving averages and is commonly used to visualize changes in trend and momentum. Crossovers and histogram changes can help describe market behavior.
+
+In sideways markets, MACD can generate repeated false signals. Indicators do not replace market structure.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec18')">← Previous</button><button onclick="showContent('sec20')">Next →</button></div>
+</section>
+
+<section id="sec20" class="tutorial-card">
+<h2>20. Fundamental Analysis: Study the Business</h2>
+<p>Fundamental analysis asks whether the underlying business is healthy and reasonably valued. It considers products, customers, competitive position, revenue, profit, cash flow, debt, management and industry conditions.
+
+A beautiful chart does not automatically mean a strong company, and a strong company is not automatically a good buy at every price.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Name three things about the business you would investigate before investing.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec19')">← Previous</button><button onclick="showContent('sec21')">Next →</button></div>
+</section>
+
+<section id="sec21" class="tutorial-card">
+<h2>21. Revenue, Profit and EPS</h2>
+<p><strong>Revenue</strong> is money generated from sales. <strong>Profit</strong> is what remains after relevant expenses. <strong>EPS</strong>, or earnings per share, relates earnings to the number of shares.
+
+Revenue can rise while profit falls if costs rise even faster. This is why one financial number rarely tells the entire story.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec20')">← Previous</button><button onclick="showContent('sec22')">Next →</button></div>
+</section>
+
+<section id="sec22" class="tutorial-card">
+<h2>22. P/E Ratio and Valuation</h2>
+<p>The price-to-earnings ratio compares a company's share price with its earnings per share. It can help frame valuation, but a low P/E is not automatically cheap and a high P/E is not automatically expensive.
+
+Growth expectations, industry structure, financial quality and risk all influence valuation.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec21')">← Previous</button><button onclick="showContent('sec23')">Next →</button></div>
+</section>
+
+<section id="sec23" class="tutorial-card">
+<h2>23. ETFs and Diversification</h2>
+<p>An Exchange-Traded Fund (ETF) can hold a basket of securities while trading on an exchange. Diversification reduces dependence on the success or failure of a single company.
+
+Diversification does not eliminate market risk, but it is an important concept for beginners who may otherwise concentrate too much money in one idea.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec22')">← Previous</button><button onclick="showContent('sec24')">Next →</button></div>
+</section>
+
+<section id="sec24" class="tutorial-card">
+<h2>24. Risk Management: The Survival Skill</h2>
+<p>Trading is not only about finding winners. It is about surviving losers. Risk management defines how much capital you are willing to expose when your idea is wrong.
+
+A trader can be correct many times and still lose money through oversized losses. Conversely, a strategy can sometimes be profitable without an extremely high win rate if losses are controlled and winners are larger.</p>
+<div class="analogy"><strong>Worked example:</strong><br>If one loss can damage your account badly, your position is probably too large—regardless of how confident you feel.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec23')">← Previous</button><button onclick="showContent('sec25')">Next →</button></div>
+</section>
+
+<section id="sec25" class="tutorial-card">
+<h2>25. Stop Loss and Trade Invalidation</h2>
+<p>A stop loss is a predefined exit intended to limit downside. More importantly, it forces you to define <em>where your original trade idea becomes invalid</em>.
+
+Do not choose a stop merely because you dislike losing NT$500. Connect it to market structure, then size the position so that the resulting financial risk is acceptable.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec24')">← Previous</button><button onclick="showContent('sec26')">Next →</button></div>
+</section>
+
+<section id="sec26" class="tutorial-card">
+<h2>26. Position Sizing</h2>
+<p>A simple risk-based idea is:
+
+<div class="formula-box">Position size ≈ Maximum acceptable cash risk ÷ Risk per share</div>
+
+If you are willing to risk NT$500 and the distance from entry to stop is NT$5 per share, the simplified position size is about 100 shares, before considering market-specific constraints and costs.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Maximum planned loss NT$600; entry-to-stop distance NT$3/share → simplified size ≈ 200 shares.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>If maximum risk is NT$500 and risk per share is NT$5, what is the simplified position size?</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec25')">← Previous</button><button onclick="showContent('sec27')">Next →</button></div>
+</section>
+
+<section id="sec27" class="tutorial-card">
+<h2>27. Risk–Reward and Expectancy</h2>
+<p>If you risk NT$5 to potentially make NT$15, the planned risk–reward relationship is 1:3. But risk–reward alone is not enough; you also need to know how frequently the setup succeeds.
+
+Over many trades, <strong>expectancy</strong> combines average wins, average losses and their probabilities. This is more useful than obsessing over one trade.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec26')">← Previous</button><button onclick="showContent('sec28')">Next →</button></div>
+</section>
+
+<section id="sec28" class="tutorial-card">
+<h2>28. Trading Psychology: FOMO, Fear and Greed</h2>
+<p>FOMO makes traders chase moves they did not plan. Fear can make them exit good plans too early. Greed can make them refuse to take profit or increase risk. Revenge trading appears when someone tries to immediately “win back” a loss.
+
+A written plan and journal help separate decisions from emotions.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec27')">← Previous</button><button onclick="showContent('sec29')">Next →</button></div>
+</section>
+
+<section id="sec29" class="tutorial-card">
+<h2>29. Build a Rule-Based Trading Strategy</h2>
+<p>A strategy should define the market, timeframe, setup, entry, invalidation/stop, position size, exit and conditions under which you do nothing.
+
+Example framework: trade only with the higher-timeframe trend; wait for a pullback toward support; require evidence of renewed demand; define the stop first; take the trade only when the potential reward justifies the risk.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Explain this chapter's main concept in one sentence without using the exact wording above.</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec28')">← Previous</button><button onclick="showContent('sec30')">Next →</button></div>
+</section>
+
+<section id="sec30" class="tutorial-card">
+<h2>30. Paper Trading, Backtesting and Your Next Step</h2>
+<p>Before risking real money, test your understanding. <strong>Paper trading</strong> lets you practice execution and journaling without financial loss. <strong>Backtesting</strong> applies objective rules to historical data to study how a strategy behaved.
+
+Later, Python can automate indicator calculations, strategy tests and risk analysis. AI can assist with research and pattern analysis, but it should never be treated as a guaranteed price-prediction machine.</p>
+<div class="analogy"><strong>Worked example:</strong><br>Create an imaginary stock priced at NT$100. Ask what new information would make you more willing to buy, more willing to sell, or simply wait.</div>
+<h3>Why this matters</h3>
+<p>Beginners often lose clarity because they jump directly to “buy or sell?” This chapter gives you one piece of the decision process. Your job is to understand the piece before combining it with the others.</p>
+<div class="qa-box">
+<h3>Check your understanding</h3>
+<details class="qa-item"><summary>Why should paper trading and backtesting come before serious real-money trading?</summary><div class="qa-answer">Try answering on paper first. Then revisit the explanation above and check whether your reasoning uses the concept correctly.</div></details>
+<details class="qa-item"><summary>What is the beginner mistake here?</summary><div class="qa-answer">Treating one concept, price level, indicator, ratio or news item as a complete trading system. Good decisions combine context, evidence and risk control.</div></details>
+</div>
+<div class="lesson-nav"><button onclick="showContent('sec29')">← Previous</button><button onclick="showContent('epilogue')">Next →</button></div>
+</section>
+
+<section id="epilogue" class="tutorial-card">
+<h2>Epilogue: Your Beginner Checklist</h2>
+<p>Before considering a real trade, you should be able to answer these questions clearly:</p>
+<div class="analogy">
+<strong>1.</strong> What am I buying?<br>
+<strong>2.</strong> Why am I considering it?<br>
+<strong>3.</strong> What is the broader trend and market context?<br>
+<strong>4.</strong> What price or event would prove my idea wrong?<br>
+<strong>5.</strong> How much money could I lose?<br>
+<strong>6.</strong> Is the potential reward reasonable relative to that risk?<br>
+<strong>7.</strong> Am I following a tested rule, or reacting emotionally?<br>
+<strong>8.</strong> Have I accounted for fees, taxes and local market rules?
+</div>
+<p>If you cannot answer these yet, that is a reason to keep learning—not a reason to guess.</p>
+</section>
+</main>
+</div>
+<div class="sidebar-overlay" onclick="toggleMenu()"></div>
+<footer>&copy; 2026 Haripriya Sahoo. Educational material only — investing involves risk.</footer>
+<script>
+function toggleMenu(){
+ document.querySelector('.sidebar').classList.toggle('active');
+ document.querySelector('.sidebar-overlay').classList.toggle('active');
+}
+function showContent(sectionId){
+ document.querySelectorAll('.tutorial-card').forEach(s=>s.style.display='none');
+ const active=document.getElementById(sectionId); if(active) active.style.display='block';
+ document.querySelectorAll('#tutorial-nav a').forEach(a=>{
+   a.classList.remove('active');
+   const oc=a.getAttribute('onclick')||'';
+   if(oc.includes("'" + sectionId + "'")) a.classList.add('active');
+ });
+ if(window.innerWidth<900){
+   document.querySelector('.sidebar').classList.remove('active');
+   document.querySelector('.sidebar-overlay').classList.remove('active');
+ }
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+showContent('prologue');
+</script>
+</body></html>
