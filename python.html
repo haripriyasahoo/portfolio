@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A 60-lesson programming and Python course built one lesson at a time, from first principles to scientific Python.">
+<title>Python Learning Hub</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%231d3557'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='monospace' font-size='31' font-weight='700' fill='%23ffd43b'%3EPy%3C/text%3E%3C/svg%3E">
+<style>
+:root {
+    --nav: #172a46;
+    --nav-soft: #213a5c;
+    --python-blue: #3776ab;
+    --python-yellow: #ffd43b;
+    --page: #f3f7fb;
+    --paper: #ffffff;
+    --ink: #1d2a3a;
+    --muted: #5d6b7a;
+    --line: #d9e3ee;
+    --soft-blue: #eaf3fb;
+    --soft-yellow: #fff8d6;
+    --green: #21845b;
+    --shadow: 0 14px 40px rgba(24, 52, 82, 0.09);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    margin: 0;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 95% 4%, rgba(255, 212, 59, 0.22), transparent 19rem),
+        var(--page);
+    font-family: Inter, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.7;
+}
+button, a { font: inherit; }
+button { cursor: pointer; }
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    min-height: 72px;
+    padding: 0.85rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    color: white;
+    background: linear-gradient(110deg, var(--nav), var(--nav-soft));
+    box-shadow: 0 4px 18px rgba(10, 25, 44, 0.18);
+}
+.brand { display: flex; align-items: center; gap: 0.78rem; font-family: Consolas, "Courier New", monospace; font-weight: 800; }
+.brand-mark {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    color: var(--nav);
+    background: var(--python-yellow);
+    border-radius: 12px 12px 12px 5px;
+    font-family: Georgia, serif;
+    font-size: 1.08rem;
+}
+.header-note { color: #ccdae8; font-size: 0.9rem; }
+.menu-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    color: white;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 10px;
+    font-size: 1.35rem;
+}
+
+.tutorial-container {
+    width: min(1420px, 100%);
+    margin: 2rem auto;
+    padding: 0 4%;
+    display: grid;
+    grid-template-columns: minmax(250px, 0.9fr) minmax(0, 3fr);
+    gap: 30px;
+    align-items: start;
+}
+.sidebar {
+    position: sticky;
+    top: 96px;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    padding: 20px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    scrollbar-width: thin;
+}
+.sidebar h4 {
+    margin: 0 0 1rem;
+    padding-bottom: 0.7rem;
+    color: var(--nav);
+    border-bottom: 3px solid var(--python-yellow);
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+.sidebar ul { margin: 0; padding: 0; list-style: none; }
+.sidebar-group {
+    margin: 1.1rem 0.55rem 0.38rem;
+    color: var(--python-blue);
+    font-size: 0.73rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.sidebar a {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    gap: 0.3rem;
+    align-items: start;
+    padding: 8px 10px;
+    color: var(--ink);
+    border-radius: 9px;
+    font-size: 0.9rem;
+    line-height: 1.35;
+    text-decoration: none;
+    transition: 0.18s ease;
+}
+.sidebar a:hover { background: var(--soft-blue); }
+.sidebar a.active { background: var(--soft-blue); color: #174d78; font-weight: 750; box-shadow: inset 3px 0 var(--python-blue); }
+.sidebar a.roadmap-link {
+    color: #0f766e;
+    background: #e7f6f3;
+    font-weight: 850;
+}
+.sidebar a.roadmap-link:hover,
+.sidebar a.roadmap-link.active {
+    color: #0b5f59;
+    background: #d8f0eb;
+    box-shadow: inset 3px 0 #15877e;
+}
+.sidebar .number { color: #8a98a7; font-variant-numeric: tabular-nums; }
+
+.tutorial-card {
+    display: none;
+    min-height: 620px;
+    padding: clamp(25px, 5vw, 52px);
+    background: var(--paper);
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+    animation: rise 0.3s ease;
+}
+.tutorial-card.is-visible { display: block; }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.tutorial-card h2 {
+    margin: 0 0 1.4rem;
+    padding: 0 0 13px 16px;
+    color: var(--nav);
+    border-left: 6px solid var(--python-yellow);
+    border-bottom: 2px solid #e5edf4;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.85rem, 4vw, 2.7rem);
+    line-height: 1.15;
+}
+.tutorial-card h3 { margin: 1.8rem 0 0.7rem; color: #21618e; font-size: 1.32rem; }
+.tutorial-card p { color: var(--muted); font-size: 1.03rem; }
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: clamp(30px, 6vw, 58px);
+    color: white;
+    background: linear-gradient(135deg, #172a46 0%, #2f6f9f 70%, #3776ab 100%);
+    border-radius: 18px;
+}
+.hero::after {
+    content: ">>>";
+    position: absolute;
+    right: -0.04em;
+    bottom: -0.3em;
+    color: rgba(255,255,255,0.08);
+    font: 800 clamp(6rem, 17vw, 13rem)/1 Consolas, monospace;
+}
+.eyebrow { color: var(--python-yellow); font-size: 0.82rem; font-weight: 850; letter-spacing: 0.1em; text-transform: uppercase; }
+.hero h1 { position: relative; z-index: 1; max-width: 760px; margin: 0.4rem 0 0.85rem; font: 750 clamp(2.3rem, 6vw, 4.8rem)/1.02 Georgia, serif; }
+.hero p { position: relative; z-index: 1; max-width: 720px; margin: 0; color: #e3edf7; font-size: 1.07rem; }
+.hero-stats { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.6rem; }
+.hero-stat { padding: 0.55rem 0.85rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; font-size: 0.88rem; }
+.hero-stat strong { color: var(--python-yellow); }
+
+.roadmap-note, .lesson-intro {
+    padding: 1rem 1.1rem;
+    color: #4c5f72;
+    background: var(--soft-blue);
+    border-left: 4px solid var(--python-blue);
+    border-radius: 0 12px 12px 0;
+}
+.roadmap-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; margin: 1.2rem 0; }
+.roadmap-stage { padding: 1.1rem 1.15rem; border: 1px solid var(--line); border-radius: 15px; background: #fbfdff; }
+.roadmap-stage .stage-number { display: inline-grid; place-items: center; width: 34px; height: 34px; color: var(--nav); background: var(--python-yellow); border-radius: 9px; font-weight: 850; }
+.roadmap-stage h4 { display: inline; margin-left: 0.45rem; color: var(--nav); font-size: 1rem; }
+.roadmap-stage p { margin: 0.7rem 0 0; font-size: 0.92rem; }
+
+.status-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem; margin-bottom: 1rem; }
+.level, .status { padding: 0.38rem 0.68rem; border-radius: 999px; font-size: 0.78rem; font-weight: 800; }
+.level { color: #18537d; background: var(--soft-blue); }
+.status { color: #725900; background: var(--soft-yellow); }
+
+.placeholder {
+    min-height: 360px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    margin-top: 2rem;
+    padding: 2.5rem;
+    background: repeating-linear-gradient(-45deg, #fbfdff, #fbfdff 16px, #f5f9fc 16px, #f5f9fc 32px);
+    border: 2px dashed #c8d6e4;
+    border-radius: 18px;
+}
+.placeholder-icon { width: 64px; height: 64px; margin: 0 auto 1rem; display: grid; place-items: center; color: var(--python-blue); background: var(--soft-blue); border-radius: 18px; font: 800 1.4rem Consolas, monospace; }
+.placeholder h3 { margin: 0; color: var(--nav); }
+.placeholder p { max-width: 520px; margin: 0.6rem auto 0; }
+
+.lesson-nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
+.nav-button {
+    padding: 0.72rem 1rem;
+    color: var(--nav);
+    background: var(--python-yellow);
+    border: 0;
+    border-radius: 10px;
+    font-weight: 800;
+    box-shadow: 0 6px 16px rgba(200, 157, 0, 0.16);
+}
+.nav-button.secondary { color: #1c5279; background: var(--soft-blue); box-shadow: none; }
+
+.sidebar-overlay { display: none; }
+footer { max-width: 1420px; margin: 0 auto; padding: 0 4% 2rem; color: #718090; text-align: center; font-size: 0.88rem; }
+
+@media (max-width: 900px) {
+    .header-note { display: none; }
+    .menu-toggle { display: block; }
+    .tutorial-container { display: block; margin-top: 1.2rem; }
+    .sidebar {
+        position: fixed;
+        z-index: 40;
+        top: 0;
+        left: 0;
+        width: min(86vw, 350px);
+        height: 100vh;
+        max-height: none;
+        border-radius: 0 20px 20px 0;
+        transform: translateX(-105%);
+        transition: transform 0.25s ease;
+    }
+    .sidebar.open { transform: translateX(0); }
+    .sidebar-overlay { position: fixed; z-index: 30; inset: 0; background: rgba(7,20,36,0.46); }
+    .sidebar-overlay.open { display: block; }
+    .tutorial-card { min-height: 500px; }
+}
+@media (max-width: 650px) {
+    header { padding-inline: 4%; }
+    .brand { font-size: 0.9rem; }
+    .roadmap-grid { grid-template-columns: 1fr; }
+    .tutorial-card { padding: 22px; border-radius: 16px; }
+    .hero { padding: 28px 22px; }
+    .lesson-nav { align-items: stretch; flex-direction: column; }
+    .nav-button { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+}
+.personal-story-box {
+        display: grid;
+        grid-template-columns: minmax(230px, 0.85fr) minmax(0, 1.4fr);
+        gap: 1.5rem;
+        align-items: stretch;
+        margin: 1.6rem 0;
+        padding: 1rem;
+        background: linear-gradient(135deg, #f0faf7, #edf6fb);
+        border: 1px solid #c8e2dc;
+        border-left: 6px solid #2a9d8f;
+        border-radius: 18px;
+        box-shadow: 0 12px 30px rgba(25, 91, 82, 0.10);
+    }
+
+    .personal-story-figure {
+        position: relative;
+        min-height: 310px;
+        margin: 0;
+        overflow: hidden;
+        border-radius: 14px;
+        background: #dceee9;
+    }
+
+    .personal-story-figure img {
+        width: 100%;
+        height: 100%;
+        min-height: 310px;
+        display: block;
+        object-fit: cover;
+    }
+
+    .personal-story-figure figcaption {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 0.7rem 0.9rem;
+        color: white;
+        background: linear-gradient(
+            transparent,
+            rgba(18, 55, 42, 0.88)
+        );
+        font-size: 0.84rem;
+        text-align: center;
+    }
+
+    .personal-story-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1rem 1rem 1rem 0;
+    }
+
+    .personal-story-label {
+        width: fit-content;
+        margin-bottom: 0.7rem;
+        padding: 0.35rem 0.7rem;
+        color: #0f685f;
+        background: #d6f0ea;
+        border-radius: 999px;
+        font-size: 0.77rem;
+        font-weight: 850;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+    }
+
+    .personal-story-content h3 {
+        margin: 0 0 0.8rem;
+        color: #164f49;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 1.45rem;
+    }
+
+    .personal-story-content p {
+        margin: 0;
+        color: #4b5f58;
+        font-size: 1rem;
+        line-height: 1.8;
+        text-align: justify;
+    }
+
+    .personal-story-message {
+        margin-top: 1rem;
+        padding: 0.8rem 1rem;
+        color: #0f625a;
+        background: white;
+        border-left: 4px solid #2a9d8f;
+        border-radius: 0 10px 10px 0;
+        font-weight: 800;
+    }
+
+    @media (max-width: 760px) {
+        .personal-story-box {
+            grid-template-columns: 1fr;
+        }
+
+        .personal-story-figure,
+        .personal-story-figure img {
+            min-height: 260px;
+        }
+
+        .personal-story-content {
+            padding: 0.5rem;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="brand">
+        <span class="brand-mark">Py</span>
+        <span>Python_Learning_Hub</span>
+    </div>
+    <div class="header-note">60 lessons · Programming fundamentals to scientific Python</div>
+    <button class="menu-toggle" type="button" aria-label="Open course contents" aria-expanded="false" onclick="toggleMenu()">☰</button>
+</header>
+
+<div class="sidebar-overlay" onclick="closeMenu()"></div>
+
+<div class="tutorial-container">
+<nav class="sidebar" aria-label="Course contents">
+    <h4>Course Contents</h4>
+    <ul id="tutorial-nav">
+        <li><a class="roadmap-link" href="#welcome" data-target="welcome"><span class="number">★</span><span>Welcome to the<br>Python Launchpad.</span></a></li>
+        <li><a class="roadmap-link" href="#prologue" data-target="prologue"><span class="number">★★</span><span>Course Roadmap</span></a></li>
+
+        <li class="sidebar-group">I · Programming and Setup</li>
+        <li><a href="#sec1" data-target="sec1"><span class="number">01</span><span>What Is Programming?</span></a></li>
+        <li><a href="#sec2" data-target="sec2"><span class="number">02</span><span>How Computers Follow Instructions</span></a></li>
+        <li><a href="#sec3" data-target="sec3"><span class="number">03</span><span>Machine, Assembly, and High-Level Languages</span></a></li>
+        <li><a href="#sec4" data-target="sec4"><span class="number">04</span><span>Compiled vs Interpreted Languages</span></a></li>
+        <li><a href="#sec5" data-target="sec5"><span class="number">05</span><span>Programming Paradigms and Language Uses</span></a></li>
+        <li><a href="#sec6" data-target="sec6"><span class="number">06</span><span>What Is Python and Why Learn It?</span></a></li>
+        <li><a href="#sec7" data-target="sec7"><span class="number">07</span><span>Installing Python on Windows, macOS, and Linux</span></a></li>
+        <li><a href="#sec8" data-target="sec8"><span class="number">08</span><span>The Python Interpreter and Your First Program</span></a></li>
+        <li><a href="#sec9" data-target="sec9"><span class="number">09</span><span>IDEs: IDLE, VS Code, PyCharm, and Jupyter</span></a></li>
+        <li><a href="#sec10" data-target="sec10"><span class="number">10</span><span>Files, Comments, Syntax, and Error Messages</span></a></li>
+
+        <li class="sidebar-group">II · Core Python</li>
+        <li><a href="#sec11" data-target="sec11"><span class="number">11</span><span>Variables, Assignment, and Naming Rules</span></a></li>
+        <li><a href="#sec12" data-target="sec12"><span class="number">12</span><span>Numbers and Arithmetic Operators</span></a></li>
+        <li><a href="#sec13" data-target="sec13"><span class="number">13</span><span>Strings and Text Processing</span></a></li>
+        <li><a href="#sec14" data-target="sec14"><span class="number">14</span><span>Booleans, Comparisons, and Logical Operators</span></a></li>
+        <li><a href="#sec15" data-target="sec15"><span class="number">15</span><span>Input, Output, f-Strings, and Type Conversion</span></a></li>
+        <li><a href="#sec16" data-target="sec16"><span class="number">16</span><span>Lists and List Operations</span></a></li>
+        <li><a href="#sec17" data-target="sec17"><span class="number">17</span><span>Tuples and Immutable Data</span></a></li>
+        <li><a href="#sec18" data-target="sec18"><span class="number">18</span><span>Sets and Unique Values</span></a></li>
+        <li><a href="#sec19" data-target="sec19"><span class="number">19</span><span>Dictionaries and Key–Value Data</span></a></li>
+        <li><a href="#sec20" data-target="sec20"><span class="number">20</span><span>Mini Project: A Personal Information Program</span></a></li>
+
+        <li class="sidebar-group">III · Logic and Functions</li>
+        <li><a href="#sec21" data-target="sec21"><span class="number">21</span><span>Decision Making with if, elif, and else</span></a></li>
+        <li><a href="#sec22" data-target="sec22"><span class="number">22</span><span>Nested Conditions and match–case</span></a></li>
+        <li><a href="#sec23" data-target="sec23"><span class="number">23</span><span>for Loops and Iteration</span></a></li>
+        <li><a href="#sec24" data-target="sec24"><span class="number">24</span><span>while Loops and Repetition</span></a></li>
+        <li><a href="#sec25" data-target="sec25"><span class="number">25</span><span>range, break, continue, and Loop Patterns</span></a></li>
+        <li><a href="#sec26" data-target="sec26"><span class="number">26</span><span>Functions and Reusable Code</span></a></li>
+        <li><a href="#sec27" data-target="sec27"><span class="number">27</span><span>Parameters, Arguments, *args, and **kwargs</span></a></li>
+        <li><a href="#sec28" data-target="sec28"><span class="number">28</span><span>Return Values and Variable Scope</span></a></li>
+        <li><a href="#sec29" data-target="sec29"><span class="number">29</span><span>Lambda, map, filter, and Useful Built-ins</span></a></li>
+        <li><a href="#sec30" data-target="sec30"><span class="number">30</span><span>Mini Project: A Menu-Driven Python Program</span></a></li>
+
+        <li class="sidebar-group">IV · Practical and Reliable Python</li>
+        <li><a href="#sec31" data-target="sec31"><span class="number">31</span><span>Modules, Packages, and Imports</span></a></li>
+        <li><a href="#sec32" data-target="sec32"><span class="number">32</span><span>pip and Virtual Environments</span></a></li>
+        <li><a href="#sec33" data-target="sec33"><span class="number">33</span><span>Errors and Exception Handling</span></a></li>
+        <li><a href="#sec34" data-target="sec34"><span class="number">34</span><span>Reading and Writing Text Files</span></a></li>
+        <li><a href="#sec35" data-target="sec35"><span class="number">35</span><span>Working with CSV and JSON Files</span></a></li>
+        <li><a href="#sec36" data-target="sec36"><span class="number">36</span><span>Folders and Paths with pathlib</span></a></li>
+        <li><a href="#sec37" data-target="sec37"><span class="number">37</span><span>Debugging and Logging</span></a></li>
+        <li><a href="#sec38" data-target="sec38"><span class="number">38</span><span>Testing with assert and pytest</span></a></li>
+        <li><a href="#sec39" data-target="sec39"><span class="number">39</span><span>PEP 8, Type Hints, and Clean Code</span></a></li>
+        <li><a href="#sec40" data-target="sec40"><span class="number">40</span><span>Project Structure and Git Basics</span></a></li>
+
+        <li class="sidebar-group">V · Intermediate Python and OOP</li>
+        <li><a href="#sec41" data-target="sec41"><span class="number">41</span><span>Object-Oriented Programming Concepts</span></a></li>
+        <li><a href="#sec42" data-target="sec42"><span class="number">42</span><span>Classes and Objects</span></a></li>
+        <li><a href="#sec43" data-target="sec43"><span class="number">43</span><span>Constructors and Attributes</span></a></li>
+        <li><a href="#sec44" data-target="sec44"><span class="number">44</span><span>Methods, Encapsulation, and Properties</span></a></li>
+        <li><a href="#sec45" data-target="sec45"><span class="number">45</span><span>Inheritance, Polymorphism, and Composition</span></a></li>
+        <li><a href="#sec46" data-target="sec46"><span class="number">46</span><span>Dataclasses and Special Methods</span></a></li>
+        <li><a href="#sec47" data-target="sec47"><span class="number">47</span><span>List, Set, and Dictionary Comprehensions</span></a></li>
+        <li><a href="#sec48" data-target="sec48"><span class="number">48</span><span>Iterators and Generators</span></a></li>
+        <li><a href="#sec49" data-target="sec49"><span class="number">49</span><span>Decorators and Context Managers</span></a></li>
+        <li><a href="#sec50" data-target="sec50"><span class="number">50</span><span>Intermediate Capstone: A Structured Application</span></a></li>
+
+        <li class="sidebar-group">VI · Scientific Python and Data</li>
+        <li><a href="#sec51" data-target="sec51"><span class="number">51</span><span>NumPy Arrays and Fast Computation</span></a></li>
+        <li><a href="#sec52" data-target="sec52"><span class="number">52</span><span>NumPy Indexing, Broadcasting, and Vectorization</span></a></li>
+        <li><a href="#sec53" data-target="sec53"><span class="number">53</span><span>Pandas Series and DataFrames</span></a></li>
+        <li><a href="#sec54" data-target="sec54"><span class="number">54</span><span>Cleaning and Analysing Data with Pandas</span></a></li>
+        <li><a href="#sec55" data-target="sec55"><span class="number">55</span><span>Matplotlib and Seaborn Visualization</span></a></li>
+        <li><a href="#sec56" data-target="sec56"><span class="number">56</span><span>SciPy and Scientific Computing</span></a></li>
+        <li><a href="#sec57" data-target="sec57"><span class="number">57</span><span>HDF5, NetCDF, and Large Scientific Data</span></a></li>
+        <li><a href="#sec58" data-target="sec58"><span class="number">58</span><span>Automation, APIs, and Useful Scripts</span></a></li>
+        <li><a href="#sec59" data-target="sec59"><span class="number">59</span><span>Introduction to Machine Learning</span></a></li>
+        <li><a href="#sec60" data-target="sec60"><span class="number">60</span><span>Final Capstone: A Scientific Data Project</span></a></li>
+    </ul>
+</nav>
+
+<main class="content">
+<section id="welcome" class="tutorial-card">
+
+    <style>
+        #welcome .beginner-notice {
+            margin: 1.5rem 0;
+            padding: 1rem 1.25rem;
+            color: #103f3b;
+            background: #e5f7f3;
+            border: 2px solid #2a9d8f;
+            border-radius: 14px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 850;
+            animation: beginnerPulse 1.8s ease-in-out infinite;
+        }
+
+        @keyframes beginnerPulse {
+            0%, 100% {
+                background: #e5f7f3;
+                border-color: #2a9d8f;
+                box-shadow: 0 0 0 rgba(42, 157, 143, 0);
+                transform: scale(1);
+            }
+
+            50% {
+                background: #c9eee7;
+                border-color: #16766d;
+                box-shadow: 0 0 22px rgba(42, 157, 143, 0.32);
+                transform: scale(1.01);
+            }
+        }
+
+        #welcome .story-box {
+            margin: 1.3rem 0;
+            padding: 1.5rem;
+            color: #354c44;
+            background: linear-gradient(135deg, #f4fbf8, #eef7fb);
+            border-left: 5px solid #2a9d8f;
+            border-radius: 0 16px 16px 0;
+        }
+
+        #welcome .story-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        #welcome .thought {
+            display: block;
+            margin: 1rem 0;
+            padding: 0.9rem 1rem;
+            color: #165c55;
+            background: #ffffff;
+            border: 1px solid #cce5df;
+            border-radius: 10px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 1.05rem;
+            font-style: italic;
+            text-align: center;
+        }
+
+        #welcome .aim-number {
+            display: grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            margin-bottom: 0.75rem;
+            color: white;
+            background: linear-gradient(135deg, #17766d, #3776ab);
+            border-radius: 11px;
+            font-weight: 850;
+        }
+
+        #welcome .answer-box {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            color: white;
+            background: linear-gradient(135deg, #12372a, #1f6f78);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        #welcome .answer-box h3 {
+            margin: 0 0 0.6rem;
+            color: #ffd95a;
+        }
+
+        #welcome .answer-box p {
+            max-width: 750px;
+            margin: 0 auto;
+            color: #e7f5f2;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #welcome .beginner-notice {
+                animation: none;
+            }
+        }
+    </style>
+
+
+    <div
+        class="hero"
+        style="background: linear-gradient(135deg, #12372a, #1f6f78);"
+    >
+
+        <div class="eyebrow">Before jumping into This tutorial. </div>
+
+        <h1>Prolouge</h1>
+
+        <p>
+            This tutorial is for students, researchers, and curious learners
+            who want to use Python but feel nervous whenever they see code,
+            a terminal window <strong>(Black window with lots of text)</strong>, or a <strong>colorful error message </strong> pops up on the screen of a friends computer. 
+        </p>
+        <figure class="personal-story-figure">
+
+        <img
+            src="fear.png"
+            alt="A student feeling overwhelmed while learning computer programming"
+        >
+
+        <figcaption>
+            
+        </figcaption>
+
+        </figure>
+        
+
+        <div class="hero-stats">
+            <span class="hero-stat">
+                <strong>60</strong> guided lessons
+            </span>
+
+            <span class="hero-stat">
+                <strong>0</strong> experience required
+            </span>
+
+            <span class="hero-stat">
+                <strong>1</strong> concept at a time
+            </span>
+        </div>
+
+    </div>
+
+
+    <div class="beginner-notice">
+        ⚠️ This is a beginner-first tutorial. If you already write Python
+        programs, the lessons may not be for you.
+    </div>
+
+
+    <h3>A small story of mine</h3>
+
+    <div class="personal-story-box">
+
+    <figure class="personal-story-figure">
+
+        <img
+            src="Cry&code.png"
+            alt="A student feeling overwhelmed while learning computer programming"
+        >
+
+        <figcaption>
+            
+        </figcaption>
+
+    </figure>
+
+
+    <div class="personal-story-content">
+
+        <span class="personal-story-label">
+            A small story from my journey
+        </span>
+
+        <h3>I once thought coding was not for me</h3>
+
+        <p>
+            When I was in Class 11, I took a coding course for the first time.
+            I was very excited to learn programming, but the curriculum was
+            extremely descriptive in the beginning. I became
+            scared. One fine day, I cried in front of my computer, thinking,
+            “I cannot do this. Coding is not my cup of tea.”
+            <br><br>
+            However, I did not give up. I continued learning C programming by following the
+            curriculum one concept at a time. By the end of the course, I had
+            developed a better understanding of programming and achieved a good
+            score and till date I am leaning new concepts. 
+        </p>
+
+        <div class="personal-story-message">
+            If I could overcome that fear and learn programming, why can’t you?
+        </div>
+
+    </div>
+
+</div>
+        
+
+
+    <h3>The aims of this tutorial</h3>
+    <p style="margin: 0; text-align: justify;">
+        In this tutorial, we will learn Python in a fun way. Now a days we It is a difficult task for all of us to sit and read. The tutorial will be friendly for vivid readers as well as those who don't like reading long paragraph. Long paragraphs will be sqeezed in toggle menu. You can check then if you feels like. If you want you can skip the 1st 10 lessions. Go to to coding directly. If you can't understand any term you can come back to respective section to check what it is. Also there is no shortcut for leaning. After every step you need to practie. 
+    Once you practice you will get to know the error you are getting. Just reading will not help you. Also please give one hour for a day. !5 minutes for reading one sectionand 45 minutes for coding. There will be lots of question for practice. Just try to solve them. 
+    </p>
+    
+    
+    
+    <h3>What do you need for this tutorial?</h3>
+     
+    
+    <div class="roadmap-grid">
+
+
+        <article class="roadmap-stage">
+
+            <span class="aim-number">01</span>
+
+            <h4>A computer/ laptop</h4>
+
+            <p>
+                <figure class="personal-story-figure">
+
+        <img
+            src="lapdesk.jpg"
+            alt="lattop and desktop computer for programming"
+        >
+
+        <figcaption>
+            
+        </figcaption>
+
+    </figure>
+            </p>
+
+        </article>
+
+
+        <article class="roadmap-stage">
+
+            <span class="aim-number">02</span>
+
+            <h4>1 hours of dedication</h4>
+
+            <p>
+                <figure class="personal-story-figure">
+
+                    <img
+                        src="istockphoto-1391821062-170667a.jpg"
+                        alt="A student feeling overwhelmed while learning computer programming"
+                    >
+
+                    <figcaption>
+                        
+                    </figcaption>
+
+                </figure>
+            </p>
+
+        </article>
+    </div>
+
+    <div style="
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.4rem;
+    color: #24463e;
+    background: linear-gradient(135deg, #edf9f5, #eef7fb);
+    border: 1px solid #b9ddd4;
+    border-left: 5px solid #2a9d8f;
+    border-radius: 0 15px 15px 0;
+">
+
+    <h3 style="
+        margin: 0 0 0.6rem;
+        color: #176c64;
+        font-size: 1.18rem;
+    ">
+        ⏱ How long will it take me to learn Python?
+    </h3>
+
+    <p style="margin: 0;">
+        The learning process never truly ends. After approximately
+        <strong>seven days of regular practice</strong>, you can begin writing
+        small Python programs. From there, you will continue learning throughout
+        your life as you encounter new problems, tools, and ideas.
+    </p>
+
+    <p style="margin: 0.75rem 0 0;">
+        The best way to become a better programmer is to use programming in your
+        daily work. Automate a repetitive task, analyse a small dataset, perform
+        a calculation, or create a simple figure. Every practical problem you
+        solve will improve your programming ability.
+    </p>
+    <figure class="personal-story-figure">
+
+        <img
+            src="Learning-Curve.png"
+            alt="A student feeling overwhelmed while learning computer programming"
+        >
+
+        <figcaption>
+            
+        </figcaption>
+
+    </figure>
+
+
+</div>
+<div style="
+    margin: 1.5rem 0;
+    padding: 1.25rem 1.4rem;
+    color: #3f4530;
+    background: linear-gradient(135deg, #fffbea, #f3f9ed);
+    border: 1px solid #e5d99f;
+    border-left: 5px solid #d4a72c;
+    border-radius: 0 15px 15px 0;
+">
+
+    <h3 style="
+        margin: 0 0 0.6rem;
+        color: #80620c;
+        font-size: 1.18rem;
+    ">
+        💡 You do not need to learn all of Python
+    </h3>
+
+
+    <p style="margin: 0.75rem 0 0; font-weight: 750; color: #372769;">
+        It is almost impossible to learn every part of Python and you do not
+        need to. Learn the fundamentals first, and then learn additional tools when your
+        work requires them and focus on the area connected to your work or
+        interests.
+    </p>
+
+</div>
+    <h3>How this tutorial will teach you</h3>
+
+    <p>
+        There will be lots of commands(syntax), Don't by heart them in the 1st instance. 
+        You will find most of the command related to the real world activities. Just try to relate them.
+        If something is new and you can't remember them then come again when you need them. 
+        At the end you are the smartest one, not machine. 
+    </p>
+
+    <div class="roadmap-note">
+
+        <strong>Remember:</strong>
+
+        You do not need to be naturally talented at programming. You need
+        curiosity, patience, and the confidence to make mistakes. An error
+        message does not mean that you cannot program—it means that Python is
+        showing you where to look next. And celebrate for each sectionyou complete. 
+        <strong>Happy coding!</strong>
+
+    </div>
+
+
+    <div class="lesson-nav">
+
+        <span></span>
+
+        <button
+            class="nav-button"
+            type="button"
+            onclick="showContent('prologue')"
+        >
+            View the Course Roadmap →
+        </button>
+
+    </div>
+
+</section>
+
+<section id="prologue" class="tutorial-card">
+    <div class="hero" style="background: linear-gradient(135deg, #12372a, #1f6f78);">
+        <div class="eyebrow">Learn by building</div>
+        <h1>Python,<br>one lesson at a time.</h1>
+        <p>A carefully ordered course that begins with what programming means, explains language types and development tools, and gradually reaches practical scientific computing, data analysis, and machine learning.</p>
+        <div class="hero-stats">
+            <span class="hero-stat"><strong>60</strong> lessons</span>
+            <span class="hero-stat"><strong>6</strong> stages</span>
+            <span class="hero-stat"><strong>1</strong> new lesson each day</span>
+        </div>
+    </div>
+
+    <h3>How this course will grow</h3>
+    <p class="roadmap-note">The complete learning path is ready, but the lessons are intentionally empty. We will write and add one detailed lesson at a time so that the course stays easy to follow and easy to edit.</p>
+
+    <div class="roadmap-grid">
+        <article class="roadmap-stage"><span class="stage-number">I</span><h4>Programming and Setup</h4><p>Understand programming, language types, Python, installation, interpreters, terminals, IDEs, and source files.</p></article>
+        <article class="roadmap-stage"><span class="stage-number">II</span><h4>Core Python</h4><p>Use variables, numbers, strings, Boolean logic, input, output, and Python's essential collections.</p></article>
+        <article class="roadmap-stage"><span class="stage-number">III</span><h4>Logic and Functions</h4><p>Make decisions, repeat tasks, design reusable functions, understand scope, and build small programs.</p></article>
+        <article class="roadmap-stage"><span class="stage-number">IV</span><h4>Practical and Reliable Python</h4><p>Work with packages, environments, files, exceptions, debugging, tests, clean code, and Git.</p></article>
+        <article class="roadmap-stage"><span class="stage-number">V</span><h4>Intermediate Python and OOP</h4><p>Learn classes, inheritance, dataclasses, comprehensions, generators, decorators, and context managers.</p></article>
+        <article class="roadmap-stage"><span class="stage-number">VI</span><h4>Scientific Python and Data</h4><p>Use NumPy, Pandas, Matplotlib, SciPy, scientific file formats, automation, and machine learning.</p></article>
+    </div>
+
+    <div class="lesson-nav"><span></span><button class="nav-button" type="button" onclick="showContent('sec1')">Open Lesson 1 →</button></div>
+</section>
+
+<!-- Replace a placeholder below with the complete lesson when it is ready. -->
+<!-- <section id="sec1" class="tutorial-card">
+
+    <style>
+        #sec1 .chapter-opening {
+            margin: 1.3rem 0;
+            padding: 1.4rem;
+            color: #344b43;
+            background: linear-gradient(135deg, #f1faf7, #edf6fb);
+            border-left: 5px solid #2a9d8f;
+            border-radius: 0 16px 16px 0;
+        }
+
+        #sec1 .learning-goals {
+            margin: 1.3rem 0;
+            padding: 1.25rem 1.4rem;
+            background: #edf7fb;
+            border: 1px solid #c9e0ea;
+            border-radius: 15px;
+        }
+
+        #sec1 .learning-goals h3 {
+            margin-top: 0;
+        }
+
+        #sec1 .learning-goals ul,
+        #sec1 .chapter-list {
+            margin: 0.7rem 0 0;
+            padding-left: 1.35rem;
+        }
+
+        #sec1 .learning-goals li,
+        #sec1 .chapter-list li {
+            margin-bottom: 0.55rem;
+            color: var(--muted);
+        }
+
+        #sec1 .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin: 1.3rem 0;
+        }
+
+        #sec1 .concept-card {
+            padding: 1.2rem;
+            background: #fbfdff;
+            border: 1px solid var(--line);
+            border-radius: 15px;
+        }
+
+        #sec1 .concept-card h4 {
+            margin: 0 0 0.55rem;
+            color: #176c64;
+        }
+
+        #sec1 .concept-card p {
+            margin: 0;
+            font-size: 0.96rem;
+        }
+
+        #sec1 .definition-box {
+            margin: 1.4rem 0;
+            padding: 1.4rem;
+            color: #173f3a;
+            background: linear-gradient(135deg, #dff5ef, #e8f4fb);
+            border: 2px solid #70b9ac;
+            border-radius: 16px;
+        }
+
+        #sec1 .definition-box strong {
+            color: #0f6d63;
+        }
+
+        #sec1 .communication-flow {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+            align-items: center;
+            gap: 0.7rem;
+            margin: 1.4rem 0;
+        }
+
+        #sec1 .flow-item {
+            min-height: 105px;
+            display: grid;
+            place-items: center;
+            padding: 1rem;
+            color: #24463e;
+            background: #f3faf8;
+            border: 1px solid #c8e2dc;
+            border-radius: 14px;
+            text-align: center;
+        }
+
+        #sec1 .flow-item strong {
+            display: block;
+            color: #176c64;
+        }
+
+        #sec1 .flow-arrow {
+            color: #2a9d8f;
+            font-size: 1.6rem;
+            font-weight: 900;
+        }
+
+        #sec1 .code-window {
+            overflow: hidden;
+            margin: 1.3rem 0;
+            background: #172a46;
+            border: 1px solid #29496c;
+            border-radius: 15px;
+            box-shadow: 0 12px 28px rgba(23, 42, 70, 0.15);
+        }
+
+        #sec1 .code-header {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 14px;
+            color: #cad9e8;
+            background: #213a5c;
+            font-size: 0.82rem;
+        }
+
+        #sec1 .code-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        #sec1 .code-window pre {
+            overflow-x: auto;
+            margin: 0;
+            padding: 1.3rem;
+            color: #edf6ff;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 0.96rem;
+            line-height: 1.75;
+        }
+
+        #sec1 .output-box {
+            margin: 1rem 0 1.4rem;
+            padding: 1rem 1.2rem;
+            color: #194d46;
+            background: #effaf7;
+            border-left: 4px solid #2a9d8f;
+            border-radius: 0 12px 12px 0;
+            font-family: Consolas, "Courier New", monospace;
+        }
+
+        #sec1 .comparison-wrapper {
+            overflow-x: auto;
+            margin: 1.3rem 0;
+        }
+
+        #sec1 .comparison-table {
+            width: 100%;
+            min-width: 620px;
+            border-collapse: collapse;
+        }
+
+        #sec1 .comparison-table th,
+        #sec1 .comparison-table td {
+            padding: 0.9rem;
+            border: 1px solid var(--line);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        #sec1 .comparison-table th {
+            color: white;
+            background: #1f6f78;
+        }
+
+        #sec1 .comparison-table tr:nth-child(even) {
+            background: #f4faf8;
+        }
+
+        #sec1 .term-box {
+            margin: 1rem 0;
+            padding: 1.1rem 1.2rem;
+            background: #fffbea;
+            border-left: 4px solid #d4a72c;
+            border-radius: 0 12px 12px 0;
+        }
+
+        #sec1 .term-box strong {
+            color: #725a10;
+        }
+
+        #sec1 .check-question {
+            margin: 1rem 0;
+            padding: 1rem 1.2rem;
+            background: #f7fafc;
+            border: 1px solid var(--line);
+            border-radius: 13px;
+        }
+
+        #sec1 .check-question summary {
+            color: #176c64;
+            font-weight: 800;
+            cursor: pointer;
+        }
+
+        #sec1 .check-question p {
+            margin: 0.8rem 0 0;
+        }
+
+        #sec1 .chapter-summary {
+            margin-top: 1.5rem;
+            padding: 1.35rem;
+            color: white;
+            background: linear-gradient(135deg, #12372a, #1f6f78);
+            border-radius: 16px;
+        }
+
+        #sec1 .chapter-summary h3 {
+            margin-top: 0;
+            color: #ffd95a;
+        }
+
+        #sec1 .chapter-summary li {
+            margin-bottom: 0.5rem;
+            color: #e7f5f2;
+        }
+
+        @media (max-width: 720px) {
+            #sec1 .concept-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #sec1 .communication-flow {
+                grid-template-columns: 1fr;
+            }
+
+            #sec1 .flow-arrow {
+                transform: rotate(90deg);
+                text-align: center;
+            }
+        }
+    </style>
+
+
+    <h2>1. What Is a Programming Language?</h2>
+
+    <div class="status-row">
+        <span class="level">Stage I · Programming and Setup</span>
+        <span class="status">Beginner</span>
+    </div>
+
+
+    <div class="chapter-opening">
+
+        <p>
+            When people begin learning Python, they often hear sentences such as:
+        </p>
+
+        <p style="
+            margin: 0.8rem 0;
+            color: #176c64;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 1.12rem;
+            font-style: italic;
+            text-align: center;
+        ">
+            “Python is an easy programming language.”
+        </p>
+
+        <p>
+            But this statement immediately creates three important questions:
+        </p>
+
+        <ul class="chapter-list">
+            <li>What is a language?</li>
+            <li>What does programming mean?</li>
+            <li>What makes something a programming language?</li>
+        </ul>
+
+        <p>
+            Before learning Python commands, we should understand these basic
+            ideas clearly.
+        </p>
+
+    </div>
+
+
+    <!-- <div class="learning-goals">
+
+        <h3>Learning objectives</h3>
+
+        <p>After completing this chapter, you should be able to:</p>
+
+        <ul>
+            <li>Explain what a language is.</li>
+            <li>Understand why languages need shared symbols and rules.</li>
+            <li>Explain programming using everyday examples.</li>
+            <li>Distinguish between a program, programming, and code.</li>
+            <li>Define a programming language in simple words.</li>
+            <li>Understand how humans use programming languages to communicate instructions to computers.</li>
+        </ul>
+
+    </div> -->
+
+
+    <!-- <h3>1.1 Let us begin with language</h3>
+
+    <p>
+        A <strong>language</strong> is a system that allows information to be
+        communicated from one person or system to another. A language uses
+        agreed symbols, words, sounds, or gestures together with rules that
+        explain how they should be combined.
+    </p>
+
+    <p>
+        For example, English uses letters, words, and grammatical rules. Other
+        spoken languages may use different words and sentence structures, but
+        they serve the same basic purpose: communication.
+    </p>
+
+
+    <div class="definition-box">
+        <strong>Simple definition:</strong>
+        A language is a shared system of symbols and rules used to communicate
+        meaning.
+    </div>
+
+
+    <h3>1.2 What is required for communication?</h3>
+
+    <p>
+        Communication normally contains four important parts:
+    </p>
+
+    <div class="communication-flow">
+
+        <div class="flow-item">
+            <div>
+                <strong>Sender</strong>
+                The person or system creating the message
+            </div>
+        </div>
+
+        <div class="flow-arrow">→</div>
+
+        <div class="flow-item">
+            <div>
+                <strong>Language</strong>
+                The agreed symbols and rules
+            </div>
+        </div>
+
+        <div class="flow-arrow">→</div>
+
+        <div class="flow-item">
+            <div>
+                <strong>Receiver</strong>
+                The person or system interpreting the message
+            </div>
+        </div>
+
+    </div>
+
+
+    <h3>1.3 Language is not limited to spoken words</h3>
+
+    <p>
+        We communicate through many kinds of language. Some use words, while
+        others use numbers, symbols, movements, or visual signs.
+    </p>
+
+    <div class="concept-grid">
+
+        <article class="concept-card">
+            <h4>Spoken language</h4>
+            <p>
+                English, Odia, Hindi, Mandarin, and other languages allow people
+                to exchange ideas through words and grammar.
+            </p>
+        </article>
+
+        <article class="concept-card">
+            <h4>Mathematical language</h4>
+            <p>
+                Mathematics uses numbers and symbols such as
+                <code>+</code>, <code>−</code>, <code>=</code>, and
+                <code>∫</code> to express precise relationships.
+            </p>
+        </article>
+
+        <article class="concept-card">
+            <h4>Sign language</h4>
+            <p>
+                Sign languages use hand shapes, movements, expressions, and
+                body positions to communicate meaning.
+            </p>
+        </article>
+
+        <article class="concept-card">
+            <h4>Programming language</h4>
+            <p>
+                A programming language uses keywords, symbols, values, and
+                formal rules to describe instructions for a computer.
+            </p>
+        </article>
+
+    </div>
+
+
+    <h3>1.4 Every language has vocabulary and rules</h3>
+
+    <p>
+        Knowing individual words is not enough to communicate. The words must
+        also be arranged according to the rules of the language.
+    </p>
+
+    <div class="comparison-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Sentence</th>
+                    <th>Words</th>
+                    <th>Rules</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>The student reads the book.</td>
+                    <td>English words</td>
+                    <td>Correct grammatical order</td>
+                    <td>Clear</td>
+                </tr>
+
+                <tr>
+                    <td>Book the reads student.</td>
+                    <td>English words</td>
+                    <td>Incorrect grammatical order</td>
+                    <td>Confusing</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <p>
+        Both sentences contain familiar words, but only the first sentence
+        follows the expected rules. Programming languages work in the same way.
+        A computer cannot correctly interpret code if its rules are broken.
+    </p>
+
+
+    <h3>1.5 What is an instruction?</h3>
+
+    <p>
+        An <strong>instruction</strong> tells someone or something to perform a
+        particular action.
+    </p>
+
+    <p>Examples of everyday instructions include:</p>
+
+    <ul class="chapter-list">
+        <li>Open the door.</li>
+        <li>Add two cups of water.</li>
+        <li>Calculate the average temperature.</li>
+        <li>Arrange these values from smallest to largest.</li>
+        <li>Save the result in a new file.</li>
+    </ul>
+
+    <p>
+        Computers also follow instructions. However, computer instructions must
+        be much more precise than instructions given to another person.
+    </p>
+
+
+    <div class="term-box">
+        <strong>Important:</strong>
+        A computer does not guess what you intended. It performs the instruction
+        that you actually provided.
+    </div>
+
+
+    <h3>1.6 What is programming?</h3>
+
+    <p>
+        <strong>Programming</strong> is the process of analysing a problem,
+        dividing it into logical steps, expressing those steps as computer
+        instructions, and checking whether the instructions produce the desired
+        result.
+    </p>
+
+
+    <div class="definition-box">
+        <strong>Simple definition:</strong>
+        Programming means creating a clear sequence of instructions that tells
+        a computer how to complete a task or solve a problem.
+    </div>
+
+
+    <h3>1.7 Programming begins before writing code</h3>
+
+    <p>
+        Many beginners believe programming begins when they start typing
+        commands. In reality, programming begins when we think carefully about
+        the problem.
+    </p>
+
+    <p>Suppose we want to calculate the average of three measurements:</p>
+
+    <ol class="chapter-list">
+        <li>Collect the three measurements.</li>
+        <li>Add the measurements together.</li>
+        <li>Divide the total by three.</li>
+        <li>Display the result.</li>
+    </ol>
+
+    <p>
+        These steps form a solution before we write any Python code. A
+        step-by-step procedure for solving a problem is called an
+        <strong>algorithm</strong>.
+    </p>
+
+
+    <div class="term-box">
+        <strong>Algorithm:</strong>
+        A finite and ordered sequence of steps used to solve a problem or
+        complete a task.
+    </div>
+
+
+    <h3>1.8 From a problem to a result</h3>
+
+    <div class="communication-flow">
+
+        <div class="flow-item">
+            <div>
+                <strong>Problem</strong>
+                What do we want to solve?
+            </div>
+        </div>
+
+        <div class="flow-arrow">→</div>
+
+        <div class="flow-item">
+            <div>
+                <strong>Algorithm</strong>
+                What steps are required?
+            </div>
+        </div>
+
+        <div class="flow-arrow">→</div>
+
+        <div class="flow-item">
+            <div>
+                <strong>Program</strong>
+                How do we express the steps for a computer?
+            </div>
+        </div>
+
+    </div>
+
+
+    <h3>1.9 What is a program?</h3>
+
+    <p>
+        A <strong>program</strong> is a collection of computer instructions
+        written to perform a particular task.
+    </p>
+
+    <p>A program may be written to:</p>
+
+    <ul class="chapter-list">
+        <li>add two numbers;</li>
+        <li>analyse experimental data;</li>
+        <li>draw a scientific graph;</li>
+        <li>send an email automatically;</li>
+        <li>control laboratory equipment;</li>
+        <li>predict tomorrow's weather;</li>
+        <li>recognize an object in an image; or</li>
+        <li>operate an entire website or mobile application.</li>
+    </ul>
+
+
+    <h3>1.10 What is a programming language?</h3>
+
+    <p>
+        Humans communicate using natural languages, but computers ultimately
+        work with electronic states represented by binary values such as
+        <code>0</code> and <code>1</code>.
+    </p>
+
+    <p>
+        Writing every instruction directly in binary would be extremely
+        difficult. Programming languages provide a more understandable way for
+        humans to describe instructions.
+    </p>
+
+
+    <div class="definition-box">
+        <strong>Programming language:</strong>
+        A formal language with defined words, symbols, and rules that humans use
+        to write instructions that can be translated into actions performed by
+        a computer.
+    </div>
+
+
+    <h3>1.11 Human language and programming language</h3>
+
+    <div class="comparison-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Natural language</th>
+                    <th>Programming language</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Main purpose</td>
+                    <td>Communication between people</td>
+                    <td>Communication of instructions to computers</td>
+                </tr>
+
+                <tr>
+                    <td>Examples</td>
+                    <td>English, Odia, Hindi, Mandarin</td>
+                    <td>Python, C, C++, Java, JavaScript</td>
+                </tr>
+
+                <tr>
+                    <td>Rules</td>
+                    <td>Grammar</td>
+                    <td>Syntax</td>
+                </tr>
+
+                <tr>
+                    <td>Meaning</td>
+                    <td>Can depend on context and interpretation</td>
+                    <td>Must be precise and unambiguous</td>
+                </tr>
+
+                <tr>
+                    <td>Mistakes</td>
+                    <td>People can often understand an imperfect sentence</td>
+                    <td>A syntax error may stop the program</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <h3>1.12 Vocabulary, syntax, and meaning</h3>
+
+    <p>A programming language contains three important elements:</p>
+
+    <div class="concept-grid">
+
+        <article class="concept-card">
+
+            <h4>Vocabulary</h4>
+
+            <p>
+                The available keywords, names, values, and symbols. Python
+                vocabulary includes words such as <code>if</code>,
+                <code>for</code>, <code>while</code>, and
+                <code>print</code>.
+            </p>
+
+        </article>
+
+
+        <article class="concept-card">
+
+            <h4>Syntax</h4>
+
+            <p>
+                The rules that determine how code must be arranged. Syntax is
+                similar to grammar in a natural language.
+            </p>
+
+        </article>
+
+
+        <article class="concept-card">
+
+            <h4>Semantics</h4>
+
+            <p>
+                The meaning of an instruction. Code can follow the syntax rules
+                but still produce the wrong result if its logic is incorrect.
+            </p>
+
+        </article>
+
+
+        <article class="concept-card">
+
+            <h4>Translation</h4>
+
+            <p>
+                A translator such as an interpreter or compiler converts the
+                program into instructions that the computer can execute.
+            </p>
+
+        </article>
+
+    </div>
+
+
+    <h3>1.13 A first look at Python code</h3>
+
+    <p>
+        Consider a simple program that checks whether the temperature is greater
+        than 30 degrees:
+    </p>
+
+
+    <div class="code-window">
+
+        <div class="code-header">
+            <span class="code-dot" style="background:#ff6b6b;"></span>
+            <span class="code-dot" style="background:#ffd43b;"></span>
+            <span class="code-dot" style="background:#4ecb71;"></span>
+            <span style="margin-left:8px;">temperature_check.py</span>
+        </div>
+
+        <pre><code><span style="color:#8ed0ff;">temperature</span> = <span style="color:#f7c873;">32</span>
+
+<span style="color:#ff8fb3;">if</span> temperature &gt; <span style="color:#f7c873;">30</span>:
+    <span style="color:#7ee787;">print</span>(<span style="color:#ffe58a;">"It is a hot day."</span>)</code></pre>
+
+    </div>
+
+
+    <div class="output-box">
+        Output: It is a hot day.
+    </div>
+
+
+    <p>In this program:</p>
+
+    <ul class="chapter-list">
+        <li><code>temperature</code> stores a value.</li>
+        <li><code>32</code> is the stored temperature.</li>
+        <li><code>if</code> asks Python to check a condition.</li>
+        <li><code>&gt;</code> means “greater than.”</li>
+        <li><code>print()</code> asks Python to display a message.</li>
+    </ul>
+
+    <p>
+        You do not need to memorize this code yet. For now, notice that the
+        program is simply a set of understandable instructions written according
+        to Python's rules.
+    </p>
+
+
+    <h3>1.14 How does the computer understand the program?</h3>
+
+    <p>
+        A computer cannot directly understand Python in the same way that a
+        person reads it. Python code must be processed by the Python interpreter.
+    </p>
+
+    <div class="communication-flow">
+
+        <div class="flow-item">
+            <div>
+                <strong>Programmer</strong>
+                Writes Python code
+            </div>
+        </div>
+
+        <div class="flow-arrow">→</div>
+
+        <div class="flow-item">
+            <div>
+                <strong>Python interpreter</strong>
+                Processes and translates the instructions
+            </div>
+        </div>
+
+        <div class="flow-arrow">→</div>
+
+        <div class="flow-item">
+            <div>
+                <strong>Computer</strong>
+                Performs the requested operations
+            </div>
+        </div>
+
+    </div>
+
+    <p>
+        We will study interpreters, compilers, and different levels of
+        programming languages in later chapters.
+    </p>
+
+
+    <h3>1.15 Why are there many programming languages?</h3>
+
+    <p>
+        Different programming languages are designed for different priorities
+        and types of work.
+    </p>
+
+    <div class="concept-grid">
+
+        <article class="concept-card">
+            <h4>Python</h4>
+            <p>
+                Popular for education, automation, scientific computing, data
+                analysis, artificial intelligence, and machine learning.
+            </p>
+        </article>
+
+        <article class="concept-card">
+            <h4>C and C++</h4>
+            <p>
+                Commonly used when high performance and close control of
+                computer hardware are important.
+            </p>
+        </article>
+
+        <article class="concept-card">
+            <h4>JavaScript</h4>
+            <p>
+                Primarily used to make websites interactive and to build many
+                web applications.
+            </p>
+        </article>
+
+        <article class="concept-card">
+            <h4>R</h4>
+            <p>
+                Frequently used for statistics, data analysis, and academic
+                research.
+            </p>
+        </article>
+
+    </div>
+
+    <p>
+        You do not need to learn every programming language. You should learn
+        the language and tools that help you solve the problems connected to
+        your work.
+    </p>
+
+
+    <h3>1.16 Program, programming, code, and programmer</h3>
+
+    <div class="comparison-wrapper">
+
+        <table class="comparison-table">
+
+            <thead>
+                <tr>
+                    <th>Term</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td><strong>Program</strong></td>
+                    <td>A collection of instructions created to perform a task.</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Programming</strong></td>
+                    <td>The complete process of designing, writing, testing, and improving a program.</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Code</strong></td>
+                    <td>The written instructions contained in a program.</td>
+                </tr>
+
+                <tr>
+                    <td><strong>Programmer</strong></td>
+                    <td>A person who creates, tests, and improves computer programs.</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+    <h3>1.17 A common misunderstanding</h3>
+
+    <div class="term-box">
+        <strong>Programming is not simply typing code.</strong>
+        Good programming includes understanding the problem, designing a
+        solution, writing clear instructions, testing the result, finding
+        mistakes, and improving the solution.
+    </div>
+
+    <p>
+        A person can memorize many Python commands and still struggle to solve
+        problems. Another person may know fewer commands but be able to divide a
+        problem into clear logical steps. The second person is developing the
+        more important programming skill.
+    </p>
+
+
+    <h3>1.18 Check your understanding</h3>
+
+    <details class="check-question">
+        <summary>Question 1: What is a language?</summary>
+        <p>
+            A language is a shared system of symbols and rules used to
+            communicate meaning.
+        </p>
+    </details>
+
+    <details class="check-question">
+        <summary>Question 2: What is programming?</summary>
+        <p>
+            Programming is the process of analysing a problem, designing a
+            sequence of steps, writing those steps as computer instructions,
+            and testing the result.
+        </p>
+    </details>
+
+    <details class="check-question">
+        <summary>Question 3: What is a programming language?</summary>
+        <p>
+            A programming language is a formal language that allows humans to
+            write instructions that can be translated into operations performed
+            by a computer.
+        </p>
+    </details>
+
+    <details class="check-question">
+        <summary>Question 4: Is a program the same as programming?</summary>
+        <p>
+            No. A program is the resulting collection of instructions.
+            Programming is the complete process used to create, test, and
+            improve those instructions.
+        </p>
+    </details>
+
+    <details class="check-question">
+        <summary>Question 5: Why must computer instructions be precise?</summary>
+        <p>
+            Computers do not guess the programmer's intention. They follow the
+            instructions and rules that are actually provided.
+        </p>
+    </details>
+
+
+    <h3>1.19 Small thinking exercise</h3>
+
+    <div class="roadmap-note">
+
+        <strong>Your task:</strong>
+
+        Choose one everyday activity, such as making tea, preparing rice,
+        calculating an average, or organizing files. Write the activity as a
+        numbered list of precise instructions.
+
+        <br><br>
+
+        Then ask yourself: Could someone who has never performed this activity
+        follow my instructions without asking any questions?
+
+    </div>
+
+
+    <div class="chapter-summary">
+
+        <h3>Chapter summary</h3>
+
+        <ul>
+            <li>A language is a shared system of symbols and rules.</li>
+            <li>Programming means designing instructions that solve a problem.</li>
+            <li>An algorithm is an ordered sequence of problem-solving steps.</li>
+            <li>A program is a collection of instructions written for a computer.</li>
+            <li>Code is the written form of those instructions.</li>
+            <li>A programming language allows humans to express computer instructions.</li>
+            <li>Programming languages have vocabulary, syntax, and meaning.</li>
+            <li>Computers require instructions to be clear and precise.</li>
+            <li>Programming is mainly problem-solving—not memorizing commands.</li>
+        </ul>
+
+    </div>
+
+
+    <div class="lesson-nav">
+
+        <button
+            class="nav-button secondary"
+            type="button"
+            onclick="showContent('prologue')"
+        >
+            ← Course Roadmap
+        </button>
+
+        <button
+            class="nav-button"
+            type="button"
+            onclick="showContent('sec2')"
+        >
+            Lesson 2: How Computers Follow Instructions →
+        </button>
+
+    </div>
+
+</section> -->
+<section id="sec1" class="tutorial-card"><h2>1. What is programming language?</h2><div class="status-row"><span class="level">Stage I · Programming and Setup</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">01</div><h3>Lesson placeholder</h3><p>This lesson will be added after Lesson 1.</p></div></div></section> 
+<section id="sec2" class="tutorial-card"><h2>2. How Computers Follow Instructions</h2><div class="status-row"><span class="level">Stage I · Programming and Setup</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">02</div><h3>Lesson placeholder</h3><p>This lesson will be added after Lesson 1.</p></div></div></section>
+<section id="sec3" class="tutorial-card"><h2>3. Machine, Assembly, and High-Level Languages</h2><div class="status-row"><span class="level">Stage I · Programming and Setup</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">03</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec4" class="tutorial-card"><h2>4. Compiled vs Interpreted Languages</h2><div class="status-row"><span class="level">Stage I · Programming and Setup</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">04</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec5" class="tutorial-card"><h2>5. Programming Paradigms and Language Uses</h2><div class="status-row"><span class="level">Stage I · Programming and Setup</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">05</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec6" class="tutorial-card"><h2>6. What Is Python and Why Learn It?</h2><div class="status-row"><span class="level">Stage I · Programming and Setup</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">06</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec7" class="tutorial-card"><h2>7. Installing Python on Windows, macOS, and Linux</h2><div class="status-row"><span class="level">Stage I · Programming and Setup</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">07</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+
+<section id="sec8" class="tutorial-card"><h2>8. The Python Interpreter and Your First Program</h2><div class="status-row"><span class="level">Stage I · Programming and Setup</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">08</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec9" class="tutorial-card"><h2>9. IDEs: IDLE, VS Code, PyCharm, and Jupyter</h2><div class="status-row"><span class="level">Stage I · Programming and Setup</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">09</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec10" class="tutorial-card"><h2>10. Files, Comments, Syntax, and Error Messages</h2><div class="status-row"><span class="level">Stage I · Programming and Setup</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">10</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec11" class="tutorial-card"><h2>11. Variables, Assignment, and Naming Rules</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">11</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec12" class="tutorial-card"><h2>12. Numbers and Arithmetic Operators</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">12</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec13" class="tutorial-card"><h2>13. Strings and Text Processing</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">13</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec14" class="tutorial-card"><h2>14. Booleans, Comparisons, and Logical Operators</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">14</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec15" class="tutorial-card"><h2>15. Input, Output, f-Strings, and Type Conversion</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">15</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+
+<section id="sec16" class="tutorial-card"><h2>16. Lists and List Operations</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">16</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec17" class="tutorial-card"><h2>17. Tuples and Immutable Data</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">17</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec18" class="tutorial-card"><h2>18. Sets and Unique Values</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">18</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec19" class="tutorial-card"><h2>19. Dictionaries and Key–Value Data</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">19</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec20" class="tutorial-card"><h2>20. Mini Project: A Personal Information Program</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">20</div><h3>Mini-project placeholder</h3><p>This lesson will combine the ideas introduced in Stage II.</p></div></div></section>
+<section id="sec21" class="tutorial-card"><h2>21. Decision Making with if, elif, and else</h2><div class="status-row"><span class="level">Stage III · Logic and Functions</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">21</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec22" class="tutorial-card"><h2>22. Nested Conditions and match–case</h2><div class="status-row"><span class="level">Stage III · Logic and Functions</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">22</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+
+<section id="sec23" class="tutorial-card"><h2>23. for Loops and Iteration</h2><div class="status-row"><span class="level">Stage III · Logic and Functions</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">23</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec24" class="tutorial-card"><h2>24. while Loops and Repetition</h2><div class="status-row"><span class="level">Stage III · Logic and Functions</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">24</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec25" class="tutorial-card"><h2>25. range, break, continue, and Loop Patterns</h2><div class="status-row"><span class="level">Stage III · Logic and Functions</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">25</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec26" class="tutorial-card"><h2>26. Functions and Reusable Code</h2><div class="status-row"><span class="level">Stage III · Logic and Functions</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">26</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec27" class="tutorial-card"><h2>27. Parameters, Arguments, *args, and **kwargs</h2><div class="status-row"><span class="level">Stage III · Logic and Functions</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">27</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec28" class="tutorial-card"><h2>28. Return Values and Variable Scope</h2><div class="status-row"><span class="level">Stage III · Logic and Functions</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">28</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec29" class="tutorial-card"><h2>29. Lambda, map, filter, and Useful Built-ins</h2><div class="status-row"><span class="level">Stage III · Logic and Functions</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">29</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec30" class="tutorial-card"><h2>30. Mini Project: A Menu-Driven Python Program</h2><div class="status-row"><span class="level">Stage III · Logic and Functions</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">30</div><h3>Mini-project placeholder</h3><p>This lesson will combine the ideas introduced in Stage III.</p></div></div></section>
+
+<section id="sec31" class="tutorial-card"><h2>31. Modules, Packages, and Imports</h2><div class="status-row"><span class="level">Stage IV · Practical and Reliable Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">31</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec32" class="tutorial-card"><h2>32. pip and Virtual Environments</h2><div class="status-row"><span class="level">Stage IV · Practical and Reliable Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">32</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec33" class="tutorial-card"><h2>33. Errors and Exception Handling</h2><div class="status-row"><span class="level">Stage IV · Practical and Reliable Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">33</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec34" class="tutorial-card"><h2>34. Reading and Writing Text Files</h2><div class="status-row"><span class="level">Stage IV · Practical and Reliable Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">34</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec35" class="tutorial-card"><h2>35. Working with CSV and JSON Files</h2><div class="status-row"><span class="level">Stage IV · Practical and Reliable Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">35</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec36" class="tutorial-card"><h2>36. Folders and Paths with pathlib</h2><div class="status-row"><span class="level">Stage IV · Practical and Reliable Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">36</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec37" class="tutorial-card"><h2>37. Debugging and Logging</h2><div class="status-row"><span class="level">Stage IV · Practical and Reliable Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">37</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec38" class="tutorial-card"><h2>38. Testing with assert and pytest</h2><div class="status-row"><span class="level">Stage IV · Practical and Reliable Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">38</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec39" class="tutorial-card"><h2>39. PEP 8, Type Hints, and Clean Code</h2><div class="status-row"><span class="level">Stage IV · Practical and Reliable Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">39</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec40" class="tutorial-card"><h2>40. Project Structure and Git Basics</h2><div class="status-row"><span class="level">Stage IV · Practical and Reliable Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">40</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+
+<section id="sec41" class="tutorial-card"><h2>41. Object-Oriented Programming Concepts</h2><div class="status-row"><span class="level">Stage V · Intermediate Python and OOP</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">41</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec42" class="tutorial-card"><h2>42. Classes and Objects</h2><div class="status-row"><span class="level">Stage V · Intermediate Python and OOP</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">42</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec43" class="tutorial-card"><h2>43. Constructors and Attributes</h2><div class="status-row"><span class="level">Stage V · Intermediate Python and OOP</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">43</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec44" class="tutorial-card"><h2>44. Methods, Encapsulation, and Properties</h2><div class="status-row"><span class="level">Stage V · Intermediate Python and OOP</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">44</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec45" class="tutorial-card"><h2>45. Inheritance, Polymorphism, and Composition</h2><div class="status-row"><span class="level">Stage V · Intermediate Python and OOP</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">45</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec46" class="tutorial-card"><h2>46. Dataclasses and Special Methods</h2><div class="status-row"><span class="level">Stage V · Intermediate Python and OOP</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">46</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec47" class="tutorial-card"><h2>47. List, Set, and Dictionary Comprehensions</h2><div class="status-row"><span class="level">Stage V · Intermediate Python and OOP</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">47</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec48" class="tutorial-card"><h2>48. Iterators and Generators</h2><div class="status-row"><span class="level">Stage V · Intermediate Python and OOP</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">48</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec49" class="tutorial-card"><h2>49. Decorators and Context Managers</h2><div class="status-row"><span class="level">Stage V · Intermediate Python and OOP</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">49</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec50" class="tutorial-card"><h2>50. Intermediate Capstone: A Structured Application</h2><div class="status-row"><span class="level">Stage V · Intermediate Python and OOP</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">50</div><h3>Capstone placeholder</h3><p>This capstone will combine the skills developed in Stage V.</p></div></div></section>
+
+<section id="sec51" class="tutorial-card"><h2>51. NumPy Arrays and Fast Computation</h2><div class="status-row"><span class="level">Stage VI · Scientific Python and Data</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">51</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec52" class="tutorial-card"><h2>52. NumPy Indexing, Broadcasting, and Vectorization</h2><div class="status-row"><span class="level">Stage VI · Scientific Python and Data</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">52</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec53" class="tutorial-card"><h2>53. Pandas Series and DataFrames</h2><div class="status-row"><span class="level">Stage VI · Scientific Python and Data</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">53</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec54" class="tutorial-card"><h2>54. Cleaning and Analysing Data with Pandas</h2><div class="status-row"><span class="level">Stage VI · Scientific Python and Data</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">54</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec55" class="tutorial-card"><h2>55. Matplotlib and Seaborn Visualization</h2><div class="status-row"><span class="level">Stage VI · Scientific Python and Data</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">55</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec56" class="tutorial-card"><h2>56. SciPy and Scientific Computing</h2><div class="status-row"><span class="level">Stage VI · Scientific Python and Data</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">56</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec57" class="tutorial-card"><h2>57. HDF5, NetCDF, and Large Scientific Data</h2><div class="status-row"><span class="level">Stage VI · Scientific Python and Data</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">57</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec58" class="tutorial-card"><h2>58. Automation, APIs, and Useful Scripts</h2><div class="status-row"><span class="level">Stage VI · Scientific Python and Data</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">58</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec59" class="tutorial-card"><h2>59. Introduction to Machine Learning</h2><div class="status-row"><span class="level">Stage VI · Scientific Python and Data</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">59</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec60" class="tutorial-card"><h2>60. Final Capstone: A Scientific Data Project</h2><div class="status-row"><span class="level">Stage VI · Scientific Python and Data</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">60</div><h3>Final project placeholder</h3><p>This capstone will combine the skills developed throughout all six stages.</p></div></div></section>
+</main>
+</div>
+
+<footer>Python Learning Hub · Built one lesson at a time</footer>
+
+<script>
+const cards = Array.from(document.querySelectorAll('.tutorial-card'));
+const navLinks = Array.from(document.querySelectorAll('#tutorial-nav a[data-target]'));
+
+function showContent(id, updateHash = true) {
+    const target = document.getElementById(id) || document.getElementById('prologue');
+    cards.forEach(card => card.classList.toggle('is-visible', card === target));
+    navLinks.forEach(link => {
+        const active = link.dataset.target === target.id;
+        link.classList.toggle('active', active);
+        if (active) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+    });
+    if (updateHash) history.replaceState(null, '', '#' + target.id);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    closeMenu();
+}
+
+function toggleMenu() {
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.querySelector('.sidebar-overlay');
+    const button = document.querySelector('.menu-toggle');
+    const open = !sidebar.classList.contains('open');
+    sidebar.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    button.setAttribute('aria-expanded', String(open));
+}
+
+function closeMenu() {
+    document.querySelector('.sidebar').classList.remove('open');
+    document.querySelector('.sidebar-overlay').classList.remove('open');
+    document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
+}
+
+navLinks.forEach(link => link.addEventListener('click', event => {
+    event.preventDefault();
+    showContent(link.dataset.target);
+}));
+
+window.addEventListener('hashchange', () =>showContent(location.hash.slice(1) || 'welcome', false));
+document.addEventListener('keydown', event => { if (event.key === 'Escape') closeMenu(); });
+showContent(location.hash.slice(1) || 'welcome', false);
+</script>
+</body>
+</html>
