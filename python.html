@@ -7450,6 +7450,1041 @@ footer { max-width: 1420px; margin: 0 auto; padding: 0 4% 2rem; color: #718090; 
     .interp9-print-anatomy {
         flex-direction: column;
     }
+
+}
+.before10-intro,
+.before10-summary {
+    display: flex;
+    gap: 0.8rem;
+    margin: 1.2rem 0;
+    padding: 1rem;
+    color: #285c63;
+    background: linear-gradient(135deg, #eaf8f5, #edf7fc);
+    border: 1px solid #b8ddd8;
+    border-radius: 13px;
+    line-height: 1.65;
+}
+
+.before10-intro > i,
+.before10-summary > i {
+    margin-top: 0.2rem;
+    color: #16877e;
+    font-size: 1.1rem;
+}
+
+.before10-summary {
+    display: block;
+}
+
+.before10-summary h3 {
+    margin: 0 0 0.4rem;
+}
+
+.before10-summary p {
+    margin: 0;
+}
+
+.before10-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1.2rem 0;
+}
+
+.before10-card {
+    position: relative;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid #cfe4e3;
+    border-radius: 16px;
+    box-shadow: 0 8px 22px rgba(25, 83, 91, 0.06);
+}
+
+.before10-card > i {
+    display: grid;
+    width: 45px;
+    height: 45px;
+    margin-bottom: 0.8rem;
+    place-items: center;
+    color: white;
+    background: linear-gradient(135deg, #16877e, #2878a8);
+    border-radius: 12px;
+    font-size: 1.1rem;
+}
+
+.before10-number {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    color: #183f4a;
+    background: #ffd84d;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    font-weight: 900;
+}
+
+.before10-card h3 {
+    margin: 0 0 0.55rem;
+    color: #234851;
+    font-size: 1rem;
+}
+
+.before10-card p {
+    color: #607988;
+    line-height: 1.65;
+}
+
+.before10-code {
+    margin: 0.8rem 0;
+    padding: 0.75rem;
+    overflow-x: auto;
+    color: #d7e7ea;
+    background: #1e1e1e;
+    border-radius: 8px;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.82rem;
+}
+
+.before10-code-multiline {
+    line-height: 1.7;
+}
+
+.before10-small {
+    margin-bottom: 0;
+    font-size: 0.83rem;
+}
+
+.before10-card code {
+    font-family: Consolas, Monaco, monospace;
+}
+
+.before10-compare {
+    display: grid;
+    gap: 0.5rem;
+    margin: 0.8rem 0;
+}
+
+.before10-compare div {
+    padding: 0.65rem;
+    border-radius: 7px;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.78rem;
+}
+
+.before10-compare .correct {
+    color: #177161;
+    background: #e8f8f3;
+}
+
+.before10-compare .wrong {
+    color: #a14d48;
+    background: #fff0ef;
+}
+
+.before10-compare i {
+    margin-right: 0.35rem;
+}
+
+@media (max-width: 700px) {
+    .before10-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* ========== SECTION 13: STRINGS AND TEXT PROCESSING ========== */
+
+.string13-intro,
+.string13-definition,
+.string13-combine,
+.string13-index-section,
+.string13-methods,
+.string13-lab,
+.string13-immutable,
+.string13-practice {
+    margin-top: 1.5rem;
+    padding: 1.35rem;
+    border: 1px solid rgba(18, 139, 145, 0.16);
+    border-radius: 16px;
+    background: #ffffff;
+}
+
+.string13-intro {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    background: linear-gradient(135deg, #e7f8f5, #eef8ff);
+    border-left: 5px solid #159b92;
+}
+
+.string13-intro h3,
+.string13-definition h3,
+.string13-combine h3,
+.string13-index-section h3,
+.string13-methods h3,
+.string13-lab h3,
+.string13-immutable h3,
+.string13-practice h3 {
+    margin-top: 0;
+    color: #126b78;
+}
+
+.string13-intro-icon {
+    width: 58px;
+    height: 58px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    color: white;
+    background: #159b92;
+    font-size: 1.5rem;
+}
+
+.string13-code-window pre,
+.string13-card pre,
+.string13-combine pre,
+.string13-immutable pre,
+.string13-practice pre {
+    margin: 1rem 0;
+    padding: 1rem;
+    overflow-x: auto;
+    border-radius: 10px;
+    color: #dffcff;
+    background: #112d3a;
+}
+
+.string13-code-window code,
+.string13-card code,
+.string13-combine code,
+.string13-immutable code,
+.string13-practice code {
+    color: inherit;
+}
+
+.string13-note {
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    margin-top: 1rem;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    color: #15565d;
+    background: #e8faf7;
+}
+
+.string13-note i {
+    margin-top: 0.2rem;
+    color: #159b92;
+}
+
+.string13-note p {
+    margin: 0;
+}
+
+.string13-two-column {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+.string13-card {
+    padding: 1.25rem;
+    border-radius: 16px;
+    border: 1px solid rgba(18, 139, 145, 0.16);
+    background: #f9ffff;
+}
+
+.string13-card h3 {
+    margin-top: 0;
+    color: #126b78;
+}
+
+.string13-index-visual {
+    max-width: 440px;
+    margin: 1.4rem auto;
+    text-align: center;
+}
+
+.string13-index-row,
+.string13-letter-row {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+.string13-index-row span {
+    padding: 0.25rem;
+    color: #56757a;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.string13-letter-row span {
+    padding: 0.75rem 0.25rem;
+    border: 1px solid #9bded7;
+    color: #126b78;
+    background: #e8faf7;
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.string13-letter-row span:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+.string13-letter-row span:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+.string13-example-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+}
+
+.string13-example-grid div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.9rem;
+    border-radius: 10px;
+    background: #f2fbfa;
+}
+
+.string13-example-grid code,
+.string13-method-card > code {
+    width: fit-content;
+    padding: 0.25rem 0.45rem;
+    border-radius: 5px;
+    color: #0d6d75;
+    background: #dff4f1;
+    font-weight: 800;
+}
+
+.string13-method-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.string13-method-card {
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid #d9eeee;
+    background: #faffff;
+}
+
+.string13-method-card h4 {
+    margin: 0.75rem 0 0.4rem;
+    color: #155b66;
+}
+
+.string13-method-card p {
+    margin: 0;
+    font-size: 0.92rem;
+}
+
+.string13-lab {
+    background: linear-gradient(135deg, #f0fbff, #f5fffc);
+}
+
+.string13-lab label {
+    display: block;
+    margin-bottom: 0.45rem;
+    color: #155b66;
+    font-weight: 800;
+}
+
+#string13Input,
+.string13-replace-row input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.8rem;
+    border: 1px solid #abd8d4;
+    border-radius: 9px;
+    outline: none;
+    color: #173d46;
+    font: inherit;
+}
+
+#string13Input:focus,
+.string13-replace-row input:focus {
+    border-color: #159b92;
+    box-shadow: 0 0 0 3px rgba(21, 155, 146, 0.13);
+}
+
+.string13-lab-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin: 1rem 0;
+}
+
+.string13-action {
+    padding: 0.6rem 0.85rem;
+    border: 1px solid #a8dcd6;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #126b78;
+    background: white;
+    font: inherit;
+    font-weight: 800;
+}
+
+.string13-action:hover,
+.string13-action.active {
+    color: white;
+    border-color: #159b92;
+    background: #159b92;
+}
+
+.string13-replace-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 0.65rem;
+}
+
+.string13-result {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    border-left: 4px solid #159b92;
+    background: #e6f8f5;
+}
+
+.string13-result span {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: #3c7075;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+#string13Output {
+    display: block;
+    overflow-wrap: anywhere;
+    color: #124e58;
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+@media (max-width: 700px) {
+    .string13-two-column,
+    .string13-method-grid,
+    .string13-example-grid,
+    .string13-replace-row {
+        grid-template-columns: 1fr;
+    }
+
+    .string13-intro {
+        align-items: flex-start;
+    }
+}
+/* ========== SECTION 14: BOOLEANS ========== */
+
+.boolean14-intro,
+.boolean14-definition,
+.boolean14-comparison,
+.boolean14-important,
+.boolean14-example,
+.boolean14-logical,
+.boolean14-table-box,
+.boolean14-practice {
+    margin-top: 1.5rem;
+    padding: 1.35rem;
+    border: 1px solid rgba(18, 139, 145, 0.16);
+    border-radius: 16px;
+    background: #ffffff;
+}
+
+.boolean14-intro {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    border-left: 5px solid #159b92;
+    background: linear-gradient(135deg, #e7f8f5, #eff9ff);
+}
+
+.boolean14-intro h3,
+.boolean14-definition h3,
+.boolean14-comparison h3,
+.boolean14-important h3,
+.boolean14-example h3,
+.boolean14-logical h3,
+.boolean14-table-box h3,
+.boolean14-practice h3 {
+    margin-top: 0;
+    color: #126b78;
+}
+
+.boolean14-icon {
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    color: #ffffff;
+    background: #159b92;
+    font-size: 1.7rem;
+}
+
+.boolean14-values {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.boolean14-values > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.1rem;
+    border-radius: 12px;
+}
+
+.boolean14-values i {
+    font-size: 1.4rem;
+}
+
+.boolean14-true {
+    color: #187752;
+    border: 1px solid #a8e2c9;
+    background: #eafaf2;
+}
+
+.boolean14-false {
+    color: #a44242;
+    border: 1px solid #f1c1c1;
+    background: #fff1f1;
+}
+
+.boolean14-values strong {
+    font-size: 1.15rem;
+}
+
+.boolean14-values span {
+    font-size: 0.9rem;
+}
+
+.boolean14-definition pre,
+.boolean14-example pre,
+.boolean14-logic-card pre,
+.boolean14-practice pre,
+.boolean14-equals-grid pre {
+    margin: 1rem 0;
+    padding: 1rem;
+    overflow-x: auto;
+    border-radius: 10px;
+    color: #ddfbff;
+    background: #112d3a;
+}
+
+.boolean14-definition pre code,
+.boolean14-example pre code,
+.boolean14-logic-card pre code,
+.boolean14-practice pre code,
+.boolean14-equals-grid pre code {
+    color: inherit;
+}
+
+.boolean14-note {
+    display: flex;
+    gap: 0.7rem;
+    padding: 0.9rem 1rem;
+    border-radius: 10px;
+    color: #15565d;
+    background: #e8faf7;
+}
+
+.boolean14-note i {
+    margin-top: 0.2rem;
+    color: #159b92;
+}
+
+.boolean14-note p {
+    margin: 0;
+}
+
+.boolean14-operator-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.boolean14-operator-card {
+    padding: 1rem;
+    border: 1px solid #d6eeee;
+    border-radius: 12px;
+    cursor: pointer;
+    background: #faffff;
+    transition: 0.2s ease;
+}
+
+.boolean14-operator-card:hover,
+.boolean14-operator-card.selected {
+    transform: translateY(-3px);
+    border-color: #159b92;
+    box-shadow: 0 8px 18px rgba(21, 155, 146, 0.14);
+}
+
+.boolean14-operator-card > code {
+    display: inline-block;
+    padding: 0.35rem 0.6rem;
+    border-radius: 6px;
+    color: #ffffff;
+    background: #159b92;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.boolean14-operator-card strong {
+    display: block;
+    margin-top: 0.8rem;
+    color: #155b66;
+}
+
+.boolean14-operator-card p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+.boolean14-equals-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.boolean14-equals-grid > div {
+    padding: 1rem;
+    border-radius: 12px;
+    background: #f3fbfa;
+}
+
+.boolean14-symbol {
+    display: inline-block;
+    padding: 0.3rem 0.65rem;
+    border-radius: 7px;
+    color: #ffffff;
+    background: #126b78;
+    font-family: monospace;
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+.boolean14-equals-grid h4 {
+    margin: 0.7rem 0 0.4rem;
+    color: #126b78;
+}
+
+.boolean14-reminder {
+    margin-bottom: 0;
+    padding: 0.8rem;
+    border-radius: 8px;
+    color: #15565d;
+    background: #e9f8f5;
+    font-weight: 600;
+}
+
+.boolean14-logic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.boolean14-logic-card {
+    padding: 1rem;
+    border-radius: 12px;
+    border-top: 4px solid #159b92;
+    background: #f8fdfd;
+}
+
+.boolean14-logic-card h4 {
+    margin: 0;
+    color: #126b78;
+    font-size: 1.1rem;
+}
+
+.boolean14-table {
+    width: 100%;
+    overflow: hidden;
+    border-collapse: collapse;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.boolean14-table th {
+    padding: 0.8rem;
+    color: #ffffff;
+    background: #126b78;
+}
+
+.boolean14-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #dcefee;
+}
+
+.boolean14-table tbody tr:nth-child(even) {
+    background: #f2fbfa;
+}
+
+.boolean14-table tbody tr:hover {
+    background: #dff5f2;
+}
+
+.boolean14-next {
+    display: flex;
+    gap: 0.9rem;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding: 1rem 1.2rem;
+    border-radius: 14px;
+    color: #15565d;
+    background: linear-gradient(135deg, #e8faf7, #edf8ff);
+}
+
+.boolean14-next > i {
+    color: #159b92;
+    font-size: 1.5rem;
+}
+
+.boolean14-next p {
+    margin: 0.3rem 0 0;
+}
+
+@media (max-width: 700px) {
+    .boolean14-values,
+    .boolean14-operator-grid,
+    .boolean14-equals-grid,
+    .boolean14-logic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .boolean14-intro {
+        align-items: flex-start;
+    }
+
+    .boolean14-table {
+        font-size: 0.82rem;
+    }
+}
+/* ========== SECTION 15: INPUT, OUTPUT, F-STRINGS ========== */
+
+.input15-intro,
+.input15-output,
+.input15-input,
+.input15-fstrings,
+.input15-conversion,
+.input15-example,
+.input15-lab,
+.input15-practice {
+    margin-top: 1.5rem;
+    padding: 1.35rem;
+    border: 1px solid rgba(18, 139, 145, 0.16);
+    border-radius: 16px;
+    background: #ffffff;
+}
+
+.input15-intro {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    border-left: 5px solid #159b92;
+    background: linear-gradient(135deg, #e7f8f5, #eef8ff);
+}
+
+.input15-intro h3,
+.input15-output h3,
+.input15-input h3,
+.input15-fstrings h3,
+.input15-conversion h3,
+.input15-example h3,
+.input15-lab h3,
+.input15-practice h3 {
+    margin-top: 0;
+    color: #126b78;
+}
+
+.input15-icon {
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    color: #ffffff;
+    background: #159b92;
+    font-size: 1.55rem;
+}
+
+.input15-output pre,
+.input15-input pre,
+.input15-fstrings pre,
+.input15-conversion pre,
+.input15-example pre,
+.input15-practice pre {
+    margin: 1rem 0;
+    padding: 1rem;
+    overflow-x: auto;
+    border-radius: 10px;
+    color: #ddfbff;
+    background: #112d3a;
+}
+
+.input15-output pre code,
+.input15-input pre code,
+.input15-fstrings pre code,
+.input15-conversion pre code,
+.input15-example pre code,
+.input15-practice pre code {
+    color: inherit;
+}
+
+.input15-note,
+.input15-warning {
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+}
+
+.input15-note {
+    color: #15565d;
+    background: #e8faf7;
+}
+
+.input15-warning {
+    color: #824d18;
+    background: #fff4df;
+}
+
+.input15-note i,
+.input15-warning i {
+    margin-top: 0.2rem;
+}
+
+.input15-note i {
+    color: #159b92;
+}
+
+.input15-warning i {
+    color: #db911d;
+}
+
+.input15-note p,
+.input15-warning p {
+    margin: 0;
+}
+
+.input15-story {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    color: #dffcff;
+    background: #112d3a;
+}
+
+.input15-story > span {
+    display: block;
+    color: #9cc9ca;
+    font-size: 0.8rem;
+}
+
+.input15-terminal-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 0.6rem 0;
+}
+
+.input15-terminal-line strong {
+    color: #ffe370;
+}
+
+.input15-result-line {
+    display: flex;
+    gap: 0.65rem;
+    align-items: center;
+    padding: 0.85rem 1rem;
+    border-radius: 10px;
+    color: #126b78;
+    background: #e8faf7;
+    font-weight: 800;
+}
+
+.input15-result-line i {
+    color: #159b92;
+}
+
+.input15-conversion-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.input15-conversion-grid article {
+    padding: 1rem;
+    border-radius: 12px;
+    border-top: 4px solid #159b92;
+    background: #f5fcfb;
+}
+
+.input15-conversion-grid article > code {
+    display: inline-block;
+    padding: 0.3rem 0.55rem;
+    border-radius: 6px;
+    color: #ffffff;
+    background: #159b92;
+    font-weight: 800;
+}
+
+.input15-conversion-grid h4 {
+    margin: 0.75rem 0 0.35rem;
+    color: #155b66;
+}
+
+.input15-conversion-grid p {
+    margin-bottom: 0;
+    font-size: 0.88rem;
+}
+
+.input15-lab {
+    background: linear-gradient(135deg, #f0fbff, #f3fffb);
+}
+
+.input15-lab-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.85rem;
+    margin: 1rem 0;
+}
+
+.input15-lab-grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    color: #155b66;
+    font-weight: 800;
+}
+
+.input15-lab-grid input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem;
+    border: 1px solid #acd9d4;
+    border-radius: 8px;
+    outline: none;
+    color: #173d46;
+    font: inherit;
+}
+
+.input15-lab-grid input:focus {
+    border-color: #159b92;
+    box-shadow: 0 0 0 3px rgba(21, 155, 146, 0.13);
+}
+
+.input15-button {
+    padding: 0.7rem 1rem;
+    border: 0;
+    border-radius: 9px;
+    cursor: pointer;
+    color: #ffffff;
+    background: #159b92;
+    font: inherit;
+    font-weight: 800;
+}
+
+.input15-button:hover {
+    background: #0e7c76;
+}
+
+.input15-lab-result,
+.input15-code-result {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.input15-lab-result {
+    border-left: 4px solid #159b92;
+    background: #e5f8f4;
+}
+
+.input15-code-result {
+    overflow-x: auto;
+    color: #dffcff;
+    background: #112d3a;
+}
+
+.input15-lab-result > span,
+.input15-code-result > span {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.input15-lab-result > span {
+    color: #43777a;
+}
+
+.input15-code-result > span {
+    color: #9cc9ca;
+}
+
+#input15Result {
+    display: block;
+    color: #124e58;
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+
+#input15Code {
+    color: #ddfbff;
+    white-space: nowrap;
+}
+
+.input15-next {
+    display: flex;
+    gap: 0.9rem;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding: 1rem 1.2rem;
+    border-radius: 14px;
+    color: #15565d;
+    background: linear-gradient(135deg, #e8faf7, #edf8ff);
+}
+
+.input15-next > i {
+    color: #159b92;
+    font-size: 1.5rem;
+}
+
+.input15-next p {
+    margin: 0.3rem 0 0;
+}
+
+@media (max-width: 700px) {
+    .input15-conversion-grid,
+    .input15-lab-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .input15-intro {
+        align-items: flex-start;
+    }
 }
 </style>
 </head>
@@ -7483,7 +8518,7 @@ footer { max-width: 1420px; margin: 0 auto; padding: 0 4% 2rem; color: #718090; 
         <li><a href="#sec7" data-target="sec7"><span class="number">07</span><span>How to write and compile code using code editor</span></a></li>
         <li><a href="#sec8" data-target="sec8"><span class="number">08</span><span>VS- Code Tutorial for python</span></a> </li>
         <li><a href="#sec9" data-target="sec9"><span class="number">09</span><span>The Python Interpreter and Your First Program</span></a></li>
-        <li><a href="#sec10" data-target="sec10"><span class="number">10</span><span>Errors Are Part of Programming</span></a></li>
+        <li><a href="#sec10" data-target="sec10"><span class="number">10</span><span>Important things to know before programming</span></a></li>
 
         <li class="sidebar-group">II · Core Python</li>
         <li><a href="#sec11" data-target="sec11"><span class="number">11</span><span>Variables, Assignment, and Naming Rules</span></a></li>
@@ -7496,6 +8531,7 @@ footer { max-width: 1420px; margin: 0 auto; padding: 0 4% 2rem; color: #718090; 
         <li><a href="#sec18" data-target="sec18"><span class="number">18</span><span>Sets and Unique Values</span></a></li>
         <li><a href="#sec19" data-target="sec19"><span class="number">19</span><span>Dictionaries and Key–Value Data</span></a></li>
         <li><a href="#sec20" data-target="sec20"><span class="number">20</span><span>Mini Project: A Personal Information Program</span></a></li>
+        <li><a href="#sec200" data-target="sec200"><span class="number">200</span><span>Indexing</span></a></li>
 
         <li class="sidebar-group">III · Logic and Functions</li>
         <li><a href="#sec21" data-target="sec21"><span class="number">21</span><span>Decision Making with if, elif, and else</span></a></li>
@@ -9506,6 +10542,648 @@ footer { max-width: 1420px; margin: 0 auto; padding: 0 4% 2rem; color: #718090; 
         grid-column: 1 / -1;
     }
 }
+
+.vscode8-open-project {
+    margin: 1.4rem 0;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--vscode8-border);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(25, 83, 91, 0.07);
+}
+
+.vscode8-open-project h3 {
+    margin: 0 0 1rem;
+    color: var(--vscode8-text);
+}
+
+.vscode8-welcome-figure {
+    margin: 0;
+    overflow: hidden;
+    background: #171717;
+    border: 1px solid #3e5158;
+    border-radius: 14px;
+}
+
+.vscode8-welcome-figure img {
+    display: block;
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.vscode8-welcome-figure figcaption {
+    padding: 0.7rem 1rem;
+    color: #d5e8eb;
+    background: #26343a;
+    font-size: 0.82rem;
+    text-align: center;
+}
+
+.vscode8-open-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.vscode8-open-card {
+    display: flex;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: #f7fbfc;
+    border: 1px solid var(--vscode8-border);
+    border-radius: 13px;
+}
+
+.vscode8-open-number {
+    display: grid;
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    color: white;
+    background: linear-gradient(135deg, var(--vscode8-green), var(--vscode8-blue));
+    border-radius: 50%;
+    font-size: 0.82rem;
+    font-weight: 900;
+}
+
+.vscode8-open-card h4 {
+    margin: 0 0 0.4rem;
+    color: var(--vscode8-text);
+    font-size: 0.95rem;
+}
+
+.vscode8-open-card p {
+    margin: 0;
+    color: var(--vscode8-muted);
+    font-size: 0.87rem;
+    line-height: 1.65;
+}
+
+.vscode8-open-card code {
+    padding: 0.12rem 0.3rem;
+    color: #185c72;
+    background: #eaf5fa;
+    border-radius: 4px;
+    font-weight: 800;
+}
+
+.vscode8-open-note {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: 1rem;
+    padding: 0.9rem 1rem;
+    color: #285c63;
+    background: var(--vscode8-soft-green);
+    border-left: 5px solid var(--vscode8-green);
+    border-radius: 10px;
+    line-height: 1.6;
+}
+
+.vscode8-open-note i {
+    margin-top: 0.2rem;
+    color: var(--vscode8-green);
+}
+
+@media (max-width: 800px) {
+    .vscode8-open-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.vscode8-notebook-anatomy {
+    margin: 1.4rem 0;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--vscode8-border);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(25, 83, 91, 0.07);
+}
+
+.vscode8-notebook-anatomy h3 {
+    margin: 0 0 0.7rem;
+    color: var(--vscode8-text);
+}
+
+.vscode8-notebook-anatomy > p {
+    color: var(--vscode8-muted);
+    line-height: 1.75;
+}
+
+.vscode8-notebook-window {
+    overflow: hidden;
+    margin-top: 1.2rem;
+    color: #d4d4d4;
+    background: #1e1e1e;
+    border: 1px solid #414141;
+    border-radius: 14px;
+    box-shadow: 0 14px 28px rgba(20, 45, 58, 0.2);
+}
+
+.vscode8-notebook-titlebar {
+    padding: 0.6rem 1rem;
+    color: #cbcbcb;
+    background: #303030;
+    font-size: 0.74rem;
+    text-align: center;
+}
+
+.vscode8-notebook-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    align-items: center;
+    padding: 0.7rem;
+    background: #202020;
+    border-bottom: 1px solid #3d3d3d;
+}
+
+.vscode8-notebook-region {
+    padding: 0.45rem 0.55rem;
+    color: #d0d0d0;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font: inherit;
+    font-size: 0.73rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.vscode8-notebook-region:hover,
+.vscode8-notebook-region.active {
+    color: white;
+    background: #343434;
+    border-color: var(--vscode8-yellow);
+    outline: 1px solid var(--vscode8-yellow);
+}
+
+.vscode8-notebook-region.kernel {
+    margin-left: auto;
+    color: #b9e8e0;
+}
+
+.vscode8-notebook-region.more {
+    font-size: 1rem;
+}
+
+.vscode8-notebook-divider {
+    width: 1px;
+    height: 25px;
+    margin: 0 0.15rem;
+    background: #555;
+}
+
+.vscode8-notebook-cell-area {
+    position: relative;
+    padding: 1.1rem 1.1rem 1.1rem 3.8rem;
+}
+
+.vscode8-notebook-cell-run {
+    position: absolute;
+    top: 1.1rem;
+    left: 0.8rem;
+    display: grid;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    place-items: center;
+    color: #9adbcf;
+    border-color: #4d716d;
+    border-radius: 50%;
+}
+
+.vscode8-notebook-cell {
+    overflow: hidden;
+    border: 1px solid #414141;
+    border-radius: 8px;
+}
+
+.vscode8-notebook-code {
+    padding: 1rem;
+    font: 0.92rem/1.7 Consolas, Monaco, monospace;
+}
+
+.vscode8-notebook-line-number {
+    display: inline-block;
+    width: 36px;
+    color: #858585;
+    user-select: none;
+}
+
+.vscode8-notebook-function {
+    color: #dcdcaa;
+}
+
+.vscode8-notebook-string {
+    color: #ce9178;
+}
+
+.vscode8-notebook-success {
+    padding: 0.45rem 1rem;
+    color: #a4dec0;
+    border-top: 1px solid #353535;
+    font-size: 0.72rem;
+}
+
+.vscode8-notebook-output {
+    padding: 0.8rem 1rem;
+    color: #dedede;
+    font: 0.88rem Consolas, Monaco, monospace;
+}
+
+.vscode8-notebook-execution {
+    display: inline-block;
+    width: 42px;
+    color: #9f9f9f;
+}
+
+@media (max-width: 750px) {
+    .vscode8-notebook-region.kernel {
+        width: 100%;
+        margin-left: 0;
+        text-align: left;
+    }
+}
+.vscode8-markdown-project {
+    margin: 1.4rem 0;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--vscode8-border);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(25, 83, 91, 0.07);
+}
+
+.vscode8-markdown-project h3 {
+    margin: 0 0 0.6rem;
+    color: var(--vscode8-text);
+}
+
+.vscode8-markdown-project > p {
+    color: var(--vscode8-muted);
+    line-height: 1.7;
+}
+
+.vscode8-markdown-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    margin: 1rem 0;
+}
+
+.vscode8-markdown-steps article {
+    display: flex;
+    gap: 0.7rem;
+    padding: 0.9rem;
+    background: #f7fbfc;
+    border: 1px solid var(--vscode8-border);
+    border-radius: 12px;
+}
+
+.vscode8-markdown-steps span {
+    display: grid;
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    color: white;
+    background: linear-gradient(
+        135deg,
+        var(--vscode8-green),
+        var(--vscode8-blue)
+    );
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+
+.vscode8-markdown-steps strong {
+    color: var(--vscode8-text);
+    font-size: 0.88rem;
+}
+
+.vscode8-markdown-steps p {
+    margin: 0.3rem 0 0;
+    color: var(--vscode8-muted);
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.vscode8-markdown-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+}
+
+.vscode8-markdown-tab {
+    padding: 0.6rem 0.85rem;
+    color: #35636c;
+    background: #f3faf9;
+    border: 1px solid var(--vscode8-border);
+    border-radius: 9px;
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.vscode8-markdown-tab.active {
+    color: white;
+    background: linear-gradient(
+        135deg,
+        var(--vscode8-green),
+        var(--vscode8-blue)
+    );
+    border-color: transparent;
+}
+
+.vscode8-markdown-display {
+    min-height: 250px;
+    margin-top: 0.8rem;
+    overflow: hidden;
+    border: 1px solid #3d454a;
+    border-radius: 12px;
+}
+
+.vscode8-markdown-source {
+    padding: 1.1rem;
+    color: #d4d4d4;
+    background: #1e1e1e;
+    font: 0.87rem/1.8 Consolas, Monaco, monospace;
+    white-space: pre-wrap;
+}
+
+.vscode8-markdown-source .heading {
+    color: #4ec9b0;
+}
+
+.vscode8-markdown-source .bold {
+    color: #ce9178;
+}
+
+.vscode8-markdown-preview {
+    min-height: 250px;
+    padding: 1.3rem;
+    color: #263f47;
+    background: #fff;
+}
+
+.vscode8-markdown-preview h1 {
+    margin: 0 0 0.35rem;
+    color: #176c77;
+    font-size: 1.5rem;
+}
+
+.vscode8-markdown-preview h2 {
+    margin: 1rem 0 0.4rem;
+    color: #286c8c;
+    font-size: 1.05rem;
+}
+
+.vscode8-markdown-preview p,
+.vscode8-markdown-preview li {
+    color: #59737c;
+    line-height: 1.65;
+}
+
+.vscode8-demo-image {
+    display: grid;
+    height: 90px;
+    margin-top: 0.8rem;
+    place-items: center;
+    color: #176a76;
+    background: linear-gradient(135deg, #dff5ee, #dceef8);
+    border: 1px dashed #66aaac;
+    border-radius: 10px;
+    font-weight: 800;
+}
+
+.vscode8-image-import {
+    margin-top: 1.1rem;
+    padding: 1rem;
+    background: var(--vscode8-soft-green);
+    border-left: 5px solid var(--vscode8-green);
+    border-radius: 10px;
+}
+
+.vscode8-image-import h4 {
+    margin: 0 0 0.6rem;
+    color: var(--vscode8-text);
+}
+
+.vscode8-image-import ol {
+    margin: 0;
+    padding-left: 1.25rem;
+    color: #416972;
+    line-height: 1.75;
+}
+
+.vscode8-image-import code {
+    padding: 0.12rem 0.35rem;
+    color: #185c72;
+    background: #eaf5fa;
+    border-radius: 4px;
+    font-weight: 800;
+}
+
+.vscode8-image-code {
+    margin-top: 0.8rem;
+    padding: 0.8rem;
+    overflow-x: auto;
+    background: #1e1e1e;
+    border-radius: 8px;
+}
+
+.vscode8-image-code code {
+    color: #dce9ed;
+    background: transparent;
+}
+
+@media (max-width: 700px) {
+    .vscode8-markdown-steps {
+        grid-template-columns: 1fr;
+    }
+}
+.vscode8-export-project {
+    margin: 1.4rem 0;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--vscode8-border);
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(25, 83, 91, 0.07);
+}
+
+.vscode8-export-project h3 {
+    margin: 0 0 0.65rem;
+    color: var(--vscode8-text);
+}
+
+.vscode8-export-project > p {
+    color: var(--vscode8-muted);
+    line-height: 1.75;
+}
+
+.vscode8-export-flow {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 1.2rem;
+    overflow-x: auto;
+    padding-bottom: 0.4rem;
+}
+
+.vscode8-export-step {
+    position: relative;
+    display: grid;
+    flex: 0 0 165px;
+    min-height: 185px;
+    padding: 1rem;
+    place-items: center;
+    color: #476b74;
+    background: #f7fbfc;
+    border: 1px solid var(--vscode8-border);
+    border-radius: 14px;
+    text-align: center;
+}
+
+.vscode8-export-step > i {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    color: white;
+    background: linear-gradient(
+        135deg,
+        var(--vscode8-green),
+        var(--vscode8-blue)
+    );
+    border-radius: 12px;
+    font-size: 1.2rem;
+}
+
+.vscode8-export-step strong {
+    margin-top: 0.7rem;
+    color: var(--vscode8-text);
+    font-size: 0.9rem;
+}
+
+.vscode8-export-step p {
+    margin: 0.35rem 0 0;
+    font-size: 0.77rem;
+    line-height: 1.5;
+}
+
+.vscode8-export-step code,
+.vscode8-export-project code {
+    padding: 0.1rem 0.3rem;
+    color: #185c72;
+    background: #eaf5fa;
+    border-radius: 4px;
+    font-weight: 800;
+}
+
+.vscode8-export-number {
+    position: absolute;
+    top: -10px;
+    left: -8px;
+    display: grid;
+    width: 28px;
+    height: 28px;
+    place-items: center;
+    color: #183f4a;
+    background: var(--vscode8-yellow);
+    border: 2px solid white;
+    border-radius: 50%;
+    font-size: 0.76rem;
+    font-weight: 900;
+}
+
+.vscode8-export-arrow {
+    flex: 0 0 auto;
+    color: var(--vscode8-green);
+}
+
+.vscode8-export-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.2rem;
+}
+
+.vscode8-export-option {
+    display: flex;
+    gap: 0.9rem;
+    padding: 1rem;
+    border-radius: 13px;
+}
+
+.vscode8-export-option.html {
+    background: #eaf7fc;
+    border: 1px solid #bddfea;
+}
+
+.vscode8-export-option.pdf {
+    background: #fff4f3;
+    border: 1px solid #f0ceca;
+}
+
+.vscode8-export-option > i {
+    font-size: 2rem;
+}
+
+.vscode8-export-option.html > i {
+    color: #2384ae;
+}
+
+.vscode8-export-option.pdf > i {
+    color: #c54b42;
+}
+
+.vscode8-export-option h4 {
+    margin: 0 0 0.35rem;
+    color: var(--vscode8-text);
+}
+
+.vscode8-export-option p {
+    margin: 0;
+    color: var(--vscode8-muted);
+    font-size: 0.86rem;
+    line-height: 1.55;
+}
+
+.vscode8-export-option span {
+    display: inline-block;
+    margin-top: 0.6rem;
+    color: #17665e;
+    font-size: 0.72rem;
+    font-weight: 800;
+}
+
+.vscode8-export-reminder {
+    display: flex;
+    gap: 0.7rem;
+    margin-top: 1rem;
+    padding: 0.9rem 1rem;
+    color: #285c63;
+    background: var(--vscode8-soft-green);
+    border-left: 5px solid var(--vscode8-green);
+    border-radius: 10px;
+    line-height: 1.65;
+}
+
+.vscode8-export-reminder i {
+    margin-top: 0.2rem;
+    color: var(--vscode8-green);
+}
+
+@media (max-width: 650px) {
+    .vscode8-export-options {
+        grid-template-columns: 1fr;
+    }
+}
+
     </style>
 
 
@@ -15754,57 +17432,81 @@ print(message)</textarea>
         </div>
 
     </div>
+    <div class="vscode8-open-project">
 
+    <h3>
+        <i class="fas fa-folder-open"></i>
+        Open Your Program or Create a Notebook
+    </h3>
 
-    <!-- BASIC WORKFLOW -->
-    <div class="vscode8-workflow">
+    <figure class="vscode8-welcome-figure">
+        <img
+            src="VS.png"
+            alt="VS Code Welcome page showing New File, Open File, and Open Folder"
+        >
+        <figcaption>
+            Figure 8.5 — The VS Code Welcome page is your starting point.
+        </figcaption>
+    </figure>
 
-        <h3>
-            <i class="fas fa-arrows-spin"></i>
-            The normal VS Code workflow
-        </h3>
+    <div class="vscode8-open-grid">
 
-        <p>
-            Use this sequence whenever you begin a Python project.
-        </p>
+        <article class="vscode8-open-card">
+            <span class="vscode8-open-number">1</span>
 
-        <ol class="vscode8-workflow-list">
+            <div>
+                <h4>Open an existing program or project</h4>
+                <p>
+                    Click <strong>Open Folder...</strong>, choose the folder
+                    containing your project, then open a
+                    <code>.py</code> or <code>.ipynb</code> file from the
+                    Explorer panel.
+                </p>
+            </div>
+        </article>
 
-            <li>
-                Open a project folder using
-                <strong>File → Open Folder</strong>.
-            </li>
+        <article class="vscode8-open-card">
+            <span class="vscode8-open-number">2</span>
 
-            <li>
-                Create or open a Python file ending with
-                <code>.py</code>.
-            </li>
+            <div>
+                <h4>Create a new Jupyter notebook</h4>
+                <p>
+                    Press <code>Ctrl + Shift + P</code>, search for
+                    <strong>Create: New Jupyter Notebook</strong>, and save
+                    the new file with an <code>.ipynb</code> extension.
+                </p>
+            </div>
+        </article>
 
-            <li>
-                Check the Python interpreter shown in the Status Bar.
-            </li>
+        <article class="vscode8-open-card">
+            <span class="vscode8-open-number">3</span>
 
-            <li>
-                Write your Python instructions in the Editor.
-            </li>
-
-            <li>
-                Save the file using <code>Ctrl + S</code> or
-                <code>Command + S</code>.
-            </li>
-
-            <li>
-                Select <strong>Run Python File</strong> or run the file
-                from the integrated terminal.
-            </li>
-
-            <li>
-                Read the output or error message in the Terminal panel.
-            </li>
-
-        </ol>
+            <div>
+                <h4>Select the kernel and run</h4>
+                <p>
+                    In a notebook, click <strong>Select Kernel</strong> at
+                    the top-right, choose your Python environment, then use
+                    the <i class="fas fa-play"></i> button beside a cell to
+                    run it.
+                </p>
+            </div>
+        </article>
 
     </div>
+
+    <div class="vscode8-open-note">
+        <i class="fas fa-lightbulb"></i>
+        <span>
+            A <strong>kernel</strong> runs <code>.ipynb</code> notebooks;
+            a Python <strong>interpreter</strong> runs ordinary
+            <code>.py</code> files.
+        </span>
+    </div>
+
+</div>
+
+    <!-- BASIC WORKFLOW -->
+    
 
 
     <!-- INTERPRETER -->
@@ -15819,30 +17521,16 @@ print(message)</textarea>
             A computer may contain several Python installations. VS Code
             needs to know which one should run the current project.
         </p>
-
-        <div class="vscode8-interpreter-demo">
-
-            <div class="vscode8-interpreter-info">
-
-                <strong>
-                    Current interpreter
-                </strong>
-
-                <span>
-                    Python 3.x.x — selected for this workspace
-                </span>
-
-            </div>
-
-            <button
-                type="button"
-                id="vscode8InterpreterButton"
-                class="vscode8-interpreter-button"
+        <figure class="vscode8-welcome-figure">
+            <img
+                src="interpreter.png"
+                alt="How to change the Python interpreter in VS Code"
             >
-                Change Interpreter
-            </button>
-
-        </div>
+            <figcaption>
+                Click the Python version in the bottom bar (Sometimes on top right corner), then choose
+                <strong>Python: Select Interpreter(kernel)</strong>.
+            </figcaption>
+        </figure>
 
         <div
             id="vscode8InterpreterResult"
@@ -15855,7 +17543,7 @@ print(message)</textarea>
 
             <div>
                 You can also open the Command Palette and search for
-                <strong>Python: Select Interpreter</strong>. The selected
+                <strong>Python: Select Interpreter(kernel)</strong>. The selected
                 interpreter is used for running, debugging, autocomplete,
                 and installed libraries.
             </div>
@@ -15975,8 +17663,140 @@ print(message)</textarea>
         </div>
 
     </div>
+    
+    <div class="vscode8-notebook-anatomy">
 
+    <h3>
+        <i class="fas fa-book-open"></i>
+        Explore the Jupyter Notebook Interface
+    </h3>
 
+    <p>
+        A notebook contains Python code, notes, and output in one file.
+        Click a toolbar control below to learn what it does.
+    </p>
+
+    <div class="vscode8-notebook-window">
+
+        <div class="vscode8-notebook-titlebar">
+            myFirstcode.ipynb — python-learning — Visual Studio Code
+        </div>
+
+        <div class="vscode8-notebook-toolbar">
+
+            <button type="button"
+                    class="vscode8-notebook-region"
+                    data-vscode8-notebook-region="generate">
+                <i class="fas fa-wand-magic-sparkles"></i>
+                Generate
+            </button>
+
+            <button type="button"
+                    class="vscode8-notebook-region"
+                    data-vscode8-notebook-region="code">
+                <i class="fas fa-plus"></i>
+                Code
+            </button>
+
+            <button type="button"
+                    class="vscode8-notebook-region"
+                    data-vscode8-notebook-region="markdown">
+                <i class="fas fa-plus"></i>
+                Markdown
+            </button>
+
+            <span class="vscode8-notebook-divider"></span>
+
+            <button type="button"
+                    class="vscode8-notebook-region"
+                    data-vscode8-notebook-region="runall">
+                <i class="fas fa-play"></i>
+                Run All
+            </button>
+
+            <button type="button"
+                    class="vscode8-notebook-region"
+                    data-vscode8-notebook-region="restart">
+                <i class="fas fa-rotate-left"></i>
+                Restart
+            </button>
+
+            <button type="button"
+                    class="vscode8-notebook-region"
+                    data-vscode8-notebook-region="clear">
+                <i class="fas fa-broom"></i>
+                Clear All Outputs
+            </button>
+
+            <button type="button"
+                    class="vscode8-notebook-region"
+                    data-vscode8-notebook-region="variables">
+                <i class="fas fa-table-columns"></i>
+                Jupyter Variables
+            </button>
+
+            <button type="button"
+                    class="vscode8-notebook-region"
+                    data-vscode8-notebook-region="outline">
+                <i class="fas fa-list"></i>
+                Outline
+            </button>
+
+            <button type="button"
+                    class="vscode8-notebook-region more"
+                    data-vscode8-notebook-region="more">
+                <i class="fas fa-ellipsis"></i>
+            </button>
+
+            <button type="button"
+                    class="vscode8-notebook-region kernel"
+                    data-vscode8-notebook-region="kernel">
+                <i class="fab fa-python"></i>
+                Python 3.11.9
+            </button>
+
+        </div>
+
+        <div class="vscode8-notebook-cell-area">
+
+            <button type="button"
+                    class="vscode8-notebook-cell-run vscode8-notebook-region"
+                    data-vscode8-notebook-region="cellrun"
+                    aria-label="Run this code cell">
+                <i class="fas fa-play"></i>
+            </button>
+
+            <div class="vscode8-notebook-cell">
+
+                <div class="vscode8-notebook-code">
+                    <span class="vscode8-notebook-line-number">1</span>
+                    <span class="vscode8-notebook-function">print</span>(
+                    <span class="vscode8-notebook-string">"Hello"</span>
+                    )
+                </div>
+
+                <div class="vscode8-notebook-success">
+                    <i class="fas fa-check"></i>
+                    Executed successfully · 0.0 s
+                </div>
+
+            </div>
+
+            <div class="vscode8-notebook-output">
+                <span class="vscode8-notebook-execution">[2]</span>
+                Hello
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="vscode8NotebookRegionInfo"
+         class="vscode8-region-info"
+         aria-live="polite">
+    </div>
+
+</div>
     <!-- DEBUGGING -->
     <div class="vscode8-debugging">
 
@@ -16055,71 +17875,7 @@ print(message)</textarea>
         </div>
 
     </div>
-
-
-    <!-- SETUP CHECKLIST -->
-    <div class="vscode8-checklist">
-
-        <h3>
-            <i class="fas fa-list-check"></i>
-            VS Code readiness checklist
-        </h3>
-
-        <p>
-            Mark each item after confirming it on your computer.
-        </p>
-
-        <div class="vscode8-progress-track">
-            <div
-                id="vscode8ProgressBar"
-                class="vscode8-progress-bar"
-            ></div>
-        </div>
-
-        <p
-            id="vscode8ProgressText"
-            class="vscode8-progress-text"
-        >
-            0 of 6 completed
-        </p>
-
-        <div class="vscode8-checklist-items">
-
-            <label class="vscode8-check-item">
-                <input type="checkbox" class="vscode8-check">
-                <span>VS Code is installed and opens correctly.</span>
-            </label>
-
-            <label class="vscode8-check-item">
-                <input type="checkbox" class="vscode8-check">
-                <span>The official Python extension is installed.</span>
-            </label>
-
-            <label class="vscode8-check-item">
-                <input type="checkbox" class="vscode8-check">
-                <span>The <code>python-learning</code> folder is open.</span>
-            </label>
-
-            <label class="vscode8-check-item">
-                <input type="checkbox" class="vscode8-check">
-                <span>A Python interpreter is selected.</span>
-            </label>
-
-            <label class="vscode8-check-item">
-                <input type="checkbox" class="vscode8-check">
-                <span>A <code>.py</code> file can run successfully.</span>
-            </label>
-
-            <label class="vscode8-check-item">
-                <input type="checkbox" class="vscode8-check">
-                <span>The integrated terminal opens correctly.</span>
-            </label>
-
-        </div>
-
-    </div>
-
-
+    
     <!-- SHORTCUTS -->
     <div class="vscode8-shortcuts">
 
@@ -16196,193 +17952,217 @@ print(message)</textarea>
 
     </div>
 
+    <div class="vscode8-markdown-project">
 
-    <!-- TROUBLESHOOTING -->
-    <div class="vscode8-errors">
+    <h3>
+        <i class="fas fa-file-lines"></i>
+        Build a Complete Project Report with Markdown
+    </h3>
 
-        <h3>
-            <i class="fas fa-screwdriver-wrench"></i>
-            Common VS Code problems
-        </h3>
+    <p>
+        A Jupyter notebook can contain your explanation, Python code,
+        results, graphs, and images in one organised project file.
+    </p>
 
-        <details>
-            <summary>
-                I am not getting Python suggestions
-            </summary>
+    <div class="vscode8-markdown-steps">
 
-            <p>
-                Confirm that the file ends with <code>.py</code>, the
-                Python and Pylance extensions are enabled, and a Python
-                interpreter is selected. Restart VS Code if the
-                extensions were installed recently.
-            </p>
-        </details>
+        <article>
+            <span>1</span>
+            <div>
+                <strong>Add a Markdown cell</strong>
+                <p>Click <code>+ Markdown</code> in the notebook toolbar.</p>
+            </div>
+        </article>
 
-        <details>
-            <summary>
-                The Python interpreter is not listed
-            </summary>
+        <article>
+            <span>2</span>
+            <div>
+                <strong>Write your project story</strong>
+                <p>Add headings, short explanations, lists, and results.</p>
+            </div>
+        </article>
 
-            <p>
-                Open the Command Palette and run
-                <strong>Python Environments: Refresh All Environment
-                Managers</strong>. If Python was recently installed,
-                restart VS Code.
-            </p>
-        </details>
-
-        <details>
-            <summary>
-                A library is installed but VS Code cannot import it
-            </summary>
-
-            <p>
-                The library may be installed in a different Python
-                environment. Check the selected interpreter and install
-                the package using that interpreter's terminal.
-            </p>
-        </details>
-
-        <details>
-            <summary>
-                The Run button produces no useful output
-            </summary>
-
-            <p>
-                Use the Python extension's
-                <strong>Run Python File in Terminal</strong> command.
-                Check the Terminal panel rather than only the Output
-                panel.
-            </p>
-        </details>
-
-        <details>
-            <summary>
-                The terminal still uses an old Python installation
-            </summary>
-
-            <p>
-                Close the current terminal after selecting the desired
-                interpreter. Then create a new terminal so the updated
-                environment can be activated.
-            </p>
-        </details>
-
-        <details>
-            <summary>
-                The debugger does not stop at my breakpoint
-            </summary>
-
-            <p>
-                Make sure the breakpoint is placed on an executable line.
-                Also confirm that the Python Debugger extension is enabled
-                and that you started the program using <code>F5</code>.
-            </p>
-        </details>
+        <article>
+            <span>3</span>
+            <div>
+                <strong>Render it</strong>
+                <p>Press <code>Ctrl + Enter</code> to turn Markdown into a formatted page.</p>
+            </div>
+        </article>
 
     </div>
 
+    <div class="vscode8-markdown-tabs">
 
-    <!-- PRACTICE -->
-    <div class="vscode8-practice">
+        <button type="button"
+                class="vscode8-markdown-tab active"
+                data-vscode8-markdown-view="source">
+            <i class="fas fa-code"></i>
+            Write Markdown
+        </button>
 
-        <h3>
-            <i class="fas fa-pencil"></i>
-            Explore VS Code yourself
-        </h3>
+        <button type="button"
+                class="vscode8-markdown-tab"
+                data-vscode8-markdown-view="preview">
+            <i class="fas fa-eye"></i>
+            See Project Page
+        </button>
+
+    </div>
+
+    <div id="vscode8MarkdownDisplay"
+         class="vscode8-markdown-display">
+    </div>
+
+    <div class="vscode8-image-import">
+
+        <h4>
+            <i class="fas fa-image"></i>
+            How to Import an Image
+        </h4>
 
         <ol>
-            <li>
-                Open your <code>python-learning</code> folder.
-            </li>
-
-            <li>
-                Locate the Activity Bar, Explorer, Editor, Terminal, and
-                Status Bar.
-            </li>
-
-            <li>
-                Open the Extensions view and confirm that the Python
-                extension is installed.
-            </li>
-
-            <li>
-                Select your Python interpreter using the Status Bar.
-            </li>
-
-            <li>
-                Open <code>about_me.py</code> and observe the autocomplete
-                suggestions while typing <code>print</code>.
-            </li>
-
-            <li>
-                Run the file using the Run button and then from the
-                integrated terminal.
-            </li>
-
-            <li>
-                Place a breakpoint beside a line and start debugging using
-                <code>F5</code>.
-            </li>
-
-            <li>
-                Check all six items in the readiness checklist.
-            </li>
+            <li>Create an <code>images</code> folder inside your project folder.</li>
+            <li>Copy your graph, photo, or diagram into that folder.</li>
+            <li>In a Markdown cell, write the image path as shown below.</li>
+            <li>Press <code>Ctrl + Enter</code> to render the image.</li>
         </ol>
 
-    </div>
-
-
-    <!-- SUMMARY -->
-    <div class="vscode8-summary">
-
-        <h3>
-            <i class="fas fa-clipboard-check"></i>
-            What did we learn?
-        </h3>
-
-        <ul>
-            <li>
-                The Activity Bar opens major VS Code tools.
-            </li>
-
-            <li>
-                The Explorer displays project files and folders.
-            </li>
-
-            <li>
-                The Editor is where we write and modify code.
-            </li>
-
-            <li>
-                The Terminal displays output and accepts commands.
-            </li>
-
-            <li>
-                The Status Bar displays information such as the selected
-                Python interpreter.
-            </li>
-
-            <li>
-                The Python extension adds Python-specific capabilities.
-            </li>
-
-            <li>
-                Pylance provides autocomplete and code analysis.
-            </li>
-
-            <li>
-                The debugger can pause a program at breakpoints.
-            </li>
-
-            <li>
-                VS Code and Python are separate programs that work
-                together.
-            </li>
-        </ul>
+        <div class="vscode8-image-code">
+            <code>![Daily temperature map](images/temperature-map.png)</code>
+        </div>
 
     </div>
 
+</div>
+<!-- SAVE AND EXPORT NOTEBOOK -->
+<div class="vscode8-export-project">
+
+    <h3>
+        <i class="fas fa-file-export"></i>
+        Save and Export Your Notebook Project
+    </h3>
+
+    <p>
+        After writing your Markdown, code, figures, and results, you can
+        export your <code>.ipynb</code> notebook as an HTML page or PDF report.
+    </p>
+
+    <div class="vscode8-export-flow">
+
+        <article class="vscode8-export-step">
+            <span class="vscode8-export-number">1</span>
+
+            <i class="fas fa-floppy-disk"></i>
+
+            <strong>Save</strong>
+
+            <p>
+                Press <code>Ctrl + S</code> to save your notebook.
+            </p>
+        </article>
+
+        <i class="fas fa-arrow-right vscode8-export-arrow"></i>
+
+        <article class="vscode8-export-step">
+            <span class="vscode8-export-number">2</span>
+
+            <i class="fas fa-play"></i>
+
+            <strong>Run All</strong>
+
+            <p>
+                Run all cells so that figures, tables, and results appear.
+            </p>
+        </article>
+
+        <i class="fas fa-arrow-right vscode8-export-arrow"></i>
+
+        <article class="vscode8-export-step">
+            <span class="vscode8-export-number">3</span>
+
+            <i class="fas fa-ellipsis"></i>
+
+            <strong>Open More Actions</strong>
+
+            <p>
+                Click the three dots <code>...</code> in the notebook toolbar.
+            </p>
+        </article>
+
+        <i class="fas fa-arrow-right vscode8-export-arrow"></i>
+
+        <article class="vscode8-export-step">
+            <span class="vscode8-export-number">4</span>
+
+            <i class="fas fa-file-export"></i>
+
+            <strong>Choose Export</strong>
+
+            <p>
+                Select <strong>Export</strong>, then choose HTML or PDF.
+            </p>
+        </article>
+
+    </div>
+
+    <div class="vscode8-export-options">
+
+        <article class="vscode8-export-option html">
+            <i class="fab fa-html5"></i>
+
+            <div>
+                <h4>Export as HTML</h4>
+                <p>
+                    Creates a webpage containing your Markdown, code,
+                    outputs, graphs, and images.
+                </p>
+                <span>Best for sharing online</span>
+            </div>
+        </article>
+
+        <article class="vscode8-export-option pdf">
+            <i class="fas fa-file-pdf"></i>
+
+            <div>
+                <h4>Export as PDF</h4>
+                <p>
+                    Creates a document that is easy to print or submit as a
+                    project report.
+                </p>
+                <span>Best for submission</span>
+            </div>
+        </article>
+
+    </div>
+
+    <div class="vscode8-note warning">
+
+        <i class="fas fa-triangle-exclamation"></i>
+
+        <div>
+            PDF export may require a TeX installation. If it does not work,
+            export your notebook as <strong>HTML</strong>, open the HTML file
+            in Chrome or Edge, then press <code>Ctrl + P</code> and choose
+            <strong>Save as PDF</strong>.
+        </div>
+
+    </div>
+
+    <div class="vscode8-export-reminder">
+
+        <i class="fas fa-lightbulb"></i>
+
+        <span>
+            A <code>.ipynb</code> notebook can become a complete project
+            report. A normal <code>.py</code> file is mainly for Python code,
+            so it does not export as a complete report in the same way.
+        </span>
+
+    </div>
+
+</div>
+    
 
     <!-- QUESTIONS -->
     <div class="vscode8-questions">
@@ -16480,7 +18260,7 @@ print(message)</textarea>
 </section>
 
 
-<section id="sec9" class="tutorial-card"><h2>9. The python interpreters and your 1st programming</h2><div class="status-row"><span class="level">Stage I · Programming and Setup</span><span class="status">Planned</span></div>
+<section id="sec9" class="tutorial-card"><h2>9. The python interpreters and your first program</h2><div class="status-row"><span class="level">Stage I · Programming and Setup</span><span class="status">Planned</span></div>
         <p>We have prepared our computer, explored the terminal, and
         learned how to use VS Code. Now we are finally ready to give
             Python an instruction and watch the computer follow it.
@@ -16517,78 +18297,6 @@ print(message)</textarea>
                 into instructions Python can execute, and produces a
                 result.
             </p>
-
-        </div>
-
-    </div>
-
-
-    <!-- FLOW -->
-    <div class="interp9-flow-section">
-
-        <h3>
-            <i class="fas fa-arrows-left-right"></i>
-            How does the interpreter help us?
-        </h3>
-
-        <p>
-            The interpreter acts as the bridge between your Python code
-            and the computer.
-        </p>
-
-        <div class="interp9-flow">
-
-            <article class="interp9-flow-card">
-
-                <i class="fas fa-user"></i>
-
-                <strong>You</strong>
-
-                <span>
-                    Write a human-readable Python instruction.
-                </span>
-
-            </article>
-
-            <i class="fas fa-arrow-right interp9-flow-arrow"></i>
-
-            <article class="interp9-flow-card">
-
-                <i class="fab fa-python"></i>
-
-                <strong>Python interpreter</strong>
-
-                <span>
-                    Reads, checks, and executes the instruction.
-                </span>
-
-            </article>
-
-            <i class="fas fa-arrow-right interp9-flow-arrow"></i>
-
-            <article class="interp9-flow-card">
-
-                <i class="fas fa-computer"></i>
-
-                <strong>Computer output</strong>
-
-                <span>
-                    Displays a result or reports an error.
-                </span>
-
-            </article>
-
-        </div>
-
-        <div class="interp9-note">
-
-            <i class="fas fa-lightbulb"></i>
-
-            <div>
-                An error message means the interpreter tried to
-                understand your instruction but found a problem. It is
-                information—not proof that you cannot program.
-            </div>
 
         </div>
 
@@ -16739,8 +18447,7 @@ print(message)</textarea>
         </h3>
 
         <p>
-            Create a file named <code>first_program.py</code> and write
-            the following instructions:
+            Open python in interactive mode or VS code. Then type the following instructions. You should see the same output as shown below.
         </p>
 
         <div class="interp9-code-window">
@@ -16837,114 +18544,9 @@ print(message)</textarea>
     </div>
 
 
-    <!-- PRINT ANATOMY -->
-    <div class="interp9-anatomy">
+    
 
-        <h3>
-            <i class="fas fa-magnifying-glass"></i>
-            What does <code>print("Hello, Python!")</code> mean?
-        </h3>
-
-        <p>
-            Let us separate the instruction into its smaller parts.
-        </p>
-
-        <div class="interp9-print-anatomy">
-
-            <div class="interp9-print-part interp9-print-function">
-                <code>print</code>
-                <span>Function name</span>
-            </div>
-
-            <div class="interp9-print-part interp9-print-symbol">
-                <code>(</code>
-                <span>Opening parenthesis</span>
-            </div>
-
-            <div class="interp9-print-part interp9-print-text">
-                <code>"Hello, Python!"</code>
-                <span>Text to display</span>
-            </div>
-
-            <div class="interp9-print-part interp9-print-symbol">
-                <code>)</code>
-                <span>Closing parenthesis</span>
-            </div>
-
-        </div>
-
-        <div class="interp9-rule-grid">
-
-            <article class="interp9-rule-card">
-
-                <span class="interp9-rule-icon">
-                    <i class="fas fa-gears"></i>
-                </span>
-
-                <div>
-                    <strong><code>print</code></strong>
-
-                    <p>
-                        A built-in Python function used to display
-                        information.
-                    </p>
-                </div>
-
-            </article>
-
-            <article class="interp9-rule-card">
-
-                <span class="interp9-rule-icon">
-                    <i class="fas fa-parentheses"></i>
-                </span>
-
-                <div>
-                    <strong>Parentheses</strong>
-
-                    <p>
-                        Hold the information being given to the function.
-                    </p>
-                </div>
-
-            </article>
-
-            <article class="interp9-rule-card">
-
-                <span class="interp9-rule-icon">
-                    <i class="fas fa-quote-left"></i>
-                </span>
-
-                <div>
-                    <strong>Quotation marks</strong>
-
-                    <p>
-                        Tell Python that the enclosed characters should be
-                        treated as text.
-                    </p>
-                </div>
-
-            </article>
-
-            <article class="interp9-rule-card">
-
-                <span class="interp9-rule-icon">
-                    <i class="fas fa-message"></i>
-                </span>
-
-                <div>
-                    <strong>Text</strong>
-
-                    <p>
-                        The message that will appear in the terminal.
-                    </p>
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
+        
 
     <!-- PLAYGROUND -->
     <div class="interp9-playground">
@@ -16957,7 +18559,7 @@ print(message)</textarea>
         <p>
             Change the messages and select Run. This is a safe webpage
             simulation supporting simple <code>print()</code>
-            instructions.
+            instructions. Remember that if you are printing a message keep it inside quotation marks. We will learn more about quotation marks in the upcoming lessons.
         </p>
 
         <div class="interp9-playground-wrap">
@@ -17034,253 +18636,7 @@ print("I am ready to learn Python.")</textarea>
 
 
     <!-- BASIC RULES -->
-    <div class="interp9-rules">
-
-        <h3>
-            <i class="fas fa-scale-balanced"></i>
-            Four important observations
-        </h3>
-
-        <div class="interp9-rule-grid">
-
-            <article class="interp9-rule-card">
-
-                <span class="interp9-rule-icon">
-                    <i class="fas fa-font"></i>
-                </span>
-
-                <div>
-                    <strong>Python is case-sensitive</strong>
-
-                    <p>
-                        <code>print</code> works, but
-                        <code>Print</code> and <code>PRINT</code> mean
-                        something different.
-                    </p>
-                </div>
-
-            </article>
-
-            <article class="interp9-rule-card">
-
-                <span class="interp9-rule-icon">
-                    <i class="fas fa-quote-right"></i>
-                </span>
-
-                <div>
-                    <strong>Quotes must match</strong>
-
-                    <p>
-                        A message beginning with a double quote should
-                        normally end with a double quote.
-                    </p>
-                </div>
-
-            </article>
-
-            <article class="interp9-rule-card">
-
-                <span class="interp9-rule-icon">
-                    <i class="fas fa-code"></i>
-                </span>
-
-                <div>
-                    <strong>Symbols matter</strong>
-
-                    <p>
-                        Missing parentheses, quotation marks, or other
-                        symbols can change or break an instruction.
-                    </p>
-                </div>
-
-            </article>
-
-            <article class="interp9-rule-card">
-
-                <span class="interp9-rule-icon">
-                    <i class="fas fa-arrow-down"></i>
-                </span>
-
-                <div>
-                    <strong>Order matters</strong>
-
-                    <p>
-                        A Python script normally executes from its first
-                        instruction toward its last instruction.
-                    </p>
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-
-    <!-- COMMON ERRORS -->
-    <div class="interp9-errors">
-
-        <h3>
-            <i class="fas fa-bug"></i>
-            Common first-program errors
-        </h3>
-
-        <details>
-            <summary>
-                I wrote <code>Print("Hello")</code>
-            </summary>
-
-            <p>
-                Python is case-sensitive. The built-in function is named
-                <code>print</code> using lowercase letters.
-            </p>
-        </details>
-
-        <details>
-            <summary>
-                I forgot the quotation marks
-            </summary>
-
-            <p>
-                Without quotation marks, Python may think the word is a
-                variable name. Use
-                <code>print("Hello")</code> when you want to display
-                literal text.
-            </p>
-        </details>
-
-        <details>
-            <summary>
-                I opened a quote but did not close it
-            </summary>
-
-            <p>
-                Python cannot determine where the text ends. Make sure
-                the opening and closing quotation marks are both present.
-            </p>
-        </details>
-
-        <details>
-            <summary>
-                I forgot the closing parenthesis
-            </summary>
-
-            <p>
-                A function call beginning with <code>(</code> must be
-                completed with a corresponding <code>)</code>.
-            </p>
-        </details>
-
-        <details>
-            <summary>
-                The program runs but displays nothing
-            </summary>
-
-            <p>
-                Confirm that the file contains a <code>print()</code>
-                instruction, that the file was saved, and that you ran
-                the correct file.
-            </p>
-        </details>
-
-    </div>
-
-
-    <!-- PRACTICE -->
-    <div class="interp9-practice">
-
-        <h3>
-            <i class="fas fa-pencil"></i>
-            Modify and investigate
-        </h3>
-
-        <ol>
-            <li>
-                Run the original <code>first_program.py</code> file.
-            </li>
-
-            <li>
-                Change the first displayed message to your own greeting.
-            </li>
-
-            <li>
-                Add a fourth <code>print()</code> instruction describing
-                what you want to use Python for.
-            </li>
-
-            <li>
-                Change <code>print</code> to <code>Print</code> and
-                observe the error.
-            </li>
-
-            <li>
-                Restore lowercase <code>print</code> and run the program
-                again.
-            </li>
-
-            <li>
-                Remove a closing quotation mark, read the error, and then
-                repair the instruction.
-            </li>
-
-            <li>
-                Try one <code>print()</code> instruction in interactive
-                mode using the <code>&gt;&gt;&gt;</code> prompt.
-            </li>
-        </ol>
-
-    </div>
-
-
-    <!-- SUMMARY -->
-    <div class="interp9-summary">
-
-        <h3>
-            <i class="fas fa-clipboard-check"></i>
-            What did we learn?
-        </h3>
-
-        <ul>
-            <li>
-                The Python interpreter reads and executes Python
-                instructions.
-            </li>
-
-            <li>
-                Interactive mode executes one instruction at a time.
-            </li>
-
-            <li>
-                The <code>&gt;&gt;&gt;</code> symbol is the primary
-                Python prompt.
-            </li>
-
-            <li>
-                Script mode executes instructions saved inside a
-                <code>.py</code> file.
-            </li>
-
-            <li>
-                The built-in <code>print()</code> function displays
-                information.
-            </li>
-
-            <li>
-                Text written directly in a program must be enclosed in
-                matching quotation marks.
-            </li>
-
-            <li>
-                Python is case-sensitive.
-            </li>
-
-            <li>
-                Errors help us locate and understand problems in our
-                instructions.
-            </li>
-        </ul>
-
-    </div>
+    
 
 
     <!-- QUESTIONS -->
@@ -17388,7 +18744,284 @@ print("I am ready to learn Python.")</textarea>
     </div>
 
 </section>
-<section id="sec10" class="tutorial-card"><h2>10. Errors are the part of programming</h2><div class="status-row"><span class="level">Stage I · Programming and Setup</span><span class="status">Planned</span></div><div class="placeholder"><div>
+
+<section id="sec10" class="tutorial-card"><h2>10. Important Things to Know Before Programming</h2><div class="status-row"><span class="level">Stage I · Programming and Setup</span><span class="status">Planned</span></div>
+
+    <p>
+        Before writing large programs, learn these small rules. Most
+        beginner errors happen because of one missing letter, space, file,
+        or symbol—not because Python is difficult.
+    </p>
+
+
+    <div class="before10-intro">
+
+        <i class="fas fa-lightbulb"></i>
+
+        <div>
+            <strong>Remember:</strong> Python follows instructions exactly.
+            It cannot guess what we mean, so we must write clearly.
+        </div>
+
+    </div>
+
+
+    <div class="before10-grid">
+
+        <article class="before10-card">
+
+            <span class="before10-number">1</span>
+
+            <i class="fas fa-folder-open"></i>
+
+            <h3>File Paths and Folders</h3>
+
+            <p>
+                A <strong>file path</strong> tells Python where a file is
+                stored on your computer. Beginners often see an error simply
+                because Python is looking in the wrong folder. You can simply copy the file by "ctrl+c" and paste into VS-code "Code editor" by "ctrl+v". It will automatically set the path for you.
+            </p>
+
+            <div class="before10-code">
+                <code>data/temperature.csv</code>
+            </div>
+
+            <p class="before10-small">
+                <strong>General Practice:</strong> Keep your data inside your project folder whenever possible.
+                Then use a simple relative path such as
+                <code>data/temperature.csv</code>.
+            </p>
+
+        </article>
+
+
+        <article class="before10-card">
+
+            <span class="before10-number">2</span>
+
+            <i class="fas fa-font"></i>
+
+            <h3>Python Is Case-Sensitive</h3>
+
+            <p>
+                Capital and small letters are different in Python.
+                <code>print</code>, <code>Print</code>, and
+                <code>PRINT</code> are not the same instruction.
+            </p>
+
+            <div class="before10-compare">
+
+                <div class="correct">
+                    <i class="fas fa-check"></i>
+                    <code>print("Hello")</code>
+                </div>
+
+                <div class="wrong">
+                    <i class="fas fa-xmark"></i>
+                    <code>Print("Hello")</code>
+                </div>
+
+            </div>
+
+            <p class="before10-small">
+                Write Python keywords exactly as shown in examples.
+            </p>
+
+        </article>
+
+
+        <article class="before10-card">
+
+            <span class="before10-number">3</span>
+
+            <i class="fas fa-indent"></i>
+
+            <h3>Indentation Matters</h3>
+
+            <p>
+                PIn Python, indentation refers to the whitespaces (spaces or tabs) added at the beginning of a line of code. You can't write one line from starting of the row and the next line with some spaces. 
+                 
+            </p>
+
+            <div class="before10-code before10-code-multiline">
+                <code>print("Hello")<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print("It is hot")</code>
+            </div>
+
+            <p class="before10-small">
+                This is wrong indentation. The second line should not have spaces before it. It should be like this:
+            </p>
+            <div class="before10-code before10-code-multiline">
+                <code>print("Hello")<br>
+                print("It is hot")</code>
+            </div>
+            <p><strong>We will learn more about indentation: where to use spaces and tabs in the upcoming lessons.</strong></p>
+        </article>
+
+
+        <article class="before10-card">
+
+            <span class="before10-number">4</span>
+
+            <i class="fas fa-file-code"></i>
+
+            <h3>Save Files with the Correct Extension</h3>
+
+            <p>
+                The end of a filename tells VS Code what type of file it is.
+                Python programs should normally end with <code>.py</code>.
+            </p>
+
+            <div class="before10-compare">
+
+                <div class="correct">
+                    <i class="fas fa-check"></i>
+                    <code>my_first_program.py</code>
+                </div>
+                <div class="correct">
+                    <i class="fas fa-check"></i>
+                    <code>my_first_program.ipynb</code>
+                </div>
+                <div class="wrong">
+                    <i class="fas fa-xmark"></i>
+                    <code>my_first_program</code>
+                </div>
+                <div class="wrong">
+                    <i class="fas fa-xmark"></i>
+                    <code>my_first_program.txt</code>
+                </div>
+
+            </div>
+
+            <p class="before10-small">
+                Jupyter Notebook projects use the extension
+                <code>.ipynb</code>.
+            </p>
+
+        </article>
+
+
+        <article class="before10-card">
+
+            <span class="before10-number">5</span>
+
+            <i class="fas fa-code"></i>
+
+            <h3>Symbols Must Match</h3>
+
+            <p>
+                Python notices missing quotation marks, brackets,
+                parentheses, and colons. Check that every opening symbol has
+                a closing partner.
+            </p>
+            <strong>Rule of thumb: If you open a symbol, you must close it. If you start a string with a quotation mark, you must end it with the same type of quotation mark. This will prevent syntax errors.</strong>
+            <div class="before10-compare">
+
+                <div class="correct">
+                    <i class="fas fa-check"></i>
+                    <code>print("Hello")</code>
+                </div>
+
+                <div class="wrong">
+                    <i class="fas fa-xmark"></i>
+                    <code>print("Hello)</code>
+                </div>
+                <div class="wrong">
+                    <i class="fas fa-xmark"></i>
+                    <code>print("Hello"</code>
+                </div>
+
+                <div class="wrong">
+                    <i class="fas fa-xmark"></i>
+                    <code>print("Hello')</code>
+                </div>
+
+            </div>
+
+            <p class="before10-small">
+                When an error appears, first check quotation marks,
+                parentheses, square brackets, and colons.
+            </p>
+
+        </article>
+
+    </div>
+
+
+    <div class="before10-summary">
+
+        <h3>
+            <i class="fas fa-clipboard-check"></i>
+            The five beginner checks
+        </h3>
+
+        <p>
+            Before running your program, check the file path, capital letters,
+            indentation, file extension, and matching symbols.
+        </p>
+
+    </div>
+    <div class="error10-questions">
+
+        <h3>
+            <i class="fas fa-circle-question"></i>
+            Quick questions
+        </h3>
+
+        <details>
+            <summary>
+                How to give the indent correct?
+            </summary>
+
+            <p>
+                In Vs- code one you go to next line by pressing "Enter" key, it will automatically give the correct indent. If you want to remove the indent, you can use "Backspace" key.
+            </p>
+        </details>
+
+        <details>
+            <summary>
+                Will my code work if my file  and data are in different folders?
+            </summary>
+
+            <p>
+                Yes. You can use the full path of the data file in your code. For example, if your data file is in "C:\Users\YourName\Documents\data\temperature.csv", you can use that full path in your code. However, it is recommended to keep your data file in the same folder as your code file or in a subfolder to avoid confusion.
+            </p>
+        </details>
+        <details>
+            <summary>
+                Are the word messages "Hello" and "hello" different in python?
+            </summary>
+
+            <p>
+                Yes. In Python, strings are case-sensitive, so "Hello" and "hello" are treated as different strings. But if you are using them in print statements, they will both be printed as they are. For example, print("Hello") will print Hello and print("hello") will print hello.
+            </p>
+        </details>
+            
+
+    </div>
+
+    <div class="lesson-navigation">
+
+        <button type="button"
+                class="nav-button nav-button-left"
+                onclick="showContent('sec9')">
+            <i class="fas fa-arrow-left"></i>
+            Lesson 9
+        </button>
+
+        <button type="button"
+                class="nav-button nav-button-right"
+                onclick="showContent('sec11')">
+            Lesson 11
+            <i class="fas fa-arrow-right"></i>
+        </button>
+
+    </div>
+
+</section>
+
+
+<section id="sec100" class="tutorial-card"><h2>10. Important things to know about before programming</h2><div class="status-row"><span class="level">Stage I · Programming and Setup</span><span class="status">Planned</span></div><div class="placeholder"><div>
 
 
         <p>
@@ -18077,7 +19710,7 @@ print(average)</code></pre>
 
     </div>
 
-
+    
     <!-- QUESTIONS -->
     <div class="error10-questions">
 
@@ -18187,19 +19820,12 @@ print(average)</code></pre>
     </div>
 
 </section>
-<!-- <section id="sec11" class="tutorial-card"><h2>11. Variables, Assignment, and Naming Rules</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">11</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section> -->
-<section id="sec11" class="tutorial-card">
-    <div class="variable-hero">
-        <span class="variable-lesson-number">Lesson 11</span>
-
-        <h2>Variables, Assignment, and Naming Rules</h2>
+<section id="sec11" class="tutorial-card"><h2>11. Variables, Assignment, and Naming Rules</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div>
 
         <p>
-            Programs need to remember information. Your name, age, a research
-            result, the price of a product, or the temperature of the ocean—
-            variables allow Python to remember these values and use them later.
+            All programs store everything in variables. Think of a variable as a container that holds a value. Whatever you put in the variable stored in that variable.But if you put a new value in the variable, it will replace the old value. The variable name is like a label on the container. It helps you find the value again.
         </p>
-    </div>
+    
 
     <!-- INTRODUCTION -->
     <div class="variable-intro-box">
@@ -18210,7 +19836,7 @@ print(average)</code></pre>
         </div>
 
         <div>
-            <h3>Imagine a labelled box</h3>
+            <h3>Every container should have a label to identify it</h3>
 
             <p>
                 Suppose you have a box containing the number <strong>21</strong>.
@@ -18264,6 +19890,28 @@ print(average)</code></pre>
             a decimal number, or a Boolean value.
         </p>
     </div>
+    <div class="variable-concept-box">
+        <h3>
+            <i class="fas fa-box-open"></i>
+            Types of variables?
+        </h3>
+
+        <div class="variable-code">
+            <span class="code-name">integer_var</span> =
+            <span class="code-value">only integer numbers</span><br>
+
+            <span class="code-name">float_var</span> =
+            <span class="code-value">Any decimal number, it can include integer in form of 22.0</span><br>
+
+            <span class="code-name">character</span> =
+            <span class="code-value">a single character</span><br>
+
+            <span class="code-name">string_var</span> =
+            <span class="code-value">a sequence of characters</span><br>
+            <span class="code-name">boolean_var</span> =
+            <span class="code-value">True or False</span><br>
+        </div>
+    </div>
 
     <!-- ASSIGNMENT -->
     <div class="variable-concept-box">
@@ -18307,15 +19955,18 @@ print(average)</code></pre>
                 <strong>“Take the value 85 and assign it to score.”</strong>
                 In Python, <code>=</code> means assignment—not “is equal to”
                 in the mathematical sense.
+                For integer, float and boolean values, we can write the number or True/False after "=" sign. But in case of strings and characters, we need to use quotes. If you use a=Roy. 
+                Then Python will think that Roy is a variable name and we need to assign the value of Roy to a. But if you use a="Roy" or a='Roy', then Python will understand that Roy is a string value.
             </div>
         </div>
     </div>
+
 
     <!-- CHANGING VALUES -->
     <div class="variable-concept-box">
         <h3>
             <i class="fas fa-pen-to-square"></i>
-            Variables can change
+            Variables can be changed
         </h3>
 
         <p>
@@ -18683,24 +20334,6 @@ print(average)</code></pre>
         </div>
     </div>
 
-    <!-- SUMMARY -->
-    <div class="variable-summary">
-        <h3>
-            <i class="fas fa-list-check"></i>
-            What did we learn?
-        </h3>
-
-        <ul>
-            <li>A variable is a name that refers to a value.</li>
-            <li>The <code>=</code> symbol assigns a value to a variable.</li>
-            <li>A variable can be assigned a new value.</li>
-            <li>Variable names cannot begin with a digit.</li>
-            <li>Variable names cannot contain spaces or hyphens.</li>
-            <li>Python keywords cannot be used as ordinary variable names.</li>
-            <li>Meaningful names make programs easier to understand.</li>
-            <li>Python programmers commonly use <code>snake_case</code>.</li>
-        </ul>
-    </div>
 
     <!-- QUESTIONS -->
     <div class="variable-concept-box variable-questions">
@@ -18775,7 +20408,7 @@ print(average)</code></pre>
         </button>
     </div>
 </section>
-<section id="sec12" class="tutorial-card"><h2>12. Numbers and Arithmetic Operators</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div>
+<section id="sec12" class="tutorial-card"><h2>12. Numbers and Arithmetic Operators</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div>
 
         <p>
             Python can act as a simple calculator, but its real power
@@ -19580,110 +21213,6 @@ print(area)</code></pre>
     </div>
 
 
-    <!-- PRACTICE -->
-    <div class="number12-practice">
-
-        <h3>
-            <i class="fas fa-pencil"></i>
-            Modify and investigate
-        </h3>
-
-        <ol>
-            <li>
-                Calculate the sum of <code>45</code> and
-                <code>28</code>.
-            </li>
-
-            <li>
-                Calculate the difference between <code>100</code> and
-                <code>37</code>.
-            </li>
-
-            <li>
-                Multiply <code>12</code> by <code>8</code>.
-            </li>
-
-            <li>
-                Compare <code>20 / 6</code>, <code>20 // 6</code>, and
-                <code>20 % 6</code>.
-            </li>
-
-            <li>
-                Calculate <code>2 ** 10</code>.
-            </li>
-
-            <li>
-                Predict the result of <code>5 + 2 * 3</code>, then run
-                it.
-            </li>
-
-            <li>
-                Add parentheses to make the previous expression produce
-                <code>21</code>.
-            </li>
-
-            <li>
-                Use the interactive calculator to test all seven
-                arithmetic operators.
-            </li>
-        </ol>
-
-    </div>
-
-
-    <!-- SUMMARY -->
-    <div class="number12-summary">
-
-        <h3>
-            <i class="fas fa-clipboard-check"></i>
-            What did we learn?
-        </h3>
-
-        <ul>
-            <li>
-                Python has integer, floating-point, and complex numeric
-                types.
-            </li>
-
-            <li>
-                <code>+</code>, <code>-</code>, and <code>*</code>
-                perform addition, subtraction, and multiplication.
-            </li>
-
-            <li>
-                <code>/</code> performs ordinary division and returns a
-                floating-point result.
-            </li>
-
-            <li>
-                <code>//</code> performs floor division.
-            </li>
-
-            <li>
-                <code>%</code> returns the remainder after division.
-            </li>
-
-            <li>
-                <code>**</code> performs exponentiation.
-            </li>
-
-            <li>
-                Python follows an operator-precedence order.
-            </li>
-
-            <li>
-                Parentheses can change or clarify the order of
-                calculations.
-            </li>
-
-            <li>
-                Floating-point numbers are stored as binary
-                approximations.
-            </li>
-        </ul>
-
-    </div>
-
 
     <!-- QUESTIONS -->
     <div class="number12-questions">
@@ -19796,9 +21325,852 @@ print(area)</code></pre>
     </div>
 
 </section>
-<section id="sec13" class="tutorial-card"><h2>13. Strings and Text Processing</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">13</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
-<section id="sec14" class="tutorial-card"><h2>14. Booleans, Comparisons, and Logical Operators</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">14</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
-<section id="sec15" class="tutorial-card"><h2>15. Input, Output, f-Strings, and Type Conversion</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">15</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
+<section id="sec13" class="tutorial-card">
+
+    <h2>13. Strings and Text Processing</h2>
+
+    <div class="status-row">
+        <span class="level">Stage II · Core Python</span>
+        <span class="status">Planned</span>
+    </div>
+
+    <div class="string13-intro">
+        <div class="string13-intro-icon">
+            <i class="fas fa-comment-dots"></i>
+        </div>
+
+        <div>
+            <h3>Python can work with words too!</h3>
+            <p>
+                Until now, we have worked mainly with numbers. But programs also
+                need to handle names, messages, file names, emails, passwords,
+                answers from users, and much more. In Python, text is called a
+                <strong>string</strong>.
+            </p>
+        </div>
+    </div>
+
+    <div class="string13-definition">
+        <h3><i class="fas fa-quote-left"></i> What is a string?</h3>
+
+        <p>
+            A string is a collection of characters written inside quotation marks.
+            Letters, spaces, symbols, and even numbers can be part of a string.
+        </p>
+
+        <div class="string13-code-window">
+            <pre><code>name = "Haripriya"
+message = 'Welcome to Python!'
+year_as_text = "2026"
+
+print(name)
+print(message)</code></pre>
+        </div>
+
+        <div class="string13-note">
+            <i class="fas fa-lightbulb"></i>
+            <p>
+                <code>"2026"</code> is text because it is inside quotation marks.
+                But <code>2026</code> without quotation marks is a number.
+            </p>
+        </div>
+    </div>
+
+    <div class="string13-two-column">
+
+        <div class="string13-card">
+            <h3><i class="fas fa-quote-right"></i> Single or double quotes?</h3>
+
+            <p>Both single and double quotation marks can create strings.</p>
+
+            <pre><code>course = "Python"
+teacher = 'Guido van Rossum'</code></pre>
+
+            <p>
+                Use the other type of quotation mark when your text already
+                contains a quote.
+            </p>
+
+            <pre><code>sentence = "She said, 'Hello!'"</code></pre>
+        </div>
+
+        <div class="string13-card">
+            <h3><i class="fas fa-ruler-horizontal"></i> String length</h3>
+
+            <p>
+                Python can count how many characters are in a string using
+                <code>len()</code>.
+            </p>
+
+            <pre><code>word = "Python"
+
+print(len(word))  # 6</code></pre>
+
+            <p>
+                Spaces and punctuation marks are also counted as characters.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="string13-combine">
+
+        <h3><i class="fas fa-link"></i> Joining text together</h3>
+
+        <p>
+            Use <code>+</code> to join strings. This is called
+            <strong>concatenation</strong>.
+        </p>
+
+        <pre><code>first_name = "Asha"
+last_name = "Das"
+
+full_name = first_name + " " + last_name
+
+print(full_name)</code></pre>
+
+        <p>
+            A cleaner way is an <strong>f-string</strong>. Put the letter
+            <code>f</code> before the quotation marks and place variables inside
+            curly brackets.
+        </p>
+
+        <pre><code>name = "Asha"
+topic = "Python"
+
+print(f"{name} is learning {topic}.")</code></pre>
+
+    </div>
+
+    
+
+    <div class="string13-methods">
+
+        <h3><i class="fas fa-wand-magic-sparkles"></i> Useful text methods</h3>
+
+        <p>
+            Methods are ready-made actions that help us clean, change, and analyse text.
+        </p>
+
+        <div class="string13-method-grid">
+
+            <article class="string13-method-card">
+                <code>.upper()</code>
+                <h4>Make text uppercase</h4>
+                <p><code>"python".upper()</code> → <strong>PYTHON</strong></p>
+            </article>
+
+            <article class="string13-method-card">
+                <code>.lower()</code>
+                <h4>Make text lowercase</h4>
+                <p><code>"PYTHON".lower()</code> → <strong>python</strong></p>
+            </article>
+
+            <article class="string13-method-card">
+                <code>.strip()</code>
+                <h4>Remove extra spaces</h4>
+                <p><code>" hello ".strip()</code> → <strong>hello</strong></p>
+            </article>
+
+            <article class="string13-method-card">
+                <code>.replace()</code>
+                <h4>Replace a part of text</h4>
+                <p><code>"I like C".replace("C", "Python")</code></p>
+            </article>
+
+            <article class="string13-method-card">
+                <code>.split()</code>
+                <h4>Split text into pieces</h4>
+                <p><code>"red,blue".split(",")</code> creates a list.</p>
+            </article>
+
+            <article class="string13-method-card">
+                <code>.count()</code>
+                <h4>Count text</h4>
+                <p><code>"banana".count("a")</code> → <strong>3</strong></p>
+            </article>
+
+        </div>
+
+    </div>
+
+    <div class="string13-lab">
+
+        <h3><i class="fas fa-flask"></i> Try the Text Studio</h3>
+
+        <p>
+            Type any sentence, choose an action, and see how Python would process it.
+        </p>
+
+        <label for="string13Input">Your text</label>
+        <textarea id="string13Input" rows="4">  Hello, Python learner!  </textarea>
+
+        <div class="string13-lab-controls">
+
+            <button type="button" class="string13-action active"
+                data-string13-action="upper">
+                UPPERCASE
+            </button>
+
+            <button type="button" class="string13-action"
+                data-string13-action="lower">
+                lowercase
+            </button>
+
+            <button type="button" class="string13-action"
+                data-string13-action="strip">
+                Remove spaces
+            </button>
+
+            <button type="button" class="string13-action"
+                data-string13-action="words">
+                Count words
+            </button>
+
+            <button type="button" class="string13-action"
+                data-string13-action="count">
+                Count characters
+            </button>
+
+        </div>
+
+        <div class="string13-replace-row">
+            <input id="string13Find" type="text" value="Python"
+                placeholder="Find this text">
+
+            <input id="string13Replace" type="text" value="coding"
+                placeholder="Replace with this">
+
+            <button type="button" class="string13-action"
+                data-string13-action="replace">
+                Replace text
+            </button>
+        </div>
+
+        <div class="string13-result">
+            <span>Python result</span>
+            <output id="string13Output">HELLO, PYTHON LEARNER!</output>
+        </div>
+
+    </div>
+
+    <div class="string13-immutable">
+
+        <h3><i class="fas fa-lock"></i> Strings cannot be changed character by character</h3>
+
+        <p>
+            Strings are <strong>immutable</strong>. This means you cannot directly
+            replace one character inside an existing string.
+        </p>
+
+        <pre><code>word = "Python"
+
+# word[0] = "J"     ❌ This causes an error
+
+new_word = "J" + word[1:]
+
+print(new_word)    # Jython</code></pre>
+
+        <p>
+            Instead, create a new string and store it in a variable.
+        </p>
+
+    </div>
+
+    <div class="string13-practice">
+
+        <h3><i class="fas fa-pen"></i> Small practice</h3>
+
+        <p>Try to clean and introduce this name:</p>
+
+        <pre><code>name = "  haripriya sahoo  "
+
+# 1. Remove extra spaces.
+# 2. Make the name uppercase.
+# 3. Print: "Welcome, HARIPRIYA SAHOO!"</code></pre>
+
+    </div>
+
+    <div class="lesson-navigation">
+        <button class="nav-button secondary" type="button"
+            onclick="showContent('sec12')">
+            <i class="fas fa-arrow-left"></i> Previous
+        </button>
+
+        <button class="nav-button" type="button"
+            onclick="showContent('sec14')">
+            Next <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+
+</section>
+<section id="sec14" class="tutorial-card">
+
+    <h2>14. Booleans, Comparisons, and Logical Operators</h2>
+
+    <div class="status-row">
+        <span class="level">Stage II · Core Python</span>
+        <span class="status">Planned</span>
+    </div>
+
+    <div class="boolean14-intro">
+
+        <div class="boolean14-icon">
+            <i class="fas fa-circle-check"></i>
+        </div>
+
+        <div>
+            <h3>How does Python make decisions?</h3>
+            <p>
+                Every day, we make simple decisions: <em>Is it raining?</em>
+                <em>Do I have enough money?</em> <em>Is my assignment finished?</em>
+                Python also needs answers to these kinds of questions.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="boolean14-definition">
+
+        <h3><i class="fas fa-toggle-on"></i> What is a Boolean?</h3>
+
+        <p>
+            A <strong>Boolean</strong> is a data type that has only two possible
+            values:
+        </p>
+
+        <div class="boolean14-values">
+            <div class="boolean14-true">
+                <i class="fas fa-check"></i>
+                <strong>True</strong>
+                <span>Yes, correct, or condition satisfied</span>
+            </div>
+
+            <div class="boolean14-false">
+                <i class="fas fa-xmark"></i>
+                <strong>False</strong>
+                <span>No, incorrect, or condition not satisfied</span>
+            </div>
+        </div>
+
+        <pre><code>is_python_fun = True
+is_exam_today = False
+
+print(is_python_fun)
+print(is_exam_today)</code></pre>
+
+        <div class="boolean14-note">
+            <i class="fas fa-lightbulb"></i>
+            <p>
+                Always write <code>True</code> and <code>False</code> with a capital
+                first letter. Python treats <code>true</code> and <code>false</code>
+                as different, unknown names.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="boolean14-comparison">
+
+        <h3><i class="fas fa-scale-balanced"></i> Comparison operators</h3>
+
+        <p>
+            Comparison operators compare two values and return either
+            <code>True</code> or <code>False</code>.
+        </p>
+
+        <div class="boolean14-operator-grid">
+
+            <div class="boolean14-operator-card">
+                <code>==</code>
+                <strong>Equal to</strong>
+                <p><code>5 == 5</code> → True</p>
+            </div>
+
+            <div class="boolean14-operator-card">
+                <code>!=</code>
+                <strong>Not equal to</strong>
+                <p><code>5 != 3</code> → True</p>
+            </div>
+
+            <div class="boolean14-operator-card">
+                <code>&gt;</code>
+                <strong>Greater than</strong>
+                <p><code>10 &gt; 4</code> → True</p>
+            </div>
+
+            <div class="boolean14-operator-card">
+                <code>&lt;</code>
+                <strong>Less than</strong>
+                <p><code>2 &lt; 1</code> → False</p>
+            </div>
+
+            <div class="boolean14-operator-card">
+                <code>&gt;=</code>
+                <strong>Greater than or equal to</strong>
+                <p><code>7 &gt;= 7</code> → True</p>
+            </div>
+
+            <div class="boolean14-operator-card">
+                <code>&lt;=</code>
+                <strong>Less than or equal to</strong>
+                <p><code>4 &lt;= 2</code> → False</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="boolean14-important">
+
+        <h3><i class="fas fa-triangle-exclamation"></i> Do not confuse <code>=</code> and <code>==</code></h3>
+
+        <div class="boolean14-equals-grid">
+
+            <div>
+                <span class="boolean14-symbol">=</span>
+                <h4>Assignment</h4>
+                <p>Stores a value inside a variable.</p>
+
+                <pre><code>age = 25</code></pre>
+            </div>
+
+            <div>
+                <span class="boolean14-symbol">==</span>
+                <h4>Comparison</h4>
+                <p>Checks whether two values are equal.</p>
+
+                <pre><code>age == 25</code></pre>
+            </div>
+
+        </div>
+
+        <p class="boolean14-reminder">
+            Read it like this: <code>=</code> means “becomes”, while
+            <code>==</code> means “is equal to?”
+        </p>
+
+    </div>
+
+    <div class="boolean14-example">
+
+        <h3><i class="fas fa-code"></i> A real example</h3>
+
+        <p>
+            Imagine that you want to check whether a student has passed an exam.
+        </p>
+
+        <pre><code>mark = 72
+
+print(mark >= 50)   # True
+print(mark < 50)    # False
+print(mark == 100)  # False</code></pre>
+
+        <p>
+            These Boolean results will later help us write programs that react
+            differently in different situations.
+        </p>
+
+    </div>
+
+    <div class="boolean14-logical">
+
+        <h3><i class="fas fa-diagram-project"></i> Logical operators</h3>
+
+        <p>
+            Logical operators help us combine more than one condition.
+            Python has three important logical operators:
+            <code>and</code>, <code>or</code>, and <code>not</code>.
+        </p>
+
+        <div class="boolean14-logic-grid">
+
+            <article class="boolean14-logic-card">
+                <h4><code>and</code></h4>
+                <p>
+                    Both conditions must be <code>True</code>.
+                </p>
+
+                <pre><code>age = 20
+has_ticket = True
+
+print(age >= 18 and has_ticket)
+# True</code></pre>
+            </article>
+
+            <article class="boolean14-logic-card">
+                <h4><code>or</code></h4>
+                <p>
+                    At least one condition must be <code>True</code>.
+                </p>
+
+                <pre><code>is_weekend = False
+is_holiday = True
+
+print(is_weekend or is_holiday)
+# True</code></pre>
+            </article>
+
+            <article class="boolean14-logic-card">
+                <h4><code>not</code></h4>
+                <p>
+                    Changes <code>True</code> to <code>False</code>, and vice versa.
+                </p>
+
+                <pre><code>is_raining = True
+
+print(not is_raining)
+# False</code></pre>
+            </article>
+
+        </div>
+
+    </div>
+
+    <div class="boolean14-table-box">
+
+        <h3><i class="fas fa-table"></i> Quick truth table</h3>
+
+        <table class="boolean14-table">
+            <thead>
+                <tr>
+                    <th>Condition A</th>
+                    <th>Condition B</th>
+                    <th>A and B</th>
+                    <th>A or B</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>True</td>
+                    <td>True</td>
+                    <td>True</td>
+                    <td>True</td>
+                </tr>
+                <tr>
+                    <td>True</td>
+                    <td>False</td>
+                    <td>False</td>
+                    <td>True</td>
+                </tr>
+                <tr>
+                    <td>False</td>
+                    <td>True</td>
+                    <td>False</td>
+                    <td>True</td>
+                </tr>
+                <tr>
+                    <td>False</td>
+                    <td>False</td>
+                    <td>False</td>
+                    <td>False</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="boolean14-practice">
+
+        <h3><i class="fas fa-pen-to-square"></i> Try it yourself</h3>
+
+        <p>
+            Predict the output first. Then run the code and check your answer.
+        </p>
+
+        <pre><code>temperature = 30
+is_sunny = True
+
+print(temperature > 25)
+print(temperature < 20)
+print(temperature > 25 and is_sunny)
+print(temperature < 20 or is_sunny)
+print(not is_sunny)</code></pre>
+
+    </div>
+
+    <div class="boolean14-next">
+
+        <i class="fas fa-forward"></i>
+
+        <div>
+            <strong>Coming next:</strong>
+            <p>
+                In the next lesson, we will use these Boolean conditions to make
+                Python choose actions using <code>if</code>, <code>elif</code>,
+                and <code>else</code>.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="lesson-navigation">
+        <button class="nav-button secondary" type="button"
+            onclick="showContent('sec13')">
+            <i class="fas fa-arrow-left"></i> Previous
+        </button>
+
+        <button class="nav-button" type="button"
+            onclick="showContent('sec15')">
+            Next <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+
+</section>
+<section id="sec15" class="tutorial-card">
+
+    <h2>15. Input, Output, f-Strings, and Type Conversion</h2>
+
+    <div class="status-row">
+        <span class="level">Stage II · Core Python</span>
+        <span class="status">Planned</span>
+    </div>
+
+    <div class="input15-intro">
+        <div class="input15-icon">
+            <i class="fas fa-comments"></i>
+        </div>
+
+        <div>
+            <h3>Let your program talk with people</h3>
+            <p>
+                Until now, we have written values directly in our program. But a
+                useful program should be able to ask a user for information,
+                process it, and show a meaningful result.
+            </p>
+        </div>
+    </div>
+
+    <div class="input15-output">
+
+        <h3><i class="fas fa-display"></i> Output: showing information with <code>print()</code></h3>
+
+        <p>
+            We use <code>print()</code> when we want Python to show something on
+            the screen.
+        </p>
+
+        <pre><code>print("Hello, Python!")
+print(25)
+print("My score is", 92)</code></pre>
+
+        <div class="input15-note">
+            <i class="fas fa-lightbulb"></i>
+            <p>
+                Text must be inside quotation marks. Variables and numbers do not
+                need quotation marks.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="input15-input">
+
+        <h3><i class="fas fa-keyboard"></i> Input: asking the user a question</h3>
+
+        <p>
+            Python uses <code>input()</code> to wait for the user to type an answer.
+            The answer is stored in a variable.
+        </p>
+
+        <pre><code>name = input("What is your name? ")
+
+print("Hello", name)</code></pre>
+
+        <div class="input15-story">
+            <span>Question shown by Python</span>
+            <div class="input15-terminal-line">
+                <code>What is your name?</code>
+                <strong>Haripriya</strong>
+            </div>
+            <span>Value stored in the variable <code>name</code></span>
+        </div>
+
+    </div>
+
+    <div class="input15-fstrings">
+
+        <h3><i class="fas fa-wand-magic-sparkles"></i> f-Strings: a clean way to combine text and variables</h3>
+
+        <p>
+            An f-string lets you place variables directly inside a sentence. Start
+            the string with <code>f</code> and write variable names inside
+            curly brackets <code>{ }</code>.
+        </p>
+
+        <pre><code>name = "Asha"
+subject = "Python"
+
+print(f"{name} is learning {subject}.")</code></pre>
+
+        <div class="input15-result-line">
+            <i class="fas fa-arrow-right"></i>
+            <span>Asha is learning Python.</span>
+        </div>
+
+        <p>
+            You can also calculate inside curly brackets.
+        </p>
+
+        <pre><code>apples = 4
+price = 15
+
+print(f"Total price: {apples * price} dollars")</code></pre>
+
+    </div>
+
+    <div class="input15-conversion">
+
+        <h3><i class="fas fa-repeat"></i> Why do we need type conversion?</h3>
+
+        <p>
+            Everything entered through <code>input()</code> begins as
+            <strong>text</strong> (a string), even if the user types a number.
+        </p>
+
+        <pre><code>age = input("Enter your age: ")
+
+print(type(age))   # &lt;class 'str'&gt;</code></pre>
+
+        <p>
+            To calculate with the value, convert it into the correct type.
+        </p>
+
+        <div class="input15-conversion-grid">
+
+            <article>
+                <code>int()</code>
+                <h4>Whole numbers</h4>
+                <p><code>age = int(input("Age: "))</code></p>
+            </article>
+
+            <article>
+                <code>float()</code>
+                <h4>Decimal numbers</h4>
+                <p><code>height = float(input("Height: "))</code></p>
+            </article>
+
+            <article>
+                <code>str()</code>
+                <h4>Convert to text</h4>
+                <p><code>message = str(2026)</code></p>
+            </article>
+
+        </div>
+
+    </div>
+
+    <div class="input15-example">
+
+        <h3><i class="fas fa-code"></i> Example: calculate the user's age next year</h3>
+
+        <pre><code>name = input("What is your name? ")
+age = int(input("How old are you? "))
+
+next_year_age = age + 1
+
+print(f"Hello {name}! Next year, you will be {next_year_age}.")</code></pre>
+
+        <div class="input15-warning">
+            <i class="fas fa-triangle-exclamation"></i>
+            <p>
+                Without <code>int()</code>, Python cannot add <code>1</code> to
+                the age because the age would still be text.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="input15-lab">
+
+        <h3><i class="fas fa-flask"></i> Try the f-String Builder</h3>
+
+        <p>
+            Fill in the boxes below. This shows the sentence Python would create.
+        </p>
+
+        <div class="input15-lab-grid">
+
+            <label>
+                Your name
+                <input id="input15Name" type="text" placeholder="Example: Asha">
+            </label>
+
+            <label>
+                Your age
+                <input id="input15Age" type="number" placeholder="Example: 22">
+            </label>
+
+            <label>
+                Your favourite topic
+                <input id="input15Topic" type="text" placeholder="Example: Python">
+            </label>
+
+        </div>
+
+        <button type="button" id="input15CreateButton" class="input15-button">
+            <i class="fas fa-sparkles"></i> Create my sentence
+        </button>
+
+        <div class="input15-lab-result">
+            <span>Python output</span>
+            <output id="input15Result">
+                Fill in the boxes to create your first f-string.
+            </output>
+        </div>
+
+        <div class="input15-code-result">
+            <span>Python code</span>
+            <code id="input15Code">
+                print(f"Hello {'{name}'}! You are {'{age}'} years old and you are learning {'{topic}'}.")
+            </code>
+        </div>
+
+    </div>
+
+    <div class="input15-practice">
+
+        <h3><i class="fas fa-pen-to-square"></i> Small practice</h3>
+
+        <p>Write a program that asks for the following:</p>
+
+        <ol>
+            <li>The user's name</li>
+            <li>Their city</li>
+            <li>Their favourite food</li>
+        </ol>
+
+        <p>Then print a sentence like this:</p>
+
+        <pre><code>Hello Asha! You live in Kaohsiung and your favourite food is momo.</code></pre>
+
+    </div>
+
+    <div class="input15-next">
+        <i class="fas fa-forward"></i>
+        <div>
+            <strong>Coming next:</strong>
+            <p>
+                We will use input and Boolean conditions together to make decisions
+                with <code>if</code>, <code>elif</code>, and <code>else</code>.
+            </p>
+        </div>
+    </div>
+
+    <div class="lesson-navigation">
+        <button class="nav-button secondary" type="button"
+            onclick="showContent('sec14')">
+            <i class="fas fa-arrow-left"></i> Previous
+        </button>
+
+        <button class="nav-button" type="button"
+            onclick="showContent('sec16')">
+            Next <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+
+</section>
 
 <section id="sec16" class="tutorial-card"><h2>16. Lists and List Operations</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">16</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
 <section id="sec17" class="tutorial-card"><h2>17. Tuples and Immutable Data</h2><div class="status-row"><span class="level">Stage II · Core Python</span><span class="status">Planned</span></div><div class="placeholder"><div><div class="placeholder-icon">17</div><h3>Lesson placeholder</h3><p>This lesson will be added in order.</p></div></div></section>
@@ -24734,6 +27106,325 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 })();
+
+const notebookRegions =
+    document.querySelectorAll(".vscode8-notebook-region");
+
+const notebookRegionInfo =
+    document.getElementById("vscode8NotebookRegionInfo");
+
+
+const notebookDescriptions = {
+
+    generate: {
+        title: "Generate",
+        icon: "fas fa-wand-magic-sparkles",
+        description:
+            "This is an optional AI-assisted tool. It may help create or explain code when an AI extension is available. You do not need it to learn Python."
+    },
+
+    code: {
+        title: "Code",
+        icon: "fas fa-code",
+        description:
+            "Adds a new code cell. Write Python instructions in this cell and run it using the play button."
+    },
+
+    markdown: {
+        title: "Markdown",
+        icon: "fas fa-font",
+        description:
+            "Adds a Markdown cell. Use it for headings, explanations, equations, images, links, and notes. Markdown cells do not run Python code."
+    },
+
+    runall: {
+        title: "Run All",
+        icon: "fas fa-play",
+        description:
+            "Runs every code cell from top to bottom. Select the correct Python kernel before using this option."
+    },
+
+    restart: {
+        title: "Restart",
+        icon: "fas fa-rotate-left",
+        description:
+            "Stops and starts the kernel again. Variables and imported libraries stored only in memory are removed, but your notebook file is not deleted."
+    },
+
+    clear: {
+        title: "Clear All Outputs",
+        icon: "fas fa-broom",
+        description:
+            "Removes visible results such as printed text, graphs, tables, and error messages. Your code and Markdown cells stay unchanged."
+    },
+
+    variables: {
+        title: "Jupyter Variables",
+        icon: "fas fa-table-columns",
+        description:
+            "Shows variables that currently exist in the running kernel. It is useful for checking the value, type, or table stored in a variable."
+    },
+
+    outline: {
+        title: "Outline",
+        icon: "fas fa-list",
+        description:
+            "Shows the headings created with Markdown cells. Use it to move quickly through a long notebook or report."
+    },
+
+    more: {
+        title: "More Actions",
+        icon: "fas fa-ellipsis",
+        description:
+            "Opens additional notebook commands, such as exporting, changing notebook settings, or other actions available in your VS Code version."
+    },
+
+    kernel: {
+        title: "Python 3.11.9: Kernel",
+        icon: "fab fa-python",
+        description:
+            "This is the selected kernel: the Python environment that runs your notebook cells. Click it to choose another installed Python environment."
+    },
+
+    cellrun: {
+        title: "Run This Cell",
+        icon: "fas fa-circle-play",
+        description:
+            "Runs only the current code cell. The output appears below it, and a number such as [2] shows the order in which the cell was executed."
+    }
+};
+
+
+function showNotebookRegionInformation(regionName) {
+
+    const information =
+        notebookDescriptions[regionName];
+
+    if (!information || !notebookRegionInfo) {
+        return;
+    }
+
+    notebookRegions.forEach(function (region) {
+        region.classList.toggle(
+            "active",
+            region.dataset.vscode8NotebookRegion === regionName
+        );
+    });
+
+    notebookRegionInfo.innerHTML = `
+        <h4>
+            <i class="${information.icon}"></i>
+            ${information.title}
+        </h4>
+        <div>${information.description}</div>
+    `;
+}
+
+
+notebookRegions.forEach(function (region) {
+
+    region.addEventListener("click", function () {
+        showNotebookRegionInformation(
+            region.dataset.vscode8NotebookRegion
+        );
+    });
+
+});
+
+
+showNotebookRegionInformation("code");
+(function () {
+
+    const markdownTabs =
+        document.querySelectorAll(".vscode8-markdown-tab");
+
+    const markdownDisplay =
+        document.getElementById("vscode8MarkdownDisplay");
+
+
+    function showMarkdownView(view) {
+
+        if (!markdownDisplay) {
+            return;
+        }
+
+        markdownTabs.forEach(function (tab) {
+            tab.classList.toggle(
+                "active",
+                tab.dataset.vscode8MarkdownView === view
+            );
+        });
+
+        if (view === "source") {
+
+            markdownDisplay.innerHTML = `
+                <div class="vscode8-markdown-source">
+<span class="heading"># Coastal Temperature Analysis</span>
+
+<span class="bold">**Aim:**</span> Explore sea-surface temperature data.
+
+<span class="heading">## What did I find?</span>
+
+- The temperature changed across the region.
+- The map helps us see the pattern.
+
+<span class="heading">## Figure</span>
+
+![Daily temperature map](images/temperature-map.png)
+                </div>
+            `;
+
+        } else {
+
+            markdownDisplay.innerHTML = `
+                <div class="vscode8-markdown-preview">
+                    <h1>Coastal Temperature Analysis</h1>
+
+                    <p>
+                        <strong>Aim:</strong> Explore sea-surface
+                        temperature data.
+                    </p>
+
+                    <h2>What did I find?</h2>
+
+                    <ul>
+                        <li>The temperature changed across the region.</li>
+                        <li>The map helps us see the pattern.</li>
+                    </ul>
+
+                    <h2>Figure</h2>
+
+                    <div class="vscode8-demo-image">
+                        <i class="fas fa-image"></i>
+                        images/temperature-map.png
+
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+
+    markdownTabs.forEach(function (tab) {
+
+        tab.addEventListener("click", function () {
+            showMarkdownView(
+                tab.dataset.vscode8MarkdownView
+            );
+        });
+
+    });
+
+
+    showMarkdownView("source");
+
+})();
+document.addEventListener("DOMContentLoaded", function () {
+
+    const textInput = document.getElementById("string13Input");
+    const output = document.getElementById("string13Output");
+    const findInput = document.getElementById("string13Find");
+    const replaceInput = document.getElementById("string13Replace");
+    const actionButtons = document.querySelectorAll(".string13-action");
+
+    if (!textInput || !output) return;
+
+    function processText(action) {
+        const text = textInput.value;
+        let result = "";
+
+        if (action === "upper") {
+            result = text.toUpperCase();
+        }
+
+        if (action === "lower") {
+            result = text.toLowerCase();
+        }
+
+        if (action === "strip") {
+            result = text.trim();
+        }
+
+        if (action === "words") {
+            const cleanText = text.trim();
+            const words = cleanText ? cleanText.split(/\s+/) : [];
+            result = `This sentence has ${words.length} word(s).`;
+        }
+
+        if (action === "count") {
+            result = `This text has ${text.length} character(s), including spaces.`;
+        }
+
+        if (action === "replace") {
+            const findText = findInput.value;
+
+            if (!findText) {
+                result = "Please enter text in the “Find this text” box first.";
+            } else {
+                result = text.replaceAll(findText, replaceInput.value);
+            }
+        }
+
+        output.textContent = result;
+    }
+
+    actionButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            actionButtons.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+            button.classList.add("active");
+            processText(button.dataset.string13Action);
+        });
+    });
+
+    processText("upper");
+
+});
+document.addEventListener("DOMContentLoaded", function () {
+
+    const comparisonCards = document.querySelectorAll(
+        ".boolean14-operator-card"
+    );
+
+    comparisonCards.forEach(function (card) {
+        card.addEventListener("click", function () {
+
+            comparisonCards.forEach(function (item) {
+                item.classList.remove("selected");
+            });
+
+            card.classList.add("selected");
+        });
+    });
+
+});
+document.addEventListener("DOMContentLoaded", function () {
+
+    const nameInput = document.getElementById("input15Name");
+    const ageInput = document.getElementById("input15Age");
+    const topicInput = document.getElementById("input15Topic");
+    const createButton = document.getElementById("input15CreateButton");
+    const result = document.getElementById("input15Result");
+    const codeResult = document.getElementById("input15Code");
+
+    if (!createButton) return;
+
+    createButton.addEventListener("click", function () {
+
+        const name = nameInput.value.trim() || "Python learner";
+        const age = ageInput.value.trim() || "an unknown number of";
+        const topic = topicInput.value.trim() || "Python";
+
+        result.textContent =
+            `Hello ${name}! You are ${age} years old and you are learning ${topic}.`;
+
+        codeResult.textContent =
+            `print(f"Hello ${name}! You are ${age} years old and you are learning ${topic}.")`;
+    });
+
+});
 </script>
 </body>
 </html>
