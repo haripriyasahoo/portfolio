@@ -16711,8 +16711,8 @@ footer { max-width: 1420px; margin: 0 auto; padding: 0 4% 2rem; color: #718090; 
         <h1>Python,<br>one lesson at a time.</h1>
         <p>A carefully ordered course that begins with what programming means, explains language types and development tools, and gradually reaches practical scientific computing, data analysis, and machine learning.</p>
         <div class="hero-stats">
-            <span class="hero-stat"><strong>60</strong> lessons</span>
-            <span class="hero-stat"><strong>6</strong> stages</span>
+            <span class="hero-stat"><strong>45</strong> lessons</span>
+            <span class="hero-stat"><strong>5</strong> stages</span>
             <span class="hero-stat"><strong>1</strong> new lesson each day</span>
         </div>
     </div>
@@ -16724,9 +16724,10 @@ footer { max-width: 1420px; margin: 0 auto; padding: 0 4% 2rem; color: #718090; 
         <article class="roadmap-stage"><span class="stage-number">I</span><h4>Programming and Setup</h4><p>Understand programming, language types, Python, installation, interpreters, terminals, IDEs, and source files.</p></article>
         <article class="roadmap-stage"><span class="stage-number">II</span><h4>Core Python</h4><p>Use variables, numbers, strings, Boolean logic, input, output, and Python's essential collections.</p></article>
         <article class="roadmap-stage"><span class="stage-number">III</span><h4>Logic and Functions</h4><p>Make decisions, repeat tasks, design reusable functions, understand scope, and build small programs.</p></article>
-        <article class="roadmap-stage"><span class="stage-number">IV</span><h4>Practical and Reliable Python</h4><p>Work with packages, environments, files, exceptions, debugging, tests, clean code, and Git.</p></article>
-        <article class="roadmap-stage"><span class="stage-number">V</span><h4>Intermediate Python and OOP</h4><p>Learn classes, inheritance, dataclasses, comprehensions, generators, decorators, and context managers.</p></article>
-        <article class="roadmap-stage"><span class="stage-number">VI</span><h4>Scientific Python and Data</h4><p>Use NumPy, Pandas, Matplotlib, SciPy, scientific file formats, automation, and machine learning.</p></article>
+        <article class="roadmap-stage"><span class="stage-number">IV</span><h4>Scientific Python and Data</h4><p>Use NumPy, Pandas, Matplotlib, SciPy, scientific file formats, automation, and machine learning.</p></article>
+        <article class="roadmap-stage"><span class="stage-number">V</span><h4>Python for researcher</h4><p> To know more about scientific graphs and publishable figures</p></article>
+        
+        
     </div>
 
     <section class="course-progress-panel" aria-labelledby="course-progress-title">
@@ -16742,7 +16743,7 @@ footer { max-width: 1420px; margin: 0 auto; padding: 0 4% 2rem; color: #718090; 
             <div class="course-progress-bar" aria-hidden="true">
                 <div id="courseProgressFill" class="course-progress-fill"></div>
             </div>
-            <div id="courseProgressCount" class="course-progress-count">0 of 60 completed</div>
+            <div id="courseProgressCount" class="course-progress-count">0 of 45 completed</div>
         </div>
 
         <div class="course-progress-actions">
@@ -32913,23 +32914,36 @@ navLinks.forEach(link => link.addEventListener('click', event => {
 }));
 
 /* Coursework progress tracker: uses the existing sidebar lesson titles. */
-const courseProgressKey = 'python-learning-hub-progress-v1';
-const courseStageNames = [
-    'I · Programming and Setup',
-    'II · Core Python',
-    'III · Logic and Functions',
-    'IV · Practical and Reliable Python',
-    'V · Intermediate Python and OOP',
-    'VI · Scientific Python and Data'
+/* Coursework progress tracker */
+
+const courseProgressKey = "python-learning-hub-progress-v1";
+
+const courseStages = [
+    { name: "I · Programming and Setup", lessons: 10 },
+    { name: "II · Core Python", lessons: 10 },
+    { name: "III · Logic and Functions", lessons: 10 },
+    { name: "IV · Scientific Python and Data", lessons: 7 },
+    { name: "V · Python for researcher", lessons: 8 }
 ];
-const courseLessonLinks = navLinks.filter(link => /^sec\d+$/.test(link.dataset.target));
+
+const courseLessonLinks = navLinks.filter(link =>
+    /^sec\d+$/.test(link.dataset.target)
+);
+
+const courseTotalLessons = courseLessonLinks.length;
+
 let courseCompleted = new Set(loadCourseProgress());
 
 function loadCourseProgress() {
     try {
-        const saved = JSON.parse(localStorage.getItem(courseProgressKey) || '[]');
+        const saved = JSON.parse(localStorage.getItem(courseProgressKey) || "[]");
+
         return Array.isArray(saved)
-            ? saved.filter(day => Number.isInteger(day) && day >= 1 && day <= 60)
+            ? saved.filter(day =>
+                Number.isInteger(day) &&
+                day >= 1 &&
+                day <= courseTotalLessons
+            )
             : [];
     } catch (error) {
         return [];
@@ -32944,100 +32958,174 @@ function saveCourseProgress() {
 }
 
 function buildCourseProgress() {
-    const grid = document.getElementById('courseProgressGrid');
+    const grid = document.getElementById("courseProgressGrid");
+
     if (!grid) return;
 
-    courseStageNames.forEach((stageName, stageIndex) => {
-        const start = stageIndex * 10;
-        const stageLinks = courseLessonLinks.slice(start, start + 10);
-        const stage = document.createElement('article');
-        stage.className = 'course-stage-checklist';
+    grid.innerHTML = "";
+
+    let lessonCursor = 0;
+
+    courseStages.forEach((stageInfo, stageIndex) => {
+        const stageLinks = courseLessonLinks.slice(
+            lessonCursor,
+            lessonCursor + stageInfo.lessons
+        );
+
+        const stageStartDay = lessonCursor + 1;
+
+        const stage = document.createElement("article");
+        stage.className = "course-stage-checklist";
         stage.dataset.stage = String(stageIndex + 1);
+        stage.dataset.startDay = String(stageStartDay);
+        stage.dataset.lessonCount = String(stageLinks.length);
 
         const lessons = stageLinks.map((link, localIndex) => {
-            const day = start + localIndex + 1;
-            const title = link.querySelector('span:last-child').textContent.trim();
+            const day = lessonCursor + localIndex + 1;
+            const title = link.querySelector("span:last-child").textContent.trim();
+            const targetId = link.dataset.target;
+
             return `
                 <li class="course-stage-item" data-progress-day="${day}">
-                    <input id="course-check-${day}" type="checkbox" data-progress-check="${day}"
-                        aria-label="Mark Lesson ${day} complete">
-                    <span class="course-lesson-number">${String(day).padStart(2, '0')}</span>
-                    <button class="course-lesson-open" type="button" data-open-lesson="sec${day}">${title}</button>
-                </li>`;
-        }).join('');
+                    <input
+                        id="course-check-${day}"
+                        type="checkbox"
+                        data-progress-check="${day}"
+                        aria-label="Mark Lesson ${day} complete"
+                    >
+
+                    <span class="course-lesson-number">
+                        ${String(day).padStart(2, "0")}
+                    </span>
+
+                    <button
+                        class="course-lesson-open"
+                        type="button"
+                        data-open-lesson="${targetId}"
+                    >
+                        ${title}
+                    </button>
+                </li>
+            `;
+        }).join("");
 
         stage.innerHTML = `
             <div class="course-stage-title">
-                <span>${stageName}</span>
-                <span class="course-stage-count" data-course-stage-count>0/10</span>
+                <span>${stageInfo.name}</span>
+                <span class="course-stage-count" data-course-stage-count>
+                    0/${stageLinks.length}
+                </span>
             </div>
-            <ul class="course-stage-list">${lessons}</ul>`;
+
+            <ul class="course-stage-list">
+                ${lessons}
+            </ul>
+        `;
 
         grid.appendChild(stage);
+        lessonCursor += stageLinks.length;
     });
 
-    grid.addEventListener('change', event => {
-        const checkbox = event.target.closest('[data-progress-check]');
+    grid.addEventListener("change", event => {
+        const checkbox = event.target.closest("[data-progress-check]");
+
         if (!checkbox) return;
+
         const day = Number(checkbox.dataset.progressCheck);
-        checkbox.checked ? courseCompleted.add(day) : courseCompleted.delete(day);
+
+        if (checkbox.checked) {
+            courseCompleted.add(day);
+        } else {
+            courseCompleted.delete(day);
+        }
+
         saveCourseProgress();
         updateCourseProgress();
     });
 
-    grid.addEventListener('click', event => {
-        const button = event.target.closest('[data-open-lesson]');
-        if (button) showContent(button.dataset.openLesson);
+    grid.addEventListener("click", event => {
+        const button = event.target.closest("[data-open-lesson]");
+
+        if (button) {
+            showContent(button.dataset.openLesson);
+        }
     });
 }
 
 function nextIncompleteLesson() {
-    for (let day = 1; day <= 60; day++) {
+    for (let day = 1; day <= courseTotalLessons; day++) {
         if (!courseCompleted.has(day)) return day;
     }
+
     return 1;
+}
+
+function openProgressLesson(day) {
+    const link = courseLessonLinks[day - 1];
+
+    if (link) {
+        showContent(link.dataset.target);
+    }
 }
 
 function updateCourseProgress() {
     const completed = courseCompleted.size;
-    const percentage = Math.round((completed / 60) * 100);
+    const percentage = Math.round((completed / courseTotalLessons) * 100);
 
-    document.getElementById('courseProgressPercent').textContent = `${percentage}%`;
-    document.getElementById('courseProgressFill').style.width = `${percentage}%`;
-    document.getElementById('courseProgressCount').textContent = `${completed} of 60 completed`;
+    document.getElementById("courseProgressPercent").textContent = `${percentage}%`;
+    document.getElementById("courseProgressFill").style.width = `${percentage}%`;
 
-    document.querySelectorAll('[data-progress-day]').forEach(item => {
+    document.getElementById("courseProgressCount").textContent =
+        `${completed} of ${courseTotalLessons} completed`;
+
+    document.querySelectorAll("[data-progress-day]").forEach(item => {
         const day = Number(item.dataset.progressDay);
         const done = courseCompleted.has(day);
-        item.classList.toggle('is-complete', done);
-        item.querySelector('[data-progress-check]').checked = done;
+
+        item.classList.toggle("is-complete", done);
+        item.querySelector("[data-progress-check]").checked = done;
     });
 
     courseLessonLinks.forEach((link, index) => {
-        link.classList.toggle('lesson-complete', courseCompleted.has(index + 1));
+        link.classList.toggle(
+            "lesson-complete",
+            courseCompleted.has(index + 1)
+        );
     });
 
-    document.querySelectorAll('.course-stage-checklist').forEach((stage, index) => {
-        const start = index * 10 + 1;
+    document.querySelectorAll(".course-stage-checklist").forEach(stage => {
+        const startDay = Number(stage.dataset.startDay);
+        const lessonCount = Number(stage.dataset.lessonCount);
+
         let stageCompleted = 0;
-        for (let day = start; day < start + 10; day++) {
-            if (courseCompleted.has(day)) stageCompleted++;
+
+        for (let day = startDay; day < startDay + lessonCount; day++) {
+            if (courseCompleted.has(day)) {
+                stageCompleted++;
+            }
         }
-        stage.querySelector('[data-course-stage-count]').textContent = `${stageCompleted}/10`;
+
+        stage.querySelector("[data-course-stage-count]").textContent =
+            `${stageCompleted}/${lessonCount}`;
     });
 
     const next = nextIncompleteLesson();
-    document.getElementById('courseContinueButton').textContent = completed === 60
-        ? 'Review Lesson 1'
-        : `Continue with Lesson ${next}`;
+
+    document.getElementById("courseContinueButton").textContent =
+        completed === courseTotalLessons
+            ? "Review Lesson 1"
+            : `Continue with Lesson ${next}`;
 }
 
-document.getElementById('courseContinueButton').addEventListener('click', () => {
-    showContent(`sec${nextIncompleteLesson()}`);
+document.getElementById("courseContinueButton").addEventListener("click", () => {
+    openProgressLesson(nextIncompleteLesson());
 });
 
-document.getElementById('courseResetButton').addEventListener('click', () => {
-    if (!confirm('Clear all 60 coursework completion marks?')) return;
+document.getElementById("courseResetButton").addEventListener("click", () => {
+    if (!confirm(`Clear all ${courseTotalLessons} coursework completion marks?`)) {
+        return;
+    }
+
     courseCompleted.clear();
     saveCourseProgress();
     updateCourseProgress();
