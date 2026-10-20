@@ -68,14 +68,23 @@ header {
 .header-note { color: #ccdae8; font-size: 0.9rem; }
 .menu-toggle {
     display: none;
-    width: 44px;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
     height: 44px;
+    padding: 0 0.9rem;
     color: white;
-    background: transparent;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    background: rgba(255,255,255,0.08);
     border: 1px solid rgba(255,255,255,0.28);
     border-radius: 10px;
-    font-size: 1.35rem;
 }
+.menu-toggle i { font-size: 1.15rem; }
+.menu-toggle:hover,
+.menu-toggle:focus-visible { background: rgba(255,255,255,0.18); }
+.sidebar-close { display: none; }
 .tutorial-container {
     width: min(1420px, 100%);
     margin: 2rem auto;
@@ -1408,7 +1417,7 @@ footer { max-width: 1420px; margin: 0 auto; padding: 0 4% 2rem; color: #718090; 
 
 @media (max-width: 900px) {
     .header-note { display: none; }
-    .menu-toggle { display: block; }
+    .menu-toggle { display: inline-flex; }
     .tutorial-container { display: block; margin-top: 1.2rem; }
     .sidebar {
         position: fixed;
@@ -1417,12 +1426,33 @@ footer { max-width: 1420px; margin: 0 auto; padding: 0 4% 2rem; color: #718090; 
         left: 0;
         width: min(86vw, 350px);
         height: 100vh;
+        height: 100dvh;
         max-height: none;
+        padding-top: 12px;
         border-radius: 0 20px 20px 0;
         transform: translateX(-105%);
-        transition: transform 0.25s ease;
+        visibility: hidden;
+        transition: transform 0.25s ease, visibility 0.25s;
+        overscroll-behavior: contain;
     }
-    .sidebar.open { transform: translateX(0); }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .sidebar-close {
+        position: sticky;           /* stays visible while the list scrolls */
+        top: 0;
+        z-index: 2;
+        margin: 0 0 8px auto;
+        display: grid;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        color: var(--nav);
+        font-size: 1.2rem;
+        background: var(--soft-blue);
+        border: none;
+        border-radius: 10px;
+    }
+    .sidebar a { padding: 10px 10px; }
+    body.menu-open { overflow: hidden; }
     .sidebar-overlay { position: fixed; z-index: 30; inset: 0; background: rgba(7,20,36,0.46); }
     .sidebar-overlay.open { display: block; }
     .tutorial-card { min-height: 500px; }
@@ -12040,14 +12070,6 @@ footer { max-width: 1420px; margin: 0 auto; padding: 0 4% 2rem; color: #718090; 
         color: #4a5568;
         line-height: 1.6;
     }
-    /* Hamburger Styles */
-    .menu-toggle {
-        display: none; /* Hidden on desktop */
-        font-size: 1.5rem;
-        cursor: pointer;
-        color: white;
-        z-index: 1001;
-    }
     /* =====================================================
    SECTION 10: ERRORS ARE PART OF PROGRAMMING
 ===================================================== */
@@ -17524,13 +17546,18 @@ footer { max-width: 1420px; margin: 0 auto; padding: 0 4% 2rem; color: #718090; 
         <span>Python_Learning_Hub</span>
     </div>
     <div class="header-note">40 lessons ·Programming fundamentals to scientific Python</div>
-    <button class="menu-toggle" type="button" aria-label="Open course contents" aria-expanded="false" onclick="toggleMenu()">☰</button>
+    <button class="menu-toggle" type="button" aria-label="Open course contents" aria-expanded="false" aria-controls="course-sidebar" onclick="toggleMenu()">
+        <i class="fas fa-bars" aria-hidden="true"></i><span class="menu-toggle-label">Lessons</span>
+    </button>
 </header>
 
 <div class="sidebar-overlay" onclick="closeMenu()"></div>
 
 <div class="tutorial-container">
-<nav class="sidebar" aria-label="Course contents">
+<nav class="sidebar" id="course-sidebar" aria-label="Course contents">
+    <button class="sidebar-close" type="button" aria-label="Close course contents" onclick="closeMenu()">
+        <i class="fas fa-xmark" aria-hidden="true"></i>
+    </button>
     <h4>Course Contents</h4>
     <ul id="tutorial-nav">
         <li><a class="roadmap-link" href="#welcome" data-target="welcome"><span class="number">★</span><span>Welcome to the<br>Python Launchpad.</span></a></li>
@@ -50969,6 +50996,7 @@ const cards = Array.from(document.querySelectorAll('.tutorial-card'));
 const navLinks = Array.from(document.querySelectorAll('#tutorial-nav a[data-target]'));
 
 function showContent(id, updateHash = true) {
+    closeMenu();    // first, so the menu closes even if something below fails
     const target = document.getElementById(id) || document.getElementById('prologue');
     cards.forEach(card => card.classList.toggle('is-visible', card === target));
     navLinks.forEach(link => {
@@ -50977,9 +51005,11 @@ function showContent(id, updateHash = true) {
         if (active) link.setAttribute('aria-current', 'page');
         else link.removeAttribute('aria-current');
     });
-    if (updateHash) history.replaceState(null, '', '#' + target.id);
+    if (updateHash) {
+        try { history.replaceState(null, '', '#' + target.id); }
+        catch (error) { /* some browsers block this for local files: the page still works */ }
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    closeMenu();
 }
 
 function toggleMenu() {
@@ -50989,13 +51019,24 @@ function toggleMenu() {
     const open = !sidebar.classList.contains('open');
     sidebar.classList.toggle('open', open);
     overlay.classList.toggle('open', open);
+    document.body.classList.toggle('menu-open', open);
     button.setAttribute('aria-expanded', String(open));
+    if (open) {
+        // Show the lesson you are on, and move keyboard focus into the menu
+        const current = sidebar.querySelector('a.active');
+        if (current) current.scrollIntoView({ block: 'center' });
+        sidebar.querySelector('.sidebar-close').focus({ preventScroll: true });
+    }
 }
 
 function closeMenu() {
-    document.querySelector('.sidebar').classList.remove('open');
+    const sidebar = document.querySelector('.sidebar');
+    const wasOpen = sidebar.classList.contains('open');
+    sidebar.classList.remove('open');
     document.querySelector('.sidebar-overlay').classList.remove('open');
+    document.body.classList.remove('menu-open');
     document.querySelector('.menu-toggle').setAttribute('aria-expanded', 'false');
+    if (wasOpen) document.querySelector('.menu-toggle').focus({ preventScroll: true });
 }
 
 navLinks.forEach(link => link.addEventListener('click', event => {
