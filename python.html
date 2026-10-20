@@ -17148,6 +17148,150 @@ footer { max-width: 1420px; margin: 0 auto; padding: 0 4% 2rem; color: #718090; 
     text-align: left;
 }
 
+/* LESSON 33: DESKTOP ORGANIZER PROJECT */
+
+.desk33-task {
+    padding: 1rem 1.2rem;
+    background: #f6f9fc;
+    border: 1px solid #d9e3ee;
+    border-left: 5px solid #3776ab;
+    border-radius: 12px;
+}
+
+.desk33-task p,
+.desk33-task li {
+    text-align: left;
+}
+
+.desk33-task ol {
+    margin: 0.5rem 0 0;
+    padding-left: 1.3rem;
+}
+
+.desk33-task li {
+    margin: 0.35rem 0;
+}
+
+.desk33-before-after {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.25fr);
+    gap: 0.8rem;
+    align-items: center;
+    margin: 1.2rem 0;
+}
+
+.desk33-box {
+    position: relative;
+    padding: 2.2rem 0.8rem 0.8rem;
+    background: linear-gradient(160deg, #1f5f99, #2a7bb8);
+    border-radius: 14px;
+    box-shadow: inset 0 0 0 4px #112d3a;
+}
+
+.desk33-label {
+    position: absolute;
+    top: 0.55rem;
+    left: 0.8rem;
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.desk33-files {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    align-items: flex-start;
+}
+
+.desk33-file {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.5rem;
+    color: #1d2a3a;
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.75rem;
+    background: #ffffff;
+    border-radius: 6px;
+}
+
+.desk33-file i {
+    color: #3776ab;
+}
+
+.desk33-folder {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    width: 100%;
+    padding: 0.4rem;
+    background: #fff4d6;
+    border-radius: 8px;
+}
+
+.desk33-folder strong {
+    width: 100%;
+    color: #8a5a00;
+    font-size: 0.8rem;
+}
+
+.desk33-folder strong i {
+    color: #f0b429;
+}
+
+.desk33-dup {
+    background: #ffe7e3;
+}
+
+.desk33-dup strong {
+    color: #9a2e22;
+}
+
+.desk33-arrow {
+    color: #3776ab;
+    font-size: 1.6rem;
+}
+
+@media (max-width: 760px) {
+    .desk33-before-after {
+        grid-template-columns: 1fr;
+    }
+
+    .desk33-arrow {
+        justify-self: center;
+        transform: rotate(90deg);
+    }
+}
+
+/* SECTION 32: PLT OR AX */
+
+.ax32-sub {
+    margin: 1.6rem 0 0.7rem;
+    padding-top: 1rem;
+    color: #1d2a3a;
+    border-top: 1px dashed #d9e3ee;
+}
+
+.ax32-terms h4 code {
+    color: #c0392b;
+    font-size: 1.05rem;
+}
+
+.ax32-terms article:first-child h4 code {
+    color: #1f5f99;
+}
+
+.ax32-compare pre {
+    margin: 0.6rem 0;
+    font-size: 0.85rem;
+}
+
+.ax32-compare p {
+    margin: 0;
+    text-align: left;
+}
+
 /* SECTION 40: CLEAN VS BLURRY FIGURE COMPARISON */
 
 .compare40 {
@@ -17596,7 +17740,6 @@ footer { max-width: 1420px; margin: 0 auto; padding: 0 4% 2rem; color: #718090; 
         <li><a href="#sec24" data-target="sec24"><span class="number">24</span><span>while Loops and Repetition</span></a></li>
         <li><a href="#sec25" data-target="sec25"><span class="number">25</span><span>range, break, continue, and Loop Patterns</span></a></li>
         <li><a href="#sec26" data-target="sec26"><span class="number">26</span><span>Functions and Reusable Code</span></a></li>
-        <li><a href="#sec27" data-target="sec27"><span class="number">27</span><span>Mini Project: A Menu-Driven Python Program</span></a></li>
 
         <!-- <li class="sidebar-group">IV · Practical and Reliable Python</li> -->
         <!-- <li><a href="#sec31" data-target="sec31"><span class="number">31</span><span>Modules, Packages, and Imports</span></a></li>
@@ -17623,14 +17766,15 @@ footer { max-width: 1420px; margin: 0 auto; padding: 0 4% 2rem; color: #718090; 
         <li><a href="#sec50" data-target="sec50"><span class="number">50</span><span>Intermediate Capstone: A Structured Application</span></a></li> -->
 
         <li class="sidebar-group">IV · Scientific Python and Data</li>
-        <li><a href="#sec28" data-target="sec28"><span class="number">28</span><span>NumPy Arrays and Fast Computation</span></a></li>
+        <li><a href="#sec28" data-target="sec28"><span class="number">27</span><span>NumPy Arrays and Fast Computation</span></a></li>
         <!-- <li><a href="#sec52" data-target="sec52"><span class="number">52</span><span>NumPy Indexing, Broadcasting, and Vectorization</span></a></li> -->
-        <li><a href="#sec29" data-target="sec29"><span class="number">29</span><span>Pandas Series and DataFrames</span></a></li>
+        <li><a href="#sec29" data-target="sec29"><span class="number">28</span><span>Pandas Series and DataFrames</span></a></li>
         <!-- <li><a href="#sec54" data-target="sec54"><span class="number">54</span><span>Cleaning and Analysing Data with Pandas</span></a></li> -->
-        <li><a href="#sec30" data-target="sec30"><span class="number">30</span><span>SciPy and Scientific Computing</span></a></li>
-        <li><a href="#sec31" data-target="sec31"><span class="number">31</span><span>HDF5, NetCDF, and Large Scientific Data</span></a></li>
-        <li><a href="#sec32" data-target="sec32"><span class="number">32</span><span>Matplotlib and Seaborn Visualization</span></a></li>
-        <li><a href="#sec33" data-target="sec33"><span class="number">33</span><span>Automation, APIs, and Useful Scripts</span></a></li>
+        <li><a href="#sec30" data-target="sec30"><span class="number">29</span><span>SciPy and Scientific Computing</span></a></li>
+        <li><a href="#sec31" data-target="sec31"><span class="number">30</span><span>HDF5, NetCDF, and Large Scientific Data</span></a></li>
+        <li><a href="#sec32" data-target="sec32"><span class="number">31</span><span>Matplotlib and Seaborn Visualization</span></a></li>
+        <li><a href="#sec33" data-target="sec33"><span class="number">32</span><span>Automation, APIs, and Useful Scripts</span></a></li>
+        <li><a href="#sec27" data-target="sec27"><span class="number">33</span><span>Mini Project: Desktop Organizer</span></a></li>
         <!-- <li><a href="#sec59" data-target="sec59"><span class="number">59</span><span>Introduction to Machine Learning</span></a></li> -->
 
         <li class="sidebar-group">V · Python for researcher</li>
@@ -37654,8 +37798,8 @@ print(doubled)    # [2, 4, 6, 8]</code></pre></template>
             Lesson 25
         </button>
 
-        <button class="nav-button nav-button-right" type="button" onclick="showContent('sec26')">
-            Lesson 26
+        <button class="nav-button nav-button-right" type="button" onclick="showContent('sec28')">
+            Lesson 27
             <i class="fas fa-arrow-right"></i>
         </button>
     </div>
@@ -37663,587 +37807,786 @@ print(doubled)    # [2, 4, 6, 8]</code></pre></template>
 </section>
 <section id="sec27" class="tutorial-card">
 
-    <h2>27. Mini Project: A Menu-Driven Python Program</h2>
+    <h2>33. Mini Project: Desktop Organizer</h2>
 
     <div class="status-row">
-        <span class="level">Stage III · Logic and Functions</span>
+        <span class="level">Stage IV · Scientific Python and Data</span>
         <span class="status">Planned</span>
     </div>
 
     <div class="py-intro">
-        <div class="py-icon">
-            <i class="fas fa-list-check"></i>
-        </div>
-
+        <div class="py-icon"><i class="fas fa-broom"></i></div>
         <div>
-            <h3>Make your program wait for a choice</h3>
+            <h3>Let Python tidy up your desktop</h3>
             <p>
-                A menu-driven program shows choices to the user, accepts their
-                input, and performs the matching action. It combines
-                <code>while</code> loops, <code>if</code> statements,
-                functions, input, and output.
+                Downloads, screenshots, papers, videos, and three copies of the same thesis draft:
+                most desktops fill up fast. In this project you write a real, useful program that sorts
+                the files into folders and finds exact duplicates. You will use what you learned about
+                files, dictionaries, loops, and functions.
             </p>
         </div>
     </div>
 
     <div class="py-panel">
-        <h3><i class="fas fa-lightbulb"></i> The project idea</h3>
+        <h3><i class="fas fa-clipboard-question"></i> The project</h3>
 
-        <p>
-            We will create a small <strong>Student Score Helper</strong>. The user
-            can choose to calculate a total, find an average, check whether a
-            student passed, or exit the program.
-        </p>
+        <div class="desk33-task">
+            <p>
+                <strong>Write a program <code>desktop_organizer.py</code> that tidies a desktop folder.</strong>
+                It must:
+            </p>
+            <ol>
+                <li>Look at every <strong>file</strong> that lies directly on the desktop (not inside folders).</li>
+                <li>Move <strong>images</strong> into a folder <code>Images</code>, <strong>videos</strong> into <code>Videos</code>,
+                    and <strong>documents</strong> (PDF, Word, text …) into <code>Documents</code>. Create a folder if it does not exist.</li>
+                <li>Leave every other file (for example <code>setup.exe</code>) where it is.</li>
+                <li>Find files with <strong>exactly the same content</strong>, even if their names differ. Keep the
+                    <strong>oldest</strong> one, and move the other copies into a folder <code>Duplicates</code>,
+                    so you can check them before deleting anything.</li>
+                <li><strong>Never overwrite</strong> a file. If <code>Images/graph.png</code> already exists, use
+                    <code>graph (1).png</code>.</li>
+                <li>Be <strong>safe</strong>: with <code>DRY_RUN = True</code> the program only <em>prints</em> what it
+                    would do. Only with <code>DRY_RUN = False</code> does it really move files.</li>
+            </ol>
+        </div>
+
+        <div class="desk33-before-after">
+            <div class="desk33-box">
+                <span class="desk33-label"><i class="fas fa-desktop"></i> Before</span>
+                <div class="desk33-files"><span class="desk33-file"><i class="fas fa-file-image"></i>holiday.JPG</span><span class="desk33-file"><i class="fas fa-file-pdf"></i>paper.pdf</span><span class="desk33-file"><i class="fas fa-file-video"></i>lecture.mp4</span><span class="desk33-file"><i class="fas fa-file-word"></i>thesis_draft.docx</span><span class="desk33-file"><i class="fas fa-file-image"></i>holiday copy.jpg</span><span class="desk33-file"><i class="fas fa-file-lines"></i>notes.txt</span><span class="desk33-file"><i class="fas fa-file-word"></i>thesis_draft (1).docx</span><span class="desk33-file"><i class="fas fa-file-image"></i>graph.png</span><span class="desk33-file"><i class="fas fa-gear"></i>setup.exe</span></div>
+            </div>
+            <i class="fas fa-arrow-right desk33-arrow" aria-hidden="true"></i>
+            <div class="desk33-box desk33-after">
+                <span class="desk33-label"><i class="fas fa-desktop"></i> After</span>
+                <div class="desk33-files">
+                    <div class="desk33-folder"><strong><i class="fas fa-folder"></i> Images</strong><span class="desk33-file"><i class="fas fa-file-image"></i>holiday.JPG</span><span class="desk33-file"><i class="fas fa-file-image"></i>graph.png</span></div>
+                    <div class="desk33-folder"><strong><i class="fas fa-folder"></i> Videos</strong><span class="desk33-file"><i class="fas fa-file-video"></i>lecture.mp4</span></div>
+                    <div class="desk33-folder"><strong><i class="fas fa-folder"></i> Documents</strong><span class="desk33-file"><i class="fas fa-file-pdf"></i>paper.pdf</span><span class="desk33-file"><i class="fas fa-file-word"></i>thesis_draft.docx</span><span class="desk33-file"><i class="fas fa-file-lines"></i>notes.txt</span></div>
+                    <div class="desk33-folder desk33-dup"><strong><i class="fas fa-folder"></i> Duplicates</strong><span class="desk33-file"><i class="fas fa-file-image"></i>holiday copy.jpg</span><span class="desk33-file"><i class="fas fa-file-word"></i>thesis_draft (1).docx</span></div>
+                    <span class="desk33-file"><i class="fas fa-gear"></i>setup.exe</span>
+                </div>
+            </div>
+        </div>
 
         <div class="py-code-result">
-            <span>Program menu</span>
-            <pre><code>1. Calculate total marks
-2. Calculate average marks
-3. Check pass or fail
-4. Exit</code></pre>
+            <span>Expected output of a preview run (DRY_RUN = True)</span>
+            <pre><code>Desktop: C:\Users\you\Desktop
+PREVIEW: nothing will be moved.
+
+Duplicates:
+  (keep holiday.JPG)
+  holiday copy.jpg  -&gt;  Duplicates/holiday copy.jpg
+  (keep thesis_draft.docx)
+  thesis_draft (1).docx  -&gt;  Duplicates/thesis_draft (1).docx
+
+Sorting by type:
+  graph.png  -&gt;  Images/graph (1).png
+  holiday.JPG  -&gt;  Images/holiday.JPG
+  lecture.mp4  -&gt;  Videos/lecture.mp4
+  notes.txt  -&gt;  Documents/notes.txt
+  paper.pdf  -&gt;  Documents/paper.pdf
+  thesis_draft.docx  -&gt;  Documents/thesis_draft.docx
+
+Done: 2 duplicate(s), 6 file(s) sorted.
+This was a preview. Set DRY_RUN = False to really move the files.</code></pre>
+        </div>
+
+        <div class="py-warning">
+            <i class="fas fa-triangle-exclamation"></i>
+            <p>
+                <strong>Test on a copy first.</strong> Make a folder such as <code>Test_Desktop</code>, copy a few
+                files into it (including two copies of one file), and point the program at that folder. Only use
+                your real desktop once everything works.
+            </p>
         </div>
     </div>
 
     <div class="py-panel">
-        <h3><i class="fas fa-diagram-project"></i> How does a menu program work?</h3>
+        <h3><i class="fas fa-toolbox"></i> What you will use</h3>
 
-        <div class="py-grid py-grid-4">
-            <div>
-                <span class="py-num">1</span>
-                <strong>Show the menu</strong>
-                <p>Display all available choices.</p>
-            </div>
-
-            <div>
-                <span class="py-num">2</span>
-                <strong>Ask for input</strong>
-                <p>Let the user select an option.</p>
-            </div>
-
-            <div>
-                <span class="py-num">3</span>
-                <strong>Check the choice</strong>
-                <p>Use <code>if</code>, <code>elif</code>, and <code>else</code>.</p>
-            </div>
-
-            <div>
-                <span class="py-num">4</span>
-                <strong>Repeat or exit</strong>
-                <p>Keep showing the menu until the user chooses exit.</p>
-            </div>
+        <div class="py-grid py-grid-3">
+            <article><span class="py-tag">pathlib</span><h4>Find files</h4><p><code>Path.home() / "Desktop"</code>, <code>iterdir()</code>, <code>is_file()</code>, <code>.suffix</code>, <code>.name</code></p></article>
+            <article><span class="py-tag">dictionary</span><h4>Rules and groups</h4><p>Which extension goes to which folder, and which files share a fingerprint.</p></article>
+            <article><span class="py-tag">shutil</span><h4>Move files</h4><p><code>shutil.move(file, target)</code> moves a file to a new place.</p></article>
+            <article><span class="py-tag">hashlib</span><h4>Find duplicates</h4><p>A SHA-256 fingerprint is identical only for files with identical content.</p></article>
+            <article><span class="py-tag">while loop</span><h4>Free file names</h4><p>Try <code>name (1)</code>, <code>name (2)</code> … until a name is free.</p></article>
+            <article><span class="py-tag">functions</span><h4>Small, clear steps</h4><p>One function per job, and <code>main()</code> to run them in order.</p></article>
         </div>
     </div>
 
-    <div class="py-panel">
-        <h3><i class="fas fa-code"></i> Basic menu structure</h3>
+    <div class="py-panel rule34-panel" style="--rule34-color: #d9822b;">
+        <span class="rule34-badge"><i class="fas fa-person-running"></i> Try it first</span>
+        <h3><i class="fas fa-shoe-prints"></i> Build it step by step</h3>
 
-        <pre><code>while True:
-    print("\n--- Student Score Helper ---")
-    print("1. Calculate total marks")
-    print("2. Calculate average marks")
-    print("3. Check pass or fail")
-    print("4. Exit")
+        <p>
+            Do not look at the solution yet. Build the program one step at a time, and run it after each
+            step. Each step has a small hint you can open if you are stuck.
+        </p>
 
-    choice = input("Choose an option (1-4): ")
+        <div class="rule34-list">
 
-    if choice == "1":
-        print("You selected total marks.")
+            <article class="rule34-item">
+                <span class="rule34-num">1</span>
+                <div>
+                    <h4>List the files on the desktop</h4>
+                    <p>Use <code>Path.home() / "Desktop"</code> to find the desktop, then loop over <code>iterdir()</code> and keep only files.</p>
 
-    elif choice == "2":
-        print("You selected average marks.")
+        <details class="code34 code34-mini">
+            <summary>
+                <span class="code34-icon"><i class="fas fa-lightbulb"></i></span>
+                <span class="code34-title"><strong>Hint: list the files</strong><small>Open only if you are stuck</small></span>
+                <span class="code34-btn"></span>
+            </summary>
+            <div class="code34-body">
+                <div class="code34-bar"><span><i class="fab fa-python"></i> hint.py</span><button type="button" class="code34-copy"><i class="fas fa-copy"></i> Copy</button></div>
+                <pre><code>from pathlib import Path
 
-    elif choice == "3":
-        print("You selected pass or fail.")
+desktop = Path.home() / "Desktop"
 
-    elif choice == "4":
-        print("Goodbye!")
-        break
+for item in desktop.iterdir():      # everything on the desktop
+    if item.is_file():              # skip folders
+        print(item.name)</code></pre>
+            </div>
+        </details>
+                </div>
+            </article>
 
-    else:
-        print("Invalid choice. Please try again.")</code></pre>
+            <article class="rule34-item">
+                <span class="rule34-num">2</span>
+                <div>
+                    <h4>Decide the folder from the file type</h4>
+                    <p>The extension (<code>.suffix</code>) tells you the type. Store your rules in a dictionary: folder name → list of extensions. Make the extension lowercase, so <code>.JPG</code> counts as <code>.jpg</code>.</p>
+
+        <details class="code34 code34-mini">
+            <summary>
+                <span class="code34-icon"><i class="fas fa-lightbulb"></i></span>
+                <span class="code34-title"><strong>Hint: extension to folder</strong><small>Open only if you are stuck</small></span>
+                <span class="code34-btn"></span>
+            </summary>
+            <div class="code34-body">
+                <div class="code34-bar"><span><i class="fab fa-python"></i> hint.py</span><button type="button" class="code34-copy"><i class="fas fa-copy"></i> Copy</button></div>
+                <pre><code>from pathlib import Path
+
+FOLDERS = {
+    "Images": [".jpg", ".png"],
+    "Videos": [".mp4"],
+    "Documents": [".pdf", ".docx"],
+}
+
+file = Path("Holiday.JPG")
+extension = file.suffix.lower()     # ".JPG" -&gt; ".jpg"
+
+for folder, extensions in FOLDERS.items():
+    if extension in extensions:
+        print(file.name, "belongs in", folder)</code></pre>
+            </div>
+        </details>
+                </div>
+            </article>
+
+            <article class="rule34-item">
+                <span class="rule34-num">3</span>
+                <div>
+                    <h4>Move a file, but only print it first</h4>
+                    <p>Use <code>shutil.move()</code>. Wrap it in <code>if not DRY_RUN:</code> so a preview never changes anything.</p>
+
+        <details class="code34 code34-mini">
+            <summary>
+                <span class="code34-icon"><i class="fas fa-lightbulb"></i></span>
+                <span class="code34-title"><strong>Hint: a safe move</strong><small>Open only if you are stuck</small></span>
+                <span class="code34-btn"></span>
+            </summary>
+            <div class="code34-body">
+                <div class="code34-bar"><span><i class="fab fa-python"></i> hint.py</span><button type="button" class="code34-copy"><i class="fas fa-copy"></i> Copy</button></div>
+                <pre><code>import shutil
+
+DRY_RUN = True                      # first only show what would happen
+
+target = desktop / "Images" / file.name
+print(file.name, "-&gt;", target)
+
+if not DRY_RUN:
+    target.parent.mkdir(exist_ok=True)   # create Images if it is missing
+    shutil.move(file, target)</code></pre>
+            </div>
+        </details>
+                </div>
+            </article>
+
+            <article class="rule34-item">
+                <span class="rule34-num">4</span>
+                <div>
+                    <h4>Never overwrite a file</h4>
+                    <p>Before moving, check whether the target name already exists. If it does, add <code>(1)</code>, <code>(2)</code>, … until the name is free.</p>
+
+        <details class="code34 code34-mini">
+            <summary>
+                <span class="code34-icon"><i class="fas fa-lightbulb"></i></span>
+                <span class="code34-title"><strong>Hint: find a free name</strong><small>Open only if you are stuck</small></span>
+                <span class="code34-btn"></span>
+            </summary>
+            <div class="code34-body">
+                <div class="code34-bar"><span><i class="fab fa-python"></i> hint.py</span><button type="button" class="code34-copy"><i class="fas fa-copy"></i> Copy</button></div>
+                <pre><code>folder = desktop / "Images"
+name = "photo.jpg"
+
+target = folder / name
+number = 1
+while target.exists():              # taken? try photo (1).jpg, photo (2).jpg ...
+    target = folder / f"{Path(name).stem} ({number}){Path(name).suffix}"
+    number += 1
+
+print(target.name)</code></pre>
+            </div>
+        </details>
+                </div>
+            </article>
+
+            <article class="rule34-item">
+                <span class="rule34-num">5</span>
+                <div>
+                    <h4>Make a fingerprint of each file</h4>
+                    <p>Two files can have different names but the same content. Read each file in small blocks and feed them to <code>hashlib.sha256()</code>: identical files give identical fingerprints.</p>
+
+        <details class="code34 code34-mini">
+            <summary>
+                <span class="code34-icon"><i class="fas fa-lightbulb"></i></span>
+                <span class="code34-title"><strong>Hint: a file fingerprint</strong><small>Open only if you are stuck</small></span>
+                <span class="code34-btn"></span>
+            </summary>
+            <div class="code34-body">
+                <div class="code34-bar"><span><i class="fab fa-python"></i> hint.py</span><button type="button" class="code34-copy"><i class="fas fa-copy"></i> Copy</button></div>
+                <pre><code>import hashlib
+
+def fingerprint(file):
+    hasher = hashlib.sha256()
+    with open(file, "rb") as f:     # "rb" = read the raw bytes
+        while True:
+            block = f.read(1_000_000)    # 1 MB at a time, so big videos are fine
+            if not block:
+                break
+            hasher.update(block)
+    return hasher.hexdigest()       # a long code like "9f86d08..."</code></pre>
+            </div>
+        </details>
+                </div>
+            </article>
+
+            <article class="rule34-item">
+                <span class="rule34-num">6</span>
+                <div>
+                    <h4>Group files by fingerprint</h4>
+                    <p>Use a dictionary: fingerprint → list of files. Every list with more than one file is a group of duplicates. Keep the oldest, move the rest.</p>
+
+        <details class="code34 code34-mini">
+            <summary>
+                <span class="code34-icon"><i class="fas fa-lightbulb"></i></span>
+                <span class="code34-title"><strong>Hint: group duplicates</strong><small>Open only if you are stuck</small></span>
+                <span class="code34-btn"></span>
+            </summary>
+            <div class="code34-body">
+                <div class="code34-bar"><span><i class="fab fa-python"></i> hint.py</span><button type="button" class="code34-copy"><i class="fas fa-copy"></i> Copy</button></div>
+                <pre><code>groups = {}                         # fingerprint -&gt; list of files
+
+for file in files:
+    code = fingerprint(file)
+    if code not in groups:
+        groups[code] = []
+    groups[code].append(file)
+
+for same_files in groups.values():
+    if len(same_files) &gt; 1:
+        print("Same content:", [f.name for f in same_files])</code></pre>
+            </div>
+        </details>
+                </div>
+            </article>
+        </div>
 
         <div class="py-note">
             <i class="fas fa-lightbulb"></i>
             <p>
-                <code>while True:</code> keeps the menu running. The
-                <code>break</code> statement stops the loop when the user chooses
-                option <code>4</code>.
+                Finally, put the steps into functions and call them from a <code>main()</code> function. Run it with
+                <code>DRY_RUN = True</code>, read the preview carefully, and only then set it to <code>False</code>.
             </p>
         </div>
     </div>
 
     <div class="py-panel">
-        <h3><i class="fas fa-puzzle-piece"></i> Make the program cleaner with functions</h3>
+        <h3><i class="fas fa-circle-check"></i> Solution</h3>
 
         <p>
-            Instead of writing everything inside one large loop, create a function
-            for each task. This makes your code easier to read and reuse.
+            Compare it with your own program. Different code that does the same job is fine. This
+            version is kept short and simple on purpose.
         </p>
 
-        <pre><code>def calculate_total():
-    mark1 = float(input("Enter first mark: "))
-    mark2 = float(input("Enter second mark: "))
-    total = mark1 + mark2
-    print(f"Total marks: {total}")
+        <details class="code34">
+            <summary>
+                <span class="code34-icon"><i class="fas fa-code"></i></span>
+                <span class="code34-title"><strong>Show the complete solution</strong><small>About 100 lines, with comments</small></span>
+                <span class="code34-btn"></span>
+            </summary>
+            <div class="code34-body">
+                <div class="code34-bar"><span><i class="fab fa-python"></i> desktop_organizer.py</span><button type="button" class="code34-copy"><i class="fas fa-copy"></i> Copy</button></div>
+                <pre><code>"""
+Desktop organizer
+
+Sorts the files on your desktop into folders by type
+(Images, Videos, Documents) and moves exact duplicate files
+into a "Duplicates" folder, so you can check them before deleting.
+
+Safe by default: while DRY_RUN = True, the program only PRINTS
+what it would do. Check the list, then set DRY_RUN = False.
+"""
+
+import hashlib
+import shutil
+from pathlib import Path
+
+# ---------------- Settings: change these ----------------
+DESKTOP = Path.home() / "Desktop"     # the folder to organise
+DRY_RUN = True                        # True = only show, False = really move files
+
+FOLDERS = {
+    "Images":    [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".svg", ".heic"],
+    "Videos":    [".mp4", ".mkv", ".avi", ".mov", ".wmv"],
+    "Documents": [".pdf", ".doc", ".docx", ".txt", ".pptx", ".xlsx", ".csv"],
+}
+DUPLICATES = "Duplicates"
+# --------------------------------------------------------
 
 
-def check_result():
-    mark = float(input("Enter the mark: "))
+def folder_for(file):
+    """Return the folder name for this file type, or None to leave it alone."""
+    extension = file.suffix.lower()          # ".JPG" -&gt; ".jpg"
+    for folder, extensions in FOLDERS.items():
+        if extension in extensions:
+            return folder
+    return None
 
-    if mark >= 50:
-        print("Result: Pass")
+
+def fingerprint(file):
+    """Return a code that is the same only for files with identical content."""
+    hasher = hashlib.sha256()
+    with open(file, "rb") as f:
+        while True:
+            block = f.read(1_000_000)        # read 1 MB at a time
+            if not block:                    # empty = end of the file
+                break
+            hasher.update(block)
+    return hasher.hexdigest()
+
+
+def free_path(folder, name):
+    """Return a path in folder that is not taken yet: photo.jpg, photo (1).jpg, ..."""
+    target = folder / name
+    number = 1
+    while target.exists():
+        target = folder / f"{Path(name).stem} ({number}){Path(name).suffix}"
+        number += 1
+    return target
+
+
+def move(file, folder_name):
+    """Move a file into a folder on the desktop (or only print it in DRY_RUN)."""
+    target = free_path(DESKTOP / folder_name, file.name)
+    print(f"  {file.name}  -&gt;  {folder_name}/{target.name}")
+    if not DRY_RUN:
+        target.parent.mkdir(exist_ok=True)   # create the folder if needed
+        shutil.move(file, target)
+
+
+def main():
+    print("Desktop:", DESKTOP)
+    if DRY_RUN:
+        print("PREVIEW: nothing will be moved.\n")
     else:
-        print("Result: Fail")</code></pre>
+        print("Moving files now.\n")
+
+    # 1. Collect the files that lie directly on the desktop
+    files = []
+    for item in DESKTOP.iterdir():
+        if item.is_file() and item.name.lower() != "desktop.ini":
+            files.append(item)
+
+    # 2. Group files with identical content by their fingerprint
+    groups = {}
+    for file in files:
+        try:
+            code = fingerprint(file)
+        except OSError:
+            print("  Skipped (cannot read):", file.name)
+            continue
+        if code not in groups:
+            groups[code] = []
+        groups[code].append(file)
+
+    # 3. In every group, keep the oldest file and move the copies
+    print("Duplicates:")
+    copies = []
+    for same_files in groups.values():
+        if len(same_files) &gt; 1:
+            same_files.sort(key=lambda f: f.stat().st_mtime)    # oldest first
+            print(f"  (keep {same_files[0].name})")
+            for copy in same_files[1:]:
+                move(copy, DUPLICATES)
+                copies.append(copy)
+
+    # 4. Sort every other file into a folder by its type
+    print("\nSorting by type:")
+    sorted_count = 0
+    for file in files:
+        folder = folder_for(file)
+        if file in copies or folder is None:
+            continue
+        move(file, folder)
+        sorted_count += 1
+
+    print(f"\nDone: {len(copies)} duplicate(s), {sorted_count} file(s) sorted.")
+    if DRY_RUN:
+        print("This was a preview. Set DRY_RUN = False to really move the files.")
+
+
+if __name__ == "__main__":
+    main()</code></pre>
+                <ul class="code34-explain">
+                    <li><strong>Settings at the top</strong>: change <code>DESKTOP</code>, <code>DRY_RUN</code>, and <code>FOLDERS</code> without touching the rest.</li>
+                    <li><code>folder_for()</code> looks up the extension in <code>FOLDERS</code> and returns a folder name, or <code>None</code> to leave the file alone.</li>
+                    <li><code>fingerprint()</code> reads the file in 1 MB blocks, so even a 5 GB video does not fill your memory.</li>
+                    <li><code>free_path()</code> keeps adding <code>(1)</code>, <code>(2)</code> … until it finds a name that is not taken.</li>
+                    <li><code>move()</code> always prints, and only moves the file when <code>DRY_RUN</code> is <code>False</code>.</li>
+                    <li><code>main()</code> runs the steps in order: collect files → group by fingerprint → move copies → sort the rest.</li>
+                </ul>
+            </div>
+        </details>
+
+        <h4 class="ax32-sub">How to run it</h4>
+        <ol class="steps34" style="--rule34-color: #3776ab;">
+            <li>Save the code as <code>desktop_organizer.py</code>.</li>
+            <li>For your first test, change the setting to a test folder, for example <code>DESKTOP = Path("C:/Users/you/Test_Desktop")</code>.</li>
+            <li>Run <code>python desktop_organizer.py</code> and read the preview.</li>
+            <li>If everything looks right, set <code>DRY_RUN = False</code> and run it again.</li>
+            <li>Open the <code>Duplicates</code> folder, check the copies, and delete them yourself.</li>
+        </ol>
+
+        <div class="py-note">
+            <i class="fas fa-circle-info"></i>
+            <p>
+                <strong>Windows with OneDrive:</strong> your desktop may be at <code>C:\Users\you\OneDrive\Desktop</code>
+                instead of <code>C:\Users\you\Desktop</code>. If the program finds no files, set <code>DESKTOP</code>
+                to the folder you see in File Explorer.
+            </p>
+        </div>
     </div>
 
     <div class="py-panel">
-        <h3><i class="fas fa-rocket"></i> Complete mini project</h3>
-
-        <pre class="py-long"><code>def calculate_total():
-    mark1 = float(input("Enter first mark: "))
-    mark2 = float(input("Enter second mark: "))
-
-    total = mark1 + mark2
-    print(f"Total marks: {total}")
-
-
-def calculate_average():
-    mark1 = float(input("Enter first mark: "))
-    mark2 = float(input("Enter second mark: "))
-
-    average = (mark1 + mark2) / 2
-    print(f"Average marks: {average}")
-
-
-def check_result():
-    mark = float(input("Enter the mark: "))
-
-    if mark >= 50:
-        print("Result: Pass")
-    else:
-        print("Result: Fail")
-
-
-while True:
-    print("\n--- Student Score Helper ---")
-    print("1. Calculate total marks")
-    print("2. Calculate average marks")
-    print("3. Check pass or fail")
-    print("4. Exit")
-
-    choice = input("Choose an option (1-4): ")
-
-    if choice == "1":
-        calculate_total()
-
-    elif choice == "2":
-        calculate_average()
-
-    elif choice == "3":
-        check_result()
-
-    elif choice == "4":
-        print("Thank you for using the program!")
-        break
-
-    else:
-        print("Invalid choice. Please enter 1, 2, 3, or 4.")</code></pre>
-    </div>
-
-    <div class="py-lab">
-        <h3><i class="fas fa-flask"></i> Try the menu simulator</h3>
+        <h3><i class="fas fa-rocket"></i> Advanced version (for later)</h3>
 
         <p>
-            Choose an option below to see what the Python program would do.
+            When you are comfortable with the simple version, look at this longer one. It does the same job and
+            adds: command-line options (<code>--path</code>, <code>--apply</code>, <code>--recursive</code>), a JSON report
+            of every action, protection for its own folders, and an optional permanent delete that asks you to
+            type <code>DELETE</code> first.
         </p>
 
-        <div class="py-lab-split">
+        <details class="code34">
+            <summary>
+                <span class="code34-icon"><i class="fas fa-code"></i></span>
+                <span class="code34-title"><strong>Show the advanced version</strong><small>argparse, type hints, JSON report, recursion</small></span>
+                <span class="code34-btn"></span>
+            </summary>
+            <div class="code34-body">
+                <div class="code34-bar"><span><i class="fab fa-python"></i> desktop_organizer_advanced.py</span><button type="button" class="code34-copy"><i class="fas fa-copy"></i> Copy</button></div>
+                <pre><code>#!/usr/bin/env python3
+"""Safely organise a desktop by file type and find exact duplicate files.
 
-            <div class="py-terminal">
-                <div class="py-terminal-head">
-                    <span></span><span></span><span></span>
-                    <strong>Student Score Helper</strong>
-                </div>
+Default behaviour is a DRY RUN: nothing is moved or deleted.  Use --apply
+after checking the preview.  Duplicate copies are moved to Duplicates_Review
+by default.  Permanent deletion requires both --apply and --delete-duplicates,
+then a typed DELETE confirmation.
+"""
 
-                <div id="menu30Output" class="py-terminal-output">
-                    <p>--- Student Score Helper ---</p>
-                    <p>Choose an option to begin.</p>
-                </div>
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import shutil
+from collections import defaultdict
+from datetime import datetime
+from pathlib import Path
+
+
+# Change these sets if you want to organise more file types.
+CATEGORY_EXTENSIONS = {
+    "Videos": {
+        ".mp4", ".mkv", ".avi", ".mov", ".wmv", ".flv", ".webm", ".m4v",
+    },
+    "Images": {
+        ".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp", ".tif", ".tiff",
+        ".svg", ".heic",
+    },
+    # This deliberately includes common reading and document formats.  Remove
+    # extensions here if you want only research papers moved into Journals.
+    "Journals": {
+        ".pdf", ".doc", ".docx", ".txt", ".rtf", ".md", ".epub",
+    },
+}
+
+ORGANIZER_FOLDERS = {
+    "Videos", "Images", "Journals", "Duplicates_Review", "Organizer_Reports",
+}
+SKIP_FILENAMES = {"desktop.ini", "thumbs.db"}
+CHUNK_SIZE = 1024 * 1024  # Hash files in 1 MB pieces; large files stay memory-safe.
+
+
+def parse_arguments() -&gt; argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Organise desktop files and find exact duplicate content."
+    )
+    parser.add_argument(
+        "--path",
+        default=str(Path.home() / "Desktop"),
+        help="Desktop folder to organise. Default: your normal Desktop folder.",
+    )
+    parser.add_argument(
+        "--apply",
+        action="store_true",
+        help="Actually move files. Without this option, the program only previews actions.",
+    )
+    parser.add_argument(
+        "--delete-duplicates",
+        action="store_true",
+        help="Permanently delete duplicate copies instead of moving them to Duplicates_Review.",
+    )
+    parser.add_argument(
+        "--recursive",
+        action="store_true",
+        help="Also scan subfolders. Default scans only files directly on the desktop.",
+    )
+    return parser.parse_args()
+
+
+def get_files_to_scan(root: Path, recursive: bool) -&gt; list[Path]:
+    """Return a fixed list before creating organiser folders."""
+    iterator = root.rglob("*") if recursive else root.iterdir()
+    files: list[Path] = []
+
+    for path in iterator:
+        if not path.is_file() or path.is_symlink():
+            continue
+        if path.name.lower() in SKIP_FILENAMES:
+            continue
+
+        # In recursive mode, never scan the program's own output folders.
+        relative_parts = path.relative_to(root).parts[:-1]
+        if any(part in ORGANIZER_FOLDERS for part in relative_parts):
+            continue
+
+        files.append(path)
+
+    return sorted(files, key=lambda item: str(item).lower())
+
+
+def sha256_of_file(path: Path) -&gt; str:
+    """Return an exact content fingerprint for a file."""
+    digest = hashlib.sha256()
+    with path.open("rb") as file:
+        while chunk := file.read(CHUNK_SIZE):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def category_for(path: Path) -&gt; str | None:
+    suffix = path.suffix.lower()
+    for category, extensions in CATEGORY_EXTENSIONS.items():
+        if suffix in extensions:
+            return category
+    return None
+
+
+def original_file(paths: list[Path]) -&gt; Path:
+    """Keep the oldest modified copy; tie-break using the filename."""
+    return min(paths, key=lambda path: (path.stat().st_mtime, path.name.lower()))
+
+
+def available_destination(directory: Path, filename: str, reserved: set[Path]) -&gt; Path:
+    """Choose a path without overwriting an existing or planned file."""
+    candidate = directory / filename
+    stem = Path(filename).stem
+    suffix = Path(filename).suffix
+    number = 1
+
+    while candidate.exists() or candidate in reserved:
+        candidate = directory / f"{stem} ({number}){suffix}"
+        number += 1
+
+    reserved.add(candidate)
+    return candidate
+
+
+def record_action(actions: list[dict], action: str, source: Path, destination: Path | None = None) -&gt; None:
+    item = {
+        "action": action,
+        "source": str(source),
+        "destination": str(destination) if destination else None,
+    }
+    actions.append(item)
+
+
+def apply_or_preview(action: str, source: Path, destination: Path | None, apply_changes: bool) -&gt; None:
+    description = f"{action:18} {source.name}"
+    if destination:
+        description += f"  -&gt;  {destination.parent.name}/{destination.name}"
+    print(description)
+
+    if not apply_changes:
+        return
+
+    if action == "DELETE DUPLICATE":
+        source.unlink()
+    else:
+        assert destination is not None
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.move(str(source), str(destination))
+
+
+def write_report(root: Path, actions: list[dict], apply_changes: bool) -&gt; Path:
+    report_folder = root / "Organizer_Reports"
+    report_folder.mkdir(exist_ok=True)
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    report_path = report_folder / f"desktop_organizer_{timestamp}.json"
+
+    report = {
+        "created_at": datetime.now().isoformat(timespec="seconds"),
+        "mode": "applied" if apply_changes else "dry_run",
+        "actions": actions,
+    }
+    report_path.write_text(json.dumps(report, indent=2), encoding="utf-8")
+    return report_path
+
+
+def main() -&gt; None:
+    args = parse_arguments()
+    root = Path(args.path).expanduser().resolve()
+
+    if not root.is_dir():
+        raise SystemExit(f"Folder not found: {root}")
+
+    if args.delete_duplicates and not args.apply:
+        raise SystemExit("--delete-duplicates requires --apply. Run a preview first.")
+
+    if args.delete_duplicates:
+        confirmation = input(
+            "Permanent deletion is selected. Type DELETE to continue: "
+        ).strip()
+        if confirmation != "DELETE":
+            raise SystemExit("No files were changed. Permanent deletion was cancelled.")
+
+    files = get_files_to_scan(root, args.recursive)
+    if not files:
+        print("No files were found to organise.")
+        return
+
+    print(f"\nDesktop folder: {root}")
+    print(f"Files scanned: {len(files)}")
+    print("Mode:", "APPLY CHANGES" if args.apply else "DRY RUN — no files will change")
+    print("\n--- Exact duplicate check ---")
+
+    actions: list[dict] = []
+    reserved_destinations: set[Path] = set()
+    hashes: dict[str, list[Path]] = defaultdict(list)
+
+    for file_path in files:
+        try:
+            hashes[sha256_of_file(file_path)].append(file_path)
+        except (OSError, PermissionError) as error:
+            print(f"SKIPPED HASHING    {file_path.name} ({error})")
+
+    duplicate_folder = root / "Duplicates_Review"
+    duplicate_count = 0
+    duplicate_copies: set[Path] = set()
+
+    for matching_files in hashes.values():
+        if len(matching_files) &lt; 2:
+            continue
+
+        keeper = original_file(matching_files)
+        print(f"KEEP ORIGINAL      {keeper.name}")
+
+        for duplicate in matching_files:
+            if duplicate == keeper:
+                continue
+
+            duplicate_count += 1
+            duplicate_copies.add(duplicate)
+            if args.delete_duplicates:
+                record_action(actions, "DELETE DUPLICATE", duplicate)
+                apply_or_preview("DELETE DUPLICATE", duplicate, None, args.apply)
+            else:
+                destination = available_destination(
+                    duplicate_folder, duplicate.name, reserved_destinations
+                )
+                record_action(actions, "QUARANTINE DUPLICATE", duplicate, destination)
+                apply_or_preview("QUARANTINE DUPLICATE", duplicate, destination, args.apply)
+
+    print("\n--- File type organisation ---")
+    organised_count = 0
+
+    for file_path in files:
+        # Duplicate copies were already handled above.  This check also keeps
+        # DRY RUN output truthful, because dry-run files still exist on disk.
+        if file_path in duplicate_copies or not file_path.exists():
+            continue
+
+        category = category_for(file_path)
+        if category is None:
+            continue
+
+        destination_folder = root / category
+        destination = available_destination(
+            destination_folder, file_path.name, reserved_destinations
+        )
+        record_action(actions, f"MOVE TO {category.upper()}", file_path, destination)
+        apply_or_preview(f"MOVE TO {category.upper()}", file_path, destination, args.apply)
+        organised_count += 1
+
+    report_path = write_report(root, actions, args.apply)
+
+    print("\n--- Summary ---")
+    print(f"Duplicate copies found: {duplicate_count}")
+    print(f"Files organised by type: {organised_count}")
+    print(f"Report saved: {report_path}")
+
+    if not args.apply:
+        print("\nPreview finished. If it looks correct, run again with: --apply")
+        print("Duplicate copies will go to Duplicates_Review, not be deleted.")
+
+
+if __name__ == "__main__":
+    main()</code></pre>
+                <ul class="code34-explain">
+                    <li>Preview: <code>python desktop_organizer_advanced.py</code>. Nothing changes.</li>
+                    <li>Apply: <code>python desktop_organizer_advanced.py --apply</code></li>
+                    <li>Another folder and its subfolders: <code>python desktop_organizer_advanced.py --path D:/Downloads --recursive</code></li>
+                    <li>Here documents go to a folder called <code>Journals</code>, and duplicates to <code>Duplicates_Review</code>.</li>
+                </ul>
             </div>
-
-            <div class="py-controls py-stack">
-                <label>
-                    First mark
-                    <input id="menu30MarkOne" type="number" value="75" min="0" max="100">
-                </label>
-
-                <label>
-                    Second mark
-                    <input id="menu30MarkTwo" type="number" value="62" min="0" max="100">
-                </label>
-
-                <button type="button" data-menu30-action="total">
-                    <i class="fas fa-plus"></i> 1. Calculate total
-                </button>
-
-                <button type="button" data-menu30-action="average">
-                    <i class="fas fa-divide"></i> 2. Calculate average
-                </button>
-
-                <button type="button" data-menu30-action="result">
-                    <i class="fas fa-graduation-cap"></i> 3. Check pass or fail
-                </button>
-
-                <button type="button" class="py-muted" data-menu30-action="exit">
-                    <i class="fas fa-right-from-bracket"></i> 4. Exit program
-                </button>
-            </div>
-
-        </div>
-
-        <div class="py-code-result">
-            <span>Python code being used</span>
-            <pre><code id="menu30Code">Choose an option to view its Python code.</code></pre>
-        </div>
-    </div>
-
-    <div class="py-panel">
-        <h3><i class="fas fa-circle-check"></i> Important project tips</h3>
-
-        <ul>
-            <li>Use functions for separate tasks.</li>
-            <li>Use <code>while True</code> when the menu should repeat.</li>
-            <li>Use <code>break</code> to exit the menu loop.</li>
-            <li>Use <code>else</code> to handle invalid menu choices.</li>
-            <li>Remember that <code>input()</code> gives text, so use <code>float()</code> or <code>int()</code> for calculations.</li>
-        </ul>
+        </details>
     </div>
 
     <div class="py-panel">
         <h3><i class="fas fa-pen-to-square"></i> Challenge yourself</h3>
 
-        <p>Create your own menu-driven program. Choose one idea:</p>
-
         <ol>
-            <li>A simple calculator with add, subtract, multiply, and divide options.</li>
-            <li>A food-ordering menu that shows food names and prices.</li>
-            <li>A personal information menu that displays name, age, and city.</li>
-            <li>A temperature helper that converts Celsius to Fahrenheit.</li>
+            <li>Add a <code>Music</code> folder for <code>.mp3</code>, <code>.wav</code>, and <code>.flac</code> files.</li>
+            <li>Put everything with an unknown type into a folder <code>Others</code> instead of leaving it on the desktop.</li>
+            <li>Sort images into subfolders by year, for example <code>Images/2026</code>, using the file's modification date.</li>
+            <li>Write every move into a text file <code>organizer_log.txt</code>, so you can see later where a file went.</li>
+            <li>Write a second program that reads the log and moves every file back: an <em>undo</em> button.</li>
+            <li>Ask the user for the folder with <code>input()</code> instead of changing <code>DESKTOP</code> in the code.</li>
         </ol>
-
-        <p>
-            Try adding a new option to the Student Score Helper:
-            <strong>“Find the highest mark.”</strong>
-        </p>
     </div>
-
-    <details class="py-practice">
-
-        <summary>
-            <i class="fas fa-brain"></i>
-            Open 20 thinking practice questions
-        </summary>
-
-        <div class="py-question-list">
-
-            <article><span>1</span><p>Write a function <code>show_menu()</code> that prints a menu with 3 options and Exit.</p><button type="button" data-py-answer="m30a1">Answer</button></article>
-
-            <article><span>2</span><p>Make a menu that repeats with <code>while True</code> and stops when the user types <code>4</code>.</p><button type="button" data-py-answer="m30a2">Answer</button></article>
-
-            <article><span>3</span><p>Print <code>"Invalid choice"</code> when the user types anything that is not on the menu.</p><button type="button" data-py-answer="m30a3">Answer</button></article>
-
-            <article><span>4</span><p>Make a calculator menu with add, subtract, multiply, divide, and exit.</p><button type="button" data-py-answer="m30a4">Answer</button></article>
-
-            <article><span>5</span><p>In the calculator, prevent division by zero.</p><button type="button" data-py-answer="m30a5">Answer</button></article>
-
-            <article><span>6</span><p>Make a temperature menu: Celsius → Fahrenheit, Fahrenheit → Celsius, exit.</p><button type="button" data-py-answer="m30a6">Answer</button></article>
-
-            <article><span>7</span><p>Make a food-ordering menu that adds the price of each chosen item to a bill and prints the total at exit.</p><button type="button" data-py-answer="m30a7">Answer</button></article>
-
-            <article><span>8</span><p>Store food names and prices in a dictionary and print the menu from it with a loop.</p><button type="button" data-py-answer="m30a8">Answer</button></article>
-
-            <article><span>9</span><p>Make a to-do list menu: add a task, show tasks, exit.</p><button type="button" data-py-answer="m30a9">Answer</button></article>
-
-            <article><span>10</span><p>Add a "remove a task" option to the to-do list menu.</p><button type="button" data-py-answer="m30a10">Answer</button></article>
-
-            <article><span>11</span><p>Add "Find the highest mark" to the Student Score Helper using a list of marks.</p><button type="button" data-py-answer="m30a11">Answer</button></article>
-
-            <article><span>12</span><p>Make the menu accept both <code>"4"</code> and <code>"exit"</code> (any capital letters) to quit.</p><button type="button" data-py-answer="m30a12">Answer</button></article>
-
-            <article><span>13</span><p>Use <code>match–case</code> instead of <code>if/elif</code> to handle the menu choice.</p><button type="button" data-py-answer="m30a13">Answer</button></article>
-
-            <article><span>14</span><p>Write <code>get_number(prompt)</code> that keeps asking until the user types a valid number.</p><button type="button" data-py-answer="m30a14">Answer</button></article>
-
-            <article><span>15</span><p>Count how many times the user used the menu and print it when they exit.</p><button type="button" data-py-answer="m30a15">Answer</button></article>
-
-            <article><span>16</span><p>Make a bank-account menu: show balance, deposit, withdraw (not more than the balance), exit.</p><button type="button" data-py-answer="m30a16">Answer</button></article>
-
-            <article><span>17</span><p>Make a unit-converter menu: km → miles, kg → pounds, exit.</p><button type="button" data-py-answer="m30a17">Answer</button></article>
-
-            <article><span>18</span><p>Make a personal-information menu that shows name, age, or city from a dictionary.</p><button type="button" data-py-answer="m30a18">Answer</button></article>
-
-            <article><span>19</span><p>Ask <code>"Are you sure? (y/n)"</code> before exiting the menu.</p><button type="button" data-py-answer="m30a19">Answer</button></article>
-
-            <article><span>20</span><p>Put the whole menu inside a <code>main()</code> function and start it with <code>if __name__ == "__main__":</code>.</p><button type="button" data-py-answer="m30a20">Answer</button></article>
-
-        </div>
-    </details>
-
-<template id="m30a1"><h4>show_menu()</h4><pre><code>def show_menu():
-    print("\n--- My Menu ---")
-    print("1. Say hello")
-    print("2. Show date")
-    print("3. Show tip")
-    print("4. Exit")
-
-show_menu()</code></pre></template>
-
-<template id="m30a2"><h4>Repeating menu</h4><pre><code>while True:
-    print("1. Hello  2. Tip  3. Joke  4. Exit")
-    choice = input("Choose: ")
-
-    if choice == "4":
-        print("Goodbye!")
-        break
-
-    print("You chose", choice)</code></pre></template>
-
-<template id="m30a3"><h4>Invalid choice</h4><pre><code>while True:
-    choice = input("Choose 1, 2, or 3 (4 to exit): ")
-
-    if choice == "1":
-        print("Option 1")
-    elif choice == "2":
-        print("Option 2")
-    elif choice == "3":
-        print("Option 3")
-    elif choice == "4":
-        break
-    else:
-        print("Invalid choice")</code></pre></template>
-
-<template id="m30a4"><h4>Calculator menu</h4><pre><code>while True:
-    print("\n1. Add  2. Subtract  3. Multiply  4. Divide  5. Exit")
-    choice = input("Choose: ")
-
-    if choice == "5":
-        break
-
-    a = float(input("First number: "))
-    b = float(input("Second number: "))
-
-    if choice == "1":
-        print(a + b)
-    elif choice == "2":
-        print(a - b)
-    elif choice == "3":
-        print(a * b)
-    elif choice == "4":
-        print(a / b)
-    else:
-        print("Invalid choice")</code></pre></template>
-
-<template id="m30a5"><h4>Safe division</h4><pre><code>elif choice == "4":
-    if b == 0:
-        print("You cannot divide by zero.")
-    else:
-        print(a / b)</code></pre></template>
-
-<template id="m30a6"><h4>Temperature menu</h4><pre><code>while True:
-    print("\n1. °C → °F  2. °F → °C  3. Exit")
-    choice = input("Choose: ")
-
-    if choice == "1":
-        c = float(input("Celsius: "))
-        print("Fahrenheit:", c * 9 / 5 + 32)
-    elif choice == "2":
-        f = float(input("Fahrenheit: "))
-        print("Celsius:", round((f - 32) * 5 / 9, 1))
-    elif choice == "3":
-        break
-    else:
-        print("Invalid choice")</code></pre></template>
-
-<template id="m30a7"><h4>Food order with a bill</h4><pre><code>bill = 0
-
-while True:
-    print("\n1. Burger 120  2. Fries 60  3. Juice 45  4. Finish")
-    choice = input("Choose: ")
-
-    if choice == "1":
-        bill = bill + 120
-    elif choice == "2":
-        bill = bill + 60
-    elif choice == "3":
-        bill = bill + 45
-    elif choice == "4":
-        print("Total bill:", bill)
-        break
-    else:
-        print("Invalid choice")</code></pre></template>
-
-<template id="m30a8"><h4>Menu from a dictionary</h4><pre><code>menu = {"Burger": 120, "Fries": 60, "Juice": 45}
-
-for number, (food, price) in enumerate(menu.items(), start=1):
-    print(f"{number}. {food} - {price}")</code></pre></template>
-
-<template id="m30a9"><h4>To-do list menu</h4><pre><code>tasks = []
-
-while True:
-    print("\n1. Add task  2. Show tasks  3. Exit")
-    choice = input("Choose: ")
-
-    if choice == "1":
-        tasks.append(input("New task: "))
-    elif choice == "2":
-        for number, task in enumerate(tasks, start=1):
-            print(number, task)
-    elif choice == "3":
-        break
-    else:
-        print("Invalid choice")</code></pre></template>
-
-<template id="m30a10"><h4>Remove a task</h4><pre><code>elif choice == "4":
-    task = input("Task to remove: ")
-
-    if task in tasks:
-        tasks.remove(task)
-        print("Removed.")
-    else:
-        print("That task is not in the list.")</code></pre></template>
-
-<template id="m30a11"><h4>Highest mark option</h4><pre><code>marks = []
-
-while True:
-    print("\n1. Add mark  2. Highest mark  3. Exit")
-    choice = input("Choose: ")
-
-    if choice == "1":
-        marks.append(float(input("Mark: ")))
-    elif choice == "2":
-        if marks:
-            print("Highest mark:", max(marks))
-        else:
-            print("No marks yet.")
-    elif choice == "3":
-        break</code></pre></template>
-
-<template id="m30a12"><h4>Accept "4" or "exit"</h4><pre><code>choice = input("Choose: ").strip().lower()
-
-if choice in ("4", "exit"):
-    print("Goodbye!")</code></pre></template>
-
-<template id="m30a13"><h4>match–case menu</h4><pre><code>while True:
-    choice = input("Choose 1-3 (4 to exit): ")
-
-    match choice:
-        case "1":
-            print("Total")
-        case "2":
-            print("Average")
-        case "3":
-            print("Pass or fail")
-        case "4":
-            print("Goodbye!")
-            break
-        case _:
-            print("Invalid choice")</code></pre></template>
-
-<template id="m30a14"><h4>get_number()</h4><pre><code>def get_number(prompt):
-    while True:
-        text = input(prompt)
-
-        try:
-            return float(text)
-        except ValueError:
-            print("Please type a number.")
-
-mark = get_number("Enter a mark: ")</code></pre></template>
-
-<template id="m30a15"><h4>Count menu uses</h4><pre><code>uses = 0
-
-while True:
-    choice = input("Choose 1-3 (4 to exit): ")
-
-    if choice == "4":
-        print("You used the menu", uses, "times.")
-        break
-
-    uses = uses + 1
-    print("You chose", choice)</code></pre></template>
-
-<template id="m30a16"><h4>Bank account</h4><pre><code>balance = 0
-
-while True:
-    print("\n1. Balance  2. Deposit  3. Withdraw  4. Exit")
-    choice = input("Choose: ")
-
-    if choice == "1":
-        print("Balance:", balance)
-    elif choice == "2":
-        balance = balance + float(input("Amount: "))
-    elif choice == "3":
-        amount = float(input("Amount: "))
-        if amount &gt; balance:
-            print("Not enough money.")
-        else:
-            balance = balance - amount
-    elif choice == "4":
-        break
-    else:
-        print("Invalid choice")</code></pre></template>
-
-<template id="m30a17"><h4>Unit converter</h4><pre><code>while True:
-    print("\n1. km → miles  2. kg → pounds  3. Exit")
-    choice = input("Choose: ")
-
-    if choice == "1":
-        km = float(input("Kilometres: "))
-        print("Miles:", round(km * 0.621371, 2))
-    elif choice == "2":
-        kg = float(input("Kilograms: "))
-        print("Pounds:", round(kg * 2.20462, 2))
-    elif choice == "3":
-        break
-    else:
-        print("Invalid choice")</code></pre></template>
-
-<template id="m30a18"><h4>Personal information menu</h4><pre><code>person = {"name": "Asha", "age": 21, "city": "Kaohsiung"}
-
-while True:
-    choice = input("Show name, age, or city (exit to stop): ").lower()
-
-    if choice == "exit":
-        break
-    elif choice in person:
-        print(choice.title() + ":", person[choice])
-    else:
-        print("Invalid choice")</code></pre></template>
-
-<template id="m30a19"><h4>Confirm before exit</h4><pre><code>elif choice == "4":
-    sure = input("Are you sure? (y/n): ").lower()
-
-    if sure == "y":
-        print("Goodbye!")
-        break</code></pre></template>
-
-<template id="m30a20"><h4>main() function</h4><pre><code>def show_menu():
-    print("1. Hello  2. Exit")
-
-
-def main():
-    while True:
-        show_menu()
-        choice = input("Choose: ")
-
-        if choice == "1":
-            print("Hello!")
-        elif choice == "2":
-            break
-
-
-if __name__ == "__main__":
-    main()</code></pre></template>
 
     <div class="install-questions">
 
@@ -38253,106 +38596,75 @@ if __name__ == "__main__":
 
         <details class="install-question">
             <summary>
-                Why compare <code>choice == "1"</code> and not <code>choice == 1</code>?
+                Will this program delete my files?
             </summary>
 
             <div class="install-answer">
-                <code>input()</code> always returns text. The text <code>"1"</code> is not equal to the number <code>1</code>, so compare with a string, or convert first with <code>int(choice)</code>.
+                No. The simple version only <strong>moves</strong> files, and only when <code>DRY_RUN = False</code>. Duplicates go to the <code>Duplicates</code> folder, and you decide yourself what to delete.
             </div>
 
         </details>
         <details class="install-question">
             <summary>
-                My program crashes when the user types a letter instead of a mark. How do I stop that?
+                What exactly is a "fingerprint" (hash)?
             </summary>
 
             <div class="install-answer">
-                <code>float("abc")</code> raises <code>ValueError</code>. Use <code>try</code>/<code>except</code> to catch it and ask again (see practice question 14). Error handling gets its own lesson later.
+                SHA-256 turns the content of a file into a 64-character code. Change a single byte, and the code changes completely. Two files with the same code have the same content, whatever their names are. Real duplicates are found reliably, and different files are not mixed up.
             </div>
 
         </details>
         <details class="install-question">
             <summary>
-                Is <code>while True</code> bad practice?
+                Why compare content instead of file names?
             </summary>
 
             <div class="install-answer">
-                No. It is the normal pattern for menus, as long as there is a clear <code>break</code> (an exit option). Without a <code>break</code>, the program would never end.
+                <code>thesis_draft.docx</code> and <code>thesis_draft (1).docx</code> may be identical, or the second may contain your latest changes. Names cannot tell you. Only the content can.
             </div>
 
         </details>
         <details class="install-question">
             <summary>
-                How do I clear the screen between menus?
+                Why keep the oldest copy?
             </summary>
 
             <div class="install-answer">
-                Use <code>import os</code>, then <code>os.system("cls")</code> on Windows or <code>os.system("clear")</code> on macOS/Linux. It is optional. Printing an empty line with <code>print()</code> is often enough.
+                The oldest file is usually the original, and copies get names like <code>copy</code> or <code>(1)</code>. Because the content is identical, it does not matter which one you keep. Keeping the oldest just keeps the nicer name.
             </div>
 
         </details>
         <details class="install-question">
             <summary>
-                How do I keep data, like marks or tasks, after the program closes?
+                It says "Skipped (cannot read)". What does that mean?
             </summary>
 
             <div class="install-answer">
-                Variables are lost when the program ends. Save the data to a file (text, CSV, or JSON) and load it again when the program starts. File handling comes in a later lesson.
+                The file is open in another program or you have no permission to read it. Close the program that uses it and run the organizer again.
             </div>
 
         </details>
         <details class="install-question">
             <summary>
-                Should I use <code>if/elif</code> or <code>match–case</code> for menus?
+                Can I run it automatically every week?
             </summary>
 
             <div class="install-answer">
-                Both work. <code>match–case</code> (Python 3.10+) can look cleaner when you compare one value against many exact choices. <code>if/elif</code> works on every Python version and handles ranges like <code>mark &gt;= 50</code>.
-            </div>
-
-        </details>
-        <details class="install-question">
-            <summary>
-                What does <code>if __name__ == "__main__":</code> mean?
-            </summary>
-
-            <div class="install-answer">
-                It runs <code>main()</code> only when you run this file directly. If another file imports your functions, the menu will not start automatically. You will use this more when we learn modules.
-            </div>
-
-        </details>
-        <details class="install-question">
-            <summary>
-                Why does the menu sometimes show <code>\n</code> in my code?
-            </summary>
-
-            <div class="install-answer">
-                <code>\n</code> means "new line". <code>print("\n--- Menu ---")</code> prints an empty line before the title, which separates each menu from the previous one.
+                Yes. On Windows use the <em>Task Scheduler</em>, on macOS and Linux use <code>cron</code>, to run <code>python desktop_organizer.py</code> on a schedule. Only do this after it has worked well by hand for a while.
             </div>
 
         </details>
 
-    </div>
-
-    <div class="py-next">
-        <i class="fas fa-forward"></i>
-        <div>
-            <strong>Coming next:</strong>
-            <p>
-                We will learn how to handle errors safely using
-                <code>try</code>, <code>except</code>, and <code>finally</code>.
-            </p>
-        </div>
     </div>
 
     <div class="lesson-nav">
-        <button class="nav-button nav-button-left" type="button" onclick="showContent('sec26')">
+        <button class="nav-button nav-button-left" type="button" onclick="showContent('sec33')">
             <i class="fas fa-arrow-left"></i>
-            Lesson 26
+            Lesson 32
         </button>
 
-        <button class="nav-button nav-button-right" type="button" onclick="showContent('sec28')">
-            Lesson 28
+        <button class="nav-button nav-button-right" type="button" onclick="showContent('sec34')">
+            Lesson 34
             <i class="fas fa-arrow-right"></i>
         </button>
     </div>
@@ -38360,7 +38672,7 @@ if __name__ == "__main__":
 </section>
 <section id="sec28" class="tutorial-card">
 
-    <h2>28. Libraries:NumPy and Fast Computation</h2>
+    <h2>27. Libraries:NumPy and Fast Computation</h2>
 
     <div class="status-row">
         <span class="level">Stage IV · Scientific Python and Data</span>
@@ -39122,13 +39434,13 @@ print(round(np.std(measurements), 3))    # 2.0</code></pre></template>
     </div>
 
     <div class="lesson-nav">
-        <button class="nav-button nav-button-left" type="button" onclick="showContent('sec27')">
+        <button class="nav-button nav-button-left" type="button" onclick="showContent('sec26')">
             <i class="fas fa-arrow-left"></i>
-            Lesson 27
+            Lesson 26
         </button>
 
         <button class="nav-button nav-button-right" type="button" onclick="showContent('sec29')">
-            Lesson 29
+            Lesson 28
             <i class="fas fa-arrow-right"></i>
         </button>
     </div>
@@ -39136,7 +39448,7 @@ print(round(np.std(measurements), 3))    # 2.0</code></pre></template>
 </section>
 <section id="sec29" class="tutorial-card">
 
-    <h2>29. Pandas Series and DataFrames</h2>
+    <h2>28. Pandas Series and DataFrames</h2>
 
     <div class="status-row">
         <span class="level">Stage IV · Scientific Python and Data</span>
@@ -39651,11 +39963,11 @@ print(loaded.head(2))</code></pre></template>
     <div class="lesson-nav">
         <button class="nav-button nav-button-left" type="button" onclick="showContent('sec28')">
             <i class="fas fa-arrow-left"></i>
-            Lesson 28
+            Lesson 27
         </button>
 
         <button class="nav-button nav-button-right" type="button" onclick="showContent('sec30')">
-            Lesson 30
+            Lesson 29
             <i class="fas fa-arrow-right"></i>
         </button>
     </div>
@@ -39663,7 +39975,7 @@ print(loaded.head(2))</code></pre></template>
 </section>
 <section id="sec30" class="tutorial-card">
 
-    <h2>30. SciPy and Scientific Computing</h2>
+    <h2>29. SciPy and Scientific Computing</h2>
 
     <div class="status-row">
         <span class="level">Stage IV · Scientific Python and Data</span>
@@ -40297,11 +40609,11 @@ print(result.root)    # about 0.739</code></pre></template>
     <div class="lesson-nav">
         <button class="nav-button nav-button-left" type="button" onclick="showContent('sec29')">
             <i class="fas fa-arrow-left"></i>
-            Lesson 29
+            Lesson 28
         </button>
 
         <button class="nav-button nav-button-right" type="button" onclick="showContent('sec31')">
-            Lesson 31
+            Lesson 30
             <i class="fas fa-arrow-right"></i>
         </button>
     </div>
@@ -40309,7 +40621,7 @@ print(result.root)    # about 0.739</code></pre></template>
 </section>
 <section id="sec31" class="tutorial-card">
 
-    <h2>31. HDF5, NetCDF, and Large Scientific Data</h2>
+    <h2>30. HDF5, NetCDF, and Large Scientific Data</h2>
 
     <div class="status-row">
         <span class="level">Stage IV · Scientific Python and Data</span>
@@ -40937,11 +41249,11 @@ print(df.head())</code></pre></template>
     <div class="lesson-nav">
         <button class="nav-button nav-button-left" type="button" onclick="showContent('sec30')">
             <i class="fas fa-arrow-left"></i>
-            Lesson 30
+            Lesson 29
         </button>
 
         <button class="nav-button nav-button-right" type="button" onclick="showContent('sec32')">
-            Lesson 32
+            Lesson 31
             <i class="fas fa-arrow-right"></i>
         </button>
     </div>
@@ -40949,7 +41261,7 @@ print(df.head())</code></pre></template>
 </section>
 <section id="sec32" class="tutorial-card">
 
-    <h2>32. Matplotlib and Seaborn Visualization</h2>
+    <h2>31. Matplotlib and Seaborn Visualization</h2>
 
     <div class="status-row">
         <span class="level">Stage IV · Scientific Python and Data</span>
@@ -41423,6 +41735,232 @@ plt.show()</code></pre>
             </p>
         </div>
     </div>
+
+    <div class="py-panel">
+        <h3><i class="fas fa-object-group"></i> plt or ax? Two ways to draw</h3>
+
+        <p>
+            So far every command started with <code>plt</code>. Matplotlib has a second, more powerful way:
+            you first create a <strong>Figure</strong> and an <strong>Axes</strong>, and then give commands
+            to them directly. You will see this style in almost every research script and on the internet,
+            usually written as <code>fig</code> and <code>ax</code>.
+        </p>
+
+        <figure class="plot36-figure plot36-figure-wide">
+            <img src="images/plots32/fig_ax.png" alt="A light blue Figure, labelled fig, containing two plots with red frames, labelled axes[0] and axes[1]. Each red-framed plot is one Axes with its own x- and y-axis" loading="lazy">
+        </figure>
+
+        <div class="py-grid py-grid-2 ax32-terms">
+            <article>
+                <h4><code>fig</code> = the Figure</h4>
+                <p>The whole picture: the "paper" everything is drawn on. You save it, resize it, and give it one overall title.</p>
+            </article>
+            <article>
+                <h4><code>ax</code> = one Axes</h4>
+                <p>One plot area with its own x-axis, y-axis, lines, title, and legend. A figure can hold one Axes or many.</p>
+            </article>
+        </div>
+
+        <div class="py-note">
+            <i class="fas fa-lightbulb"></i>
+            <p>
+                <strong>Axes</strong> (with an e) is not the plural of <em>axis</em>. One Axes is one whole plot,
+                and it <em>has</em> two axis objects: the x-axis and the y-axis.
+            </p>
+        </div>
+
+        <h4 class="ax32-sub">The same plot, written both ways</h4>
+
+        <div class="py-grid py-grid-2 ax32-compare">
+            <article>
+                <span class="py-tag">plt style</span>
+                <pre><code>import matplotlib.pyplot as plt
+
+days = [1, 2, 3, 4, 5]
+temperature = [25, 27, 26, 29, 30]
+
+plt.plot(days, temperature, marker="o")
+plt.title("Daily Temperature")
+plt.xlabel("Day")
+plt.ylabel("Temperature (°C)")
+plt.show()</code></pre>
+                <p>Short and quick. <code>plt</code> always draws on the <em>current</em> plot, the last one created.</p>
+            </article>
+            <article>
+                <span class="py-tag">ax style</span>
+                <pre><code>import matplotlib.pyplot as plt
+
+days = [1, 2, 3, 4, 5]
+temperature = [25, 27, 26, 29, 30]
+
+fig, ax = plt.subplots()
+ax.plot(days, temperature, marker="o")
+ax.set_title("Daily Temperature")
+ax.set_xlabel("Day")
+ax.set_ylabel("Temperature (°C)")
+plt.show()</code></pre>
+                <p>You say exactly <em>which</em> plot gets each command. Both give the same picture.</p>
+            </article>
+        </div>
+
+        <p>
+            <code>fig, ax = plt.subplots()</code> creates the Figure and one Axes in one line, and hands you
+            both. From then on, almost every <code>plt.something()</code> has a twin on <code>ax</code>.
+            Watch out: the <strong>setting</strong> commands get <code>set_</code> in front.
+        </p>
+
+        <div class="py-table-wrap">
+            <table class="py-table">
+                <thead><tr><th>plt style</th><th>ax style</th></tr></thead>
+                <tbody>
+                    <tr><td><code>plt.plot(x, y)</code></td><td><code>ax.plot(x, y)</code></td></tr>
+                    <tr><td><code>plt.scatter(x, y)</code></td><td><code>ax.scatter(x, y)</code></td></tr>
+                    <tr><td><code>plt.bar(names, values)</code></td><td><code>ax.bar(names, values)</code></td></tr>
+                    <tr><td><code>plt.title("...")</code></td><td><code>ax.set_title("...")</code></td></tr>
+                    <tr><td><code>plt.xlabel("...")</code></td><td><code>ax.set_xlabel("...")</code></td></tr>
+                    <tr><td><code>plt.ylabel("...")</code></td><td><code>ax.set_ylabel("...")</code></td></tr>
+                    <tr><td><code>plt.xlim(0, 10)</code></td><td><code>ax.set_xlim(0, 10)</code></td></tr>
+                    <tr><td><code>plt.xticks([0, 5, 10])</code></td><td><code>ax.set_xticks([0, 5, 10])</code></td></tr>
+                    <tr><td><code>plt.legend()</code></td><td><code>ax.legend()</code></td></tr>
+                    <tr><td><code>plt.grid(True)</code></td><td><code>ax.grid(True)</code></td></tr>
+                    <tr><td><code>plt.text(x, y, "...")</code></td><td><code>ax.text(x, y, "...")</code></td></tr>
+                    <tr><td><code>plt.axis("off")</code></td><td><code>ax.axis("off")</code></td></tr>
+                    <tr><td><code>plt.colorbar()</code></td><td><code>fig.colorbar(image, ax=ax)</code></td></tr>
+                    <tr><td><code>plt.tight_layout()</code></td><td><code>fig.tight_layout()</code></td></tr>
+                    <tr><td><code>plt.savefig("plot.png")</code></td><td><code>fig.savefig("plot.png")</code></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4 class="ax32-sub">Why use ax?</h4>
+
+        <div class="py-grid py-grid-2">
+            <article>
+                <span class="py-tag">Several plots</span>
+                <h4>You choose the panel</h4>
+                <p>With subplots, <code>axes[0].plot()</code> and <code>axes[1].bar()</code> go exactly where you want. <code>plt</code> only knows "the last one".</p>
+            </article>
+            <article>
+                <span class="py-tag">Reuse</span>
+                <h4>Functions can draw on any panel</h4>
+                <p>Write a function that receives <code>ax</code>, and call it for every station, month, or experiment.</p>
+            </article>
+            <article>
+                <span class="py-tag">More control</span>
+                <h4>Advanced tools need it</h4>
+                <p>Second y-axes (<code>ax.twinx()</code>), zoomed insets, removing frame lines, and colorbars all work through <code>ax</code>.</p>
+            </article>
+            <article>
+                <span class="py-tag">Seaborn</span>
+                <h4>Seaborn draws on your ax</h4>
+                <p>Pass <code>ax=ax</code> to any Seaborn plot to put it in a chosen panel, then style it with <code>ax</code>.</p>
+            </article>
+        </div>
+
+        <div class="py-warning">
+            <i class="fas fa-triangle-exclamation"></i>
+            <p>
+                <strong>Common mistakes</strong><br>
+                <code>ax.title("...")</code> gives <em>TypeError: 'Text' object is not callable</em>. Use <code>ax.set_title("...")</code>.<br>
+                <code>ax.xlabel("...")</code> gives <em>AttributeError: 'Axes' object has no attribute 'xlabel'</em>. Use <code>ax.set_xlabel("...")</code>.<br>
+                <code>axes.plot(...)</code> after <code>plt.subplots(1, 2)</code> gives <em>'numpy.ndarray' object has no attribute 'plot'</em>. Choose one panel: <code>axes[0].plot(...)</code>.<br>
+                <code>plt.title("...")</code> after creating several subplots changes only the <strong>last</strong> panel.
+            </p>
+        </div>
+
+        <p><strong>Tip:</strong> for one quick plot, <code>plt</code> is fine. As soon as you have more than one plot, or want full control, switch to <code>fig, ax</code>. Do not mix both styles in the same figure.</p>
+
+        <details class="code34">
+            <summary>
+                <span class="code34-icon"><i class="fas fa-code"></i></span>
+                <span class="code34-title"><strong>A function that draws on any ax</strong><small>Write it once, use it for three stations</small></span>
+                <span class="code34-btn"></span>
+            </summary>
+            <div class="code34-body">
+                <div class="code34-bar"><span><i class="fab fa-python"></i> plot_function.py</span><button type="button" class="code34-copy"><i class="fas fa-copy"></i> Copy</button></div>
+                <pre><code>import matplotlib.pyplot as plt
+
+def plot_station(ax, days, values, name):
+    """Draw one station on the Axes it is given."""
+    ax.plot(days, values, marker="o")
+    ax.set_title(name)
+    ax.set_xlabel("Day")
+    ax.set_ylabel("Temperature (°C)")
+    ax.grid(alpha=0.3)
+
+days = [1, 2, 3, 4, 5]
+fig, axes = plt.subplots(1, 3, figsize=(12, 3.5), sharey=True)
+
+plot_station(axes[0], days, [25, 27, 26, 29, 30], "Taipei")
+plot_station(axes[1], days, [28, 29, 29, 31, 32], "Tainan")
+plot_station(axes[2], days, [24, 25, 25, 27, 26], "Hualien")
+
+fig.tight_layout()
+plt.show()</code></pre>
+                <ul class="code34-explain">
+                    <li><code>plot_station(ax, ...)</code> does not care <em>which</em> panel it gets: it draws on the one you pass.</li>
+                    <li><code>sharey=True</code> gives the three panels the same y-axis, so they are easy to compare.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="code34">
+            <summary>
+                <span class="code34-icon"><i class="fas fa-code"></i></span>
+                <span class="code34-title"><strong>Seaborn plots in chosen panels</strong><small>sns.scatterplot(..., ax=ax1)</small></span>
+                <span class="code34-btn"></span>
+            </summary>
+            <div class="code34-body">
+                <div class="code34-bar"><span><i class="fab fa-python"></i> seaborn_with_ax.py</span><button type="button" class="code34-copy"><i class="fas fa-copy"></i> Copy</button></div>
+                <pre><code>import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+students = pd.DataFrame({"Hours": [1, 2, 3, 4, 5, 6],
+                         "Score": [45, 51, 58, 68, 74, 85]})
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
+
+sns.scatterplot(data=students, x="Hours", y="Score", ax=ax1)   # left panel
+sns.histplot(data=students, x="Score", bins=4, ax=ax2)          # right panel
+
+ax1.set_title("Hours and score")      # Seaborn draws, ax still controls it
+ax2.set_title("Score distribution")
+fig.tight_layout()
+plt.show()</code></pre>
+                <ul class="code34-explain">
+                    <li><code>fig, (ax1, ax2) = plt.subplots(1, 2)</code> unpacks the two Axes into two names.</li>
+                    <li><code>ax=ax1</code> tells Seaborn where to draw. Afterwards, <code>ax1.set_title()</code> works as usual.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="code34">
+            <summary>
+                <span class="code34-icon"><i class="fas fa-code"></i></span>
+                <span class="code34-title"><strong>Started with plt? Get the ax afterwards</strong><small>plt.gca() and plt.gcf()</small></span>
+                <span class="code34-btn"></span>
+            </summary>
+            <div class="code34-body">
+                <div class="code34-bar"><span><i class="fab fa-python"></i> get_current_ax.py</span><button type="button" class="code34-copy"><i class="fas fa-copy"></i> Copy</button></div>
+                <pre><code>import matplotlib.pyplot as plt
+
+plt.plot([1, 2, 3], [4, 6, 5])     # started with plt ...
+
+ax = plt.gca()                     # gca = "get current axes"
+fig = plt.gcf()                    # gcf = "get current figure"
+
+ax.set_title("Now I can use ax")
+ax.spines[["top", "right"]].set_visible(False)
+fig.savefig("plot.png", dpi=300)</code></pre>
+                <ul class="code34-explain">
+                    <li><code>plt.gca()</code> returns the Axes that <code>plt</code> is currently drawing on, <code>plt.gcf()</code> the Figure.</li>
+                    <li>Handy when someone else's code used <code>plt</code> and you want to fine-tune the result.</li>
+                </ul>
+            </div>
+        </details>
+    </div>
+
 
     <div class="py-panel">
         <h3><i class="fas fa-table-cells-large"></i> More than one plot in one figure</h3>
@@ -42066,11 +42604,11 @@ plt.show()</code></pre></template>
     <div class="lesson-nav">
         <button class="nav-button nav-button-left" type="button" onclick="showContent('sec31')">
             <i class="fas fa-arrow-left"></i>
-            Lesson 31
+            Lesson 30
         </button>
 
         <button class="nav-button nav-button-right" type="button" onclick="showContent('sec33')">
-            Lesson 33
+            Lesson 32
             <i class="fas fa-arrow-right"></i>
         </button>
     </div>
@@ -42078,7 +42616,7 @@ plt.show()</code></pre></template>
 </section>
 <section id="sec33" class="tutorial-card">
 
-    <h2>33. Automation, APIs, and Useful Scripts</h2>
+    <h2>32. Automation, APIs, and Useful Scripts</h2>
 
     <div class="status-row">
         <span class="level">Stage V · Python for Researcher</span>
@@ -42596,11 +43134,11 @@ for file_path in folder.glob("*.csv"):
     <div class="lesson-nav">
         <button class="nav-button nav-button-left" type="button" onclick="showContent('sec32')">
             <i class="fas fa-arrow-left"></i>
-            Lesson 32
+            Lesson 31
         </button>
 
-        <button class="nav-button nav-button-right" type="button" onclick="showContent('sec34')">
-            Lesson 34
+        <button class="nav-button nav-button-right" type="button" onclick="showContent('sec27')">
+            Lesson 33
             <i class="fas fa-arrow-right"></i>
         </button>
     </div>
@@ -43864,7 +44402,7 @@ data_report(df)</code></pre></template>
     </div>
 
     <div class="lesson-nav">
-        <button class="nav-button nav-button-left" type="button" onclick="showContent('sec33')">
+        <button class="nav-button nav-button-left" type="button" onclick="showContent('sec27')">
             <i class="fas fa-arrow-left"></i>
             Lesson 33
         </button>
@@ -43878,7 +44416,7 @@ data_report(df)</code></pre></template>
     <script>
     // Sections 34-38: jump buttons scroll to their target, Copy buttons copy the next code block
     document.addEventListener("click", (event) => {
-        if (!event.target.closest("#sec34, #sec35, #sec36, #sec37, #sec38, #sec40, .plot36-lightbox")) return;
+        if (!event.target.closest("#sec27, #sec32, #sec34, #sec35, #sec36, #sec37, #sec38, #sec40, .plot36-lightbox")) return;
 
         // Plot tabs: show only the chosen plot card
         const plotChip = event.target.closest("[data-plot36]");
@@ -51052,9 +51590,9 @@ const courseProgressKey = "python-learning-hub-progress-v1";
 const courseStages = [
     { name: "I · Programming and Setup", lessons: 10 },
     { name: "II · Core Python", lessons: 10 },
-    { name: "III · Logic and Functions", lessons: 7 },
+    { name: "III · Logic and Functions", lessons: 6 },
     { name: "IV · Scientific Python and Data", lessons: 7 },
-    { name: "V · Python for researcher", lessons: 8 }
+    { name: "V · Python for researcher", lessons: 7 }
 ];
 
 const courseLessonLinks = navLinks.filter(link =>
@@ -57158,76 +57696,6 @@ pyLab("lambda29RunButton", () => {
 
 result = ${expression}`);
 });
-
-// Section 30: menu simulator
-(() => {
-    const buttons = document.querySelectorAll("[data-menu30-action]");
-    const output = document.getElementById("menu30Output");
-    if (!output) return;
-
-    function showTerminal(lines) {
-        output.replaceChildren(...lines.map(line => {
-            const paragraph = document.createElement("p");
-            paragraph.textContent = line;
-            return paragraph;
-        }));
-    }
-
-    function readMark(id) {
-        const value = Number(document.getElementById(id).value);
-        return Number.isFinite(value) ? value : 0;
-    }
-
-    const actions = {
-        total: (first, second) => [
-            ["Choose an option: 1", `First mark: ${first}`, `Second mark: ${second}`,
-                `Total marks: ${first + second}`],
-`def calculate_total():
-    mark1 = float(input("Enter first mark: "))
-    mark2 = float(input("Enter second mark: "))
-    total = mark1 + mark2
-    print(f"Total marks: {total}")`
-        ],
-        average: (first, second) => [
-            ["Choose an option: 2", `First mark: ${first}`, `Second mark: ${second}`,
-                `Average marks: ${(first + second) / 2}`],
-`def calculate_average():
-    mark1 = float(input("Enter first mark: "))
-    mark2 = float(input("Enter second mark: "))
-    average = (mark1 + mark2) / 2
-    print(f"Average marks: {average}")`
-        ],
-        result: first => [
-            ["Choose an option: 3", `Mark checked: ${first}`,
-                `Result: ${first >= 50 ? "Pass" : "Fail"}`],
-`def check_result():
-    mark = float(input("Enter the mark: "))
-
-    if mark >= 50:
-        print("Result: Pass")
-    else:
-        print("Result: Fail")`
-        ],
-        exit: () => [
-            ["Choose an option: 4", "Thank you for using the program!", "Program stopped."],
-`elif choice == "4":
-    print("Thank you for using the program!")
-    break`
-        ]
-    };
-
-    buttons.forEach(button => {
-        button.addEventListener("click", () => {
-            const [lines, code] = actions[button.dataset.menu30Action](
-                readMark("menu30MarkOne"),
-                readMark("menu30MarkTwo")
-            );
-
-            showTerminal(["--- Student Score Helper ---", ...lines]);
-            document.getElementById("menu30Code").textContent = code;
-        });
-    });
-})();
 
 // Section 31: NumPy data lab
 (() => {
