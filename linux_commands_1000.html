@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Learn essential Linux and HPC commands with easy-to-edit one-command-per-line JavaScript and a safe practice terminal." name="description"/>
+<title>
+   Linux Commands
+  </title>
+<link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b2430'/%3E%3Cpath d='M16 20l14 12-14 12M36 44h13' stroke='%237ce6d1' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" rel="icon" type="image/svg+xml"/>
+<style>
+   :root{--ink:#102c36;--muted:#597078;--paper:#f5f8f5;--panel:#fff;--line:#dce7e2;--teal:#087d75;--teal-dark:#075853;--mint:#c9f2e6;--gold:#f5bd55;--coral:#ef8b70;--navy:#0b2430;--shadow:0 18px 45px rgba(17,61,62,.10);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(115deg,#f8fbf8 0%,#edf8f5 48%,#fff8e9 100%);color:var(--ink);line-height:1.55}.wrap{width:min(1160px,calc(100% - 36px));margin:auto}
+.nav{position:sticky;top:0;z-index:20;background:rgba(248,251,248,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(220,231,226,.9)}.navin{height:72px;display:flex;justify-content:space-between;align-items:center;gap:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.03em}.mark{display:grid;place-items:center;width:35px;height:35px;border-radius:11px;background:var(--navy);color:var(--mint);font-family:monospace;font-size:19px}.navlinks{display:flex;gap:20px;align-items:center}.navlinks a{color:var(--muted);font-size:.9rem;text-decoration:none}.navlinks a:hover{color:var(--teal)}
+.hero{padding:68px 0 38px}.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:42px;align-items:center}.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--teal-dark);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em}.eyebrow:before{content:"";width:24px;height:3px;border-radius:4px;background:var(--gold)}h1{font-size:clamp(2.55rem,5vw,4.65rem);line-height:.98;letter-spacing:-.075em;margin:.3rem 0 1.2rem}h1 em{font-style:normal;color:var(--teal)}.lead{max-width:630px;color:var(--muted);font-size:1.12rem;margin:0 0 1.55rem}.actions{display:flex;flex-wrap:wrap;gap:12px}.btn{border:0;border-radius:13px;padding:12px 16px;background:var(--teal);color:white;font-weight:750;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}.btn:hover{background:var(--teal-dark);transform:translateY(-1px)}.btn.alt{background:transparent;color:var(--teal-dark);border:1px solid #95cfc4}
+.terminal-art{background:var(--navy);color:#d7f9ec;border:6px solid #e6f3ee;border-radius:27px;box-shadow:var(--shadow);overflow:hidden;transform:rotate(1.6deg)}.windowbar{height:40px;background:#123744;display:flex;align-items:center;gap:7px;padding:0 15px}.dot{width:10px;height:10px;border-radius:50%;background:var(--coral)}.dot:nth-child(2){background:var(--gold)}.dot:nth-child(3){background:#6ce0b7}.windowbar span{margin-left:auto;color:#8db1af;font:700 .7rem ui-monospace,monospace}.screen{padding:27px 27px 30px;font:500 1rem/1.9 ui-monospace,SFMono-Regular,Menlo,monospace}.prompt{color:#78e2c8}.typed{color:white}.fade{color:#87aead}.art-note{margin:12px 27px 0;padding:11px 13px;border-left:2px solid var(--gold);background:rgba(245,189,85,.1);font:500 .75rem/1.5 ui-monospace,monospace;color:#e2f6ef}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:34px}.stat{padding:15px 17px;background:rgba(255,255,255,.62);border:1px solid rgba(220,231,226,.88);border-radius:17px}.stat b{display:block;font-size:1.25rem}.stat span{font-size:.78rem;color:var(--muted)}
+section{padding:38px 0}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:19px}.kicker{margin:0;color:var(--teal);font-weight:800;font-size:.78rem;text-transform:uppercase;letter-spacing:.11em}.section-head h2{font-size:clamp(1.7rem,3.1vw,2.5rem);letter-spacing:-.045em;margin:3px 0 0}.section-head p{max-width:510px;margin:0;color:var(--muted);font-size:.94rem}
+.note{display:flex;gap:13px;align-items:flex-start;background:#fff6dd;border:1px solid #f4df9e;border-radius:18px;padding:15px 17px;color:#644d17;font-size:.92rem}.note strong{color:#4c390c}.note .icon{font-size:1.25rem}
+.path{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:18px}.path-card{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 6px 18px rgba(28,70,63,.045)}.path-card .num{color:var(--teal);font-weight:850;font-size:.78rem}.path-card h3{font-size:1.15rem;margin:7px 0}.path-card p{font-size:.88rem;color:var(--muted);margin:0 0 15px}.done{border:0;background:#e8f7f0;color:var(--teal-dark);border-radius:9px;padding:8px 10px;font-weight:750;cursor:pointer}.done.active{background:var(--teal);color:white}
+.controls{display:grid;grid-template-columns:1fr auto;gap:13px;margin:0 0 18px}.search{position:relative}.search input{width:100%;border:1px solid #bcd5ce;background:#fff;border-radius:14px;padding:14px 17px 14px 42px;font:inherit;color:var(--ink);outline-color:var(--teal)}.search:before{content:"⌕";position:absolute;left:15px;top:8px;font-size:1.5rem;color:var(--teal)}.select{border:1px solid #bcd5ce;border-radius:14px;padding:0 12px;background:white;color:var(--ink);font-weight:650}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}.chip{border:1px solid #cfe1dc;background:rgba(255,255,255,.7);color:var(--muted);padding:7px 11px;border-radius:999px;font-size:.8rem;font-weight:720;cursor:pointer}.chip.active,.chip:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+.essentials{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.command-card{background:var(--panel);border:1px solid var(--line);border-radius:19px;padding:18px;box-shadow:0 7px 17px rgba(27,63,58,.045);transition:.18s}.command-card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}.card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.tag{display:inline-block;background:#e7f7f1;color:#08715f;border-radius:99px;padding:3px 8px;font-size:.68rem;font-weight:800}.copy{border:0;background:#eff5f3;color:var(--teal-dark);border-radius:8px;padding:6px 9px;font-size:.75rem;font-weight:800;cursor:pointer}.copy:hover{background:var(--mint)}code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.command-card code{display:block;font-size:1.08rem;color:#0b5d5b;font-weight:800;margin:14px 0 6px;overflow-wrap:anywhere}.command-card p{font-size:.86rem;color:var(--muted);margin:0}.example{display:none;margin-top:12px;padding:10px;border-radius:10px;background:#f3f8f7;color:#40615b;font-size:.78rem}.example.show{display:block}.example-btn{margin-top:11px;border:0;background:transparent;color:var(--teal);font-weight:780;font-size:.8rem;padding:0;cursor:pointer}
+.practice{background:var(--navy);border-radius:25px;padding:25px;color:white;box-shadow:var(--shadow);display:grid;grid-template-columns:.8fr 1.2fr;gap:25px;align-items:start}.practice h2{margin:0 0 8px;font-size:2rem;letter-spacing:-.04em}.practice p{color:#a9ccc7;margin:0}.steps{margin:18px 0 0;padding:0;list-style:none;counter-reset:step}.steps li{position:relative;padding:0 0 14px 34px;color:#d4eae5;font-size:.88rem;counter-increment:step}.steps li:before{content:counter(step);position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#174554;color:#7ce6d1;font-size:.72rem;font-weight:800}.sim{border:1px solid #325d66;border-radius:16px;overflow:hidden;background:#081c25}.simbar{display:flex;justify-content:space-between;padding:10px 13px;background:#113340;color:#96b8b7;font:700 .72rem ui-monospace,monospace}.output{height:245px;overflow:auto;padding:15px;font:500 .84rem/1.75 ui-monospace,monospace;color:#cce7e0}.line{margin-bottom:4px}.inputrow{display:flex;border-top:1px solid #254d58;padding:10px 12px;gap:8px}.inputrow span{font:700 .9rem ui-monospace,monospace;color:#78e2c8;padding-top:8px}.inputrow input{min-width:0;flex:1;border:0;outline:0;background:transparent;color:white;font:500 .9rem ui-monospace,monospace}.run{background:#67cdb7;border:0;border-radius:8px;padding:0 12px;color:#08353a;font-weight:850;cursor:pointer}.hint-row{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.hint{border:1px solid #456e73;background:transparent;color:#d7efea;border-radius:99px;padding:5px 8px;font-size:.72rem;cursor:pointer}
+.catalog{background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden}.catalog-head{padding:17px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;align-items:center}.catalog-head span{font-size:.86rem;color:var(--muted)}.catalog-grid{display:grid;grid-template-columns:repeat(4,1fr)}.catalog-item{border-right:1px solid #edf2ef;border-bottom:1px solid #edf2ef;padding:12px 15px;display:flex;gap:9px;align-items:center;min-width:0}.catalog-item small{color:#87a29d;width:28px}.catalog-item code{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#1c5656;font-size:.85rem}.pager{padding:15px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px}.pager button{border:1px solid #c9ded8;background:white;border-radius:10px;padding:7px 11px;color:var(--teal-dark);font-weight:750;cursor:pointer}.pager button:disabled{opacity:.45;cursor:not-allowed}.hidden{display:none!important}
+footer{padding:42px 0 50px;color:#6a8380;font-size:.82rem;text-align:center}.guide-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.guide-card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 6px 18px rgba(28,70,63,.045)}.guide-card h3{margin:0 0 8px;font-size:1.18rem}.guide-card p{margin:0 0 12px;color:var(--muted);font-size:.9rem}.guide-card code{display:block;background:#eff7f4;border-radius:10px;padding:9px 11px;margin:7px 0;color:#0b5d5b;font-size:.82rem;overflow-wrap:anywhere}.shortcut-table{width:100%;border-collapse:collapse;font-size:.88rem}.shortcut-table th{text-align:left;color:var(--teal-dark);font-size:.76rem;text-transform:uppercase;letter-spacing:.08em}.shortcut-table th,.shortcut-table td{padding:10px 7px;border-bottom:1px solid #e5eeeb;vertical-align:top}.shortcut-table td:first-child{width:35%;color:#0b5d5b;font-weight:750}.tip{margin-top:13px;padding:10px 12px;border-left:3px solid var(--gold);background:#fff9eb;color:#69541d;border-radius:0 10px 10px 0;font-size:.84rem}.script{margin:10px 0;padding:13px;border-radius:12px;background:#0b2430;color:#d8f5ed;white-space:pre-wrap;font:.78rem/1.65 ui-monospace,SFMono-Regular,Menlo,monospace;overflow:auto}.catalog-grid{grid-template-columns:repeat(3,1fr)}.catalog-item{align-items:flex-start;flex-direction:column;gap:3px}.catalog-item small{width:auto}.catalog-item .why{color:#718783;font-size:.7rem;line-height:1.35}.catalog-item code{max-width:100%}@media(max-width:850px){.guide-grid{grid-template-columns:1fr}.catalog-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:590px){.catalog-grid{grid-template-columns:1fr}}
+@media(max-width:850px){.hero-grid,.practice{grid-template-columns:1fr}.terminal-art{max-width:540px;margin:auto}.essentials{grid-template-columns:repeat(2,1fr)}.catalog-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:590px){.wrap{width:min(100% - 24px,1160px)}.navlinks{display:none}.hero{padding-top:44px}.stats,.path{grid-template-columns:1fr}.essentials{grid-template-columns:1fr}.controls{grid-template-columns:1fr}.select{height:46px}.catalog-grid{grid-template-columns:repeat(2,1fr)}.section-head{display:block}.section-head p{margin-top:10px}.practice{padding:18px}.screen{padding:20px;font-size:.84rem}}
+
+
+/* ===== Simple static command layout ===== */
+.stage-note{display:inline-block;background:#e8f7f0;color:var(--teal-dark);border-radius:9px;padding:8px 10px;font-weight:750;font-size:.8rem}
+.simple-edit-note{margin-bottom:28px}
+.command-group{margin-top:30px;scroll-margin-top:88px}
+.command-group-title{font-size:1.35rem;margin:0 0 13px;letter-spacing:-.02em;color:var(--teal-dark)}
+.command-card{min-height:190px}
+.command-card .card-top{min-height:24px}
+.command-example{margin-top:13px;padding:10px 11px;border-radius:10px;background:#f3f8f7;border:1px solid #e2ece8}
+.command-example span{display:block;color:#718783;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;margin-bottom:4px}
+.command-example code{margin:0;font-size:.8rem;color:#315b56;font-weight:650}
+.static-reference{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.reference-item{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 15px;box-shadow:0 5px 14px rgba(27,63,58,.035)}
+.reference-item code{display:block;color:#0b5d5b;font-weight:800;margin-bottom:5px;overflow-wrap:anywhere}
+.reference-item span{display:block;color:var(--muted);font-size:.8rem;line-height:1.4}
+@media(max-width:850px){.static-reference{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:590px){.static-reference{grid-template-columns:1fr}}
+
+/* ===== Easy-to-edit JavaScript command controls ===== */
+.command-filter-wrap{position:relative}
+.filter-ui{margin-bottom:18px}
+.level-select{border:1px solid #bcd5ce;border-radius:14px;padding:0 13px;background:white;color:var(--ink);font-weight:750;min-width:148px;height:50px}
+.chips .chip{display:inline-block;user-select:none}
+.chip.active{background:var(--teal);border-color:var(--teal);color:#fff}
+.level-badge{font-size:.66rem;font-weight:800;color:#718783;background:#f3f8f7;border-radius:99px;padding:3px 8px}
+.command-list .command-card{min-height:190px}
+.no-results{display:none;color:var(--muted);padding:18px 2px}
+.no-results.show{display:block}
+@media(max-width:590px){.level-select{width:100%}}
+
+/* ===== Command card details ===== */
+.essential-guide{margin-top:34px;padding-top:28px;border-top:1px solid var(--line)}
+.command-card p strong{color:var(--teal-dark);font-weight:800}
+.command-count-note{margin:0 0 14px;color:var(--muted);font-size:.84rem}
+</style>
+</head>
+<body>
+<nav class="nav">
+<div class="wrap navin">
+<div class="brand">
+<span class="mark">
+      &gt;_
+     </span>
+     Linux Commands
+    </div>
+<div class="navlinks">
+<a href="#learn">
+      Learn
+     </a>
+<a href="#commands">Commands</a>
+
+<a href="#editors">
+      Editors
+     </a>
+<a href="#hpc">
+      Jobs &amp; HPC
+     </a>
+<a href="#practice">
+      Practice
+     </a>
+</div>
+</div>
+</nav>
+<main>
+<section class="hero">
+<div class="wrap hero-grid">
+<div>
+<span class="eyebrow">
+       A beginner-friendly Linux guide
+      </span>
+<h1>
+       Learn Linux.
+       <br/>
+<em>
+        Read, edit, run,
+       </em>
+<br/>
+       and manage work.
+      </h1>
+<p class="lead">
+       A practical guide for daily terminal work and HPC: files, Nano and Emacs, terminal panes, job scripts, queues, processes, memory, and safe command habits.
+      </p>
+<div class="actions">
+<a class="btn" href="#commands">
+        Start with essentials
+        <span>
+         ↓
+        </span>
+</a>
+<a class="btn alt" href="#editors">
+        Learn editors
+       </a>
+</div>
+<div class="stats">
+<div class="stat">
+<b>300+</b>
+<span>
+         common Linux commands
+        </span>
+</div>
+<div class="stat">
+<b>
+         HPC
+        </b>
+<span>
+         jobs, queues &amp; resources
+        </span>
+</div>
+<div class="stat">
+<b>
+         0
+        </b>
+<span>
+         real files changed in practice
+        </span>
+</div>
+</div>
+</div>
+<div aria-label="Example terminal" class="terminal-art">
+<div class="windowbar">
+<i class="dot">
+</i>
+<i class="dot">
+</i>
+<i class="dot">
+</i>
+<span>
+        terminal — bash
+       </span>
+</div>
+<div class="screen">
+<div>
+<span class="prompt">
+         you@computer
+        </span>
+<span class="fade">
+         :~$
+        </span>
+<span class="typed">
+         less +10 notes.txt
+        </span>
+</div>
+<div class="fade">
+        Starts reading at line 10
+       </div>
+<br/>
+<div>
+<span class="prompt">
+         you@computer
+        </span>
+<span class="fade">
+         :~$
+        </span>
+<span class="typed">
+         tmux new -s research
+        </span>
+</div>
+<div>
+<span class="prompt">
+         you@computer
+        </span>
+<span class="fade">
+         :~$
+        </span>
+<span class="typed">
+         sbatch job.slurm
+        </span>
+</div>
+<div>
+        Submitted batch job 123456
+       </div>
+<div>
+<span class="prompt">
+         you@computer
+        </span>
+<span class="fade">
+         :~$
+        </span>
+<span class="typed">
+         squeue -u $USER
+        </span>
+</div>
+</div>
+<div class="art-note">
+       Learn commands you will actually use — then look up the rest when you need them.
+      </div>
+</div>
+</div>
+</section>
+<section id="learn">
+<div class="wrap">
+<div class="section-head">
+<div>
+<p class="kicker">
+        A gentle route
+       </p>
+<h2>
+        Build confidence in three short stages.
+       </h2>
+</div>
+<p>
+       Finish each stage when it feels familiar. Your progress stays on this device, and you can revisit a stage anytime.
+      </p>
+</div>
+<div class="note">
+<span class="icon">
+       ⚠
+      </span>
+<div>
+<strong>
+        Safety rule:
+       </strong>
+       before using any move, copy, or delete command, run
+       <code>
+        pwd
+       </code>
+       and
+       <code>
+        ls
+       </code>
+       first. Avoid
+       <code>
+        sudo
+       </code>
+       and permanent deletion commands until you understand them.
+      </div>
+</div>
+<div class="path" id="path">
+<article class="path-card">
+<span class="num">
+        STAGE 01
+       </span>
+<h3>
+        Orient yourself
+       </h3>
+<p>
+        Know where you are and what is in the folder using
+        <code>
+         pwd
+        </code>
+        ,
+        <code>
+         ls
+        </code>
+        , and
+        <code>
+         cd
+        </code>
+        .
+       </p>
+<span class="stage-note">
+        Learn this stage at your own pace
+       </span>
+</article>
+<article class="path-card">
+<span class="num">
+        STAGE 02
+       </span>
+<h3>
+        Make and read things
+       </h3>
+<p>
+        Create folders and files, then inspect text with
+        <code>
+         mkdir
+        </code>
+        ,
+        <code>
+         touch
+        </code>
+        ,
+        <code>
+         cat
+        </code>
+        , and
+        <code>
+         less
+        </code>
+        .
+       </p>
+<span class="stage-note">
+        Learn this stage at your own pace
+       </span>
+</article>
+<article class="path-card">
+<span class="num">
+        STAGE 03
+       </span>
+<h3>
+        Find what you need
+       </h3>
+<p>
+        Search carefully with
+        <code>
+         grep
+        </code>
+        and
+        <code>
+         find
+        </code>
+        , then learn help tools such as
+        <code>
+         man
+        </code>
+        .
+       </p>
+<span class="stage-note">
+        Learn this stage at your own pace
+       </span>
+</article>
+</div>
+</div>
+</section>
+<section id="commands">
+<div class="wrap command-filter-wrap">
+<div class="section-head">
+<div>
+<p class="kicker">300+ common commands · easy-to-edit JavaScript</p>
+<h2>Everyday shell tools, explained.</h2>
+</div>
+<p>Each command is written as its own <code>addCommand(...)</code> line. Every card shows the command, its utility, and a collapsible “How to use” example.</p>
+</div>
+<div class="filter-ui">
+<div class="controls">
+<label class="search">
+<input aria-label="Command search" autocomplete="off" id="commandSearch" placeholder="Search common commands: try ‘files’, ‘grep’, ‘python’, or ‘pdf’" type="search"/>
+</label>
+<select aria-label="Command level" class="level-select" id="commandLevel">
+<option value="all">All levels</option>
+<option value="starter">Starter commands</option>
+<option value="next">Next steps</option>
+</select>
+</div>
+<div class="chips" id="commandChips">
+<button class="chip active" data-cat="all" type="button">All essentials</button>
+<button class="chip" data-cat="orientation" type="button">Getting around</button>
+<button class="chip" data-cat="files" type="button">Files &amp; folders</button>
+<button class="chip" data-cat="reading" type="button">Read files</button>
+<button class="chip" data-cat="finding" type="button">Find things</button>
+<button class="chip" data-cat="help" type="button">Get help</button>
+<button class="chip" data-cat="writing" type="button">Write &amp; edit</button>
+<button class="chip" data-cat="system" type="button">Your system</button>
+<button class="chip" data-cat="network" type="button">Network</button>
+<button class="chip" data-cat="git" type="button">Git</button>
+<button class="chip" data-cat="archives" type="button">Archives</button>
+<button class="chip" data-cat="packages" type="button">Packages</button>
+<button class="chip" data-cat="programming" type="button">Programming</button>
+<button class="chip" data-cat="documents" type="button">Documents &amp; media</button>
+<button class="chip" data-cat="security" type="button">Security</button>
+<button class="chip" data-cat="admin" type="button">Admin &amp; disks</button>
+<button class="chip" data-cat="hpc" type="button">HPC</button>
+</div>
+</div>
+<div class="essentials command-list" id="commandGrid"></div>
+<p class="no-results" id="commandNoResults">No command matches your search or filter.</p><div class="essential-guide hidden" id="readingGuide">
+<div class="section-head">
+<div>
+<p class="kicker">
+        Reading files
+       </p>
+<h2>
+        Read long files without losing your place.
+       </h2>
+</div>
+<p>
+       Use
+       <code>
+        less
+       </code>
+       for safe, page-by-page reading. It does not modify the file.
+      </p>
+</div>
+<div class="guide-grid">
+<article class="guide-card">
+<h3>
+        Use
+        <code>
+         less
+        </code>
+</h3>
+<code>
+        less results.log
+       </code>
+<table class="shortcut-table">
+<tr>
+<th>
+          Key
+         </th>
+<th>
+          Action
+         </th>
+</tr>
+<tr>
+<td>
+<code>
+           Space
+          </code>
+          /
+          <code>
+           f
+          </code>
+</td>
+<td>
+          One page forward.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           b
+          </code>
+</td>
+<td>
+          One page backward.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           g
+          </code>
+          /
+          <code>
+           G
+          </code>
+</td>
+<td>
+          Beginning / end of the file.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           10g
+          </code>
+</td>
+<td>
+          Jump to line 10.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           /word
+          </code>
+          ,
+          <code>
+           n
+          </code>
+</td>
+<td>
+          Search, then next result.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           q
+          </code>
+</td>
+<td>
+          Quit back to the terminal.
+         </td>
+</tr>
+</table>
+<div class="tip">
+<code>
+         less +G file.txt
+        </code>
+        opens at the end.
+        <code>
+         less +10 file.txt
+        </code>
+        starts near line 10.
+       </div>
+</article>
+<article class="guide-card">
+<h3>
+        Read selected lines and logs
+       </h3>
+<code>
+        head -n 20 file.txt
+       </code>
+<p>
+        First 20 lines.
+       </p>
+<code>
+        tail -n 20 file.txt
+       </code>
+<p>
+        Last 20 lines.
+       </p>
+<code>
+        tail -f output.log
+       </code>
+<p>
+        Watch a log while it grows; stop with
+        <code>
+         Ctrl+C
+        </code>
+        .
+       </p>
+<code>
+        sed -n '10,20p' file.txt
+       </code>
+<p>
+        Only lines 10–20.
+       </p>
+<code>
+        grep -n 'error' output.log
+       </code>
+<p>
+        Find text and show the line number.
+       </p>
+</article>
+</div>
+</div>
+</div>
+</section>
+
+<section id="editors">
+<div class="wrap">
+<div class="section-head">
+<div>
+<p class="kicker">
+        Nano and Emacs
+       </p>
+<h2>
+        Edit, save, navigate, and exit from a terminal.
+       </h2>
+</div>
+<p>
+<code>
+        Ctrl
+       </code>
+       means hold Control;
+       <code>
+        Alt
+       </code>
+       may appear as
+       <code>
+        M
+       </code>
+       in Emacs documents.
+      </p>
+</div>
+<div class="guide-grid">
+<article class="guide-card">
+<h3>
+        Nano: simplest terminal editor
+       </h3>
+<code>
+        nano notes.txt
+       </code>
+<table class="shortcut-table">
+<tr>
+<th>
+          Key
+         </th>
+<th>
+          Action
+         </th>
+</tr>
+<tr>
+<td>
+<code>
+           Ctrl+O
+          </code>
+          ,
+          <code>
+           Enter
+          </code>
+</td>
+<td>
+          Save the file.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           Ctrl+X
+          </code>
+</td>
+<td>
+          Exit; Nano asks whether to save unsaved work.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           Ctrl+_
+          </code>
+          ,
+          <code>
+           10
+          </code>
+</td>
+<td>
+          Jump to line 10.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           Ctrl+V
+          </code>
+          /
+          <code>
+           Ctrl+Y
+          </code>
+</td>
+<td>
+          Page down / page up.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           Ctrl+K
+          </code>
+</td>
+<td>
+          Cut the current line; press repeatedly to delete line by line.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           Ctrl+U
+          </code>
+</td>
+<td>
+          Paste cut text.
+         </td>
+</tr>
+</table>
+<div class="tip">
+        Erase all text:
+        <code>
+         Ctrl+_
+        </code>
+        →
+        <code>
+         1
+        </code>
+        ,
+        <code>
+         Ctrl+^
+        </code>
+        to mark,
+        <code>
+         Alt+/
+        </code>
+        to go to the end, then
+        <code>
+         Ctrl+K
+        </code>
+        . Save using
+        <code>
+         Ctrl+O
+        </code>
+        .
+       </div>
+</article>
+<article class="guide-card">
+<h3>
+        Emacs inside the terminal
+       </h3>
+<code>
+        emacs -nw job.slurm
+       </code>
+<p>
+<code>
+         -nw
+        </code>
+        runs Emacs without a graphical window — ideal over SSH.
+       </p>
+<table class="shortcut-table">
+<tr>
+<th>
+          Key
+         </th>
+<th>
+          Action
+         </th>
+</tr>
+<tr>
+<td>
+<code>
+           Ctrl+x Ctrl+s
+          </code>
+</td>
+<td>
+          Save.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           Ctrl+x Ctrl+c
+          </code>
+</td>
+<td>
+          Exit.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           Alt+&lt;
+          </code>
+          /
+          <code>
+           Alt+&gt;
+          </code>
+</td>
+<td>
+          Beginning / end of file.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           Alt+g g
+          </code>
+          ,
+          <code>
+           10
+          </code>
+</td>
+<td>
+          Go to line 10.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           Ctrl+v
+          </code>
+          /
+          <code>
+           Alt+v
+          </code>
+</td>
+<td>
+          Page down / page up.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           Ctrl+k
+          </code>
+</td>
+<td>
+          Delete to line end; at its start, removes the whole line.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           Ctrl+x Ctrl+f
+          </code>
+</td>
+<td>
+          Open another file.
+         </td>
+</tr>
+</table>
+<div class="tip">
+        Delete all:
+        <code>
+         Alt+&lt;
+        </code>
+        ,
+        <code>
+         Ctrl+Space
+        </code>
+        ,
+        <code>
+         Alt+&gt;
+        </code>
+        ,
+        <code>
+         Ctrl+w
+        </code>
+        . Undo with
+        <code>
+         Ctrl+/
+        </code>
+        .
+       </div>
+</article>
+</div>
+</div>
+</section>
+<section id="panes">
+<div class="wrap">
+<div class="section-head">
+<div>
+<p class="kicker">
+        Parallel terminals
+       </p>
+<h2>
+        Use
+        <code>
+         tmux
+        </code>
+        without killing your work.
+       </h2>
+</div>
+<p>
+<code>
+        tmux
+       </code>
+       is especially useful on a server: detach, close SSH, and reconnect later.
+      </p>
+</div>
+<div class="guide-grid">
+<article class="guide-card">
+<h3>
+        Start and reconnect
+       </h3>
+<code>
+        tmux new -s research
+       </code>
+<p>
+        Create a named session.
+       </p>
+<code>
+        tmux ls
+       </code>
+<p>
+        See your sessions.
+       </p>
+<code>
+        tmux attach -t research
+       </code>
+<p>
+        Reconnect later.
+       </p>
+<code>
+        Ctrl+b d
+       </code>
+<p>
+        Detach safely without ending your programs.
+       </p>
+</article>
+<article class="guide-card">
+<h3>
+        Split panes
+       </h3>
+<table class="shortcut-table">
+<tr>
+<th>
+          Inside tmux
+         </th>
+<th>
+          Action
+         </th>
+</tr>
+<tr>
+<td>
+<code>
+           Ctrl+b %
+          </code>
+</td>
+<td>
+          Vertical split: left and right.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           Ctrl+b "
+          </code>
+</td>
+<td>
+          Horizontal split: top and bottom.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           Ctrl+b
+          </code>
+          + arrow
+         </td>
+<td>
+          Move between panes.
+         </td>
+</tr>
+<tr>
+<td>
+<code>
+           Ctrl+b x
+          </code>
+</td>
+<td>
+          Close only the current pane.
+         </td>
+</tr>
+</table>
+</article>
+</div>
+</div>
+</section>
+<section id="hpc">
+<div class="wrap">
+<div class="section-head">
+<div>
+<p class="kicker">
+        HPC jobs and resources
+       </p>
+<h2>
+        Submit work, check the queue, and control processes.
+       </h2>
+</div>
+<p>
+       These examples use the common Slurm scheduler. Check your own cluster’s partition names and limits.
+      </p>
+</div>
+<div class="guide-grid">
+<article class="guide-card">
+<h3>
+        Submit a Slurm job
+       </h3>
+<pre class="script">#!/bin/bash<br/>#SBATCH --job-name=training<br/>#SBATCH --time=02:00:00<br/>#SBATCH --cpus-per-task=4<br/>#SBATCH --mem=16G<br/>#SBATCH --output=logs/%x-%j.out<br/><br/>module load python<br/>python train.py</pre>
+<code>
+        mkdir -p logs
+       </code>
+<code>
+        sbatch job.slurm
+       </code>
+<p>
+        Keep the returned job ID.
+       </p>
+</article>
+<article class="guide-card">
+<h3>
+        Queue and status
+       </h3>
+<code>
+        squeue -u $USER
+       </code>
+<p>
+        Your pending and running jobs.
+       </p>
+<code>
+        sinfo
+       </code>
+<p>
+        Cluster partitions and availability.
+       </p>
+<code>
+        scontrol show job JOBID
+       </code>
+<p>
+        Detailed job status.
+       </p>
+<code>
+        tail -f logs/training-JOBID.out
+       </code>
+<p>
+        Live job output; stop watching with
+        <code>
+         Ctrl+C
+        </code>
+        .
+       </p>
+<code>
+        sacct -j JOBID
+       </code>
+<p>
+        Completed job accounting;
+        <code>
+         seff JOBID
+        </code>
+        shows efficiency if installed.
+       </p>
+</article>
+<article class="guide-card">
+<h3>
+        Stop and inspect work
+       </h3>
+<code>
+        scancel JOBID
+       </code>
+<p>
+        Cancel a submitted Slurm job.
+       </p>
+<code>
+        ps aux | less
+       </code>
+<p>
+        List processes;
+        <code>
+         pgrep -af python
+        </code>
+        finds by name.
+       </p>
+<code>
+        top
+       </code>
+       or
+       <code>
+        htop
+       </code>
+<p>
+        Interactive CPU and memory use; press
+        <code>
+         q
+        </code>
+        to exit.
+       </p>
+<code>
+        kill PID
+       </code>
+<p>
+        Ask a local process to stop. Use
+        <code>
+         kill -9 PID
+        </code>
+        only as a last resort.
+       </p>
+</article>
+<article class="guide-card">
+<h3>
+        Memory, disk, and GPU
+       </h3>
+<code>
+        free -h
+       </code>
+<p>
+        System RAM usage.
+       </p>
+<code>
+        df -h
+       </code>
+<p>
+        Free disk space.
+       </p>
+<code>
+        du -sh results
+       </code>
+<p>
+        Size of one folder.
+       </p>
+<code>
+        nvidia-smi
+       </code>
+<p>
+        NVIDIA GPU memory and processes, when available.
+       </p>
+</article>
+</div>
+</div>
+</section>
+<section id="practice">
+<div class="wrap">
+<div class="practice">
+<div>
+<p class="kicker" style="color:#7ce6d1">
+        A safe simulation
+       </p>
+<h2>
+        Practise without touching your computer.
+       </h2>
+<p>
+        This terminal has its own virtual folder. Try your own names with
+        <code>
+         mkdir
+        </code>
+        ,
+        <code>
+         touch
+        </code>
+        ,
+        <code>
+         cp
+        </code>
+        ,
+        <code>
+         mv
+        </code>
+        ,
+        <code>
+         rm
+        </code>
+        ,
+        <code>
+         cd
+        </code>
+        ,
+        <code>
+         ls
+        </code>
+        , and
+        <code>
+         cat
+        </code>
+        ; nothing on your actual computer changes.
+       </p>
+<ol class="steps">
+<li>
+         Find your location with
+         <code>
+          pwd
+         </code>
+         .
+        </li>
+<li>
+         Create any folder using
+         <code>
+          mkdir my-folder
+         </code>
+         .
+        </li>
+<li>
+         Enter it, then create a file with
+         <code>
+          touch hello.txt
+         </code>
+         .
+        </li>
+<li>
+         Copy it with
+         <code>
+          cp hello.txt hello-copy.txt
+         </code>
+         .
+        </li>
+</ol>
+</div>
+<div>
+<div class="sim">
+<div class="simbar">
+<span>
+          practice-terminal
+         </span>
+<span>
+          safe mode
+         </span>
+</div>
+<div class="output" id="output">
+<div class="line">
+          Welcome! Try
+          <span style="color:#78e2c8">
+           mkdir my-folder
+          </span>
+          , then explore safely.
+         </div>
+</div>
+<div class="inputrow">
+<span>
+          learner@lab:~$
+         </span>
+<input aria-label="Practice command" id="terminalInput" placeholder="type mkdir my-folder" spellcheck="false"/>
+<button class="run" id="run">
+          Run
+         </button>
+</div>
+</div>
+<div class="hint-row">
+<button class="hint">
+         pwd
+        </button>
+<button class="hint">
+         ls
+        </button>
+<button class="hint">
+         mkdir my-folder
+        </button>
+<button class="hint">
+         cd my-folder
+        </button>
+<button class="hint">
+         touch hello.txt
+        </button>
+<button class="hint">
+         cp hello.txt hello-copy.txt
+        </button>
+<button class="hint">
+         ls
+        </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap">
+    Linux Commands · Learn carefully, experiment in a practice folder, and check the manual before using unfamiliar commands.
+   </div>
+</footer>
+<script>
+// ============================================================
+// COMMON COMMANDS — EASY TO EDIT
+// ============================================================
+// Each command has its OWN addCommand(...) line.
+//
+// Format:
+// addCommand("command", "category", "level", "utility", "how to use");
+//
+// To add a command: copy one addCommand(...) line and edit its five values.
+// To delete a command: delete only that one line.
+// ============================================================
+
+const commands = [];
+
+function addCommand(cmd, category, level, description, example) {
+  commands.push({ cmd, category, level, description, example });
+}
+
+
+// -------------------- Getting around --------------------
+addCommand("pwd", "orientation", "starter", "Print the full path of the folder you are in.", "pwd");
+addCommand("ls", "orientation", "starter", "List files and folders in the current directory.", "ls");
+addCommand("ls -la", "orientation", "starter", "List all files, including hidden ones, with sizes, owners and permissions.", "ls -la");
+addCommand("ls -lh", "orientation", "starter", "Long listing with human-readable file sizes (K, M, G).", "ls -lh");
+addCommand("ls -lt", "orientation", "starter", "List files sorted by modification time, newest first.", "ls -lt | head");
+addCommand("cd", "orientation", "starter", "Change into another folder.", "cd projects/analysis");
+addCommand("cd ..", "orientation", "starter", "Go up one folder level.", "cd ..");
+addCommand("cd ~", "orientation", "starter", "Go back to your home folder.", "cd ~");
+addCommand("cd -", "orientation", "starter", "Jump back to the previous folder you were in.", "cd -");
+addCommand("clear", "orientation", "starter", "Clear the terminal screen (shortcut: Ctrl+L).", "clear");
+addCommand("history", "orientation", "starter", "Show the commands you typed recently.", "history | tail -n 20");
+addCommand("!!", "orientation", "next", "Repeat the previous command.", "sudo !!");
+addCommand("echo", "orientation", "starter", "Print text or the value of a variable.", "echo $HOME");
+addCommand("alias", "orientation", "starter", "Create a short name for a longer command.", "alias ll='ls -la'");
+addCommand("unalias", "orientation", "next", "Remove an alias.", "unalias ll");
+addCommand("exit", "orientation", "starter", "Close the current shell or SSH session.", "exit");
+addCommand("whoami", "orientation", "starter", "Show your username.", "whoami");
+addCommand("hostname", "orientation", "starter", "Show the name of the machine you are logged into.", "hostname");
+addCommand("date", "orientation", "starter", "Show or format the current date and time.", "date '+%Y-%m-%d %H:%M'");
+addCommand("cal", "orientation", "starter", "Show a calendar for the current month.", "cal");
+addCommand("tree", "orientation", "starter", "Show a folder and its contents as a tree.", "tree -L 2");
+addCommand("pushd", "orientation", "next", "Change folder and remember the previous one on a stack.", "pushd /tmp");
+addCommand("popd", "orientation", "next", "Return to the folder saved by pushd.", "popd");
+addCommand("reset", "orientation", "next", "Restore a terminal whose display has become garbled.", "reset");
+
+// -------------------- Files & folders --------------------
+addCommand("mkdir", "files", "starter", "Create a new folder.", "mkdir results");
+addCommand("mkdir -p", "files", "starter", "Create nested folders in one step; no error if they exist.", "mkdir -p data/raw/2026");
+addCommand("touch", "files", "starter", "Create an empty file or update its timestamp.", "touch notes.txt");
+addCommand("cp", "files", "starter", "Copy a file.", "cp report.txt report-backup.txt");
+addCommand("cp -r", "files", "starter", "Copy a folder and everything inside it.", "cp -r project project-backup");
+addCommand("mv", "files", "starter", "Move or rename a file or folder.", "mv draft.txt final.txt");
+addCommand("rm", "files", "starter", "Delete a file permanently (there is no recycle bin).", "rm old.txt");
+addCommand("rm -i", "files", "starter", "Delete files but ask for confirmation first.", "rm -i *.log");
+addCommand("rm -r", "files", "next", "Delete a folder and everything inside it. Double-check the path first.", "rm -r old_results");
+addCommand("rmdir", "files", "starter", "Remove an empty folder.", "rmdir empty_folder");
+addCommand("ln -s", "files", "next", "Create a symbolic link (shortcut) to a file or folder.", "ln -s /scratch/$USER/data data");
+addCommand("file", "files", "starter", "Identify what kind of data a file contains.", "file mystery.bin");
+addCommand("stat", "files", "next", "Show detailed information about a file: size, permissions, timestamps.", "stat notes.txt");
+addCommand("du -sh", "files", "starter", "Show how much disk space a folder uses.", "du -sh results/");
+addCommand("du -h --max-depth=1", "files", "next", "Show the size of each subfolder.", "du -h --max-depth=1 | sort -h");
+addCommand("basename", "files", "next", "Strip the folder part from a path.", "basename /home/user/data/file.csv");
+addCommand("dirname", "files", "next", "Strip the file name from a path.", "dirname /home/user/data/file.csv");
+addCommand("realpath", "files", "next", "Print the full absolute path of a file.", "realpath ./data/file.txt");
+addCommand("readlink -f", "files", "next", "Show where a symbolic link really points.", "readlink -f data");
+addCommand("chmod", "files", "starter", "Change who can read, write, or run a file.", "chmod 644 notes.txt");
+addCommand("chmod +x", "files", "starter", "Make a script executable.", "chmod +x run.sh");
+addCommand("chown", "files", "next", "Change the owner of a file.", "sudo chown user:group file.txt");
+addCommand("chgrp", "files", "next", "Change the group of a file.", "chgrp research shared.txt");
+addCommand("umask", "files", "next", "Show or set default permissions for new files.", "umask 022");
+addCommand("rename", "files", "next", "Rename many files at once with a pattern.", "rename 's/.txt$/.md/' *.txt");
+addCommand("split", "files", "next", "Split a large file into smaller pieces.", "split -l 1000 big.csv part_");
+addCommand("truncate", "files", "next", "Shrink or extend a file to a given size.", "truncate -s 0 output.log");
+addCommand("mktemp", "files", "next", "Create a temporary file or folder with a unique name.", "tmp=$(mktemp -d)");
+
+// -------------------- Read files --------------------
+addCommand("cat", "reading", "starter", "Print a whole file to the screen.", "cat notes.txt");
+addCommand("less", "reading", "starter", "Read a file page by page; press q to quit.", "less results.log");
+addCommand("more", "reading", "starter", "Simple page-by-page file viewer.", "more notes.txt");
+addCommand("head", "reading", "starter", "Show the first lines of a file.", "head -n 20 data.csv");
+addCommand("tail", "reading", "starter", "Show the last lines of a file.", "tail -n 20 output.log");
+addCommand("tail -f", "reading", "starter", "Follow a log file as it grows; stop with Ctrl+C.", "tail -f output.log");
+addCommand("wc", "reading", "starter", "Count lines, words and characters.", "wc -l data.csv");
+addCommand("nl", "reading", "next", "Print a file with line numbers.", "nl script.sh");
+addCommand("tac", "reading", "next", "Print a file in reverse line order.", "tac output.log | head");
+addCommand("sed -n", "reading", "next", "Print only a selected range of lines.", "sed -n '10,20p' file.txt");
+addCommand("diff", "reading", "starter", "Show the differences between two files.", "diff old.txt new.txt");
+addCommand("diff -u", "reading", "next", "Show differences in unified (patch) format.", "diff -u old.py new.py");
+addCommand("cmp", "reading", "next", "Check whether two files are byte-for-byte identical.", "cmp a.bin b.bin");
+addCommand("comm", "reading", "next", "Compare two sorted files line by line.", "comm -12 a.txt b.txt");
+addCommand("column -t", "reading", "next", "Align text into neat columns.", "column -t -s, data.csv | less -S");
+addCommand("hexdump -C", "reading", "next", "View the raw bytes of a file.", "hexdump -C file.bin | head");
+addCommand("xxd", "reading", "next", "Make a hex dump of a file.", "xxd file.bin | head");
+addCommand("strings", "reading", "next", "Print readable text found inside a binary file.", "strings program | grep version");
+addCommand("zcat", "reading", "next", "Print a gzip-compressed file without unpacking it.", "zcat data.csv.gz | head");
+addCommand("zless", "reading", "next", "Page through a gzip-compressed file.", "zless output.log.gz");
+
+// -------------------- Find things --------------------
+addCommand("grep", "finding", "starter", "Search for text inside files.", "grep 'error' output.log");
+addCommand("grep -i", "finding", "starter", "Search ignoring upper/lower case.", "grep -i 'warning' output.log");
+addCommand("grep -n", "finding", "starter", "Search and show line numbers.", "grep -n 'TODO' script.py");
+addCommand("grep -r", "finding", "starter", "Search every file in a folder recursively.", "grep -r 'import numpy' src/");
+addCommand("grep -v", "finding", "next", "Show lines that do NOT match.", "grep -v '^#' config.txt");
+addCommand("grep -c", "finding", "next", "Count matching lines.", "grep -c 'ERROR' output.log");
+addCommand("grep -l", "finding", "next", "List only the names of files that match.", "grep -rl 'password' .");
+addCommand("grep -E", "finding", "next", "Search with extended regular expressions.", "grep -E 'error|fail' output.log");
+addCommand("find", "finding", "starter", "Find files by name, type, size or date.", "find . -name '*.csv'");
+addCommand("find -mtime", "finding", "next", "Find files changed in the last N days.", "find . -type f -mtime -2");
+addCommand("find -size", "finding", "next", "Find large files.", "find . -type f -size +100M");
+addCommand("find -exec", "finding", "next", "Run a command on every file found.", "find . -name '*.tmp' -exec rm {} +");
+addCommand("locate", "finding", "next", "Quickly find files by name using a prebuilt index.", "locate bashrc");
+addCommand("which", "finding", "starter", "Show the full path of a command.", "which python3");
+addCommand("whereis", "finding", "next", "Find a command's binary, source and manual page.", "whereis gcc");
+addCommand("type", "finding", "next", "Tell whether a name is an alias, builtin or program.", "type ll");
+addCommand("rg", "finding", "next", "ripgrep: very fast recursive text search.", "rg 'def main' src/");
+addCommand("fd", "finding", "next", "Simple, fast alternative to find.", "fd '.py$'");
+addCommand("xargs", "finding", "next", "Turn input lines into arguments for another command.", "find . -name '*.log' | xargs wc -l");
+
+// -------------------- Get help --------------------
+addCommand("man", "help", "starter", "Open the manual page for a command.", "man ls");
+addCommand("--help", "help", "starter", "Most commands print a short usage summary with --help.", "ls --help");
+addCommand("help", "help", "starter", "Show help for Bash built-in commands like cd.", "help cd");
+addCommand("info", "help", "next", "Read longer GNU info documentation.", "info coreutils");
+addCommand("apropos", "help", "next", "Search manual pages by keyword.", "apropos compress");
+addCommand("whatis", "help", "starter", "Show a one-line description of a command.", "whatis grep");
+addCommand("tldr", "help", "starter", "Show short, practical examples for a command (if installed).", "tldr tar");
+
+// -------------------- Write & edit --------------------
+addCommand("nano", "writing", "starter", "Simple terminal text editor; Ctrl+O saves, Ctrl+X exits.", "nano notes.txt");
+addCommand("vim", "writing", "next", "Powerful modal editor; type :wq to save and quit.", "vim script.py");
+addCommand("vi", "writing", "next", "Classic editor available on almost every system.", "vi config.txt");
+addCommand("emacs -nw", "writing", "next", "Emacs inside the terminal; Ctrl+X Ctrl+S saves.", "emacs -nw job.slurm");
+addCommand(">", "writing", "starter", "Send a command's output into a file, replacing its contents.", "ls > files.txt");
+addCommand(">>", "writing", "starter", "Append a command's output to the end of a file.", "echo 'done' >> log.txt");
+addCommand("|", "writing", "starter", "Pipe: send one command's output into another command.", "cat data.csv | wc -l");
+addCommand("2>&1", "writing", "next", "Send errors to the same place as normal output.", "python run.py > all.log 2>&1");
+addCommand("tee", "writing", "next", "Show output on screen and save it to a file at the same time.", "python run.py | tee run.log");
+addCommand("sort", "writing", "starter", "Sort lines of text.", "sort names.txt");
+addCommand("sort -n", "writing", "next", "Sort numerically.", "sort -n -k2 scores.txt");
+addCommand("uniq", "writing", "starter", "Remove repeated adjacent lines (use after sort).", "sort names.txt | uniq");
+addCommand("uniq -c", "writing", "next", "Count how many times each line appears.", "sort words.txt | uniq -c | sort -nr");
+addCommand("cut", "writing", "starter", "Pick out columns from each line.", "cut -d, -f1,3 data.csv");
+addCommand("paste", "writing", "next", "Join files side by side, line by line.", "paste a.txt b.txt");
+addCommand("tr", "writing", "next", "Translate or delete characters.", "tr 'a-z' 'A-Z' < notes.txt");
+addCommand("sed", "writing", "next", "Find and replace text in a stream or file.", "sed -i 's/old/new/g' file.txt");
+addCommand("awk", "writing", "next", "Process text by columns; great for quick reports.", "awk -F, '{sum += $3} END {print sum}' data.csv");
+addCommand("printf", "writing", "next", "Print formatted text.", "printf '%-10s %5d\\n' apples 12");
+addCommand("seq", "writing", "starter", "Generate a sequence of numbers.", "seq 1 10");
+addCommand("join", "writing", "next", "Join two sorted files on a common field.", "join users.txt scores.txt");
+addCommand("fmt", "writing", "next", "Re-wrap paragraphs to a given width.", "fmt -w 72 essay.txt");
+addCommand("iconv", "writing", "next", "Convert text between character encodings.", "iconv -f latin1 -t utf-8 in.txt > out.txt");
+addCommand("dos2unix", "writing", "next", "Convert Windows line endings to Linux line endings.", "dos2unix script.sh");
+addCommand("jq", "writing", "next", "Read, filter and pretty-print JSON.", "jq '.items[0].name' data.json");
+addCommand("export", "writing", "starter", "Set an environment variable for this shell and its programs.", "export PATH=$HOME/bin:$PATH");
+addCommand("source", "writing", "starter", "Run a file's commands in the current shell, e.g. after editing .bashrc.", "source ~/.bashrc");
+addCommand("env", "writing", "next", "List environment variables or run a program with changed ones.", "env | grep PATH");
+addCommand("printenv", "writing", "next", "Print one or all environment variables.", "printenv HOME");
+addCommand("unset", "writing", "next", "Remove a shell variable.", "unset MY_VAR");
+addCommand("read", "writing", "next", "Read a line of user input into a variable.", "read -p 'Name: ' name");
+addCommand("test / [ ]", "writing", "next", "Check conditions in scripts, e.g. whether a file exists.", "[ -f data.csv ] && echo 'found'");
+addCommand("for loop", "writing", "next", "Repeat a command for each item.", "for f in *.csv; do wc -l \"$f\"; done");
+addCommand("sleep", "writing", "next", "Pause for a number of seconds.", "sleep 5");
+addCommand("true / false", "writing", "next", "Commands that always succeed or always fail; useful in scripts.", "while true; do date; sleep 60; done");
+
+// -------------------- Your system --------------------
+addCommand("ps", "system", "starter", "Show running processes.", "ps aux | grep python");
+addCommand("top", "system", "starter", "Live view of CPU and memory use; press q to quit.", "top");
+addCommand("htop", "system", "starter", "Friendlier, colourful version of top.", "htop");
+addCommand("kill", "system", "starter", "Stop a process by its process ID.", "kill 12345");
+addCommand("kill -9", "system", "next", "Force-stop a process that will not exit.", "kill -9 12345");
+addCommand("pkill", "system", "next", "Stop processes by name.", "pkill -u $USER python");
+addCommand("killall", "system", "next", "Stop all processes with a given name.", "killall firefox");
+addCommand("pgrep", "system", "next", "Find process IDs by name.", "pgrep -a python");
+addCommand("jobs", "system", "starter", "List jobs started from this shell.", "jobs");
+addCommand("bg", "system", "next", "Resume a paused job in the background.", "bg %1");
+addCommand("fg", "system", "next", "Bring a background job to the foreground.", "fg %1");
+addCommand("&", "system", "starter", "Run a command in the background.", "python train.py &");
+addCommand("nohup", "system", "next", "Keep a program running after you log out.", "nohup python train.py > train.log 2>&1 &");
+addCommand("nice", "system", "next", "Start a program with lower priority.", "nice -n 10 ./long_job.sh");
+addCommand("renice", "system", "next", "Change the priority of a running process.", "renice 10 -p 12345");
+addCommand("free -h", "system", "starter", "Show memory and swap usage.", "free -h");
+addCommand("df -h", "system", "starter", "Show free space on each disk.", "df -h");
+addCommand("uptime", "system", "starter", "Show how long the system has been running and its load.", "uptime");
+addCommand("uname -a", "system", "starter", "Show the kernel and system information.", "uname -a");
+addCommand("lscpu", "system", "starter", "Show CPU details: cores, threads, model.", "lscpu");
+addCommand("nproc", "system", "starter", "Print the number of available CPU cores.", "nproc");
+addCommand("lsblk", "system", "next", "List disks and partitions.", "lsblk");
+addCommand("lsusb", "system", "next", "List connected USB devices.", "lsusb");
+addCommand("lspci", "system", "next", "List PCI devices such as GPUs and network cards.", "lspci | grep -i vga");
+addCommand("cat /etc/os-release", "system", "starter", "Show which Linux distribution and version you run.", "cat /etc/os-release");
+addCommand("watch", "system", "next", "Re-run a command every few seconds.", "watch -n 2 nvidia-smi");
+addCommand("time", "system", "starter", "Measure how long a command takes.", "time python script.py");
+addCommand("timeout", "system", "next", "Stop a command if it runs too long.", "timeout 60 ./slow_script.sh");
+addCommand("lsof", "system", "next", "List open files and which process uses them.", "lsof -i :8080");
+addCommand("vmstat", "system", "next", "Report memory, CPU and I/O statistics.", "vmstat 2 5");
+addCommand("iostat", "system", "next", "Report disk input/output statistics.", "iostat -x 2");
+addCommand("dmesg", "system", "next", "Show kernel messages, e.g. hardware errors.", "sudo dmesg | tail");
+addCommand("journalctl", "system", "next", "Read system logs managed by systemd.", "journalctl -u ssh --since today");
+addCommand("who", "system", "next", "Show who is logged in.", "who");
+addCommand("w", "system", "next", "Show who is logged in and what they are doing.", "w");
+addCommand("last", "system", "next", "Show recent logins.", "last | head");
+addCommand("id", "system", "starter", "Show your user ID and groups.", "id");
+addCommand("groups", "system", "next", "List the groups you belong to.", "groups");
+addCommand("nvidia-smi", "system", "next", "Show NVIDIA GPU usage, memory and processes.", "nvidia-smi");
+
+// -------------------- Network --------------------
+addCommand("ssh", "network", "starter", "Log into a remote computer securely.", "ssh user@server.edu");
+addCommand("ssh -L", "network", "next", "Forward a local port through SSH, e.g. for Jupyter.", "ssh -L 8888:localhost:8888 user@server.edu");
+addCommand("ssh-keygen", "network", "starter", "Create an SSH key pair for password-less login.", "ssh-keygen -t ed25519");
+addCommand("ssh-copy-id", "network", "next", "Install your public key on a remote server.", "ssh-copy-id user@server.edu");
+addCommand("scp", "network", "starter", "Copy files to or from a remote computer.", "scp data.csv user@server.edu:~/data/");
+addCommand("rsync", "network", "starter", "Synchronise files or folders efficiently, locally or remotely.", "rsync -avz results/ user@server.edu:~/results/");
+addCommand("sftp", "network", "next", "Transfer files interactively over SSH.", "sftp user@server.edu");
+addCommand("wget", "network", "starter", "Download a file from the web.", "wget https://example.com/data.zip");
+addCommand("curl", "network", "starter", "Transfer data from or to a URL; great for APIs.", "curl -O https://example.com/data.zip");
+addCommand("ping", "network", "starter", "Check whether a host is reachable.", "ping -c 4 google.com");
+addCommand("ip a", "network", "starter", "Show network interfaces and IP addresses.", "ip a");
+addCommand("ip route", "network", "next", "Show the routing table.", "ip route");
+addCommand("ifconfig", "network", "next", "Older tool to show network interfaces.", "ifconfig");
+addCommand("ss", "network", "next", "Show open network connections and listening ports.", "ss -tulpn");
+addCommand("netstat", "network", "next", "Older tool for network connections and ports.", "netstat -tulpn");
+addCommand("traceroute", "network", "next", "Show the path packets take to a host.", "traceroute google.com");
+addCommand("dig", "network", "next", "Look up DNS records.", "dig example.com");
+addCommand("nslookup", "network", "next", "Query DNS for a host name.", "nslookup example.com");
+addCommand("host", "network", "next", "Simple DNS lookup.", "host example.com");
+addCommand("nc", "network", "next", "Netcat: test whether a port is open or send raw data.", "nc -zv server.edu 22");
+addCommand("hostname -I", "network", "starter", "Print this machine's IP addresses.", "hostname -I");
+
+// -------------------- Git --------------------
+addCommand("git clone", "git", "starter", "Download a repository.", "git clone https://github.com/user/repo.git");
+addCommand("git status", "git", "starter", "Show changed, staged and untracked files.", "git status");
+addCommand("git add", "git", "starter", "Stage changes for the next commit.", "git add script.py");
+addCommand("git commit", "git", "starter", "Save staged changes with a message.", "git commit -m 'Fix data loader'");
+addCommand("git push", "git", "starter", "Upload your commits to the remote repository.", "git push");
+addCommand("git pull", "git", "starter", "Download and merge the latest remote changes.", "git pull");
+addCommand("git log", "git", "starter", "Show commit history.", "git log --oneline --graph");
+addCommand("git diff", "git", "starter", "Show changes that are not yet staged.", "git diff");
+addCommand("git branch", "git", "next", "List or create branches.", "git branch feature-x");
+addCommand("git switch", "git", "next", "Switch to another branch.", "git switch -c feature-x");
+addCommand("git checkout", "git", "next", "Switch branches or restore files (older style).", "git checkout main");
+addCommand("git merge", "git", "next", "Merge another branch into the current one.", "git merge feature-x");
+addCommand("git fetch", "git", "next", "Download remote changes without merging.", "git fetch origin");
+addCommand("git stash", "git", "next", "Temporarily put away uncommitted changes.", "git stash; git stash pop");
+addCommand("git restore", "git", "next", "Discard changes to a file.", "git restore script.py");
+addCommand("git reset", "git", "next", "Unstage files or move the branch to another commit.", "git reset HEAD~1");
+addCommand("git remote -v", "git", "next", "Show the remote repository URLs.", "git remote -v");
+addCommand("git init", "git", "starter", "Start a new Git repository in this folder.", "git init");
+addCommand("git rm", "git", "next", "Remove a file and stage the removal.", "git rm old.py");
+addCommand("git tag", "git", "next", "Mark a commit with a version name.", "git tag v1.0");
+addCommand("git blame", "git", "next", "Show who last changed each line of a file.", "git blame script.py");
+addCommand("git config", "git", "starter", "Set your name, email and other Git settings.", "git config --global user.name 'Your Name'");
+
+// -------------------- Archives --------------------
+addCommand("tar -czf", "archives", "starter", "Pack a folder into a compressed .tar.gz archive.", "tar -czf results.tar.gz results/");
+addCommand("tar -xzf", "archives", "starter", "Unpack a .tar.gz archive.", "tar -xzf results.tar.gz");
+addCommand("tar -tf", "archives", "next", "List what is inside an archive without unpacking.", "tar -tf results.tar.gz");
+addCommand("tar -xf", "archives", "starter", "Unpack any tar archive (format detected automatically).", "tar -xf data.tar.xz");
+addCommand("zip", "archives", "starter", "Create a .zip archive.", "zip -r project.zip project/");
+addCommand("unzip", "archives", "starter", "Extract a .zip archive.", "unzip project.zip -d project/");
+addCommand("unzip -l", "archives", "next", "List the contents of a .zip file.", "unzip -l project.zip");
+addCommand("gzip", "archives", "starter", "Compress a single file to .gz.", "gzip big.log");
+addCommand("gunzip", "archives", "starter", "Decompress a .gz file.", "gunzip big.log.gz");
+addCommand("bzip2", "archives", "next", "Compress a file to .bz2.", "bzip2 big.log");
+addCommand("xz", "archives", "next", "Compress a file to .xz (high compression).", "xz -T0 big.log");
+addCommand("7z", "archives", "next", "Create or extract .7z and many other archive types.", "7z x archive.7z");
+
+// -------------------- Packages --------------------
+addCommand("apt update", "packages", "starter", "Refresh the list of available packages (Debian/Ubuntu).", "sudo apt update");
+addCommand("apt upgrade", "packages", "starter", "Install available updates (Debian/Ubuntu).", "sudo apt upgrade");
+addCommand("apt install", "packages", "starter", "Install a package (Debian/Ubuntu).", "sudo apt install htop");
+addCommand("apt remove", "packages", "next", "Uninstall a package (Debian/Ubuntu).", "sudo apt remove htop");
+addCommand("apt search", "packages", "next", "Search for packages by name or description.", "apt search image viewer");
+addCommand("dpkg -l", "packages", "next", "List installed .deb packages.", "dpkg -l | grep python");
+addCommand("dnf install", "packages", "next", "Install a package (Fedora/RHEL/Rocky).", "sudo dnf install htop");
+addCommand("yum install", "packages", "next", "Install a package on older RHEL/CentOS systems.", "sudo yum install htop");
+addCommand("pacman -S", "packages", "next", "Install a package (Arch Linux).", "sudo pacman -S htop");
+addCommand("snap install", "packages", "next", "Install a Snap package.", "sudo snap install code --classic");
+addCommand("pip install", "packages", "starter", "Install a Python package.", "pip install numpy");
+addCommand("pip list", "packages", "next", "List installed Python packages.", "pip list");
+addCommand("pip freeze", "packages", "next", "Save installed Python packages to a requirements file.", "pip freeze > requirements.txt");
+addCommand("conda create", "packages", "next", "Create a new Conda environment.", "conda create -n myenv python=3.12");
+addCommand("conda activate", "packages", "starter", "Switch to a Conda environment.", "conda activate myenv");
+addCommand("conda install", "packages", "next", "Install a package into the active Conda environment.", "conda install pandas");
+addCommand("conda env list", "packages", "next", "List your Conda environments.", "conda env list");
+addCommand("npm install", "packages", "next", "Install Node.js packages for a project.", "npm install");
+
+// -------------------- Programming --------------------
+addCommand("python3", "programming", "starter", "Run a Python script or open the Python shell.", "python3 script.py");
+addCommand("python3 -m venv", "programming", "starter", "Create an isolated Python virtual environment.", "python3 -m venv .venv");
+addCommand("source .venv/bin/activate", "programming", "starter", "Activate a Python virtual environment.", "source .venv/bin/activate");
+addCommand("deactivate", "programming", "next", "Leave the active Python virtual environment.", "deactivate");
+addCommand("python3 -m http.server", "programming", "next", "Serve the current folder over HTTP for quick testing.", "python3 -m http.server 8000");
+addCommand("jupyter notebook", "programming", "next", "Start a Jupyter notebook server.", "jupyter notebook --no-browser --port 8888");
+addCommand("bash", "programming", "starter", "Run a shell script with Bash.", "bash run.sh");
+addCommand("./script.sh", "programming", "starter", "Run an executable script in the current folder.", "./run.sh");
+addCommand("gcc", "programming", "next", "Compile a C program.", "gcc -O2 -o hello hello.c");
+addCommand("g++", "programming", "next", "Compile a C++ program.", "g++ -O2 -std=c++17 -o app main.cpp");
+addCommand("make", "programming", "next", "Build a project using its Makefile.", "make -j4");
+addCommand("cmake", "programming", "next", "Configure a C/C++ project build.", "cmake -B build && cmake --build build");
+addCommand("gdb", "programming", "next", "Debug a compiled program.", "gdb ./app");
+addCommand("node", "programming", "next", "Run JavaScript with Node.js.", "node server.js");
+addCommand("java", "programming", "next", "Run a Java program.", "java -jar app.jar");
+addCommand("Rscript", "programming", "next", "Run an R script from the terminal.", "Rscript analysis.R");
+addCommand("docker run", "programming", "next", "Start a container from an image.", "docker run -it ubuntu bash");
+addCommand("docker ps", "programming", "next", "List running containers.", "docker ps");
+addCommand("docker build", "programming", "next", "Build a container image from a Dockerfile.", "docker build -t myapp .");
+addCommand("docker compose up", "programming", "next", "Start all services defined in a compose file.", "docker compose up -d");
+
+// -------------------- Documents & media --------------------
+addCommand("pdftotext", "documents", "next", "Extract text from a PDF.", "pdftotext paper.pdf paper.txt");
+addCommand("pdfunite", "documents", "next", "Merge several PDFs into one.", "pdfunite a.pdf b.pdf merged.pdf");
+addCommand("convert", "documents", "next", "ImageMagick: convert or resize images.", "convert photo.png -resize 50% small.jpg");
+addCommand("ffmpeg", "documents", "next", "Convert audio and video files.", "ffmpeg -i video.mov video.mp4");
+addCommand("pandoc", "documents", "next", "Convert documents between formats (Markdown, Word, PDF...).", "pandoc notes.md -o notes.docx");
+addCommand("pdflatex", "documents", "next", "Compile a LaTeX document to PDF.", "pdflatex paper.tex");
+addCommand("xdg-open", "documents", "starter", "Open a file with its default desktop application.", "xdg-open report.pdf");
+
+// -------------------- Security --------------------
+addCommand("sudo", "security", "starter", "Run a single command as administrator. Use carefully.", "sudo apt update");
+addCommand("su", "security", "next", "Switch to another user account.", "su - otheruser");
+addCommand("passwd", "security", "starter", "Change your password.", "passwd");
+addCommand("sha256sum", "security", "starter", "Compute a checksum to verify a download.", "sha256sum ubuntu.iso");
+addCommand("md5sum", "security", "next", "Compute an MD5 checksum (quick integrity check).", "md5sum data.csv");
+addCommand("gpg", "security", "next", "Encrypt, decrypt or sign files.", "gpg -c secrets.txt");
+addCommand("openssl", "security", "next", "Work with certificates, keys and encryption.", "openssl rand -hex 16");
+addCommand("ssh-agent / ssh-add", "security", "next", "Keep your SSH key unlocked for this session.", "eval $(ssh-agent) && ssh-add");
+addCommand("ufw", "security", "next", "Simple firewall manager (Ubuntu).", "sudo ufw status");
+
+// -------------------- Admin & disks --------------------
+addCommand("systemctl status", "admin", "next", "Check whether a service is running.", "systemctl status ssh");
+addCommand("systemctl start / stop", "admin", "next", "Start or stop a service.", "sudo systemctl restart nginx");
+addCommand("systemctl enable", "admin", "next", "Make a service start at boot.", "sudo systemctl enable --now docker");
+addCommand("crontab -e", "admin", "next", "Schedule commands to run automatically.", "crontab -e");
+addCommand("crontab -l", "admin", "next", "List your scheduled cron jobs.", "crontab -l");
+addCommand("mount", "admin", "next", "Attach a filesystem to a folder.", "sudo mount /dev/sdb1 /mnt");
+addCommand("umount", "admin", "next", "Detach a mounted filesystem.", "sudo umount /mnt");
+addCommand("fdisk -l", "admin", "next", "List disk partitions.", "sudo fdisk -l");
+addCommand("mkfs", "admin", "next", "Format a partition. Erases all its data.", "sudo mkfs.ext4 /dev/sdb1");
+addCommand("useradd", "admin", "next", "Create a new user account.", "sudo useradd -m alex");
+addCommand("usermod", "admin", "next", "Change a user account, e.g. add it to a group.", "sudo usermod -aG docker $USER");
+addCommand("shutdown", "admin", "next", "Power off or reboot the machine.", "sudo shutdown -h now");
+addCommand("reboot", "admin", "next", "Restart the machine.", "sudo reboot");
+addCommand("quota", "admin", "next", "Show your disk quota and usage.", "quota -s");
+
+// -------------------- HPC --------------------
+addCommand("sbatch", "hpc", "starter", "Submit a Slurm batch job script.", "sbatch job.slurm");
+addCommand("squeue", "hpc", "starter", "Show jobs in the Slurm queue.", "squeue -u $USER");
+addCommand("scancel", "hpc", "starter", "Cancel a Slurm job.", "scancel 123456");
+addCommand("sinfo", "hpc", "starter", "Show Slurm partitions and node availability.", "sinfo");
+addCommand("srun", "hpc", "next", "Run a command or interactive session on compute nodes.", "srun --pty -t 1:00:00 bash");
+addCommand("salloc", "hpc", "next", "Request an interactive allocation of resources.", "salloc -N 1 -t 1:00:00");
+addCommand("sacct", "hpc", "next", "Show accounting info for finished jobs.", "sacct -j 123456 --format=JobID,State,Elapsed,MaxRSS");
+addCommand("scontrol show job", "hpc", "next", "Show full details of a job.", "scontrol show job 123456");
+addCommand("seff", "hpc", "next", "Show how efficiently a finished job used CPU and memory.", "seff 123456");
+addCommand("module avail", "hpc", "starter", "List software modules available on the cluster.", "module avail python");
+addCommand("module load", "hpc", "starter", "Load a software module.", "module load python/3.12");
+addCommand("module list", "hpc", "starter", "Show modules currently loaded.", "module list");
+addCommand("module purge", "hpc", "next", "Unload all modules.", "module purge");
+addCommand("qsub", "hpc", "next", "Submit a job on PBS/Torque clusters.", "qsub job.pbs");
+addCommand("qstat", "hpc", "next", "Show jobs on PBS/Torque clusters.", "qstat -u $USER");
+addCommand("tmux", "hpc", "starter", "Keep terminal sessions alive after disconnecting.", "tmux new -s research");
+addCommand("tmux attach", "hpc", "starter", "Reconnect to a tmux session.", "tmux attach -t research");
+addCommand("screen", "hpc", "next", "Older alternative to tmux for persistent sessions.", "screen -S work");
+addCommand("mpirun", "hpc", "next", "Launch an MPI parallel program.", "mpirun -np 4 ./simulation");
+
+
+// ============================================================
+// COMMAND SEARCH + TOGGLE FILTERS
+// You normally do not need to edit anything below this line.
+// ============================================================
+
+const commandLabels = {
+  "orientation": "Getting around",
+  "files": "Files & folders",
+  "reading": "Read files",
+  "finding": "Find things",
+  "help": "Get help",
+  "writing": "Write & edit",
+  "system": "Your system",
+  "network": "Network",
+  "git": "Git",
+  "archives": "Archives",
+  "packages": "Packages",
+  "programming": "Programming",
+  "documents": "Documents & media",
+  "security": "Security",
+  "admin": "Admin & disks",
+  "hpc": "HPC",
+  "other": "More tools"
+};
+
+let selectedCommandCategory = "all";
+let copiedTimer;
+
+function escapeHTML(text) {
+  return String(text).replace(/[&<>"']/g, ch => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  })[ch]);
+}
+
+function copyCommand(text, button) {
+  navigator.clipboard?.writeText(text);
+  const old = button.textContent;
+  button.textContent = "Copied!";
+  clearTimeout(copiedTimer);
+  copiedTimer = setTimeout(() => button.textContent = old, 1150);
+}
+
+function renderCommands() {
+  const grid = document.getElementById("commandGrid");
+  const searchBox = document.getElementById("commandSearch");
+  const levelBox = document.getElementById("commandLevel");
+  if (!grid || !searchBox || !levelBox) return;
+
+  const search = searchBox.value.trim().toLowerCase();
+  const level = levelBox.value;
+
+  const visible = commands.filter(item => {
+    const matchesCategory =
+      selectedCommandCategory === "all" ||
+      item.category === selectedCommandCategory;
+
+    const matchesLevel =
+      level === "all" ||
+      item.level === level;
+
+    const haystack = [
+      item.cmd,
+      item.category,
+      commandLabels[item.category] || "",
+      item.description,
+      item.example
+    ].join(" ").toLowerCase();
+
+    const matchesSearch = !search || haystack.includes(search);
+
+    return matchesCategory && matchesLevel && matchesSearch;
+  });
+
+  grid.innerHTML = visible.map((item, index) => `
+    <article class="command-card">
+      <div class="card-top">
+        <span class="tag">${escapeHTML(commandLabels[item.category] || item.category)}</span>
+        <button class="copy" type="button" data-copy="${escapeHTML(item.example)}">Copy</button>
+      </div>
+
+      <code>${escapeHTML(item.cmd)}</code>
+
+      <p><strong>Utility:</strong> ${escapeHTML(item.description)}</p>
+
+      <button class="example-btn" type="button" data-example="${index}">
+        How to use ↓
+      </button>
+
+      <div class="example" id="command-example-${index}">
+        <code>$ ${escapeHTML(item.example)}</code>
+      </div>
+    </article>
+  `).join("");
+
+  const noResults = document.getElementById("commandNoResults");
+  if (noResults) noResults.classList.toggle("show", visible.length === 0);
+
+  document.querySelectorAll("#commandGrid [data-copy]").forEach(button => {
+    button.addEventListener("click", () => copyCommand(button.dataset.copy, button));
+  });
+
+  document.querySelectorAll("#commandGrid [data-example]").forEach(button => {
+    button.addEventListener("click", () => {
+      const box = document.getElementById("command-example-" + button.dataset.example);
+      if (!box) return;
+      box.classList.toggle("show");
+      button.textContent = box.classList.contains("show") ? "Hide usage ↑" : "How to use ↓";
+    });
+  });
+
+  const readingGuide = document.getElementById("readingGuide");
+  if (readingGuide) {
+    readingGuide.classList.toggle("hidden", selectedCommandCategory !== "reading");
+  }
+}
+
+document.getElementById("commandSearch")?.addEventListener("input", renderCommands);
+document.getElementById("commandLevel")?.addEventListener("change", renderCommands);
+
+document.querySelectorAll("#commandChips .chip").forEach(button => {
+  button.addEventListener("click", () => {
+    selectedCommandCategory = button.dataset.cat;
+    document.querySelectorAll("#commandChips .chip").forEach(chip => chip.classList.remove("active"));
+    button.classList.add("active");
+    renderCommands();
+  });
+});
+
+renderCommands();
+
+
+// ============================================================
+// PRACTICE TERMINAL
+// ============================================================
+
+   // ============================================================
+// PRACTICE TERMINAL ONLY
+// The command cards above are generated from easy-to-edit addCommand(...) lines.
+// ============================================================
+const terminal = {
+  home: "/home/learner",
+  cwd: "/home/learner",
+  dirs: new Set(["/home/learner"]),
+  files: new Map()
+};
+
+const output = document.getElementById("output");
+const input = document.getElementById("terminalInput");
+
+function write(text, kind = "") {
+  const line = document.createElement("div");
+  line.className = "line " + kind;
+  line.textContent = text;
+  output.appendChild(line);
+  output.scrollTop = output.scrollHeight;
+}
+
+function runTerminal() {
+  const cmd = input.value.trim();
+  if (!cmd) return;
+
+  if (cmd === "clear") {
+    output.innerHTML = "";
+    input.value = "";
+    return;
+  }
+
+  const shown = terminal.cwd === terminal.home ? "~" : terminal.cwd.replace(terminal.home, "~");
+  write("learner@lab:" + shown + "$ " + cmd, "typed");
+
+  const join = (base, name) => {
+    const path = name.startsWith("/") ? name : base + "/" + name;
+    const parts = [];
+    for (const bit of path.split("/")) {
+      if (!bit || bit === ".") continue;
+      if (bit === "..") {
+        if (parts.length > 2) parts.pop();
+      } else {
+        parts.push(bit);
+      }
+    }
+    return "/" + parts.join("/");
+  };
+
+  const resolve = name => join(terminal.cwd, name || ".");
+  const label = path => path === terminal.home ? "~" : path.replace(terminal.home, "~");
+  const parent = path => path.slice(0, path.lastIndexOf("/")) || "/";
+  const name = path => path.split("/").pop();
+  const children = path =>
+    [...terminal.dirs].filter(x => parent(x) === path && x !== path).map(name)
+      .concat([...terminal.files.keys()].filter(x => parent(x) === path).map(name))
+      .sort();
+  const ensureParent = path => terminal.dirs.has(parent(path));
+
+  const parts = cmd.match(/(?:[^\s"]+|"[^"]*")+/g)?.map(x => x.replace(/^"|"$/g, "")) || [];
+  const action = parts.shift() || "";
+  const args = parts.filter(x => !x.startsWith("-"));
+  let result = "";
+
+  if (action === "pwd") {
+    result = terminal.cwd;
+  } else if (action === "ls") {
+    const target = resolve(args[0] || ".");
+    if (terminal.files.has(target)) result = name(target);
+    else if (terminal.dirs.has(target)) {
+      const items = children(target);
+      result = items.length ? items.join("  ") : "(empty folder)";
+    } else result = "ls: cannot access '" + (args[0] || ".") + "': No such file or folder";
+  } else if (action === "cd") {
+    const target = resolve(args[0] || terminal.home);
+    if (terminal.dirs.has(target)) {
+      terminal.cwd = target;
+      result = "Now in " + label(target);
+    } else result = "cd: " + (args[0] || "") + " is not a folder";
+  } else if (action === "mkdir") {
+    if (!args.length) result = "mkdir: give your new folder a name, for example: mkdir my-folder";
+    else result = args.map(n => {
+      const path = resolve(n);
+      if (!ensureParent(path)) return "mkdir: parent folder does not exist for " + n;
+      if (terminal.dirs.has(path) || terminal.files.has(path)) return "mkdir: " + n + " already exists";
+      terminal.dirs.add(path);
+      return "Created folder: " + n;
+    }).join("\n");
+  } else if (action === "touch") {
+    if (!args.length) result = "touch: give your new file a name, for example: touch notes.txt";
+    else result = args.map(n => {
+      const path = resolve(n);
+      if (!ensureParent(path)) return "touch: parent folder does not exist for " + n;
+      const made = !terminal.files.has(path);
+      terminal.files.set(path, terminal.files.get(path) || "");
+      return made ? "Created file: " + n : "Updated file: " + n;
+    }).join("\n");
+  } else if (action === "cat") {
+    if (!args.length) result = "cat: choose a file, for example: cat hello.txt";
+    else result = args.map(n => {
+      const path = resolve(n);
+      return terminal.files.has(path) ? (terminal.files.get(path) || "[empty file: " + n + "]") : "cat: " + n + ": No such file";
+    }).join("\n");
+  } else if (action === "cp") {
+    if (args.length !== 2) result = "cp: use cp source-file copied-file";
+    else {
+      const source = resolve(args[0]);
+      let dest = resolve(args[1]);
+      if (!terminal.files.has(source)) result = "cp: source not found: " + args[0];
+      else {
+        if (terminal.dirs.has(dest)) dest = join(dest, name(source));
+        if (!ensureParent(dest)) result = "cp: destination folder does not exist";
+        else {
+          terminal.files.set(dest, terminal.files.get(source));
+          result = "Copied " + args[0] + " → " + label(dest);
+        }
+      }
+    }
+  } else if (action === "mv") {
+    if (args.length !== 2) result = "mv: use mv old-name new-name";
+    else {
+      const source = resolve(args[0]);
+      let dest = resolve(args[1]);
+      if (terminal.dirs.has(dest)) dest = join(dest, name(source));
+      if (terminal.files.has(source)) {
+        terminal.files.set(dest, terminal.files.get(source));
+        terminal.files.delete(source);
+        result = "Moved " + args[0] + " → " + label(dest);
+      } else if (terminal.dirs.has(source) && source !== terminal.home) {
+        terminal.dirs.add(dest);
+        for (const [file, value] of [...terminal.files]) {
+          if (file.startsWith(source + "/")) {
+            terminal.files.set(dest + file.slice(source.length), value);
+            terminal.files.delete(file);
+          }
+        }
+        for (const dir of [...terminal.dirs]) {
+          if (dir.startsWith(source + "/")) {
+            terminal.dirs.add(dest + dir.slice(source.length));
+            terminal.dirs.delete(dir);
+          }
+        }
+        terminal.dirs.delete(source);
+        result = "Moved folder " + args[0] + " → " + label(dest);
+      } else result = "mv: source not found: " + args[0];
+    }
+  } else if (action === "rm") {
+    if (!args.length) result = "rm: choose a file, for example: rm hello-copy.txt";
+    else {
+      const target = resolve(args[0]);
+      if (terminal.files.delete(target)) result = "Removed file: " + args[0];
+      else if (terminal.dirs.has(target) && target !== terminal.home) {
+        if (!parts.includes("-r") && !parts.includes("-rf")) {
+          result = "rm: " + args[0] + " is a folder. Try rm -r " + args[0] + " in this sandbox.";
+        } else {
+          for (const file of [...terminal.files.keys()]) if (file.startsWith(target + "/")) terminal.files.delete(file);
+          for (const dir of [...terminal.dirs]) if (dir === target || dir.startsWith(target + "/")) terminal.dirs.delete(dir);
+          if (terminal.cwd.startsWith(target)) terminal.cwd = terminal.home;
+          result = "Removed folder: " + args[0];
+        }
+      } else result = "rm: nothing found named " + args[0];
+    }
+  } else if (action === "echo" && cmd.includes(">")) {
+    const [text, file] = cmd.slice(5).split(/>\s*/, 2);
+    const target = resolve(file?.trim() || "");
+    if (!file?.trim()) result = "echo: add a file after >, for example: echo Hello > hello.txt";
+    else if (!ensureParent(target)) result = "echo: destination folder does not exist";
+    else {
+      terminal.files.set(target, text.trim().replace(/^['"]|['"]$/g, ""));
+      result = "Wrote text to " + label(target);
+    }
+  } else if (action === "help") {
+    result = "Try: pwd, ls, cd, mkdir, touch, cat, cp, mv, rm, echo TEXT > file.txt, clear, or help.";
+  } else {
+    result = "This safe sandbox supports: pwd, ls, cd, mkdir, touch, cat, cp, mv, rm, echo TEXT > file.txt, clear, and help.";
+  }
+
+  write(result);
+  input.value = "";
+  input.focus();
+}
+
+document.getElementById("run").onclick = runTerminal;
+input.onkeydown = event => {
+  if (event.key === "Enter") runTerminal();
+};
+
+document.querySelectorAll(".hint").forEach(button => {
+  button.onclick = () => {
+    input.value = button.textContent;
+    runTerminal();
+  };
+});
+  
+</script>
+</body>
+</html>
